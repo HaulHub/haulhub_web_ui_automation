@@ -1,4 +1,4 @@
-# UI Automation Suite
+# Web UI Automation Suite
 
 -> Project description goes here
 
