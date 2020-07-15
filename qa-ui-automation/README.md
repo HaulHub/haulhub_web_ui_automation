@@ -8,6 +8,8 @@
 ### Mac:
 1. Install java: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 2. Install maven: https://maven.apache.org/install.html
+3. Install Git for Mac https://git-scm.com/download/mac 
+4. Homebrew installation for Mac via terminal https://brew.sh/
 
 ```
 #!/bin/sh
@@ -62,6 +64,8 @@ Ask vignesh nehru(nvignesh1234 - git member) if you have questions regarding how
 ToDo
 
 ## Maintainers
+
+#any one like to contribute to repo your ready to go :)
 
 * **Vignesh Neru** - *Initial work* 
 
