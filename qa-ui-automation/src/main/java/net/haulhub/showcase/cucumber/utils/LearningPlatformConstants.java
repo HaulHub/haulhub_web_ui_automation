@@ -1,0 +1,25 @@
+package net.haulhub.showcase.cucumber.utils;
+
+import java.io.File;
+import java.time.Duration;
+import java.util.Date;
+import java.util.List;
+
+
+@SuppressWarnings("unused")
+public class LearningPlatformConstants {
+
+	
+	public static final String COMMONFILEPATH = System.getProperty("user.dir")
+			+ File.separator + "src" + File.separator + "test" + File.separator
+			+ "resources" + File.separator + "testdata";
+
+	public static ThreadLocal<String> environmentURL = new ThreadLocal<String>();	
+    public static ThreadLocal<String> ordernumber = new ThreadLocal<String>();
+    public static ThreadLocal<String> equipmentname = new ThreadLocal<String>();
+    public static ThreadLocal<String> materialname = new ThreadLocal<String>();
+    public static ThreadLocal<String> customername = new ThreadLocal<String>();
+    
+      
+      
+ }

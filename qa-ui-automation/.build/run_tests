@@ -1,0 +1,143 @@
+#!/usr/bin/env python
+
+
+'''
+This script does two things:
+Template serenity.properties from serenity-configs folder
+Run the RUN_COMMAND with the corresponding Cucumber options.
+Its purpose is mainly to standardize running the UI test for Jenkins.
+'''
+
+import subprocess
+import argparse
+import logging
+from logging.config import fileConfig
+from os import path, chdir, curdir, pardir,environ
+import sys
+import shlex
+import platform
+
+from pdb import set_trace
+
+RUN_COMMAND = 'mvn verify'
+MYPATH = path.dirname(path.realpath(__file__))
+class run_ui_tests:
+
+    def __init__(self):
+        self.args = self.process_arguments()
+        self.write_serenity_conf()
+
+
+    def process_arguments(self):
+        # Captures command line arguments and sets defaults otherwise
+
+        parser = argparse.ArgumentParser(
+            description='Run Selenium tests against an environment', epilog='')
+        parser.add_argument('--env', type=str.lower,
+                            help='generate serenity config for given environment')
+        parser.add_argument('--driver', default='browserstack', type=str.lower,
+                            help='Webdriver values: look at serenity-configs')
+        parser.add_argument('--tag', type=str.upper, help='Serenity tag to run. Default: SINGLE',
+                            nargs='+', default="SINGLE")
+        parser.add_argument('--config-only', action='store_true',
+                            help='Generate serenity.properties and exit')
+        parser.add_argument('--profile', '-p',
+                            help='Maven profile to use -Pprofile')
+        return parser.parse_args()
+
+    def add_file_to_config(self, merge_file, config_file):
+        with open(config_file, 'a') as outfile:
+            with open(merge_file) as infile:
+                for line in infile:
+                    outfile.write(line)
+            outfile.write('\n')
+
+
+    def write_serenity_conf(self):
+        '''
+         Creates a serenity.properties with info from CLI and serenity-configs
+         folder.
+        '''
+        env_vars = dict()
+        config_folder = path.join(MYPATH,'../serenity-configs/')
+        serenity_config_file = path.join(MYPATH,'../serenity.properties')
+
+        # Set URL:
+        if environ.has_key('URL'):
+            url = environ.get('URL')
+        else:
+            environment_file = path.join(config_folder,'environment_urls.conf')
+            for line in open(environment_file, 'r'):
+                if self.args.env == line.split('=')[0].strip():
+                    url = line.split('=')[1]
+        if 'url' not in locals():
+            sys.exit("environment URL missing. Set URL env var or use --env")
+        else:
+            with open(serenity_config_file,'w') as f:
+                f.write('webdriver.base.url = ' + url.strip() + '\n' )
+
+        # Set webdriver:
+        wd_file_name = self.args.driver + "_webdriver.conf"
+        webdriver_file = path.join(config_folder,wd_file_name)
+
+        # 1st Check that the config exists
+        if not path.isfile(webdriver_file):
+            sys.exit("Missing configuration file {}".format(webdriver_file))
+        else:
+            self.add_file_to_config(webdriver_file, serenity_config_file)
+        # If webdriver is broserstack, set the build name
+        if  self.args.driver == "browserstack":
+            if environ.has_key('BUILD_ID'):
+                build_name = "Jenkins-build-" + environ.get('BUILD_ID')
+            else:
+                build_name = "Python-local-run"
+            with open(serenity_config_file,'a') as f:
+                f.write('browserstack.build = ' + build_name + '\n' )
+        # Common parameters:
+        common_file = path.join(config_folder,'general_settings.conf')
+        self.add_file_to_config(common_file, serenity_config_file)
+
+        print "serenity.properties generated, see content below"
+        print "serenity.properties content:\n"
+        with open(serenity_config_file) as f:
+            for line in f:
+                if 'browserstack.url' not in line:
+                    sys.stdout.write(line)
+                else:
+                    # This is to prevent the browserstack secrets to show
+                    # in the Jenkins output.
+                    sys.stdout.write("browserstack.url=OBFUSCATED \n")
+            sys.stdout.flush()
+        if self.args.config_only:
+            quit()
+
+def main():
+
+    runner = run_ui_tests()
+
+    try:
+        run_this = '{}'.format(RUN_COMMAND)
+        if runner.args.tag:
+            tags = runner.args.tag
+            for i in range(len(tags)):
+                tags[i] = "@"+tags[i].strip()
+            tags = " ".join(tags)
+            sys.stdout.write(tags + '\n')
+            cli_args = ' -Dcucumber.options="--tags \'{}\'"'.format(tags)
+            run_this = run_this + cli_args
+        if runner.args.profile:
+            cli_args = ' -P{}'.format(runner.args.profile)
+            run_this = run_this + cli_args
+        sys.stdout.write("Running:  {} \n".format(run_this))
+        sys.stdout.flush()
+        shlex.split(run_this)
+        # shlex converts the command line to be used by subprocess
+        run_ui_test = subprocess.check_call(run_this,  shell=True,
+                      stderr=subprocess.STDOUT, cwd=path.abspath(path.join(MYPATH, pardir)))
+        # print run_ui_tests
+    except subprocess.CalledProcessError:
+        sys.exit('{} failed'.format(run_this))
+
+
+if __name__ == '__main__':
+    main()

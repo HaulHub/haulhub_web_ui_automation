@@ -1,0 +1,128 @@
+properties(
+  [
+  buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '10', daysToKeepStr: '', numToKeepStr: '20')),
+    parameters(
+    [
+      string(
+        defaultValue: '@LOGIN',
+        description: 'Tag',
+        name: 'tag'
+      ),
+      string(
+        defaultValue: uiConfig.browserStack().chrome,
+        description: 'Browser Stack Params',
+        name: 'browserStackParams'
+      ),
+      choice(
+      description: 'Select Test Environment',
+      name: 'environment',
+      choices: "QA\nDEVELOP\nINTEGRATION\nSTAGING\nPRODUCTION\nEUDC\nMASTER\nAWS_DEVELOP",
+      ),
+      choice(
+      description: 'Slack Notification Channel',
+      name: 'slackChannel',
+      choices: '#qa-auto-notify-ui\n#qa-auto-notify-lp\n#qa-auto-notify-ucm\n#qa-auto-notify-ras',
+      )
+    ]
+  ),
+    ]
+      )
+
+def url = ""
+
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.5.3-jdk-8'
+            label 'qa-minion'
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                switch (params.environment) {
+                  case "QA":
+                              url += uiConfig.qa().url
+                              break
+                  case "DEVELOP":
+                              url += uiConfig.develop().url
+                              break
+                  case "AWS_DEVELOP":
+                              url += uiConfig.aws_develop().url
+                              break
+                  case "INTEGRATION":
+                              url += uiConfig.integration().url
+                              break
+                  case "DEMO":
+                              url += uiConfig.demo().url
+                              break
+                  case "STAGING":
+                              url += uiConfig.staging().url
+                              break
+                  case "PRODUCTION":
+                              url += uiConfig.production().url
+                              break
+                  case "QATEST":
+                              url += uiConfig.qatest().url
+                              break            
+                  case "EUDC":
+                              url += uiConfig.eudc().url
+                              break
+                  case "MASTER":
+                              url += uiConfig.master().url
+                              break
+                  default:
+                              url += uiConfig.qa().url
+                              break
+                              }
+                  echo url
+
+                  currentBuild.description = url + ": " + params.tag
+
+                    }
+                      sh 'mvn install  -DskipTests=true'
+                  }
+              }
+         stage('Test') {
+            steps {
+              script {
+                try {
+                      sh "mvn clean verify -Dcucumber.options='--tags ${tag}' -Dwebdriver.base.url=${url} -Dbrowserstack.project=${environment} -Dbrowserstack.build=${BUILD_TAG} ${browserStackParams}"
+                }
+                catch (error){
+                  echo 'Failures Detected'
+                  echo error.toString()
+                  echo error.getStackTrace()
+                  currentBuild.result = 'FAILURE'
+                }
+              }
+
+            }
+        }
+   }
+
+post {
+
+      always {
+            archiveArtifacts artifacts: 'target/site/serenity/**/*', fingerprint: true
+            junit "target/site/serenity/SERENITY-JUNIT-*.xml"
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: './target/site/serenity', reportFiles: 'index.html', reportName: 'Serenity Report', reportTitles: ''])
+      }
+
+      success {
+            slackSend (color: '#74DF00', channel: params.slackChannel, message: "*UI - Serenity* - Feature: *${params.tag}*\nEnvironment: <${url}|${environment}> - *Success!* - (<${env.BUILD_URL}testReport|Test Report>) \nAutomation Branch: ${env.BRANCH_NAME}")
+      }
+
+      unstable {
+            slackSend (color: '#FFFF00', channel: params.slackChannel, message: "*UI - Serenity* - Feature: *${params.tag}*\nEnvironment: <${url}|${environment}> - *Unstable!* (<${env.BUILD_URL}testReport|View Test Failures>)\nAutomation Branch: ${env.BRANCH_NAME}")
+
+      }
+
+      failure {
+            slackSend (color: '#FFFF00', channel: params.slackChannel, message: "*UI - Serenity* - Feature: *${params.tag}*\nEnvironment: <${url}|${environment}> - *Failure!* (<${env.BUILD_URL}testReport|View Test Failures>)\nAutomation Branch: ${env.BRANCH_NAME}")
+      }
+  }
+
+
+}
