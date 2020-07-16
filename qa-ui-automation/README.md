@@ -48,10 +48,18 @@ Run the tests like this
 clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE”
 
 
-### Run tests manually (or using Eclipse)
+### Run tests manually (or using Eclipse) with browser launced
 
 The code is run using:
+Go to Pom.xml right click and select Maven build and type the following
 `clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE”
+
+### Run tests manually (or using Eclipse) with headless chrome browser
+webdriver.driver = chrome
+webdriver.chrome.driver = //Users//vignesh//PmkrHaulHubDemo///qa-ui-automation//drivers//chromedriver
+
+#tests to run against headless chrome (added by vignesh nehru)
+chrome.switches=--window-size=1920,1080;--headless;
 
 
 
