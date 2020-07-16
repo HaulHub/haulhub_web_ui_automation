@@ -23,7 +23,7 @@ curl -O http://mirrors.koehn.com/apache/maven/maven-3/$VERSION/binaries/apache-m
 
 For local testing, you can add your config to [serenity.properties](serenity.properties)
 
-When you need this config to apply to Jenkins and Docker:
+When you need this config to apply to Jenkins and Docker:(To be done for feature implemenation)
 
 Specific environment configuration is stored in *./serenity-configs/*
 ```
@@ -33,7 +33,7 @@ serenity-configs/
 └── general_settings.conf
 ```
 When adding a new environment, simply add the URL to the list in environment_urls.
-If you need to add a new driver, add it to the folder keeping the format and filename (`drivername_webdriver.conf`), and add it to the python script. You can ask @goperez if you're unsure how add this to the python code.
+
 
 general_settings will be applied to **all** config files. Add common serenity parameters in here.
 
