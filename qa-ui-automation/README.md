@@ -41,9 +41,12 @@ When you want to test the serenity.properties that Jenkins will use:
 
 
 ### Maven command line to run the tests
-Wether you are in your laptop or a container, run the tests like this if you want to run all the scripts: `mvn clean verify serenity:aggregate`
+Wether you are in your laptop or a container, run the tests like this if you want to run all the scripts:
+To run all the testcases run like following.
+`mvn clean verify serenity:aggregate`
 The reports will be generated in `target/site/serenity`
-Run the tests like this 
+
+Run the tests like this for running the smoke test suite only 
 
 clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE”
 
