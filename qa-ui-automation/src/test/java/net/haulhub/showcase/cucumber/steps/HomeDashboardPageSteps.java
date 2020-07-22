@@ -18,12 +18,20 @@ public class HomeDashboardPageSteps {
 
 	@Steps
 	SerenityHomeDashboardSteps serenityHomeDashboardSteps;
-	SerenityOrderSteps serenityOrderSteps;
 	
-
     @Given("I click the OrderDashboard link in FOB home page")
      public void click_orderdashboard_link() throws Exception {
      assertTrue(serenityHomeDashboardSteps.clickOrderDashboardlink());
+	}
+    
+    @Given("I click the FOB Materials logo")
+    public void click_FOB_Material_logo() throws Exception {
+    assertTrue(serenityHomeDashboardSteps.clickFOBMateriallogo());
+	}
+    
+    @Given("I click add a job site button")
+    public void click_add_jobsite() throws Exception {
+    assertTrue(serenityHomeDashboardSteps.click_add_jobsite());
 	}
     
     @Given("I click the Hide Canceled checkbox")
@@ -40,10 +48,18 @@ public class HomeDashboardPageSteps {
     public void see_Cancel_preview_Downloadlnk() throws Exception{
    	assertTrue(serenityHomeDashboardSteps.checkCancelPreviewDownloadlnks());
    	assertTrue(serenityHomeDashboardSteps.clickCancelOrderreport());
-   	
+   	}
+    
+    @And("I enter jobsitename(.*) and onsitecontactname(.*) and phonenumber(.*) and address(.*) details and save the jobsite")
+    public void fill_jobsite_details(String jobsitename,String onsitecontactname,String phonenumber,String Address) throws Exception{
+   	assertTrue(serenityHomeDashboardSteps.filljobsitedetails(jobsitename,onsitecontactname,phonenumber,Address));
 	}
     
-  
+    @And("I see the Created Jobsite name appears correctly")
+    public void I_see_theCreated_Jobsite() throws Exception{
+   	assertTrue(serenityHomeDashboardSteps.validate_jobsite_created());
+	}
+ 
     @Given("I click the New Order button")
     public void click_NewOrder_button() throws Exception{
    	assertTrue(serenityHomeDashboardSteps.clickNewOrderbutton());

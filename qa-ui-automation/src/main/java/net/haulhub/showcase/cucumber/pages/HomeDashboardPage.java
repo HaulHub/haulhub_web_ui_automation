@@ -77,9 +77,33 @@ public class HomeDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[.='Download']")
 	public WebElementFacade  orderDownloadlnk;
 	
+	@FindBy(how = How.XPATH, using = "//img[@alt='FOB Materials']")
+	public WebElementFacade  FOBMateriallogo;
 	
+	@FindBy(how = How.XPATH, using = "//a[.='Job Sites']")
+	public WebElementFacade  jobsitebtn;
 	
+	@FindBy(how = How.XPATH, using = "//a[.=' Add Job Site']")
+	public WebElementFacade  Addjobsitebtn;
 	
+	@FindBy(how = How.XPATH, using = "//input[@placeholder='Job Site Name']")
+	public WebElementFacade  jobsitenametxt;
+	
+	@FindBy(how = How.XPATH, using = "//div[@class='Select-input']//input[@id='contact_name']")
+	public WebElementFacade  onsitecontactnametxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='contact_phone']")
+	public WebElementFacade  phonenumbertxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='address']")
+	public WebElementFacade  Addresstxt;
+	
+	@FindBy(how = How.XPATH, using = "//span[@class='fa fa-map-marker']")
+	public WebElementFacade  Geomappertxt;
+	
+	@FindBy(how = How.XPATH, using = "//button[.='Save']")
+	public WebElementFacade  jobsitesavebtn;
+
 	/**
      * This method is used to click Order dashboard link
      */
@@ -95,6 +119,44 @@ public class HomeDashboardPage extends PageObject {
 		}
 		return false;
 	}
+	
+	
+	/**
+     * This method is used to click FOB Materiallogo
+     */
+	public boolean clickFOBMateriallogo() {
+	try {
+		    elementUtils.fluentWaitForElement(getDriver(), FOBMateriallogo).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(FOBMateriallogo);
+			return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+
+	/**
+     * This method is used to click add jobsite button
+     */
+	public boolean clickaddjobsite() {
+	try {
+		    elementUtils.fluentWaitForElement(getDriver(), jobsitebtn).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(jobsitebtn);
+			Thread.sleep(200);
+			elementUtils.fluentWaitForElement(getDriver(), Addjobsitebtn).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(Addjobsitebtn);
+			return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
    
    /**
     * This method is used to click HideCancel checkbox 
@@ -131,7 +193,6 @@ public class HomeDashboardPage extends PageObject {
 			return false;
 		}
    
-  
 
    /**
     * This method is used to check Cancelpreview and downloand links avilablity in the OrderReport page
@@ -151,6 +212,48 @@ public class HomeDashboardPage extends PageObject {
 			return false;
 		}
    
+   /**
+     This method is used to fill jobsite details 
+   */
+   public boolean filljobsitedetails(String jobsitename,String onsitecontactname,String phonenumber,String Address) {
+		try {
+			elementUtils.fluentWaitForElement(getDriver(), jobsitenametxt).waitUntilVisible();
+	    	Actions action1 = new Actions(getDriver());
+	    	action1.moveToElement(this.jobsitenametxt).click().build().perform();
+			Thread.sleep(500);
+			String jobsite = "Automation" + ProjectUtils.getRandomNumber();
+			LearningPlatformConstants.jobsitename.set(jobsite);
+		    elementUtils.fluentWaitForElement(getDriver(), jobsitenametxt).sendKeys(jobsite);
+		    elementUtils.fluentWaitForElement(getDriver(), onsitecontactnametxt).waitUntilVisible();
+	    	Actions action = new Actions(getDriver());
+	    	action.moveToElement(this.onsitecontactnametxt).click().build().perform();
+			Thread.sleep(1000);
+		    elementUtils.fluentWaitForElement(getDriver(), onsitecontactnametxt).typeAndEnter(onsitecontactname);
+		    elementUtils.fluentWaitForElement(getDriver(), phonenumbertxt).waitUntilVisible();
+	    	Actions action2 = new Actions(getDriver());
+	    	action2.moveToElement(this.phonenumbertxt).click().build().perform();
+			Thread.sleep(1000);
+		    elementUtils.fluentWaitForElement(getDriver(), phonenumbertxt).typeAndEnter(phonenumber);
+		    elementUtils.fluentWaitForElement(getDriver(), Addresstxt).waitUntilVisible();
+	    	Actions action3 = new Actions(getDriver());
+	    	action3.moveToElement(this.Addresstxt).click().build().perform();
+			Thread.sleep(1000);
+		    elementUtils.fluentWaitForElement(getDriver(), Addresstxt).typeAndEnter(Address);
+		    Thread.sleep(1000);
+		    elementUtils.fluentWaitForElement(getDriver(), Geomappertxt).waitUntilVisible();
+		    Actions action6 = new Actions(getDriver());
+	    	action6.moveToElement(this.Geomappertxt).click().build().perform();
+	    	Thread.sleep(1000);
+		    elementUtils.fluentWaitForElement(getDriver(), jobsitesavebtn).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(), jobsitesavebtn).click();
+		    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
    
    /**
     * This method is used to click the Cancel button in the order report 
@@ -167,7 +270,26 @@ public class HomeDashboardPage extends PageObject {
 			}
 			return false;
 		}
-  
+   
+   /**
+    * This method is used to validateJobsiteCreated
+    */
+   public boolean validatejobsitecreated() {
+		try {
+		      String localjobname =	LearningPlatformConstants.jobsitename.get().toString() + " ";
+		      System.out.println("the localjobname name appeared correctly as" + localjobname);
+			  WebElement savedjobsitename = getDriver().findElement(By.xpath("//h1[.='" + localjobname + "']"));
+			    if (savedjobsitename.isDisplayed())
+			    	System.out.println("the jobsitename name appeared correctly as" + savedjobsitename);
+				return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+
    
    
    /**

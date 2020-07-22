@@ -172,5 +172,16 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
                   
-      
+             
+     @FOBSMOKETESTSUITE
+     Scenario Outline: Validate ability to go to Customers list and delete the customer name
+      And I click the FOB Materials logo
+      And I click add a job site button
+      When I enter jobsitename <jobsitename> and onsitecontactname <onsitecontactname> and phonenumber <phonenumber> and address <address> details and save the jobsite
+      Then I see the Created Jobsite name appears correctly
+    
+  
+     Examples: 
+      | userName   | password          | jobsitename    | onsitecontactname |  phonenumber   | address                             | 
+      | 8572688987 | haul-Quality!0501 | vigneshcompany | Vig               |  8572688765    | 12 Andover Road, Billerica, MA, USA |
                  

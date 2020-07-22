@@ -21,6 +21,16 @@ public class SerenityHomeDashboardSteps extends ScenarioSteps {
 	 }
     
     @Step
+   	public boolean clickFOBMateriallogo() throws Exception {
+   		return homedashboardpage.clickFOBMateriallogo();
+   	 }
+    
+    @Step
+   	public boolean click_add_jobsite() throws Exception {
+   		return homedashboardpage.clickaddjobsite();
+   	 }
+    
+    @Step
    	public boolean clickHideCancelledchkbox() throws Exception {
    		return homedashboardpage.clickHideCancelchkbox();
    	 }
@@ -33,6 +43,16 @@ public class SerenityHomeDashboardSteps extends ScenarioSteps {
     @Step
    	public boolean checkCancelPreviewDownloadlnks() throws Exception {
    		return homedashboardpage.checkCancelPreviewDownloadlnks();
+   	 }
+    
+    @Step
+   	public boolean filljobsitedetails(String jobsitename,String onsitecontactname,String phonenumber,String Address) throws Exception {
+   		return homedashboardpage.filljobsitedetails(jobsitename,onsitecontactname,phonenumber,Address);
+   	 }
+    
+    @Step
+   	public boolean validate_jobsite_created() throws Exception {
+   		return homedashboardpage.validatejobsitecreated();
    	 }
     
     @Step
