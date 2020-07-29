@@ -32,9 +32,18 @@ public class TruckScedulePageSteps {
     public void sms_confirmation() throws Exception{
    	assertTrue(serenitytruckscedulesteps.SMSConfirmation());
 	}
-  
     
-   
+    @When("I click Truck report in truck scedule page")
+    public void click_truckreportbtn() throws Exception{
+   	assertTrue(serenitytruckscedulesteps.clicktruckreport());
+	}
+    
+
+    @When("I select add a receipient or select an existing recepient and send truck report to the recepient")
+    public void selectrecepient_sendtruckreport() throws Exception{
+   	assertTrue(serenitytruckscedulesteps.sendtruckreport());
+	}
+  
     
    
    

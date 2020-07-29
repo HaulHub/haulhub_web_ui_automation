@@ -239,9 +239,10 @@ public class HomeDashboardPage extends PageObject {
 	    	action3.moveToElement(this.Addresstxt).click().build().perform();
 			Thread.sleep(1000);
 		    elementUtils.fluentWaitForElement(getDriver(), Addresstxt).typeAndEnter(Address);
-		    Thread.sleep(1000);
+		    Thread.sleep(1500);
 		    elementUtils.fluentWaitForElement(getDriver(), Geomappertxt).waitUntilVisible();
 		    Actions action6 = new Actions(getDriver());
+		    Thread.sleep(1000);
 	    	action6.moveToElement(this.Geomappertxt).click().build().perform();
 	    	Thread.sleep(1000);
 		    elementUtils.fluentWaitForElement(getDriver(), jobsitesavebtn).waitUntilVisible();

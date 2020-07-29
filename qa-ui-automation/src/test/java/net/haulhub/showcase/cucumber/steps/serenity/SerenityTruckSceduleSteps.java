@@ -27,6 +27,15 @@ public class SerenityTruckSceduleSteps extends ScenarioSteps {
 	public boolean SMSConfirmation() throws Exception  {
 		return truckscedulepage.SMSConfirmation();
     }
-   
+    
+    @Step
+   	public boolean clicktruckreport() throws Exception  {
+   		return truckscedulepage.clicktruckreportbtn();
+       }
+    
+    @Step
+   	public boolean  sendtruckreport() throws Exception  {
+   		return truckscedulepage.sendtruckreport();
+       }
   
 }

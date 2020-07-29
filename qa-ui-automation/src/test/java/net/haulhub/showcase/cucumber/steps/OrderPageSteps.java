@@ -50,7 +50,7 @@ public class OrderPageSteps {
     	assertTrue(serenityordersteps.BookNewMaterialOrder_display());
 	}
     
-    @And("I fill order details for CustomerName(.*) and StartingLocation (.*)")
+    @And("I fill order details for CustomerName(.*) and StartingLocation (.*) details")
      public void fill_the_date_start_details(String CustomerName,String StartingLocation) throws Exception{
     	assertTrue(serenityordersteps.Filldatestartdetails(CustomerName,StartingLocation));
 	}

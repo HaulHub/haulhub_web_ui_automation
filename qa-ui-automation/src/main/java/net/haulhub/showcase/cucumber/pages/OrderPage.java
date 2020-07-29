@@ -20,6 +20,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 
 
 public class OrderPage extends PageObject {
@@ -38,6 +40,9 @@ public class OrderPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using ="//div[@class='Select-input']//input[@id='customer_id']")
 	public WebElementFacade Customerid;
+	
+	//@FindBy(how = How.CSS, using ="#customer_id")
+	//public WebElementFacade Customerid;
 	
 	@FindBy(how = How.XPATH, using = "//div[@class='Select-input']//input[@id='from_job_site_id']")
 	public WebElementFacade StartingLocationid;
@@ -141,6 +146,9 @@ public class OrderPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[.='Send Report']")
 	public WebElementFacade PlantSendreportbtn;
 	
+	@FindBy(how = How.XPATH, using = "//button[.='Cancel']")
+	public WebElementFacade cancelbtn;
+	
 	
 	/*
       * This method is used to click Materials only btn
@@ -241,6 +249,7 @@ public class OrderPage extends PageObject {
 				          Thread.sleep(1000);
 		                  Actions action1 = new Actions(getDriver());
 					      action1.moveToElement(this.WorktypeDropinput).click().build().perform();
+					      Thread.sleep(500);
 					      elementUtils.fluentWaitForElement(getDriver(),WorktypeDropinput).typeAndEnter(worktype);
 						return true;
 					 } catch (NoSuchElementException e) {
@@ -257,8 +266,9 @@ public class OrderPage extends PageObject {
 	    */
 		public boolean validateBookNewMaterialOrder() {
 		 try {
-			  elementUtils.fluentWaitForElement(getDriver(), BookNewMaterialOrderLbl).waitUntilClickable();
-			  elementUtils.fluentWaitForElement(getDriver(), BookNewMaterialOrderLbl).isDisplayed();
+			 Thread.sleep(2000);
+			 elementUtils.fluentWaitForElement(getDriver(), BookNewMaterialOrderLbl).isDisplayed();
+			 
 		       return true;
 			 } catch (NoSuchElementException e) {
 			   e.printStackTrace();
@@ -320,19 +330,19 @@ public class OrderPage extends PageObject {
 	   */
 		public boolean Filldatestartdetails(String Customername,String StartingLocation) {
 			try {
-		          elementUtils.fluentWaitForElement(getDriver(), Customerid).isDisplayed();
-		          Thread.sleep(1000);
-		          Actions action = new Actions(getDriver());
-		          action.moveToElement(this.Customerid).click().build().perform();
-		          Thread.sleep(1000);
-		          elementUtils.fluentWaitForElement(getDriver(),Customerid).typeAndEnter(Customername);
-		          Thread.sleep(1000);
-		          elementUtils.fluentWaitForElement(getDriver(), StartingLocationid).waitUntilVisible();
-		          Actions action1 = new Actions(getDriver());
-		          action1.moveToElement(this.StartingLocationid).click().build().perform();
-		          Thread.sleep(1000);
-		          elementUtils.fluentWaitForElement(getDriver(),StartingLocationid).typeAndEnter(StartingLocation);
-		          return true;
+				   Thread.sleep(1000);
+		           elementUtils.fluentWaitForElement(getDriver(), Customerid).waitUntilClickable();
+		           Actions action = new Actions(getDriver());
+		           action.moveToElement(this.Customerid).click().build().perform();
+		           Thread.sleep(1000);
+		           elementUtils.fluentWaitForElement(getDriver(),Customerid).typeAndEnter(Customername);
+		           Thread.sleep(1000);
+		           elementUtils.fluentWaitForElement(getDriver(), StartingLocationid).waitUntilVisible();
+		           Actions action1 = new Actions(getDriver());
+		           action1.moveToElement(this.StartingLocationid).click().build().perform();
+		           Thread.sleep(1000);
+		           elementUtils.fluentWaitForElement(getDriver(),StartingLocationid).typeAndEnter(StartingLocation);
+		           return true;
 		        } catch (NoSuchElementException e) {
 				   e.printStackTrace();
 		    	} catch (Exception e) {
@@ -346,9 +356,10 @@ public class OrderPage extends PageObject {
 	   */
 		public boolean FillContinueDestinationTab() {
 			try {
+				  Thread.sleep(1000);
 		          elementUtils.fluentWaitForElement(getDriver(), LoadTimeDrd).waitUntilVisible();
 		          elementUtils.safeJavaScriptClick(LoadTimeDrd);
-		          
+		          Thread.sleep(1000);
 		          Actions action1 = new Actions(getDriver());
 		          action1.moveToElement(this.LoadDateTxt).click().build().perform();
 		          System.out.println("todays date is" + elementUtils.TodaysDate());
