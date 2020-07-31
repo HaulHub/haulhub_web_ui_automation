@@ -19,7 +19,7 @@ Feature: FOBOrderDashBoard.feature
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70        |
    
    @FOBSMOKETESTSUITE
-    Scenario Outline: Validate ability to Rebook a MaterialOnly Job and Reject a Job as material requestor
+    Scenario Outline: Validate ability to Rebook a MaterialOnly Job and preloaded order details appeares correctly and Reject a Job 
        Given I click the New Order button
        When I click Materials Only button in the New Order dialog box
        And I fill order details for CustomerName <customername> and StartingLocation <startlocation> details
@@ -28,11 +28,12 @@ Feature: FOBOrderDashBoard.feature
        And I fill Material tag field Tonnage <Tonnage> and ProductionRate <ProductionRate> and details and Place order
        And I click GotoToday Link View the OrderDetails and Click Rebook Orderbutton
        Then I should see Book new Material Order form
+       And I should see presaved customername <customername> and startinglocation <startlocation> loaded during rebooking
        And I click Cancel button in Book new Material Order form
        And I Reject the Order and check the Total Tons set to Zero
        
        Examples:
-       | userName    | password     | customername   |startlocation | destination  | contactnumber | address                              |   Tonnage | ProductionRate |                                                                               
+       | userName    | password     | customername   |startlocation | destination  | contactnumber       | address                              |   Tonnage | ProductionRate |                                                                               
        | 8572688987  | haul-Quality!0501  | vigeshcompany | VigneshPlant | VigneshPlant | 8572688987     | 12 Andover Road, Billerica, MA, USA  |   1       |      1         |
    
    

@@ -244,7 +244,7 @@ public class OrderPage extends PageObject {
     	  /*
 	      * This method is used to select Worktype
 	      */
-				public boolean selectworktype(String worktype) {
+		public boolean selectworktype(String worktype) {
 				    try {
 				          Thread.sleep(1000);
 		                  Actions action1 = new Actions(getDriver());
@@ -262,13 +262,15 @@ public class OrderPage extends PageObject {
 			
 	   
 	   /*
-	    * This method is used to display validateBookNewMaterialOrder form
+	    * This method is used to validate the book material order items are displayed correctly during preload save
 	    */
-		public boolean validateBookNewMaterialOrder() {
+		public boolean validatepresavedbookingdetails(String customername,String startinglocation) {
 		 try {
-			 Thread.sleep(2000);
-			 elementUtils.fluentWaitForElement(getDriver(), BookNewMaterialOrderLbl).isDisplayed();
-			 
+			   Thread.sleep(1000);
+			   WebElement customernametxt = getDriver().findElement(By.xpath("//div[@class='Select-multi-value-wrapper']//span[contains(text(),'"+ customername +"')]"));
+			   elementUtils.fluentWaitForElement(getDriver(), customernametxt).isDisplayed();
+			   WebElement statringlocationtxt = getDriver().findElement(By.xpath("//div[@class='Select-multi-value-wrapper']//span[contains(text(),'"+ startinglocation +"')]"));
+			   elementUtils.fluentWaitForElement(getDriver(), statringlocationtxt).isDisplayed();
 		       return true;
 			 } catch (NoSuchElementException e) {
 			   e.printStackTrace();
@@ -277,6 +279,25 @@ public class OrderPage extends PageObject {
 			}
 			return false;
 		}
+		
+
+		   /*
+		    * This method is used to display validateBookNewMaterialOrder form
+		    */
+			public boolean validateBookNewMaterialOrder() {
+			 try {
+				 Thread.sleep(2000);
+				 elementUtils.fluentWaitForElement(getDriver(), BookNewMaterialOrderLbl).isDisplayed();
+				 
+			       return true;
+				 } catch (NoSuchElementException e) {
+				   e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				return false;
+			}
+	
 		
 
 		   /*

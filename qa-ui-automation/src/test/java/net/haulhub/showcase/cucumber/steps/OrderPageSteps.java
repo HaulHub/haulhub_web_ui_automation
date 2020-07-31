@@ -50,6 +50,11 @@ public class OrderPageSteps {
     	assertTrue(serenityordersteps.BookNewMaterialOrder_display());
 	}
     
+    @When("I should see presaved customername(.*) and startinglocation(.*) loaded during rebooking")
+    public void see_presaved_bookingdetails(String customername,String startinglocation) throws Exception {
+   	assertTrue(serenityordersteps.see_presaved_bookingdetails(customername,startinglocation));
+	}
+    
     @And("I fill order details for CustomerName(.*) and StartingLocation (.*) details")
      public void fill_the_date_start_details(String CustomerName,String StartingLocation) throws Exception{
     	assertTrue(serenityordersteps.Filldatestartdetails(CustomerName,StartingLocation));

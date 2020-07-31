@@ -44,6 +44,11 @@ public class SerenityOrderSteps extends ScenarioSteps {
 	 }
     
     @Step
+	public boolean see_presaved_bookingdetails(String customername,String startinglocation)  throws Exception {
+		return orderpage.validatepresavedbookingdetails(customername,startinglocation);
+	 }
+    
+    @Step
 	public boolean Filldatestartdetails(String CustomerName, String StartingLocation) throws Exception  {
 		return orderpage.Filldatestartdetails(CustomerName,StartingLocation);
 	 }
