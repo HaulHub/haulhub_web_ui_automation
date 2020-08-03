@@ -50,6 +50,9 @@ public class TruckScedulePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[.='Add recipients to auto-report settings in order to select one.']")
 	public WebElementFacade elementreceipientlbl;
 	
+	@FindBy(how = How.XPATH, using = "//label[.='vignesh@haulhub.com']")
+	public WebElementFacade elementemaillbl;
+	
 	@FindBy(how = How.XPATH, using = "//a[.='Add Email']")
 	public WebElementFacade receipientemailadd;
 	
@@ -64,6 +67,19 @@ public class TruckScedulePage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[.='Send']")
 	public WebElementFacade receiptsendbtn;
+	
+	@FindBy(how = How.XPATH, using = "//button[.='Okay']")
+	public WebElementFacade receiptokaybtn;
+	
+	@FindBy(how = How.XPATH, using = "//button[.='Cancel']")
+	public WebElementFacade receiptCancelbtn;
+
+	@FindBy(how = How.XPATH, using = "//a[.='Truck Schedule']")
+	public WebElementFacade truckscedulelnk;
+	
+	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-trash']")
+	public WebElementFacade emaildeletelbl;
+
 
 		
 	/*
@@ -148,30 +164,66 @@ public class TruckScedulePage extends PageObject {
 		public boolean sendtruckreport() {
 			try {
 				Thread.sleep(500);
-				if (elementUtils.fluentWaitForElement(getDriver(),elementreceipientlbl).isDisplayed()) {
-					elementUtils.fluentWaitForElement(getDriver(),receipientemailadd).waitUntilVisible();
-					elementUtils.fluentWaitForElement(getDriver(),receipientemailadd).click();
-					Thread.sleep(500);
-					elementUtils.fluentWaitForElement(getDriver(),emailtxt).waitUntilVisible();
-					elementUtils.fluentWaitForElement(getDriver(),emailtxt).sendKeys("vignesh@haulhub.com");
-					Thread.sleep(500);
-					elementUtils.fluentWaitForElement(getDriver(),truckreportsavebtn).waitUntilVisible();
-					elementUtils.fluentWaitForElement(getDriver(),truckreportsavebtn).click();
-					Thread.sleep(500);
-					elementUtils.fluentWaitForElement(getDriver(),receiptinputbox).waitUntilVisible();
-					elementUtils.fluentWaitForElement(getDriver(),receiptinputbox).click();
-					Thread.sleep(500);
-					elementUtils.fluentWaitForElement(getDriver(),receiptsendbtn).waitUntilVisible();
-					elementUtils.fluentWaitForElement(getDriver(),receiptsendbtn).click();
-				}
-			     else {
+			     if (elementUtils.fluentWaitForElement(getDriver(),elementreceipientlbl).isDisplayed());
+						elementUtils.fluentWaitForElement(getDriver(),receipientemailadd).waitUntilVisible();
+						elementUtils.fluentWaitForElement(getDriver(),receipientemailadd).click();
+						Thread.sleep(500);
+						elementUtils.fluentWaitForElement(getDriver(),emailtxt).waitUntilVisible();
+						elementUtils.fluentWaitForElement(getDriver(),emailtxt).sendKeys("vignesh@haulhub.com");
+						Thread.sleep(500);
+						elementUtils.fluentWaitForElement(getDriver(),truckreportsavebtn).waitUntilVisible();
+						elementUtils.fluentWaitForElement(getDriver(),truckreportsavebtn).click();
+						Thread.sleep(500);
 						elementUtils.fluentWaitForElement(getDriver(),receiptinputbox).waitUntilVisible();
 						elementUtils.fluentWaitForElement(getDriver(),receiptinputbox).click();
 						Thread.sleep(500);
 						elementUtils.fluentWaitForElement(getDriver(),receiptsendbtn).waitUntilVisible();
 						elementUtils.fluentWaitForElement(getDriver(),receiptsendbtn).click();
-					}	
-		         return true;
+						Thread.sleep(500);
+						elementUtils.fluentWaitForElement(getDriver(),receiptokaybtn).waitUntilVisible();
+						elementUtils.fluentWaitForElement(getDriver(),receiptokaybtn).click();
+						return true;
+		        } catch (NoSuchElementException e) {
+				   e.printStackTrace();
+		    	} catch (Exception e) {
+					e.printStackTrace();
+		    	}
+				return false;
+	   }
+		
+		
+		/*
+		  * This method is to reset the truck report to its original status
+	   */
+		public boolean resettruckreport() {
+			try {
+				Thread.sleep(500);
+			     if (elementUtils.fluentWaitForElement(getDriver(),emaildeletelbl).isDisplayed());
+						elementUtils.fluentWaitForElement(getDriver(),emaildeletelbl).click();
+						Thread.sleep(500);
+						elementUtils.fluentWaitForElement(getDriver(),truckreportsavebtn).waitUntilVisible();
+						elementUtils.fluentWaitForElement(getDriver(),truckreportsavebtn).click();
+						Thread.sleep(500);
+						elementUtils.fluentWaitForElement(getDriver(),receiptCancelbtn).waitUntilVisible();
+						elementUtils.fluentWaitForElement(getDriver(),receiptCancelbtn).click();
+						return true;
+		        } catch (NoSuchElementException e) {
+				   e.printStackTrace();
+		    	} catch (Exception e) {
+					e.printStackTrace();
+		    	}
+				return false;
+	   }
+
+		/*
+		  * This method is to click the truck scedule link
+	   */
+		public boolean clicktruckscedule() {
+			try {
+				elementUtils.fluentWaitForElement(getDriver(),truckscedulelnk).isDisplayed();
+				elementUtils.fluentWaitForElement(getDriver(),truckscedulelnk).click();
+				Thread.sleep(500);
+		          return true;
 		        } catch (NoSuchElementException e) {
 				   e.printStackTrace();
 		    	} catch (Exception e) {

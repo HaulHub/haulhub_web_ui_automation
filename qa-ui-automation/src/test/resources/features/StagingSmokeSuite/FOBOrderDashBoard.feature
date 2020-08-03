@@ -78,6 +78,8 @@ Feature: FOBOrderDashBoard.feature
      Scenario Outline: Validate ability to Click Truck Report and Select a recepient and send automated email report to Receipient
       And I click Truck report in truck scedule page
       And I select add a receipient or select an existing recepient and send truck report to the recepient
+      And I click Truck report in truck scedule page
+      And I reset the truckreport to original status
       
      Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
@@ -191,6 +193,7 @@ Feature: FOBOrderDashBoard.feature
       And I click add a job site button
       When I enter jobsitename <jobsitename> and onsitecontactname <onsitecontactname> and phonenumber <phonenumber> and address <address> details and save the jobsite
       Then I see the Created Jobsite name appears correctly
+      And I go to Homedashboard and Cancel the sceduled Order
     
   
      Examples: 

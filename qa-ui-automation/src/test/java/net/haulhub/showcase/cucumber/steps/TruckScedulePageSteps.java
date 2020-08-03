@@ -38,14 +38,19 @@ public class TruckScedulePageSteps {
    	assertTrue(serenitytruckscedulesteps.clicktruckreport());
 	}
     
-
+    @When("I click truck scedule page")
+    public void click_truckscedule_page() throws Exception{
+   	assertTrue(serenitytruckscedulesteps.clicktruckscedule());
+	}
+ 
     @When("I select add a receipient or select an existing recepient and send truck report to the recepient")
     public void selectrecepient_sendtruckreport() throws Exception{
    	assertTrue(serenitytruckscedulesteps.sendtruckreport());
 	}
-  
     
-   
-   
-    
+    @When("I reset the truckreport to original status")
+    public void reset_truckreport() throws Exception{
+   	assertTrue(serenitytruckscedulesteps.resettruckreport());
+	}
+      
   }

@@ -34,8 +34,17 @@ public class SerenityTruckSceduleSteps extends ScenarioSteps {
        }
     
     @Step
+   	public boolean clicktruckscedule() throws Exception  {
+   		return truckscedulepage.clicktruckscedule();
+       }
+
+    @Step
    	public boolean  sendtruckreport() throws Exception  {
    		return truckscedulepage.sendtruckreport();
        }
-  
+    
+    @Step
+   	public boolean  resettruckreport() throws Exception  {
+   		return truckscedulepage.resettruckreport();
+       }
 }
