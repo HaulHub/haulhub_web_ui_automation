@@ -1,6 +1,6 @@
 package net.haulhub.showcase.cucumber.pages;
 
-import static org.junit.Assert.assertTrue;
+//import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

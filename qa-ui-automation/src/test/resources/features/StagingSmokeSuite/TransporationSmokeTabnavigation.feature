@@ -2,7 +2,7 @@
 Feature: TransporationSmokeTabnavigation.feature
  
      @TRANSPORTSMOKETABNAVIGATIONS
-     Scenario Outline: Login as Customer and JobManagement loads as default
+     Scenario Outline: Login as Customer and JobManagement loads as default under Transport modules
        Given Login to the application with valid <userName> and <password> 
        And I see Job board link loaded by default
        
@@ -11,7 +11,7 @@ Feature: TransporationSmokeTabnavigation.feature
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70        |
                   
      @TRANSPORTSMOKETABNAVIGATIONS
-      Scenario Outline: Validate on clicking DailyLineup link and see the BookShifts label page loaded correctly
+      Scenario Outline: Validate on clicking Book Job link and see the Book Job label page loaded correctly
        And I click Book Job and link and see the Book a New lable page loaded correctly
     
        Examples:

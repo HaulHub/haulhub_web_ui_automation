@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = {"src/test/resources/features/StagingSmokeSuite/TransporationSmokePart1.feature"},monochrome=true)
+@CucumberOptions(features = {"src/test/resources/features/StagingSmokeSuite/TransporationSmokeTabnavigation.feature"},monochrome=true)
 
-public class TestRunner2 {
+public class TransportationRunner {
 
 }
