@@ -92,7 +92,91 @@ public class HomeDashboardPageSteps {
    	assertTrue(serenityHomeDashboardSteps.clickCancelOrderbtn());
 	}
     
+   @Given("I see Job board link loaded by default")
+    public void Job_board_link() throws Exception{
+   	assertTrue(serenityHomeDashboardSteps.checkjobboardlnk());
+	}
+   
+   @Given("I click Book Job and link and see the Book a New lable page loaded correctly")
+   public void BookJobpage_appearence() throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.checkbookjobpageapperence());
+	}
+   
+   @Given("I click DailyLineup and link and see the BookShifts label page loaded correctly")
+   public void DailyLineup_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.checkDailyLineuppage());
+	}
+   
+   @Given("I click Jobboard  link and see the JobBoard New lable page loaded correctly")
+   public void JobBoard_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.checkJobBoardpage());
+	}
+   
+   @Given("I click timesheets link and see the Timesheets lable page loaded correctly")
+   public void timesheetpage_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.checktimesheetpage());
+	}
+   
+   @Given("I click Tickets link and see the Tickets lable page loaded correctly")
+   public void ticketspage_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.checkticketspage());
+	}
+   
+   @Given("I click plants link and see the plants lable page loaded correctly")
+   public void plantspage_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.checkplantspage());
+	}
   
-  
+   @Given("I click MiscSites link and see the MicSites lable page loaded correctly")
+   public void micsistespage_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.micsistespage());
+	}
+   
+   @Given("I click PaymentsTransactionslink and see the Transactions page loaded correctly")
+   public void PaymentsTransactions_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.PaymentsTransactionspage());
+	}
+   
+   @Given("I click Invoiceslink and see the Invoices page loaded correctly")
+   public void invoicelinkpage_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.invoiceslnkpage());
+	}
+   
+   @Given("I click CertifiedPayrollslink and see the CertifiedPayrolls page loaded correctly")
+   public void cerifiedlinkpage_appearence () throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.certifiedlnkpage());
+	}
+   
+   @Given("I click DOTManagmentlink and see the DOTManagment page loaded correctly")
+   public void DOTManagementpage_appearence() throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.DOTManagementpage());
+	}
+   
+   @Given("I click FleetManagerlink and see the FleetManager page loaded correctly")
+   public void FleetManagerpage_appearence() throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.FleetManagerpage());
+	}
+   
+   @Given("I click Contractorscroinglink and see the Contractorscroing page loaded correctly")
+   public void Contractorpage_appearence() throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.Contractorpage_appearence());
+	}   
+   
+   @Given("I click  whatnewlink and see the whatnewlinkpage loaded correctly")
+   public void whatnewpage_appearence() throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.whatnewpage_appearence());
+	}   
+   
+   @Given("I click reportinglink and see the reporting page loaded correctly")
+   public void reportingpage_appearence() throws Exception{
+  	assertTrue(serenityHomeDashboardSteps.reportingpage_appearence());
+	} 
+   
+   @Given("I Cancel the sceduled Order as finalcleanup")
+   public void cancelorder_finalcleanup() throws Exception{
+	   assertTrue(serenityHomeDashboardSteps.viewCreatedOrderDetails());
+	   assertTrue(serenityHomeDashboardSteps.clickCancelOrderbtn());
+	} 
 
+   
   }

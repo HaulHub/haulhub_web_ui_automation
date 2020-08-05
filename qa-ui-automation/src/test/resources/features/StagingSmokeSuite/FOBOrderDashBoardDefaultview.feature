@@ -1,7 +1,7 @@
 @tag
-Feature: FOBOrderDashBoard.feature
+Feature: FOBOrderDashBoardDefaultview.feature
  
-   @FOBSMOKETESTSUITE
+   @FOBSMOKEDEFAULTVIEWTESTSUITE
     Scenario Outline: Login as user Create Material only Order Created Successfully and Cancel Order as Material Producer
        Given Login to the application with valid <userName> and <password>
        And I click the OrderDashboard link in FOB home page 
@@ -18,7 +18,7 @@ Feature: FOBOrderDashBoard.feature
        | userName    | password     | customername   |startlocation | destination  | contactnumber | address                             |   Tonnage | ProductionRate |                                                                               
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70        |
    
-   @FOBSMOKETESTSUITE
+   @FOBSMOKEDEFAULTVIEWTESTSUITE
     Scenario Outline: Validate ability to Rebook a MaterialOnly Job and preloaded order details appeares correctly and Reject a Job 
        Given I click the New Order button
        When I click Materials Only button in the New Order dialog box
@@ -33,11 +33,10 @@ Feature: FOBOrderDashBoard.feature
        And I Reject the Order and check the Total Tons set to Zero
        
        Examples:
-       | userName    | password     | customername   |startlocation | destination  | contactnumber       | address                              |   Tonnage | ProductionRate |                                                                               
-       | 8572688987  | haul-Quality!0501  | vigeshcompany | VigneshPlant | VigneshPlant | 8572688987     | 12 Andover Road, Billerica, MA, USA  |   1       |      1         |
+       | userName    | password     |customername|startlocation| destination  | contactnumber       | address                              |   Tonnage | ProductionRate |                                                                               
+       | 8572688987  | haul-Quality!0501  |vigeshcompany|VigneshPlant| VigneshPlant | 8572688987     | 12 Andover Road, Billerica, MA, USA  |   1       |      1         |
    
-   
-   @FOBSMOKETESTSUITE
+   @FOBSMOKEDEFAULTVIEWTESTSUITE
     Scenario Outline: Validate ability to Create Materials+Trucks only Order and Scedule the order via  truck Scedule page
        Given I click the New Order button
        When I click MaterialsTrucks button in the New Order dialog box
@@ -55,7 +54,7 @@ Feature: FOBOrderDashBoard.feature
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987     | 12 Andover Road, Billerica, MA, USA   |   1       |      1         | Construction | Paver    | 10             | vigneshcompany     |  Ami Trucking  |
    
    
-   @FOBSMOKETESTSUITE
+   @FOBSMOKEDEFAULTVIEWTESTSUITE
     Scenario Outline: Validate ability to Create Material order and Add trucks,fleets and be able to validate sent SMS messages to Truck drivers after 
        Given I click the New Order button
        When I click Materials Only button in the New Order dialog box
@@ -73,9 +72,8 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
 
- 
-   @FOBSMOKETESTSUITE
-     Scenario Outline: Validate ability to Click Truck Report and Select a recepient and send automated email report to Receipient
+   @FOBSMOKEDEFAULTVIEWTESTSUITE
+     Scenario Outline: Validate ability to Click Truck Report and send automated email report to Receipient and Reset to original status
       And I click Truck report in truck scedule page
       And I select add a receipient or select an existing recepient and send truck report to the recepient
       And I click Truck report in truck scedule page
@@ -85,8 +83,7 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
     
-   
-   @FOBSMOKETESTSUITE
+   @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to create a Filter by Unfilled shifts  and then send Plant Report to the relevant email id
       And I click Plant Report button in Dashboard page
       When I see the Plant Details page with Preview Autosend and Continue links
@@ -96,7 +93,7 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
     
-    @FOBSMOKETESTSUITE
+    @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to view  order Report view items
       And I see Order Report button in Dashboard page
       And I see Cancel and Preview and Download links avilable in Order Report window page
@@ -105,7 +102,7 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver               |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
       
-    @FOBSMOKETESTSUITE
+    @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Settings link and Create an equipment successfuly 
       And I Go to Equipments lists page 
       And I Add an Equpment and see the Equpiment added successfully 
@@ -114,7 +111,7 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver              |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
        
-     @FOBSMOKETESTSUITE
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Settings link and edit an equipment successfuly 
      And I Edit update the created equipment and confirms equipment is reflected with updatedname
    
@@ -123,7 +120,7 @@ Feature: FOBOrderDashBoard.feature
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
        
         
-     @FOBSMOKETESTSUITE
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Settings link and delete an equipment successfuly 
      And I delete the updated equipment 
    
@@ -132,7 +129,7 @@ Feature: FOBOrderDashBoard.feature
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
        
          
-     @FOBSMOKETESTSUITE
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Settings link and Create a Material list successfully
      And I Go to Materials lists page 
      And I Add material and see the material added successfully  
@@ -142,7 +139,7 @@ Feature: FOBOrderDashBoard.feature
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
        
          
-     @FOBSMOKETESTSUITE
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Settings link and edit the Material created successfully
      And I Edit update the created material and confirms material is reflected with updatedname
    
@@ -150,7 +147,7 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
        
-     @FOBSMOKETESTSUITE
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Settings link and delete the Material created successfully
      And  I delete the updated material
    
@@ -158,8 +155,7 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
        
-        
-     @FOBSMOKETESTSUITE
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Customers list and Create a new customer via customer portal
      And I Go to Manage Customers page 
      And I Add a new customer and validate the customer was added successfully  
@@ -168,34 +164,31 @@ Feature: FOBOrderDashBoard.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
              
-        
-     @FOBSMOKETESTSUITE
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Customers list and update the created customer with new name
      And I Edit update the created customer and confirms customer is reflected with updatedname
    
      Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
-      
          
-     @FOBSMOKETESTSUITE
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to go to Customers list and delete the customer name
      And I Delete the updated customer name from the list
    
      Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          |
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | 10 Wheel             |              1 | vigneshcompany | VigneshCompany | VigneshCompany |
-                  
-             
-     @FOBSMOKETESTSUITE
+                     
+     @FOBSMOKEDEFAULTVIEWTESTSUITE
      Scenario Outline: Validate ability to create a JOBsite with Geolocation updated thus validate it is created successfully
       And I click the FOB Materials logo
       And I click add a job site button
       When I enter jobsitename <jobsitename> and onsitecontactname <onsitecontactname> and phonenumber <phonenumber> and address <address> details and save the jobsite
       Then I see the Created Jobsite name appears correctly
-      And I go to Homedashboard and Cancel the sceduled Order
+      And I click the OrderDashboard link in FOB home page 
+      And I Cancel the sceduled Order as finalcleanup
     
-  
      Examples: 
       | userName   | password          | jobsitename    | onsitecontactname |  phonenumber   | address                             | 
       | 8572688987 | haul-Quality!0501 | vigneshcompany | Vig               |  8572688765    | 12 Andover Road, Billerica, MA, USA |

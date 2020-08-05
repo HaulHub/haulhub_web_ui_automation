@@ -71,7 +71,7 @@ public class TruckScedulePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[.='Okay']")
 	public WebElementFacade receiptokaybtn;
 	
-	@FindBy(how = How.XPATH, using = "//button[.='Cancel']")
+	@FindBy(how = How.XPATH, using = "//button[@class='sc-AykKG sc-AykKH jLRVIa']")
 	public WebElementFacade receiptCancelbtn;
 
 	@FindBy(how = How.XPATH, using = "//a[.='Truck Schedule']")
@@ -203,9 +203,11 @@ public class TruckScedulePage extends PageObject {
 						Thread.sleep(500);
 						elementUtils.fluentWaitForElement(getDriver(),truckreportsavebtn).waitUntilVisible();
 						elementUtils.fluentWaitForElement(getDriver(),truckreportsavebtn).click();
+						Thread.sleep(1000);
+						elementUtils.fluentWaitForElement(getDriver(), receiptCancelbtn).waitUntilVisible();
+			            Actions action1 = new Actions(getDriver());
+						action1.moveToElement(this.receiptCancelbtn).click().build().perform();
 						Thread.sleep(500);
-						elementUtils.fluentWaitForElement(getDriver(),receiptCancelbtn).waitUntilVisible();
-						elementUtils.fluentWaitForElement(getDriver(),receiptCancelbtn).click();
 						return true;
 		        } catch (NoSuchElementException e) {
 				   e.printStackTrace();

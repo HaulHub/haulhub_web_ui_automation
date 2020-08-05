@@ -96,6 +96,86 @@ public class SerenityHomeDashboardSteps extends ScenarioSteps {
    	 }
     
     @Step
+   	public boolean checkjobboardlnk() throws Exception {
+   		return homedashboardpage.jobboardlnk();
+   	 }
+    
+    @Step
+   	public boolean checkbookjobpageapperence() throws Exception {
+   		return homedashboardpage.checkbookjobappearence();
+   	 }
+    
+    @Step
+   	public boolean checkDailyLineuppage() throws Exception {
+   		return homedashboardpage.checkdailylineuppage();
+    }
+    
+    @Step
+   	public boolean checkJobBoardpage() throws Exception {
+   		return homedashboardpage.checkJobBoardpage();
+    }
+    
+    @Step
+   	public boolean checktimesheetpage() throws Exception {
+   		return homedashboardpage.checktimesheetpage();
+    }
+    
+    @Step
+   	public boolean checkticketspage() throws Exception {
+   		return homedashboardpage.checkticketspage();
+    }
+    
+    @Step
+   	public boolean checkplantspage() throws Exception {
+   		return homedashboardpage.checkplantspage();
+    }
+    
+    @Step
+   	public boolean micsistespage() throws Exception {
+   		return homedashboardpage.checkmicsistespage();
+    }
+    
+    @Step
+   	public boolean PaymentsTransactionspage() throws Exception {
+   		return homedashboardpage.checkTransactionspage();
+    }
+    
+    @Step
+   	public boolean invoiceslnkpage() throws Exception {
+   		return homedashboardpage.checkinvoicespage();
+    }
+    
+    @Step
+   	public boolean certifiedlnkpage() throws Exception {
+   		return homedashboardpage.checkcertifiedlnkpage();
+    }
+    
+    @Step
+   	public boolean DOTManagementpage() throws Exception {
+   		return homedashboardpage.checkDOTManagementpage();
+    }
+    
+    @Step
+   	public boolean FleetManagerpage() throws Exception {
+   		return homedashboardpage.checkfleetManagerpage();
+    }
+    
+    @Step
+   	public boolean Contractorpage_appearence() throws Exception {
+   		return homedashboardpage.checkContractorpage();
+    }
+    
+    @Step
+   	public boolean whatnewpage_appearence() throws Exception {
+   		return homedashboardpage.checkwhatnewpage();
+    }
+
+    @Step
+   	public boolean  reportingpage_appearence() throws Exception {
+   		return homedashboardpage.checkreportingpage();
+    }
+   
+    @Step
    	public boolean clickOrderDashboarlnk() throws Exception {
    		return homedashboardpage.Clickorderdashboardlnk();
    	 }

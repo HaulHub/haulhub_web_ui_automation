@@ -1,5 +1,7 @@
 package net.haulhub.showcase.cucumber.pages;
 
+import static org.junit.Assert.assertTrue;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -61,6 +63,93 @@ public class HomeDashboardPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[.='Reject Order']")
 	public WebElementFacade  rejectOrderbtn;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Job Board']")
+	public WebElementFacade  jobboardlnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Job Board']")
+	public WebElementFacade  jobboardlbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Timesheets')]")
+	public WebElementFacade  timesheetlnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Timesheets']")
+	public WebElementFacade  timesheetlbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Tickets']")
+	public WebElementFacade  ticketstlnk;
+	
+	@FindBy(how = How.XPATH, using = "//div[.=' Tickets ']")
+	public WebElementFacade  ticketstlbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Plants']")
+	public WebElementFacade  plantslnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Plants']")
+	public WebElementFacade  plantslbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Misc. Sites']")
+	public WebElementFacade  micsiteslnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Misc. Sites']")
+	public WebElementFacade  micsiteslbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Transactions']")
+	public WebElementFacade  trasncationslnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.=' Transactions ']")
+	public WebElementFacade  trasncationslbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Invoices']")
+	public WebElementFacade  invoiceslnk;
+	
+	@FindBy(how = How.XPATH, using = "//span[.='Payments']")
+	public WebElementFacade  Paymentslnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Invoices']")
+	public WebElementFacade  invoiceslbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Certified Payrolls']")
+	public WebElementFacade  certifiedlnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Certified Payroll']")
+	public WebElementFacade  certifiedlbl;
+	
+	@FindBy(how = How.XPATH, using = "//span[.='DOT Management']")
+	public WebElementFacade  DOTManagementlnk;
+	
+	@FindBy(how = How.XPATH, using = "//span[.='DOT Projects']")
+	public WebElementFacade  DOTManagementlbl;
+	
+	@FindBy(how = How.XPATH, using = "//span[.='Fleet Manager']")
+	public WebElementFacade  FleetManagerlnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Fleet Manager']")
+	public WebElementFacade  FleetManagerlbl;
+	
+	@FindBy(how = How.XPATH, using = "//span[.='Contractor Scoring']")
+	public WebElementFacade  contractorlnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Contractor Scoring']")
+	public WebElementFacade  contractorlbl;
+	
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'New')]")
+	public WebElementFacade  whatnewlnk;
+	
+	@FindBy(how = How.XPATH, using = "//h1[contains(text(),'New')]")
+	public WebElementFacade  whatnewlbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Book Jobs']")
+	public WebElementFacade  bookanewjoblbl;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Daily Lineup']")
+	public WebElementFacade  dailylineuplnk;
+	
+	@FindBy(how = How.XPATH, using = "//span[.='Book Shifts']")
+	public WebElementFacade  bookshiftlbl;
+	
+	@FindBy(how = How.XPATH, using = "//h1[.='Book New Job']")
+	public WebElementFacade  bookanewjobtxt;
 	
 	@FindBy(how = How.XPATH, using = "//a[.='Order Dashboard']")
 	public WebElementFacade  orderdashboardlnk;
@@ -400,7 +489,139 @@ public class HomeDashboardPage extends PageObject {
    
 
    /**
-    * This method is used to ClickOrderdashboard breadcrumblnk
+    * This method is used to validate jobboardlnk appearence
+    */
+   public boolean jobboardlnk() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),jobboardlnk).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),jobboardlnk).isDisplayed();
+				return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+   
+   
+   /**
+    * This method is used to validate check bookjobappearence
+    */
+   public boolean checkbookjobappearence() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),bookanewjoblbl).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),bookanewjoblbl).click();
+			    Thread.sleep(500);
+			    elementUtils.fluentWaitForElement(getDriver(),bookanewjobtxt).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),bookanewjobtxt).isDisplayed();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+   
+   
+   /**
+    * This method is used to validate check  check dailylineup page
+    */
+   public boolean  checkdailylineuppage() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),dailylineuplnk).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),dailylineuplnk).click();
+			    Thread.sleep(500);
+			    elementUtils.fluentWaitForElement(getDriver(),bookshiftlbl).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),bookshiftlbl).isDisplayed();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+   
+   /**
+    * This method is used to validate check checkJobBoardpage
+    */
+   public boolean checkJobBoardpage() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),jobboardlnk).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),jobboardlnk).click();
+			    Thread.sleep(500);
+			    elementUtils.fluentWaitForElement(getDriver(),jobboardlbl).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),jobboardlbl).isDisplayed();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+   
+   /**
+    * This method is used to validate check timesheetspage
+    */
+   public boolean checktimesheetpage() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),timesheetlnk).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),timesheetlnk).click();
+			    Thread.sleep(500);
+			    elementUtils.fluentWaitForElement(getDriver(),timesheetlbl).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),timesheetlbl).isDisplayed();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}   
+  
+   /**
+    * This method is used to validate check tickets page
+    */
+   public boolean checkticketspage() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),ticketstlnk).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),ticketstlnk).click();
+			    Thread.sleep(500);
+			    elementUtils.fluentWaitForElement(getDriver(),ticketstlbl).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),ticketstlbl).isDisplayed();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		} 
+   
+   /**
+    * This method is used to validate check plants page
+    */
+   public boolean checkplantspage() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),plantslnk).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),plantslnk).click();
+			    Thread.sleep(500);
+			    elementUtils.fluentWaitForElement(getDriver(),plantslbl).waitUntilVisible();
+			    elementUtils.fluentWaitForElement(getDriver(),plantslbl).isDisplayed();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		} 
+   
+   /**
+    * This method is used to ClickOrderdashboard bread crumb lnk
     */
    public boolean  Clickorderdashboardlnk() {
 		try {
@@ -416,7 +637,181 @@ public class HomeDashboardPage extends PageObject {
 		    return false;
    }
    
+   /**
+    * This method is used to check check micsistes page
+    */
+   public boolean checkmicsistespage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),micsiteslnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),micsiteslnk).click();
+		    Thread.sleep(1000);
+		    elementUtils.fluentWaitForElement(getDriver(),micsiteslbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),micsiteslbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
+   
+   /**
+    * This method is used to check transactions page
+    */
+   public boolean checkTransactionspage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),trasncationslnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),trasncationslnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),trasncationslbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),trasncationslbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
+   
+   /**
+    * This method is used to checkinvoices page
+    */
+   public boolean checkinvoicespage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),Paymentslnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),Paymentslnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),invoiceslnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),invoiceslnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),invoiceslbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),invoiceslbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
+   
+   /**
+    * This method is used to checkcertifiedlnkpage
+    */
+   public boolean checkcertifiedlnkpage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),certifiedlnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),certifiedlnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),certifiedlbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),certifiedlbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
+   
+   /**
+    * This method is used to checkDOTManagementpage
+    */
+   public boolean checkDOTManagementpage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),DOTManagementlnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),DOTManagementlnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),DOTManagementlbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),DOTManagementlbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
+   
+   /**
+    * This method is used to check   fleetManagerpage
+    */
+   public boolean checkfleetManagerpage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),FleetManagerlnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),FleetManagerlnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),FleetManagerlbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),FleetManagerlbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
   
+   /**
+    * This method is used to checkContractorpage
+    */
+   public boolean checkContractorpage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),contractorlnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),contractorlnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),contractorlbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),contractorlbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
+   
+   /**
+    * This method is used to checkreportingpage
+    */
+   public boolean checkreportingpage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),contractorlnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),contractorlnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),contractorlbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),contractorlbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  
+	   return true;
+   }
+   
+   
+   /**
+    * This method is used to checkwhatnewpage
+    */
+   public boolean checkwhatnewpage() {
+	   try {
+		    elementUtils.fluentWaitForElement(getDriver(),whatnewlnk).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),whatnewlnk).click();
+		    Thread.sleep(500);
+		    elementUtils.fluentWaitForElement(getDriver(),whatnewlbl).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(),whatnewlbl).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  
+	   return true;
+   }
+
    /**
     * This method is used to click NewOrder button
     */
