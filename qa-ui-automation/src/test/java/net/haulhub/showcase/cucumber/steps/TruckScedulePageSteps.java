@@ -25,12 +25,21 @@ public class TruckScedulePageSteps {
     @And("I enter FleetPriority (.*) and Fleet(.*) and click sendinvites button")
     public void fill_Fleetdetails(String fleetpriority,String fleet) throws Exception{
         assertTrue(serenitytruckscedulesteps.fill_fleetdetails(fleetpriority,fleet));
-        
-	}
+    }
     
     @When("I see a message notification sent to Driver for acceptance")
     public void sms_confirmation() throws Exception{
    	assertTrue(serenitytruckscedulesteps.SMSConfirmation());
+	}
+    
+    @When("I click within truck scedule page the New order button")
+    public void new_order_truckscedule() throws Exception{
+   	assertTrue(serenitytruckscedulesteps.new_order_truckscedule());
+	}
+    
+    @When("I see the New Material order modal windown opened")
+    public void new_materialorder_window() throws Exception{
+   	assertTrue(serenitytruckscedulesteps.new_materialorder_window());
 	}
     
     @When("I click Truck report in truck scedule page")

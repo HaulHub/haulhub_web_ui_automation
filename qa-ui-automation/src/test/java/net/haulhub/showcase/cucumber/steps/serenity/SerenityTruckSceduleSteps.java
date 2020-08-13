@@ -29,6 +29,16 @@ public class SerenityTruckSceduleSteps extends ScenarioSteps {
     }
     
     @Step
+	public boolean new_order_truckscedule() throws Exception  {
+		return truckscedulepage.new_order_truckscedule();
+    }
+    
+    @Step
+	public boolean new_materialorder_window() throws Exception  {
+		return truckscedulepage.new_materialorder_window();
+    }
+    
+    @Step
    	public boolean clicktruckreport() throws Exception  {
    		return truckscedulepage.clicktruckreportbtn();
        }

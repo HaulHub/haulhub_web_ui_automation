@@ -24,4 +24,9 @@ public class LoginPageSteps {
 	public void Login_to_the_application(String userName, String password) throws Exception {
 		serenityLoginSteps.Userlogin(userName, password);
 	}
+	
+	@Given("admin Login to the application with valid (.*) and (.*)")
+	public void admin_login(String userName, String password) throws Exception {
+		serenityLoginSteps.adminlogin(userName, password);
+	}
 }

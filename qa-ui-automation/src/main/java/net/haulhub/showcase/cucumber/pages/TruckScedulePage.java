@@ -41,6 +41,15 @@ public class TruckScedulePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[.='Yes, Send Invites']")
 	public WebElementFacade Sendinvitesconfirmationbtn;
 	
+	@FindBy(how = How.XPATH, using = "//button[.='New Order ']")
+	public WebElementFacade neworder_truckbtn;
+	
+	@FindBy(how = How.XPATH, using = "//h3[.='Book New Material Order']")
+	public WebElementFacade neworder_materialwindow;
+	
+	@FindBy(how = How.XPATH, using = "//button[@class='fob-btn fob-btn--large fob-btn--cancel']")
+	public WebElementFacade ordercancelbtn;
+
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Fleets and drivers have been notified')]")
 	public WebElementFacade DriverMessagereceivedlbl;
 	
@@ -157,6 +166,51 @@ public class TruckScedulePage extends PageObject {
 		    	}
 				return false;
 	   }
+		
+		/*
+		  * This method is validate the new order button click within 
+	   */
+		public boolean new_order_truckscedule() {
+			try {
+				//a[.='Truck Schedule']
+				elementUtils.fluentWaitForElement(getDriver(),TruckScedulelbl).waitUntilPresent();
+				Actions action2 = new Actions(getDriver());
+		        action2.moveToElement(TruckScedulelbl).click().build().perform();
+				Thread.sleep(1000);
+				elementUtils.fluentWaitForElement(getDriver(),neworder_truckbtn).waitUntilPresent();
+				Actions action1 = new Actions(getDriver());
+		        action1.moveToElement(neworder_truckbtn).click().build().perform();
+				Thread.sleep(500);
+		          return true;
+		        } catch (NoSuchElementException e) {
+				   e.printStackTrace();
+		    	} catch (Exception e) {
+					e.printStackTrace();
+		    	}
+				return false;
+	   }
+		
+		
+		/*
+		  * This method is validate the new order button click within shows the new modal window
+	   */
+		public boolean new_materialorder_window() {
+			try {
+				Thread.sleep(500);
+				elementUtils.fluentWaitForElement(getDriver(),neworder_materialwindow).isDisplayed();
+				Thread.sleep(1000);
+				elementUtils.fluentWaitForElement(getDriver(),ordercancelbtn).isDisplayed();
+				Thread.sleep(1000);
+		          return true;
+		        } catch (NoSuchElementException e) {
+				   e.printStackTrace();
+		    	} catch (Exception e) {
+					e.printStackTrace();
+		    	}
+				return false;
+	   }
+		
+		
 
 		/*
 		  * This method is to select a receipient if the receipient already exists else create a new receipeint email id and sends a report
@@ -239,6 +293,7 @@ public class TruckScedulePage extends PageObject {
 	   */
 		public boolean clicktruckreportbtn() {
 			try {
+				Thread.sleep(1000);
 				elementUtils.fluentWaitForElement(getDriver(),truckreportbt).isDisplayed();
 				elementUtils.fluentWaitForElement(getDriver(),truckreportbt).click();
 				Thread.sleep(500);

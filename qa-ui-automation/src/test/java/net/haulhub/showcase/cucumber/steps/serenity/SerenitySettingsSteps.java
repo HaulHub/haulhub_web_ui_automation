@@ -40,6 +40,7 @@ public SettingsPage settingspage;
 		return settingspage.edit_equipment();
 	 }
     
+ 
     @Step
 	public boolean  edit_material() throws Exception  {
 		return settingspage.edit_material();
@@ -54,7 +55,10 @@ public SettingsPage settingspage;
 	public boolean  delete_updated_material() throws Exception  {
 		return settingspage.delete_updated_material();
 	 }
-   
+    @Step
+   	public boolean  launchtruckmatchinglnk() throws Exception  {
+   		return settingspage.launch_truckmatching();
+   	 }
  }
 
 

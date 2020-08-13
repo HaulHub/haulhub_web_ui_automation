@@ -33,7 +33,7 @@ public class LoginPage extends PageObject {
 
 
 	/***
-	 * This method is used to login into Haulhub applications
+	 * This method is used to login into Haulhub applications as customer
 	 * 
 	 * @param userName
 	 * @param passWord
@@ -60,6 +60,7 @@ public class LoginPage extends PageObject {
 		}
 		return null  ;
 	}
+	
   }
 	
 	

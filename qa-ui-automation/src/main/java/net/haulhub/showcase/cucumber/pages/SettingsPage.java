@@ -34,6 +34,12 @@ public class SettingsPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//a[.='Material List']")
 	public WebElementFacade materialListlnk;
 	
+	@FindBy(how = How.XPATH, using = "//a[.='Truck Matching']")
+	public WebElementFacade truckmatchinglnk;
+	
+	@FindBy(how = How.XPATH, using = "//div[@class='description']")
+	public WebElementFacade truckmatchinglbl;
+
 	@FindBy(how = How.XPATH, using = "//span[@class='fa fa-plus']")
 	public WebElementFacade equipmentaddbtn;
 	
@@ -223,6 +229,31 @@ public class SettingsPage extends PageObject {
 					}
 					return false;
 				 }
+				   
+	 	   /***
+					 * This method is used to launchtruck_Matching
+					 */
+					   public boolean  launch_truckmatching() {
+					    try {
+					    	Thread.sleep(500);
+					    	elementUtils.fluentWaitForElement(getDriver(), settingslnk).waitUntilVisible();
+					    	Actions action1 = new Actions(getDriver());
+					    	action1.moveToElement(this.settingslnk).click().build().perform();
+					    	Thread.sleep(500);
+					    	Actions action = new Actions(getDriver());
+						    elementUtils.fluentWaitForElement(getDriver(), truckmatchinglnk).waitUntilVisible();
+						    action.moveToElement(this.truckmatchinglnk).click().build().perform();
+						    Thread.sleep(1000);
+						    elementUtils.fluentWaitForElement(getDriver(), truckmatchinglbl).waitUntilVisible();
+						    elementUtils.fluentWaitForElement(getDriver(), truckmatchinglbl).isDisplayed();
+					    	return true;
+						 } catch (NoSuchElementException e) {
+						   e.printStackTrace();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						return false;
+					 }
 		
 	   /***
 		 * This method is used to add an material to the material list and validate the material is appearing successfully

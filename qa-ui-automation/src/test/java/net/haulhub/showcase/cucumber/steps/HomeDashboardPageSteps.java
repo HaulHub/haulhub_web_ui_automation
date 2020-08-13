@@ -39,6 +39,7 @@ public class HomeDashboardPageSteps {
    	assertTrue(serenityHomeDashboardSteps.clickHideCancelledchkbox());
 	}
     
+    
     @Given("I see Order Report button in Dashboard page")
     public void see_Order_Report_button() throws Exception{
    	assertTrue(serenityHomeDashboardSteps.checkclickorderreportbtn());
@@ -176,7 +177,5 @@ public class HomeDashboardPageSteps {
    public void cancelorder_finalcleanup() throws Exception{
 	   assertTrue(serenityHomeDashboardSteps.viewCreatedOrderDetails());
 	   assertTrue(serenityHomeDashboardSteps.clickCancelOrderbtn());
-	} 
-
-   
+	}    
   }

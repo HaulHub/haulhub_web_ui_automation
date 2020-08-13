@@ -325,8 +325,9 @@ public class OrderPage extends PageObject {
 				public boolean selectmyplantclickreportview() {
 				 try {
 					  String Myplant = "VigneshPlant";
-					  Thread.sleep(500);
-					  WebElement Plantnameslectionchkbok = getDriver().findElement(By.xpath("//label[text()='" + Myplant + "']//parent::div//input"));
+					  Thread.sleep(1000);
+					//  WebElement Plantnameslectionchkbok = getDriver().findElement(By.xpath("//label[text()='" + Myplant + "']//parent::div//input"));
+					  WebElement Plantnameslectionchkbok = getDriver().findElement(By.xpath("//label[text()='VigneshPlant ']//parent::div//input"));
 					  Actions actionbtn = new Actions(getDriver());
 					  actionbtn .moveToElement(Plantnameslectionchkbok).click().build().perform();
 					  Thread.sleep(1000);

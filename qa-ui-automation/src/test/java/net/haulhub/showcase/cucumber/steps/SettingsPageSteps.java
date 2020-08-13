@@ -18,8 +18,6 @@ public class SettingsPageSteps {
 	@Steps
 	SerenitySettingsSteps serenitysettingsSteps;
 	
-
-	
 	@Given("I Go to Equipments lists page")
 	public void go_to_equipements_list_page() throws Exception {
 		assertTrue(serenitysettingsSteps.gotoequipmentlistpage());
@@ -45,6 +43,11 @@ public class SettingsPageSteps {
 		assertTrue(serenitysettingsSteps.edit_equipment());
 	}
 	
+	 @Given("I launch the Truckmatching screen and validate it opens correctly")
+	    public void launch_truckmatching_screen() throws Exception{
+	   	assertTrue(serenitysettingsSteps.launchtruckmatchinglnk());
+		}
+	
 	@Given("I Edit update the created material and confirms material is reflected with updatedname")
 	public void edit_material() throws Exception {
 		assertTrue(serenitysettingsSteps.edit_material());
@@ -59,5 +62,8 @@ public class SettingsPageSteps {
 	public void delete_updated_material() throws Exception {
 		assertTrue(serenitysettingsSteps.delete_updated_material());
 	}
+	
+	
+
 	
 }
