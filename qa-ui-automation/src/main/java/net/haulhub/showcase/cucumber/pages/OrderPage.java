@@ -41,9 +41,6 @@ public class OrderPage extends PageObject {
 	@FindBy(how = How.XPATH, using ="//div[@class='Select-input']//input[@id='customer_id']")
 	public WebElementFacade Customerid;
 	
-	//@FindBy(how = How.CSS, using ="#customer_id")
-	//public WebElementFacade Customerid;
-	
 	@FindBy(how = How.XPATH, using = "//div[@class='Select-input']//input[@id='from_job_site_id']")
 	public WebElementFacade StartingLocationid;
 	
@@ -246,10 +243,10 @@ public class OrderPage extends PageObject {
 	      */
 		public boolean selectworktype(String worktype) {
 				    try {
-				          Thread.sleep(1000);
+				          Thread.sleep(700);
 		                  Actions action1 = new Actions(getDriver());
 					      action1.moveToElement(this.WorktypeDropinput).click().build().perform();
-					      Thread.sleep(500);
+					      Thread.sleep(1000);
 					      elementUtils.fluentWaitForElement(getDriver(),WorktypeDropinput).typeAndEnter(worktype);
 						return true;
 					 } catch (NoSuchElementException e) {
@@ -327,7 +324,7 @@ public class OrderPage extends PageObject {
 					  String Myplant = "VigneshPlant";
 					  Thread.sleep(1000);
 					//  WebElement Plantnameslectionchkbok = getDriver().findElement(By.xpath("//label[text()='" + Myplant + "']//parent::div//input"));
-					  WebElement Plantnameslectionchkbok = getDriver().findElement(By.xpath("//label[text()='VigneshPlant ']//parent::div//input"));
+					  WebElement Plantnameslectionchkbok = getDriver().findElement(By.xpath("//label[text()='VigneshPlant']//parent::div//input"));
 					  Actions actionbtn = new Actions(getDriver());
 					  actionbtn .moveToElement(Plantnameslectionchkbok).click().build().perform();
 					  Thread.sleep(1000);
