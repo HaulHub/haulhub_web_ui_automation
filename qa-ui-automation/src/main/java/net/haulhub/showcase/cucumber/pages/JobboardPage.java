@@ -38,6 +38,12 @@ public class JobboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//span[.='Order Dashboard']")
 	public WebElementFacade orderLnk;
 	
+	@FindBy(how = How.XPATH, using = "//a[.='Per Ton Trip Cost']")
+	public WebElementFacade TripCostModal;
+	
+	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times-circle']")
+	public WebElementFacade CloseTripCostModal;
+	
 	/**
      * This method is used to click Tripcost modal link and validate it opens correctly
      */
@@ -50,6 +56,10 @@ public class JobboardPage extends PageObject {
 			   Thread.sleep(500);
 			   elementUtils.fluentWaitForElement(getDriver(), tripcosticon).click();
 			   Thread.sleep(500);
+			   elementUtils.fluentWaitForElement(getDriver(), TripCostModal).isDisplayed();
+			   Thread.sleep(500);
+			   elementUtils.fluentWaitForElement(getDriver(), CloseTripCostModal).isDisplayed();
+			   Thread.sleep(500);	   
 			return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
