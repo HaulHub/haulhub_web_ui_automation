@@ -55,17 +55,29 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//a[.='xrSiyqkp8VVAy7xesEXMGQL1']")
 	public WebElementFacade associatetokenlnk;
 	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Brokers')]")
+	public WebElementFacade brokerlnk;
+	
+	@FindBy(how = How.XPATH, using = "//ul[@class='nav nav-pills nav-stacked']//a[contains(text(),'Drivers')]")
+	public WebElementFacade driverslnk;
+	
+	@FindBy(how = How.XPATH, using = "//td[contains(text(),'brokerdriver1 brokerdriver1')]")
+	public WebElementFacade firstbrokernametxt;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Login as this user')]")
+	public WebElementFacade firstbrokerlogintoken;
+	
 	
 	/**
-     * This method is used to click Order dashboard link
+     * This method is used to search for firstcustomername
      */
-	public boolean searchcustomer(String Customername) {
+	public boolean searchcustomer(String firstcustomername) {
 	try {
 		    elementUtils.fluentWaitForElement(getDriver(), customerlnk).waitUntilClickable();
 			elementUtils.safeJavaScriptClick(customerlnk);
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
-			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(Customername);
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstcustomername);
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), activestatus).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), activestatus).click();
@@ -87,6 +99,41 @@ public class HomeAdminDashboardPage extends PageObject {
 		}
 		return false;
 	}
+	
+	/**
+     * This method is used to search for firstbrokername
+     */
+	public boolean searchfirstbrokername(String firstbrokername) {
+	try {
+		    elementUtils.fluentWaitForElement(getDriver(), brokerlnk).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(brokerlnk);
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstbrokername.trim());
+			Thread.sleep(800);
+			elementUtils.fluentWaitForElement(getDriver(), activestatus).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), activestatus).click();
+			Thread.sleep(1000);
+			elementUtils.fluentWaitForElement(getDriver(), driverslnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), driverslnk).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokernametxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokernametxt).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokerlogintoken).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokerlogintoken).click();
+			Thread.sleep(500);
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
+	
 	
  
 }

@@ -22,8 +22,13 @@ public class HomeAdminDashboardPageSteps {
     @Given("I search for customer(.*) and login to the customers portal")
      public void search_customer(String Customername) throws Exception {
      assertTrue(serenityadminHomeDashboardSteps.searchcustomer(Customername));
-     
-	}
+     }
+    
+    @Given("I search for firstbroker(.*) and login to the firstbroker portal")
+    public void search_firstbroker(String firstbrokername) throws Exception {
+    assertTrue(serenityadminHomeDashboardSteps.searchfirstbroker(firstbrokername));
+    }
+
 
 
     

@@ -24,6 +24,11 @@ public class SerenityTruckSceduleSteps extends ScenarioSteps {
     }
     
     @Step
+	public boolean fill_customerbroke1fleetdetails(String firstbroker) throws Exception  {
+		return truckscedulepage.Fillcustomerbroke1fleetdetails(firstbroker);
+    }
+    
+    @Step
 	public boolean SMSConfirmation() throws Exception  {
 		return truckscedulepage.SMSConfirmation();
     }

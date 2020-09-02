@@ -27,6 +27,12 @@ public class TruckScedulePageSteps {
         assertTrue(serenitytruckscedulesteps.fill_fleetdetails(fleetpriority,fleet));
     }
     
+
+    @And("I enter all 6 Fleet details as customer with 5 fleets to firstbroker(.*) and click sendinvites button")
+    public void fill_Fleetdetailsascustomer(String firstbroker) throws Exception{
+        assertTrue(serenitytruckscedulesteps.fill_customerbroke1fleetdetails(firstbroker));
+    }
+    
     @When("I see a message notification sent to Driver for acceptance")
     public void sms_confirmation() throws Exception{
    	assertTrue(serenitytruckscedulesteps.SMSConfirmation());

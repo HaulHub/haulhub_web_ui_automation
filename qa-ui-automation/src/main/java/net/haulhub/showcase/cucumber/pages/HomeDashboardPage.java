@@ -76,7 +76,7 @@ public class HomeDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//h1[.='Timesheets']")
 	public WebElementFacade  timesheetlbl;
 	
-	@FindBy(how = How.XPATH, using = "//a[.='Tickets']")
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Tickets')]")
 	public WebElementFacade  ticketstlnk;
 	
 	@FindBy(how = How.XPATH, using = "//div[.=' Tickets ']")

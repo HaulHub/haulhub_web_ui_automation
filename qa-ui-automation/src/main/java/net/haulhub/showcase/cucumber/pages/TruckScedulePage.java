@@ -9,10 +9,12 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -139,6 +141,46 @@ public class TruckScedulePage extends PageObject {
 		          WebElement SendinviteBtn= getDriver().findElement(By.xpath("//div[text()='" + ordernumber + "']//parent::div//following::button[@class='fob-btn fob-btn--success send-invites-btn'][1]"));
 				  Actions actionbtn = new Actions(getDriver());
 				  actionbtn .moveToElement(SendinviteBtn).click().build().perform();
+		          return true;
+		        } catch (NoSuchElementException e) {
+				   e.printStackTrace();
+		    	} catch (Exception e) {
+					e.printStackTrace();
+		    	}
+				return false;
+	   }
+			
+		/*
+		  * This method lets the customer assign the shifts to 1 to general pool and 5 to Broker 
+	   */
+		public boolean Fillcustomerbroke1fleetdetails(String firstbroker) {
+			try {
+				  Thread.sleep(500);
+				  String ordernumber = LearningPlatformConstants.ordernumber.get().toString();
+				  ordernumber = ordernumber.substring(1);
+				  System.out.println("updated ordernumber is" + ordernumber); 
+				  String shiftdetailnumber = "shift-details-area-" + ordernumber ;
+				  System.out.println("updated shift detail number is" + shiftdetailnumber);
+				  List<WebElement> listofItems= getDriver().findElements(By.xpath("//div[@id='" + ordernumber + "']//div[@class='left-pane']//div[@data-selector='" + shiftdetailnumber + "']//div[@class='shift-fleet']//div[@class='shift-fleet-select__input']//input"));
+				  for (int i=1; i<=listofItems.size()-1; i++)
+				  {
+					  Actions action = new Actions(getDriver());
+					  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                      action.moveToElement(listofItems.get(i)).click().build().perform();
+                      Thread.sleep(500);
+                      System.out.println("the item number is" + listofItems.get(i)); 
+                      elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys(firstbroker);
+                      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                      elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys(Keys.ENTER);
+                      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				     
+				  }
+				 getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				 String sendinviteordernumber = LearningPlatformConstants.ordernumber.get().toString();
+		         WebElement SendinviteBtn= getDriver().findElement(By.xpath("//div[text()='" + sendinviteordernumber + "']//parent::div//following::button[@class='fob-btn fob-btn--success send-invites-btn'][1]"));
+				 Actions actionbtn = new Actions(getDriver());
+				 actionbtn .moveToElement(SendinviteBtn).click().build().perform();
+				 getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		          return true;
 		        } catch (NoSuchElementException e) {
 				   e.printStackTrace();
