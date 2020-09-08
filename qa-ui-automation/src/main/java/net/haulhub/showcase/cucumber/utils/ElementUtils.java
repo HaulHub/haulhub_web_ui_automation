@@ -142,7 +142,7 @@ public class ElementUtils extends PageObject {
     	WebElementFacade foundElement = null;
         try {       
                 Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
-                        .withTimeout(45, TimeUnit.SECONDS)
+                        .withTimeout(10, TimeUnit.SECONDS)
                         .pollingEvery(1 , TimeUnit.SECONDS)
                         .ignoring(NoSuchElementException.class,StaleElementReferenceException.class);      		
                 foundElement = (WebElementFacade) fluentWait.until(visibilityOfElementLocated(element));

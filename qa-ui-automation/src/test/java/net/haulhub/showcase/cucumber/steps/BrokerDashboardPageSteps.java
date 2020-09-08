@@ -33,7 +33,7 @@ public class BrokerDashboardPageSteps {
     assertTrue(serenitybrokerDashboardSteps.firstbroker_assignstodifferent_entities());
 	}
     
-   
+    @Given("as first broker I view the declined and generalpool shift appearing under the MarketPlace section of MarketPlace Jobs Header")
     public void declinedshift_appearing_undermarketplace() throws Exception {
     assertTrue(serenitybrokerDashboardSteps.declinedshift_appearing_undermarketplace());
 	}

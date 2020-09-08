@@ -19,10 +19,9 @@ Feature: Brokerworkflow1.feature
         
     Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet      |firstBroker|
-      | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              6 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
+      | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billeqvwgvgvvb1hbht36e3ttttttrica, MA, USA |       1 |              1 | Construction | Paver            |              6 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
 
-      
-     @BROKERWORKFLOW1
+   @BROKERWORKFLOW1
     Scenario Outline: Validate ability to login as First Broker and see the assigned shifts under needs review section under Customer Jobs section
        Given admin Login to the application with valid <userName> and <password>
        And I search for firstbroker <firstBroker> and login to the firstbroker portal
@@ -49,4 +48,11 @@ Feature: Brokerworkflow1.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
      
-      
+      @BROKERWORKFLOW1
+    Scenario Outline: First Broker could view the declined and generalpool shift appearing under the MarketPlace section of MarketPlace Jobs Header
+       And as first broker I view the declined and generalpool shift appearing under the MarketPlace section of MarketPlace Jobs Header
+       
+    Examples: 
+      | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
+      | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
+     

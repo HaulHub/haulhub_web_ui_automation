@@ -67,7 +67,6 @@ public class BrokerDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[.='Marketplace Jobs']//parent::div//h6[contains(text(),'vigneshcompany')]")
 	public WebElementFacade firstbrokerdeclinedshiftinmarketplace;
 	
-	
 	/**
      * This method is used to click firstBroker dashboard link
      */
@@ -127,7 +126,7 @@ public class BrokerDashboardPage extends PageObject {
               if (i==0) {
             	  System.out.println("value of i is" + i); 
                   Select select = new Select(listofItems.get(i));
-                  select.selectByVisibleText("VIGN 1234 (Triaxle)");
+                  select.selectByVisibleText("VIGN 1 (Triaxle)");
                   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
               }
               else if (i==1 || i==2 || i==3){
@@ -149,9 +148,13 @@ public class BrokerDashboardPage extends PageObject {
               }
     	  }
 	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  firstbrokerdriverselectiondropdown.click();
-		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  firstbrokerdriverselectionvalue.click();
+		  //firstbrokerdriverselectiondropdown.click();
+		  Actions action = new Actions(getDriver());
+          action.moveToElement(firstbrokerdriverselectiondropdown).click().build().perform();
+          getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+          elementUtils.fluentWaitForElement(getDriver(),firstbrokerdriverselectiondropdown).typeAndEnter("brokerdriver1 brokerdriver1");
+		//  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 // firstbrokerdriverselectionvalue.click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  firstbrokersendinvitebtn.click();
 		   return true;
@@ -168,7 +171,7 @@ public class BrokerDashboardPage extends PageObject {
      */
 	public boolean declinedshift_appearing_undermarketplace() {
 	try {
-	    	getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    	getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), firstbrokerdeclinedshiftinmarketplace).isDisplayed();
 			return true;
 		} catch (NoSuchElementException e) {
