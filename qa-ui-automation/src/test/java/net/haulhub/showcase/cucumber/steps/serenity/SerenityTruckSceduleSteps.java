@@ -29,6 +29,11 @@ public class SerenityTruckSceduleSteps extends ScenarioSteps {
     }
     
     @Step
+	public boolean  validatedeclinedshift() throws Exception  {
+		return truckscedulepage.validatedeclinedshift();
+    }
+
+    @Step
 	public boolean SMSConfirmation() throws Exception  {
 		return truckscedulepage.SMSConfirmation();
     }

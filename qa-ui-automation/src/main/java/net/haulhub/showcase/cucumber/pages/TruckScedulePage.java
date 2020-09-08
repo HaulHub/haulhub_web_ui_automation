@@ -22,6 +22,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 public class TruckScedulePage extends PageObject {
 
@@ -182,6 +183,31 @@ public class TruckScedulePage extends PageObject {
 				 actionbtn .moveToElement(SendinviteBtn).click().build().perform();
 				 getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		          return true;
+		        } catch (NoSuchElementException e) {
+				   e.printStackTrace();
+		    	} catch (Exception e) {
+					e.printStackTrace();
+		    	}
+				return false;
+	   }
+		
+		/*
+		  * This method allows to validate the declined shift set to general pool 
+	   */
+		public boolean validatedeclinedshift() {
+			try {
+				  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				  String ordernumber = LearningPlatformConstants.ordernumber.get().toString();
+				  ordernumber = ordernumber.substring(1);
+				  System.out.println("updated ordernumber is" + ordernumber); 
+				  String shiftdetailnumber = "shift-details-area-" + ordernumber ;
+				  System.out.println("updated shift detail number is" + shiftdetailnumber);
+		          WebElement shiftname = getDriver().findElement(By.xpath("//div[@id='" + ordernumber + "']//div[@class='left-pane']//div[@data-selector='" + shiftdetailnumber + "']//div[@class='shift-fleet']//div[contains(text(),'General Pool')]"));
+		          getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		          if (shiftname.isDisplayed())
+		        	  System.out.println("the shift name is" + shiftname.getText().toString());
+				    return true;
+                 
 		        } catch (NoSuchElementException e) {
 				   e.printStackTrace();
 		    	} catch (Exception e) {

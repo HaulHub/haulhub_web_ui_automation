@@ -33,6 +33,11 @@ public class TruckScedulePageSteps {
         assertTrue(serenitytruckscedulesteps.fill_customerbroke1fleetdetails(firstbroker));
     }
     
+    @And("I validate the validate the shift declined by firstbroker is now set back to general pool")
+    public void validate_declined_shift() throws Exception{
+        assertTrue(serenitytruckscedulesteps.validatedeclinedshift());
+    }
+
     @When("I see a message notification sent to Driver for acceptance")
     public void sms_confirmation() throws Exception{
    	assertTrue(serenitytruckscedulesteps.SMSConfirmation());

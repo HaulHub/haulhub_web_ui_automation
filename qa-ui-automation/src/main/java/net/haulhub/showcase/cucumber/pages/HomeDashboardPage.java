@@ -192,6 +192,11 @@ public class HomeDashboardPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[.='Save']")
 	public WebElementFacade  jobsitesavebtn;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Truck Schedule']")
+	public WebElementFacade  truckscedulelnk;
+	
+	
 
 	/**
      * This method is used to click Order dashboard link
@@ -209,6 +214,23 @@ public class HomeDashboardPage extends PageObject {
 		return false;
 	}
 	
+	
+	/**
+     * This method is used to click truckscedule page
+     */
+	public boolean clickTruckScedulepage() {
+	try {
+		    elementUtils.fluentWaitForElement(getDriver(), truckscedulelnk).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(truckscedulelnk);
+			return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	
 	/**
      * This method is used to click FOB Materiallogo

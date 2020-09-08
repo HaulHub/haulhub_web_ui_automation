@@ -148,13 +148,10 @@ public class BrokerDashboardPage extends PageObject {
               }
     	  }
 	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  //firstbrokerdriverselectiondropdown.click();
 		  Actions action = new Actions(getDriver());
           action.moveToElement(firstbrokerdriverselectiondropdown).click().build().perform();
           getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
           elementUtils.fluentWaitForElement(getDriver(),firstbrokerdriverselectiondropdown).typeAndEnter("brokerdriver1 brokerdriver1");
-		//  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 // firstbrokerdriverselectionvalue.click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  firstbrokersendinvitebtn.click();
 		   return true;

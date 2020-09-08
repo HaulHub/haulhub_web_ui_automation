@@ -56,3 +56,14 @@ Feature: Brokerworkflow1.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
      
+      @BROKERWORKFLOW1
+    Scenario Outline: Login to Customer portal and validate the shift declined by firstbroker is now set back to general pool
+        Given Login to the application with valid <userName> and <password>
+        And I click the OrderDashboard link in FOB home page 
+        And I click the Truck Scedule page
+        And I validate the validate the shift declined by firstbroker is now set back to general pool
+       
+    Examples: 
+      | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
+      | 8572688987 | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
+     

@@ -23,7 +23,12 @@ public class HomeDashboardPageSteps {
      public void click_orderdashboard_link() throws Exception {
      assertTrue(serenityHomeDashboardSteps.clickOrderDashboardlink());
 	}
-    
+
+    @Given("I click the Truck Scedule page")
+    public void click_truckscedule_page() throws Exception {
+    assertTrue(serenityHomeDashboardSteps.clickTruckScedulepage());
+	}
+
     @Given("I click the FOB Materials logo")
     public void click_FOB_Material_logo() throws Exception {
     assertTrue(serenityHomeDashboardSteps.clickFOBMateriallogo());

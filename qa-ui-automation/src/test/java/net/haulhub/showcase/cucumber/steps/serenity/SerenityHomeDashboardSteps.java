@@ -21,6 +21,11 @@ public class SerenityHomeDashboardSteps extends ScenarioSteps {
 	 }
     
     @Step
+	public boolean clickTruckScedulepage() throws Exception {
+		return homedashboardpage.clickTruckScedulepage();
+	 }
+
+    @Step
    	public boolean clickFOBMateriallogo() throws Exception {
    		return homedashboardpage.clickFOBMateriallogo();
    	 }
