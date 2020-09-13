@@ -46,11 +46,14 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//td[.='Active']")
 	public WebElementFacade activestatus;
 	
-	@FindBy(how = How.XPATH, using = "//a[@href='/admin/customers/33/associates']")
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Associates')]")
 	public WebElementFacade associatedlnk;
 	
 	@FindBy(how = How.XPATH, using = "//td[.='Alisa Deychman']")
 	public WebElementFacade associatename;
+	
+	@FindBy(how = How.XPATH, using = "//td[.='Vignesh Nehru']")
+	public WebElementFacade fleetnamenametxt;
 	
 	@FindBy(how = How.XPATH, using = "//a[.='xrSiyqkp8VVAy7xesEXMGQL1']")
 	public WebElementFacade associatetokenlnk;
@@ -64,9 +67,18 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//td[contains(text(),'brokerdriver1 brokerdriver1')]")
 	public WebElementFacade firstbrokernametxt;
 	
+	@FindBy(how = How.XPATH, using = "//td[contains(text(),'brokerdriver2 brokerdriver2')]")
+	public WebElementFacade secondbrokernametxt;
+	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Login as this user')]")
 	public WebElementFacade firstbrokerlogintoken;
 	
+	@FindBy(how = How.XPATH, using = "//a[@class='dropdown-toggle'][contains(text(),'Fleets')]")
+	public WebElementFacade fleetslnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'All Fleets')]")
+	public WebElementFacade fleetssublink;
+
 	
 	/**
      * This method is used to search for firstcustomername
@@ -119,6 +131,74 @@ public class HomeAdminDashboardPage extends PageObject {
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), firstbrokernametxt).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), firstbrokernametxt).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokerlogintoken).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokerlogintoken).click();
+			Thread.sleep(500);
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
+	/**
+     * This method is used to search for search fleetname
+     */
+	public boolean searchfleetname(String fleetname) {
+	try {
+		    elementUtils.fluentWaitForElement(getDriver(), fleetslnk).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(fleetslnk);
+			Thread.sleep(800);
+			elementUtils.fluentWaitForElement(getDriver(), fleetssublink).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(fleetssublink);
+			Thread.sleep(500);
+            elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(fleetname.trim());
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), activestatus).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), activestatus).click();
+			Thread.sleep(1000);
+			elementUtils.fluentWaitForElement(getDriver(), driverslnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), driverslnk).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), fleetnamenametxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), fleetnamenametxt).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokerlogintoken).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokerlogintoken).click();
+			Thread.sleep(500);
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	/**
+     * This method is used to search for secondrokername
+     */
+	public boolean searchsecondbrokername(String secondbrokername) {
+	try {
+		    elementUtils.fluentWaitForElement(getDriver(), brokerlnk).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(brokerlnk);
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(secondbrokername.trim());
+			Thread.sleep(800);
+			elementUtils.fluentWaitForElement(getDriver(), activestatus).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), activestatus).click();
+			Thread.sleep(1000);
+			elementUtils.fluentWaitForElement(getDriver(), driverslnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), driverslnk).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), secondbrokernametxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), secondbrokernametxt).click();
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), firstbrokerlogintoken).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), firstbrokerlogintoken).click();

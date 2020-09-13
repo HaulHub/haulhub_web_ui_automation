@@ -28,6 +28,17 @@ public class HomeAdminDashboardPageSteps {
     public void search_firstbroker(String firstbrokername) throws Exception {
     assertTrue(serenityadminHomeDashboardSteps.searchfirstbroker(firstbrokername));
     }
+    
+    @Given("I search for fleetname(.*) and login to the fleetcompany portal")
+    public void search_fleetname(String fleetname) throws Exception {
+    assertTrue(serenityadminHomeDashboardSteps.searchfleetname(fleetname));
+    }
+    
+    @Given("I search for secondbroker(.*) and login to the secondbroker portal")
+    public void search_secondbroker(String secondbrokername) throws Exception {
+    assertTrue(serenityadminHomeDashboardSteps.searchsecondbroker(secondbrokername));
+    }
+
 
 
 

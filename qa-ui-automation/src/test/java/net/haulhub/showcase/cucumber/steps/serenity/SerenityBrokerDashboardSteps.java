@@ -21,9 +21,20 @@ public class SerenityBrokerDashboardSteps extends ScenarioSteps {
 	 }
     
     @Step
+	public boolean firstbrokerdashboard_declinedsectionvalidation() throws Exception {
+		return brokerdashboardpage.firstbrokerdashboard_declinedsection();
+	 }
+    
+    @Step
 	public boolean selectallshifts_assigndrivers() throws Exception {
 		return brokerdashboardpage.selectallshifts_assigndrivers();
 	 }
+    
+    @Step
+	public boolean clickacceptlaterbutton() throws Exception {
+		return brokerdashboardpage.clickacceptlaterbutton();
+	 }
+ 
     
     @Step
 	public boolean firstbroker_assignstodifferent_entities() throws Exception {

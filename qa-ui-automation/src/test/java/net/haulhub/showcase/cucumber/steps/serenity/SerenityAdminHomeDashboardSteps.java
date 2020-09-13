@@ -25,9 +25,17 @@ public class SerenityAdminHomeDashboardSteps extends ScenarioSteps {
    	public boolean  searchfirstbroker(String firstbrokername) throws Exception {
    		return homeadmindashboardpage.searchfirstbrokername(firstbrokername);
    	 }
- 
     
+    @Step
+   	public boolean  searchfleetname(String fleetnamename) throws Exception {
+   		return homeadmindashboardpage.searchfleetname(fleetnamename);
+   	 }
    
+    @Step
+   	public boolean searchsecondbroker(String secondbrokername) throws Exception {
+   		return homeadmindashboardpage.searchsecondbrokername(secondbrokername);
+   	 }
     
-   
+
+      
 } 

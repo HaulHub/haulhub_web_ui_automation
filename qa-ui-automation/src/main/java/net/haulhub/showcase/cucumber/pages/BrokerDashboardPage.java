@@ -46,6 +46,9 @@ public class BrokerDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//h6[contains(text(),'Needs Review')]//parent::div//h6[contains(text(),'vigneshcompany')]")
 	public WebElementFacade firstbrokerintialview;
 	
+	@FindBy(how = How.XPATH, using = "//h6[contains(text(),'Not Sourced')]//parent::div//h6[contains(text(),'vigneshcompany')]")
+	public WebElementFacade firstbrokernotsourcedsectionview;
+	
 	@FindBy(how = How.XPATH, using = "//div[@class='checkbox select-all']//input")
 	public WebElementFacade firstbrokerselectallshiftschkbox;
 	
@@ -67,6 +70,9 @@ public class BrokerDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[.='Marketplace Jobs']//parent::div//h6[contains(text(),'vigneshcompany')]")
 	public WebElementFacade firstbrokerdeclinedshiftinmarketplace;
 	
+	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-secondary btn-lg']")
+	public WebElementFacade secondbrokeracceptlaterbtn;
+
 	/**
      * This method is used to click firstBroker dashboard link
      */
@@ -85,6 +91,25 @@ public class BrokerDashboardPage extends PageObject {
 		return false;
 	}
 	
+	
+	/**
+     * This method is used to click firstBroker dashboard link to check the shift declined by second broker
+     */
+	public boolean firstbrokerdashboard_declinedsection() {
+	try {
+		    elementUtils.fluentWaitForElement(getDriver(), brokerdashboardLnk).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(brokerdashboardLnk);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), firstbrokernotsourcedsectionview).isDisplayed();
+			return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	
 	/**
      * This method is used to select all shifts and assign drivers
@@ -106,9 +131,28 @@ public class BrokerDashboardPage extends PageObject {
 		}
 		return false;
 	}
+	
 
 	/**
-     * This method is used to assign shifts to different entities like internal truck, second broker and declines one shift.
+     * This method is used to clickAcceptLaterbutton
+     */
+	public boolean clickacceptlaterbutton() {
+	try {
+		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  elementUtils.fluentWaitForElement(getDriver(), secondbrokeracceptlaterbtn).click();
+		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+
+	/**
+     * This method is used to assign shifts to different entities like internal truck, second broker and declines one shift as firstbroker
      */
 	public boolean firstbroker_assignstodifferent_entities() {
 	try {
@@ -169,6 +213,8 @@ public class BrokerDashboardPage extends PageObject {
 	public boolean declinedshift_appearing_undermarketplace() {
 	try {
 	    	getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	    	getDriver().navigate().refresh();
+	    	getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), firstbrokerdeclinedshiftinmarketplace).isDisplayed();
 			return true;
 		} catch (NoSuchElementException e) {
