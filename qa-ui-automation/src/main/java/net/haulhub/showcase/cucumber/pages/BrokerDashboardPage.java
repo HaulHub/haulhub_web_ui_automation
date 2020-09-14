@@ -72,6 +72,10 @@ public class BrokerDashboardPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-secondary btn-lg']")
 	public WebElementFacade secondbrokeracceptlaterbtn;
+	
+
+	
+	
 
 	/**
      * This method is used to click firstBroker dashboard link
@@ -109,7 +113,7 @@ public class BrokerDashboardPage extends PageObject {
 		}
 		return false;
 	}
-
+	
 	
 	/**
      * This method is used to select all shifts and assign drivers

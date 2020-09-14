@@ -23,6 +23,10 @@ public class BrokerScedulerPageSteps {
     assertTrue(serenitybrokerScedulerSteps.click_sceduler_assignshifts());
 	}
     
+    @Given("I view the drivername (.*) appearing correctly within scedulerpage of second broker")
+    public void view_driver_name(String Drivername) throws Exception {
+    assertTrue(serenitybrokerScedulerSteps.view_driver_name(Drivername));
+	}
 
 
 }   

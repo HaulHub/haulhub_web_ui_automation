@@ -20,6 +20,12 @@ public class SerenityBrokerScedulerSteps extends ScenarioSteps {
 		return brokerscedulepage.click_sceduler_assignshifts();
 	 }
     
+    @Step
+   	public boolean  view_driver_name(String drivername) throws Exception {
+   		return brokerscedulepage.view_driver_name(drivername);
+   	 }
+
+    
    
 }
     

@@ -71,7 +71,6 @@ Feature: Brokerworkflow1.feature
        Given admin Login to the application with valid <userName> and <password>
        And I search for secondbroker <SecondBroker> and login to the secondbroker portal
        And I click the Dashboard link in Secondbroker home page and validate assigned shifts displays under review section of Customer Jobs section
-       
       
     Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |SecondBroker|
@@ -85,7 +84,6 @@ Feature: Brokerworkflow1.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
    
-     
      @BROKERWORKFLOW1
     Scenario Outline: Validate Second Broker can click Accept later button under jobs under the notsourced section
       And as second broker I click Accept later button under Customer jobs Section 
@@ -116,9 +114,20 @@ Feature: Brokerworkflow1.feature
     Scenario Outline: Validate as fleet i am able to see the shifts assigned by second broker to fleet in fleet drivers reserved jobs
        Given admin Login to the application with valid <userName> and <password>
        And I search for fleetname <fleetname> and login to the fleetcompany portal
-     
-       
+       And I as fleetcompany click the assigned shifts by Broker Second Broker and assign drivers
+    
     Examples: 
-      | userName   | password          |fleetname| 
-      | vignesh    | haul-Quality!0501 | Vigneshcompany  |      
+      | userName   | password          |fleetname        | fleetcompany |
+      | vignesh    | haul-Quality!0501 | Vigneshcompany  |              |
+      
+        @BROKERWORKFLOW1
+    Scenario Outline: Validate as Second Broker I am able to see the driver name against the shift assigned to Fleet company with in Sceduler page
+       Given admin Login to the application with valid <userName> and <password>
+       And I search for secondbroker <SecondBroker> and login to the secondbroker portal
+       And I view the drivername <drivername> appearing correctly within scedulerpage of second broker
+      
+    Examples: 
+      | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |SecondBroker  | drivername   |
+      | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany   |Vigneshbroker2| Vignesh Nehru |
+      
      

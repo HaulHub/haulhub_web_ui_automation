@@ -33,6 +33,8 @@ public class BrokerDashboardPageSteps {
     assertTrue(serenitybrokerDashboardSteps.clickbrokerDashboardlink());
 	}
 
+
+    
     @Given("as first broker I click the assigned shifts and select all the 5 shifts and Accept and assign drivers")
     public void selectallshifts_assigndrivers() throws Exception {
     assertTrue(serenitybrokerDashboardSteps.selectallshifts_assigndrivers());

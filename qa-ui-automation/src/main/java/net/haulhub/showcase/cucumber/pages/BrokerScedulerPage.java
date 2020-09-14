@@ -113,5 +113,31 @@ public class BrokerScedulerPage extends PageObject {
 		}
 		return false;
 	}
+	
+	/**
+     * This method is used to view the drivername within the broker dashboard
+     */
+	public boolean view_driver_name(String drivername) {
+	try {
+		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	       elementUtils.fluentWaitForElement(getDriver(),brokerJobmanagementlnk).click();
+	       elementUtils.fluentWaitForElement(getDriver(),brokerScedulerlnk).waitUntilClickable();
+	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	       elementUtils.fluentWaitForElement(getDriver(),brokerScedulerlnk).click();
+	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	       WebElement  drivernamelbl =  getDriver().findElement(By.xpath("//div[contains(text(),'" + drivername + "')]"));
+	        if (drivernamelbl.isDisplayed()){
+	        	return true;
+	        }
+	        else{
+	        	return false;
+	        }
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
  
 }
