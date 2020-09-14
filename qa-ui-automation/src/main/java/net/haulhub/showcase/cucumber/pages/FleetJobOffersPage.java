@@ -74,7 +74,7 @@ public class FleetJobOffersPage extends PageObject {
 			   elementUtils.fluentWaitForElement(getDriver(), FleeTruckname).click();
 			   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			   Select select1 = new Select(FleeTruckname);
-               select1.selectByVisibleText("VIGN 1234 (Triaxle)"); 
+               select1.selectByVisibleText("VIGN 1 (Triaxle)"); 
             elementUtils.fluentWaitForElement(getDriver(), fleetaccepttermsconditionsbtn).waitUntilClickable();
    		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
    			elementUtils.safeJavaScriptClick(fleetaccepttermsconditionsbtn);

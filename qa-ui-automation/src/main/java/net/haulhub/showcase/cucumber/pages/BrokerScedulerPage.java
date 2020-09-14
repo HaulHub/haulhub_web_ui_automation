@@ -74,7 +74,7 @@ public class BrokerScedulerPage extends PageObject {
                   action.moveToElement(listofItems.get(i)).click().build().perform();
                   System.out.println("the item number is" + listofItems.get(i));  
 			      if (i==0) {
-                        elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys("VIGN 1234 (Triaxle)");
+                        elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys("VIGN 1 (Triaxle)");
                         elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys(Keys.ENTER);
                         Thread.sleep(500);
 			          }
