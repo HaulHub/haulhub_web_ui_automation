@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = {"src/test/resources/features/StagingSmokeSuite//Brokerworkflow1.feature"},monochrome=true)
+@CucumberOptions(features = {"src/test/resources/features/StagingSmokeSuite/CustomerBrokerFleet.feature"},monochrome=true)
 
-public class BrokerPart1Runner {
+public class CustomerBrokerFleetRunner {
 
 }

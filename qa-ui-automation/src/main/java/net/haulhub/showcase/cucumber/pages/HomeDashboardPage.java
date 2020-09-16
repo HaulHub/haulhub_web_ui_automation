@@ -197,7 +197,6 @@ public class HomeDashboardPage extends PageObject {
 	public WebElementFacade  truckscedulelnk;
 	
 	
-
 	/**
      * This method is used to click Order dashboard link
      */

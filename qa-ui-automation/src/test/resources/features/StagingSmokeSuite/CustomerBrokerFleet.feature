@@ -1,5 +1,5 @@
 @tag
-Feature: Brokerworkflow1.feature
+Feature: CustomerBrokerFleet.feature
 
    @BROKERWORKFLOW1
       Scenario Outline: Validate as a customer ability to assign 6 different fleets with 5  assigned to first Broker and one more assigned to general pool
@@ -120,7 +120,7 @@ Feature: Brokerworkflow1.feature
       | userName   | password          |fleetname        | fleetcompany |
       | vignesh    | haul-Quality!0501 | Vigneshcompany  |              |
       
-        @BROKERWORKFLOW1
+     @BROKERWORKFLOW1
     Scenario Outline: Validate as Second Broker I am able to see the driver name against the shift assigned to Fleet company with in Sceduler page
        Given admin Login to the application with valid <userName> and <password>
        And I search for secondbroker <SecondBroker> and login to the secondbroker portal
@@ -130,4 +130,15 @@ Feature: Brokerworkflow1.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |SecondBroker  | drivername   |
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany   |Vigneshbroker2| Vignesh Nehru |
       
+      
+   @FOBSMOKETESTSUITE
+    Scenario Outline: Login as Customer and Cancel the original order created 
+       Given Login to the application with valid <userName> and <password>
+       And I click the OrderDashboard link in FOB home page 
+       And I Cancel the sceduled Order as finalcleanup
      
+       Examples:
+       | userName    | password     | customername   |startlocation | destination  | contactnumber | address                             |   Tonnage | ProductionRate |                                                                               
+       | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70        |
+     
+      

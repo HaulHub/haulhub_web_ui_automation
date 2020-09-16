@@ -73,15 +73,18 @@ public class BrokerScedulerPage extends PageObject {
 				  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                   action.moveToElement(listofItems.get(i)).click().build().perform();
                   System.out.println("the item number is" + listofItems.get(i));  
-			      if (i==0) {
+                  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			      if (i==1) {
                         elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys("VIGN 1 (Triaxle)");
                         elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys(Keys.ENTER);
-                        Thread.sleep(500);
+                        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                        Thread.sleep(1000);
 			          }
-			      else if (i==1){
+			      else if (i==2){
 			    	    elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys("Vigneshcompany");
                         elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys(Keys.ENTER);
-                        Thread.sleep(500);
+                        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                        Thread.sleep(1000);
 			          }
 			   }
 			 Actions action = new Actions(getDriver());

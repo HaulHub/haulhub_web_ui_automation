@@ -70,7 +70,7 @@ public class BrokerDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[.='Marketplace Jobs']//parent::div//h6[contains(text(),'vigneshcompany')]")
 	public WebElementFacade firstbrokerdeclinedshiftinmarketplace;
 	
-	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-secondary btn-lg']")
+	@FindBy(how = How.XPATH, using = "//button[.=' Accept Later']")
 	public WebElementFacade secondbrokeracceptlaterbtn;
 	
 
@@ -143,7 +143,9 @@ public class BrokerDashboardPage extends PageObject {
 	public boolean clickacceptlaterbutton() {
 	try {
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  elementUtils.fluentWaitForElement(getDriver(), secondbrokeracceptlaterbtn).click();
+		  elementUtils.fluentWaitForElement(getDriver(), secondbrokeracceptlaterbtn).isDisplayed();
+		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  elementUtils.safeJavaScriptClick(secondbrokeracceptlaterbtn);
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  return true;
 		} catch (NoSuchElementException e) {

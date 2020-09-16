@@ -83,7 +83,7 @@ public class TruckScedulePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[.='Okay']")
 	public WebElementFacade receiptokaybtn;
 	
-	@FindBy(how = How.XPATH, using = "//button[@class='sc-AykKG sc-AykKH jLRVIa']")
+	@FindBy(how = How.XPATH, using = "//button[.='Cancel']")
 	public WebElementFacade receiptCancelbtn;
 
 	@FindBy(how = How.XPATH, using = "//a[.='Truck Schedule']")
