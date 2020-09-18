@@ -55,6 +55,9 @@ public class BrokerScedulerPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Send Invites')]")
 	public WebElementFacade secondbrokerSendinvitebtn;
 	
+	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-plus']")
+	public WebElementFacade secondbrokerfleetpriorityplubtn;
+
 	/**
      * This method as second broker within Job management  click the sceduler and assign 1 shift to internal truck  and one shift to fleet
      */
@@ -84,7 +87,7 @@ public class BrokerScedulerPage extends PageObject {
 			    	    elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys("Vigneshcompany");
                         elementUtils.fluentWaitForElement(getDriver(),listofItems.get(i)).sendKeys(Keys.ENTER);
                         getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
 			          }
 			   }
 			 Actions action = new Actions(getDriver());

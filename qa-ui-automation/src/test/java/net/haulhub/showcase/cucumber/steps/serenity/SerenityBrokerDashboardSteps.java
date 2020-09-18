@@ -32,6 +32,11 @@ public class SerenityBrokerDashboardSteps extends ScenarioSteps {
 	 }
     
     @Step
+   	public boolean selectallshifts_assigndriverssecondbroker() throws Exception {
+   		return brokerdashboardpage.selectallshifts_assigndriverssecondbroker();
+   	 }
+
+    @Step
 	public boolean clickacceptlaterbutton() throws Exception {
 		return brokerdashboardpage.clickacceptlaterbutton();
 	 }

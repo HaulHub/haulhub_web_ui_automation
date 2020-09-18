@@ -19,7 +19,7 @@ Feature: FOBSMOKETESTSUITE.feature
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70        |
    
    @FOBSMOKETESTSUITE
-    Scenario Outline: Validate ability to Rebook a MaterialOnly Job and preloaded order details appeares correctly and Reject a Job 
+    Scenario Outline: Validate  preloaded order details appeares correctly and Rebook Modal window opens correctly and Material requestor order can be cancelled
        Given I click the New Order button
        When I click Materials Only button in the New Order dialog box
        And I fill order details for CustomerName <customername> and StartingLocation <startlocation> details

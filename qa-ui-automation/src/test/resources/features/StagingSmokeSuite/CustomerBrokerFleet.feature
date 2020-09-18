@@ -32,9 +32,9 @@ Feature: CustomerBrokerFleet.feature
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
 
      @BROKERWORKFLOW1
-    Scenario Outline: Validate First Broker can select all his assigned 5 shifts within the Review Job modal Accept and Assign Drivers
-       And as first broker I click the assigned shifts and select all the 5 shifts and Accept and assign drivers
-      
+    Scenario Outline: Validate First Broker can view customer truck rate select all 5 shifts within the Review Job modal Accept and Assign Drivers
+       And as first broker I click the assigned shifts view customer truck rate and  select all the 5 shifts and Accept to assign drivers
+       
     Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
@@ -77,8 +77,8 @@ Feature: CustomerBrokerFleet.feature
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany   |Vigneshbroker2|
       
       @BROKERWORKFLOW1
-    Scenario Outline: Validate Second Broker can select all his assigned 3 shifts within the Review Job modal Accept 
-      And as second broker I click the assigned shifts and select all the 3 shifts and click accept
+    Scenario Outline: Validate Second Broker can view first broker rate and select all his assigned 3 shifts within the Review Job modal and Accepts
+      And as second broker I view the first broker rate then click the assigned shifts and select all the 3 shifts and click accept
       
     Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
@@ -111,14 +111,14 @@ Feature: CustomerBrokerFleet.feature
       | vignesh | haul-Quality!0501 |  Vigneshbroker1|      
      
      @BROKERWORKFLOW1
-    Scenario Outline: Validate as fleet i am able to see the shifts assigned by second broker to fleet in fleet drivers reserved jobs
+    Scenario Outline: Validate as fleet i am able to see the shifts assigned by second broker to fleet and also view the rates assigned by Second broker
        Given admin Login to the application with valid <userName> and <password>
        And I search for fleetname <fleetname> and login to the fleetcompany portal
-       And I as fleetcompany click the assigned shifts by Broker Second Broker and assign drivers
+       And as fleetcompany I view the Second broker rate then click the assigned shifts by Second Broker and assign drivers
     
     Examples: 
-      | userName   | password          |fleetname        | fleetcompany |
-      | vignesh    | haul-Quality!0501 | Vigneshcompany  |              |
+      | userName   | password          |fleetname        | 
+      | vignesh    | haul-Quality!0501 | Vigneshcompany  |
       
      @BROKERWORKFLOW1
     Scenario Outline: Validate as Second Broker I am able to see the driver name against the shift assigned to Fleet company with in Sceduler page

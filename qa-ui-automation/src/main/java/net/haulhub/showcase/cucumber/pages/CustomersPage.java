@@ -39,7 +39,9 @@ public class CustomersPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[.='Save']")
 	public WebElementFacade customersavebtn;
-
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Remove')]")
+	public WebElementFacade removequipmentbtn;
 
 	/***
 	 * This method is used to click on the equipments list under the Settings parent header
@@ -81,7 +83,6 @@ public class CustomersPage extends PageObject {
 			    Thread.sleep(500);
 			    elementUtils.fluentWaitForElement(getDriver(), customersavebtn).waitUntilPresent();
 			    elementUtils.safeJavaScriptClick(customersavebtn);
-			  //div[contains(text(),'Automation Customername66759')]
 			    WebElement savedcustomername = getDriver().findElement(By.xpath("//div[contains(text(),'" + customername + "')]"));
 			    if (LearningPlatformConstants.customername.get().toString().equalsIgnoreCase(savedcustomername.getText().toString()))
 			    	System.out.println("the savedmaterialname name appeared correctly as" + savedcustomername);
@@ -138,11 +139,13 @@ public class CustomersPage extends PageObject {
 						WebElement deletequipmentbtn = getDriver().findElement(By.xpath("//div[contains(text(),'" + customername + "')]//following::i[@class='fa fa-trash'][1]"));
 			            elementUtils.fluentWaitForElement(getDriver(), deletequipmentbtn).isDisplayed();
 				    	Actions action1 = new Actions(getDriver());
+				    	getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				    	action1.moveToElement(deletequipmentbtn).click().build().perform();
 				    	Thread.sleep(500);
-				    	elementUtils.fluentWaitForElement(getDriver(),deletequipmentbtn).isDisplayed();
 				    	Actions action = new Actions(getDriver());
-				    	action.moveToElement(deletequipmentbtn).click().build().perform();
+				    	getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				    	action.moveToElement(removequipmentbtn).click().build().perform();
+				  
 				    	return true;
 					 } catch (NoSuchElementException e) {
 					   e.printStackTrace();

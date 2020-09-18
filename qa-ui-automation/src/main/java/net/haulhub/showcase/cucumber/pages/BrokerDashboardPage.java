@@ -46,6 +46,15 @@ public class BrokerDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//h6[contains(text(),'Needs Review')]//parent::div//h6[contains(text(),'vigneshcompany')]")
 	public WebElementFacade firstbrokerintialview;
 	
+	@FindBy(how = How.XPATH, using = "//h6[contains(text(),'Needs Review')]//parent::div//h6[contains(text(),'vigneshcompany')]")
+	public WebElementFacade secondbrokerintialview;
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Triaxle ($50.00/hour)')]")
+	public WebElementFacade firstbrokercustomerrateview;
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Triaxle ($40.00/hour)')]")
+	public WebElementFacade secondbrokerfirstbrokerrateview;
+
 	@FindBy(how = How.XPATH, using = "//h6[contains(text(),'Not Sourced')]//parent::div//h6[contains(text(),'vigneshcompany')]")
 	public WebElementFacade firstbrokernotsourcedsectionview;
 	
@@ -116,17 +125,41 @@ public class BrokerDashboardPage extends PageObject {
 	
 	
 	/**
-     * This method is used to select all shifts and assign drivers
+     * This method is used to select all shifts and assign drivers and also view the customer Truck rates for furst broker
      */
 	public boolean selectallshifts_assigndrivers() {
 	try {
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokerintialview).click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  elementUtils.fluentWaitForElement(getDriver(), firstbrokercustomerrateview).isDisplayed();
+		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokerselectallshiftschkbox).click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokeracceptassignbtn).click();	
-		  
+		  return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+
+	/**
+     * This method is used to select all shifts and assign drivers and also view the first broker Truck rates for second broker
+     */
+	public boolean selectallshifts_assigndriverssecondbroker() {
+	try {
+		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  elementUtils.fluentWaitForElement(getDriver(), secondbrokerintialview).click();
+		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  elementUtils.fluentWaitForElement(getDriver(), secondbrokerfirstbrokerrateview).isDisplayed();
+		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  elementUtils.fluentWaitForElement(getDriver(), firstbrokerselectallshiftschkbox).click();
+		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  elementUtils.fluentWaitForElement(getDriver(), firstbrokeracceptassignbtn).click();	
 		  return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();

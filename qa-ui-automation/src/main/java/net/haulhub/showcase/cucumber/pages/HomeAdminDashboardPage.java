@@ -1,5 +1,7 @@
 package net.haulhub.showcase.cucumber.pages;
 
+import java.util.concurrent.TimeUnit;
+
 //import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.By;
@@ -92,9 +94,11 @@ public class HomeAdminDashboardPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstcustomername);
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), activestatus).waitUntilVisible();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(), activestatus).click();
 			Thread.sleep(1000);
 			elementUtils.fluentWaitForElement(getDriver(), associatedlnk).waitUntilVisible();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(), associatedlnk).click();
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), associatename).waitUntilVisible();
@@ -124,6 +128,7 @@ public class HomeAdminDashboardPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstbrokername.trim());
 			Thread.sleep(800);
 			elementUtils.fluentWaitForElement(getDriver(), activestatus).waitUntilVisible();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(), activestatus).click();
 			Thread.sleep(1000);
 			elementUtils.fluentWaitForElement(getDriver(), driverslnk).waitUntilVisible();

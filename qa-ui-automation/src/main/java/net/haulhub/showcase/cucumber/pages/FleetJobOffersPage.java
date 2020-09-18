@@ -48,17 +48,22 @@ public class FleetJobOffersPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@name='accept']")
 	public WebElementFacade fleetaccepttermsconditionsbtn;
 	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Triaxle ($30.00/hour)')]")
+	public WebElementFacade fleetviewsecondbrokerratelbl;
+	
 	@FindBy(how = How.XPATH, using = "//input[@id='assign-drivers-submit-btn']")
 	public WebElementFacade fleetbookjobsbtn;
 
 	/**
-     * This method is used to click fleet shift and assign drivers
+     * This method is used to click fleet shift and assign drivers and fleet views the second broker truck rates
      */
 	public boolean fleet_assigndrivers() {
 	try {
 		    elementUtils.fluentWaitForElement(getDriver(), fleetcustomernamelbl).waitUntilClickable();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.safeJavaScriptClick(fleetcustomernamelbl);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), fleetviewsecondbrokerratelbl).isDisplayed();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(), fleetassigndriversbtn).waitUntilClickable();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

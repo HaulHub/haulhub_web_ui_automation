@@ -35,14 +35,14 @@ public class BrokerDashboardPageSteps {
 
 
     
-    @Given("as first broker I click the assigned shifts and select all the 5 shifts and Accept and assign drivers")
+    @Given("as first broker I click the assigned shifts view customer truck rate and  select all the 5 shifts and Accept to assign drivers")
     public void selectallshifts_assigndrivers() throws Exception {
     assertTrue(serenitybrokerDashboardSteps.selectallshifts_assigndrivers());
 	}
     
-    @Given("as second broker I click the assigned shifts and select all the 3 shifts and click accept")
+    @Given("as second broker I view the first broker rate then click the assigned shifts and select all the 3 shifts and click accept")
     public void selectallshifts_assigndriverssecondbroker() throws Exception {
-    assertTrue(serenitybrokerDashboardSteps.selectallshifts_assigndrivers());
+    assertTrue(serenitybrokerDashboardSteps.selectallshifts_assigndriverssecondbroker());
 	}
     
     

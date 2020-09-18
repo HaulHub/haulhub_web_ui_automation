@@ -17,7 +17,7 @@ public class FleetJobOffersPageSteps {
 	@Steps
 	SerenityFleetJobOffersSteps serenityfleetjoboffersSteps;
 	
-    @Given("I as fleetcompany click the assigned shifts by Broker Second Broker and assign drivers")
+    @Given("as fleetcompany I view the Second broker rate then click the assigned shifts by Second Broker and assign drivers")
     public void fleet_assigndrivers() throws Exception {
     assertTrue(serenityfleetjoboffersSteps.fleet_assigndrivers());
 	}

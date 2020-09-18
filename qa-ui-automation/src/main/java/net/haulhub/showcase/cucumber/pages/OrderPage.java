@@ -495,6 +495,7 @@ public class OrderPage extends PageObject {
 	              elementUtils.fluentWaitForElement(getDriver(), MaterialNameInput).waitUntilVisible();
 	              Actions action1 = new Actions(getDriver());
 				  action1.moveToElement(this.MaterialNameInput).click().build().perform();
+				  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			      elementUtils.fluentWaitForElement(getDriver(),MaterialNameInput).typeAndEnter("VignesMaterial");
 				  Thread.sleep(1000);
 				  
@@ -645,9 +646,10 @@ public class OrderPage extends PageObject {
 	              elementUtils.fluentWaitForElement(getDriver(), MaterialNameInput).waitUntilVisible();
 	              Actions action1 = new Actions(getDriver());
 				  action1.moveToElement(this.MaterialNameInput).click().build().perform();
-				  Thread.sleep(500);
+				  Thread.sleep(1000);
+				  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			      elementUtils.fluentWaitForElement(getDriver(),MaterialNameInput).typeAndEnter("VignesMaterial");
-				  Thread.sleep(2000);
+				  Thread.sleep(1000);
 				  
 				  elementUtils.fluentWaitForElement(getDriver(),Tonnagetxt).waitUntilVisible();
 		          Actions action = new Actions(getDriver());
