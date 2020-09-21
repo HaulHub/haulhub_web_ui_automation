@@ -92,6 +92,10 @@ ToDo
 4.`--tags @TRANSPORTSMOKETABNAVIGATIONS`
 5.`--tags @TRANSPORTTRIPCOSTCOMPLIANCE'`
 
+Note:
+If on Jenkins FOBSMOKETESTSUITE and BROKERWORKFLOW1 should not be executed at same time as both of them use set of values realted to 'VigneshCompany'.
+They can be executed one after another 
+
 Daily 
 
 4. Tag QA automation developers PR check .(Dont commit to master branch directly - Create your own branch and submit for approval)
