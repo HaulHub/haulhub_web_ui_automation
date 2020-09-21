@@ -87,6 +87,10 @@ ToDo
 ### Scheduling planned target for jenkins 
 
 1. `--tags @FOBSMOKETESTSUITE`
+2.`--tags @BROKERWORKFLOW1`
+3.`--tags @DOTSLIP`
+4.`--tags @TRANSPORTSMOKETABNAVIGATIONS`
+5.`--tags @TRANSPORTTRIPCOSTCOMPLIANCE'`
 
 Daily 
 
