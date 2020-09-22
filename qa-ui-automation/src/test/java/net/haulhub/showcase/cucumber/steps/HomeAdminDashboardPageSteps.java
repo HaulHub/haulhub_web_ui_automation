@@ -29,6 +29,11 @@ public class HomeAdminDashboardPageSteps {
     assertTrue(serenityadminHomeDashboardSteps.searchfirstbroker(firstbrokername));
     }
     
+    @Given("I search for DOTSlipEmployee(.*) and login to the Dotslip portal")
+    public void search_DOTSlipEmployee(String DOTemployeename) throws Exception {
+    assertTrue(serenityadminHomeDashboardSteps.searchDOTemployee(DOTemployeename));
+    }
+
     @Given("I search for fleetname(.*) and login to the fleetcompany portal")
     public void search_fleetname(String fleetname) throws Exception {
     assertTrue(serenityadminHomeDashboardSteps.searchfleetname(fleetname));

@@ -27,6 +27,11 @@ public class SerenityAdminHomeDashboardSteps extends ScenarioSteps {
    	 }
     
     @Step
+   	public boolean  searchDOTemployee(String DOTEmpployeename) throws Exception {
+   		return homeadmindashboardpage.searchdotemployeename(DOTEmpployeename);
+   	 }
+  
+    @Step
    	public boolean  searchfleetname(String fleetnamename) throws Exception {
    		return homeadmindashboardpage.searchfleetname(fleetnamename);
    	 }

@@ -45,6 +45,12 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@name='filter']")
 	public WebElementFacade cutomersearchtxt;
 	
+	@FindBy(how = How.XPATH, using = "//td[contains(text(),'Georgia Department Of Transportation')]")
+	public WebElementFacade departmentname;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'DOT Employees')]")
+	public WebElementFacade DOTEmployeelnk;
+	
 	@FindBy(how = How.XPATH, using = "//td[.='Active']")
 	public WebElementFacade activestatus;
 	
@@ -62,6 +68,12 @@ public class HomeAdminDashboardPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Brokers')]")
 	public WebElementFacade brokerlnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'DOT')]")
+	public WebElementFacade DOTlnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'fG7oVfXrUFhjtoAroMHj2htD')]")
+	public WebElementFacade DOTlogintokenlnk;
 	
 	@FindBy(how = How.XPATH, using = "//ul[@class='nav nav-pills nav-stacked']//a[contains(text(),'Drivers')]")
 	public WebElementFacade driverslnk;
@@ -149,6 +161,37 @@ public class HomeAdminDashboardPage extends PageObject {
 		return false;
 	}
 	
+	/**
+     * This method is used to search for search dotemployeename
+     */
+	public boolean searchdotemployeename(String DOTEmployee) {
+	try {
+		    elementUtils.fluentWaitForElement(getDriver(), DOTlnk).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(DOTlnk);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), departmentname).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), departmentname).click();
+			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), DOTEmployeelnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), DOTEmployeelnk).click();
+			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+			WebElement DOTEmployeename  = getDriver().findElement(By.xpath("//td[text()='"+ DOTEmployee.trim() +"']"));
+			Actions actionbtn = new Actions(getDriver());
+			actionbtn .moveToElement(DOTEmployeename).click().build().perform();
+			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), DOTlogintokenlnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), DOTlogintokenlnk).click();
+			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+		    Thread.sleep(500);
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	
 	/**
      * This method is used to search for search fleetname

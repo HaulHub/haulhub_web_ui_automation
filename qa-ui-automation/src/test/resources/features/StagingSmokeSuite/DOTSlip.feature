@@ -1,0 +1,61 @@
+@tag
+Feature: DOTSlip.feature
+
+  @DOTSLIP
+  Scenario Outline: Validate ability to login as First Broker and see the assigned shifts under needs review section under Customer Jobs section
+    Given admin Login to the application with valid <userName> and <password>
+    And I search for DOTSlipEmployee <dotslipemployee> and login to the Dotslip portal
+    And I validate the appearance of headers like Today and MyProjects Feed and click Gear Icon
+
+    Examples: 
+      | userName | password          | dotslipemployee | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+      | vignesh  | haul-Quality!0501 | Alisa           | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+
+  @DOTSLIP
+  Scenario Outline: Validate on clicking TODAY link loads the the associate Url page related to TODAY within DOTSlip
+    And I click the Today link within DOTSlip page loads the associated TODAY page
+
+    Examples: 
+      | userName | password          | dotslipemployee | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+      | vignesh  | haul-Quality!0501 | Alisa           | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+
+  @DOTSLIP
+  Scenario Outline: Validate on clicking MYPROJECTS link loads the the associate Url page related to MYPROJECTS within DOTSlip
+    And I click the MYPROJECTS link within MYPROJECTS page loads the associated MYPROJECTS page
+
+    Examples: 
+      | userName | password          | dotslipemployee | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+      | vignesh  | haul-Quality!0501 | Alisa           | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+
+  @DOTSLIP
+  Scenario Outline: Validate on clicking FEED link loads the the associate Url page related to FEED within DOTSlip
+    And I click the FEED link within DOTSlip page loads the associated FEED page
+
+    Examples: 
+      | userName | password          | dotslipemployee | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+      | vignesh  | haul-Quality!0501 | Alisa           | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+
+  @DOTSLIP
+  Scenario Outline: Validate ability to filter by ticket number within FEED and filtered results display correctly without returning empty table
+    And I search with ticketnumber <ticketnumber> click update results button and validate the results are filtered correctly
+   
+    Examples: 
+      | userName | password          | ticketnumber | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+      | vignesh  | haul-Quality!0501 | 22080373      | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+
+   @DOTSLIP
+  Scenario Outline: Validate on clicking the view associated to ticketnumber reject button and delivered button associated to Feed Ticketnumber displays
+    And I clicking the ticketnumber <ticketnumber> could view the reject delivered button associated to Feed Ticketnumber
+   
+    Examples: 
+      | userName | password          | ticketnumber | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+      | vignesh  | haul-Quality!0501 | 22080373      | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+   
+    @DOTSLIP
+  Scenario Outline: Validate ability to filter by Contractorname within MYPROJECTS and filtered results display correctly without returning empty table
+    And I select the contractorname <contractorname> click update results button and validate the results are filtered correctly
+   
+    Examples: 
+      | userName | password          | contractorname | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+      | vignesh  | haul-Quality!0501 | C.W. Matthews Contracting Company, Inc. | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+   
