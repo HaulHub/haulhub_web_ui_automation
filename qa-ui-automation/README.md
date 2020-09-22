@@ -87,6 +87,14 @@ ToDo
 ### Scheduling planned target for jenkins 
 
 1. `--tags @FOBSMOKETESTSUITE`
+2.`--tags @BROKERWORKFLOW1`
+3.`--tags @DOTSLIP`
+4.`--tags @TRANSPORTSMOKETABNAVIGATIONS`
+5.`--tags @TRANSPORTTRIPCOSTCOMPLIANCE'`
+
+Note:
+If on Jenkins FOBSMOKETESTSUITE and BROKERWORKFLOW1 should not be executed at same time as both of them use set of values realted to 'VigneshCompany'.
+They can be executed one after another 
 
 Daily 
 
