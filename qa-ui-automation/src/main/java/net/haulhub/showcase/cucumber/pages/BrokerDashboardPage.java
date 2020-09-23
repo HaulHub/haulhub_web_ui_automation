@@ -133,7 +133,7 @@ public class BrokerDashboardPage extends PageObject {
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokerintialview).click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokercustomerrateview).isDisplayed();
-		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokerselectallshiftschkbox).click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokeracceptassignbtn).click();	
@@ -156,7 +156,7 @@ public class BrokerDashboardPage extends PageObject {
 		  elementUtils.fluentWaitForElement(getDriver(), secondbrokerintialview).click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), secondbrokerfirstbrokerrateview).isDisplayed();
-		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokerselectallshiftschkbox).click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokeracceptassignbtn).click();	
