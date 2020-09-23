@@ -46,6 +46,11 @@ public class DOTSlipHomePageSteps {
 		assertTrue(serenitydotsliphomeSteps.clickandviewbuttons(ticketnumber));
 	}
 	
+	@Given("clicking the contractorname (.*) displayed and check invite button appears correctly")
+	public void check_contractorname(String contractorname) throws Exception {
+		assertTrue(serenitydotsliphomeSteps.viewinvitebutton(contractorname));
+	}
+	
 	@Given("I select the contractorname (.*) click update results button and validate the results are filtered correctly")
 	public void selectbycontractname_filterresults(String ticketnumber) throws Exception {
 		assertTrue(serenitydotsliphomeSteps.selectbycontractname_filterresults(ticketnumber));

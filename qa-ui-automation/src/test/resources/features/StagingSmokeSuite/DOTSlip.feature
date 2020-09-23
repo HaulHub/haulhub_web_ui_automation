@@ -59,3 +59,11 @@ Feature: DOTSlip.feature
       | userName | password          | contractorname | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
       | vignesh  | haul-Quality!0501 | C.W. Matthews Contracting Company, Inc. | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
    
+     @DOTSLIP
+  Scenario Outline: Validate on clicking the view associated to Contractorname Invite button associated to the Contractor appears correctly
+    And clicking the contractorname <contractorname> displayed and check invite button appears correctly
+   
+    Examples: 
+      | userName | password          | contractorname | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+      | vignesh  | haul-Quality!0501 | C.W. Matthews Contracting Company, Inc. | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+   

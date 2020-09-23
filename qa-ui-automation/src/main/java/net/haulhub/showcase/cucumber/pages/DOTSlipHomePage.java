@@ -75,6 +75,8 @@ public class DOTSlipHomePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[@class='dropdown bootstrap-select contractor-select form-control']")
 	public WebElementFacade Contractordropdownbtn;
 	
+	/* This code validated the headers of the labels in DOTSlip home page */
+	
 	public boolean Validateheaders() {
 	try {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -97,6 +99,7 @@ public class DOTSlipHomePage extends PageObject {
 		return false;
 	}
 	
+	/* This code validates the display of todays link  */
 	
 	public boolean Validatetodaylinkpageload() {
 		try {
@@ -116,6 +119,7 @@ public class DOTSlipHomePage extends PageObject {
 		}
 	
 	
+	/* This code validates the display of Feedlinkpage */
 	public boolean ValidateFEEDlinkpageload() {
 		try {
 			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -132,6 +136,8 @@ public class DOTSlipHomePage extends PageObject {
 			}
 			return false;
 		}
+	
+	/* This code validates the display of MyProjectslink */
 	
 	public boolean ValidateMYPROJECTSlinkpageload() {
 		try {
@@ -170,6 +176,8 @@ public class DOTSlipHomePage extends PageObject {
 			return false;
 		}	
 	
+	/* This code validates the display of filered results after search by contrator name */
+	
 	public boolean selectbycontractname_filterresults(String contractname) {
 		try {
 			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -195,6 +203,33 @@ public class DOTSlipHomePage extends PageObject {
 			return false;
 		}	
 	
+	/* This code validates the display of buttons in the invite page of dotslip */
+	 
+	public boolean clickandviewinvitebuttons(String contractname) {
+		try {
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    List<WebElement> listofItems = getDriver().findElements(By.xpath("//td[.='" + contractname.trim() + "']"));
+			    for (int i=0; i<=0; i++)
+				  {
+					  Actions action = new Actions(getDriver());
+					  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			          action.moveToElement(listofItems.get(i)).click().build().perform();
+			          getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+					  List<WebElement> listofItems1 = getDriver().findElements(By.xpath("//div[.='Invite']"));
+					  listofItems1.get(i).click();
+					  break;
+				  } 
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}	
+	
+	/* This code validates the display of delivered and Reject buttons in the invite page of ticketing dotslip */
+	
 	public boolean clickandviewbuttons(String ticketnumber) {
 		try {
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -215,8 +250,6 @@ public class DOTSlipHomePage extends PageObject {
 			}
 			return false;
 		}	
-
-
 }
 	
 	
