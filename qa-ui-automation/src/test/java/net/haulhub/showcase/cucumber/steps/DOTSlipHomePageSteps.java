@@ -41,7 +41,7 @@ public class DOTSlipHomePageSteps {
 		assertTrue(serenitydotsliphomeSteps.Searchwithticketnumber(ticketnumber));
 	}
 	
-	@Given("I clicking the ticketnumber (.*) could view the reject delivered button associated to Feed Ticketnumber")
+	@Given("I clicking the ticketnumber (.*) could view the reject delivered button associated to Feed Ticketnumber and downloadreport")
 	public void clickticketnumber_viewbuttons(String ticketnumber) throws Exception {
 		assertTrue(serenitydotsliphomeSteps.clickandviewbuttons(ticketnumber));
 	}
@@ -51,6 +51,11 @@ public class DOTSlipHomePageSteps {
 		assertTrue(serenitydotsliphomeSteps.viewinvitebutton(contractorname));
 	}
 	
+	@Given("I am able to click the invite button and enter the details for invite and send invite")
+	public void click_invitebutton_enterfielddetails() throws Exception {
+		assertTrue(serenitydotsliphomeSteps.enterdetailsclickbutton());
+	}
+
 	@Given("I select the contractorname (.*) click update results button and validate the results are filtered correctly")
 	public void selectbycontractname_filterresults(String ticketnumber) throws Exception {
 		assertTrue(serenitydotsliphomeSteps.selectbycontractname_filterresults(ticketnumber));

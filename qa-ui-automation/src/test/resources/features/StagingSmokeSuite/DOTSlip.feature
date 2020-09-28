@@ -44,26 +44,11 @@ Feature: DOTSlip.feature
       | vignesh  | haul-Quality!0501 | 22080373      | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
 
    @DOTSLIP
-  Scenario Outline: Validate on clicking the view associated to ticketnumber reject button and delivered button associated to Feed Ticketnumber displays
-    And I clicking the ticketnumber <ticketnumber> could view the reject delivered button associated to Feed Ticketnumber
+  Scenario Outline: Validate appearence of reject button and delivered button associated to Feed Ticketnumber and ability to download selected report
+    And I clicking the ticketnumber <ticketnumber> could view the reject delivered button associated to Feed Ticketnumber and downloadreport
    
     Examples: 
       | userName | password          | ticketnumber | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
       | vignesh  | haul-Quality!0501 | 22080373      | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
    
-    @DOTSLIP
-  Scenario Outline: Validate ability to filter by Contractorname within MYPROJECTS and filtered results display correctly without returning empty table
-    And I select the contractorname <contractorname> click update results button and validate the results are filtered correctly
-   
-    Examples: 
-      | userName | password          | contractorname | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
-      | vignesh  | haul-Quality!0501 | C.W. Matthews Contracting Company, Inc. | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
-   
-     @DOTSLIP
-  Scenario Outline: Validate on clicking the view associated to Contractorname Invite button associated to the Contractor appears correctly
-    And clicking the contractorname <contractorname> displayed and check invite button appears correctly
-   
-    Examples: 
-      | userName | password          | contractorname | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
-      | vignesh  | haul-Quality!0501 | C.W. Matthews Contracting Company, Inc. | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
    

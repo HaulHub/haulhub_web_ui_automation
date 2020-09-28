@@ -79,7 +79,7 @@ public class HomeDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Tickets')]")
 	public WebElementFacade  ticketstlnk;
 	
-	@FindBy(how = How.XPATH, using = "//div[.=' Tickets ']")
+	@FindBy(how = How.XPATH, using = "//div[.='Tickets']")
 	public WebElementFacade  ticketstlbl;
 	
 	@FindBy(how = How.XPATH, using = "//a[.='Plants']")

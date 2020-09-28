@@ -75,6 +75,43 @@ public class DOTSlipHomePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[@class='dropdown bootstrap-select contractor-select form-control']")
 	public WebElementFacade Contractordropdownbtn;
 	
+	@FindBy(how = How.XPATH, using = "//input[@id='dot_employee_first_name']")
+	public WebElementFacade Dontinvitefirstname;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='dot_employee_last_name']")
+	public WebElementFacade Dontinvitelasttname;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='dot_employee_email']")
+	public WebElementFacade Dontinviteemailid;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='dot_employee_phone']")
+	public WebElementFacade Dontinviteemployphone;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Invite')]")
+	public WebElementFacade Dontinviteebtn;
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Phone has already been taken')]")
+	public WebElementFacade phonevalidationmessage;
+	
+	@FindBy(how = How.XPATH, using = "//input[@class='require_atleast_one']")
+	public WebElementFacade selectinputboxreport;
+	
+	@FindBy(how = How.XPATH, using = "//input[@value='Download Selected']")
+	public WebElementFacade downloadselectedbtn;
+	
+	@FindBy(how = How.XPATH, using = "//div[@class='modal-content export_slips_modal']//button[.='Export as PDF']")
+	public WebElementFacade exportaspdfbtn;
+	
+	@FindBy(how = How.XPATH, using = "//div[@class='modal-content export_slips_modal']//button[.='Export as CSV']")
+	public WebElementFacade exportascsv;
+	
+	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times close-icon']")
+	public WebElementFacade closemodalcsv;
+	
+	//i[@class='fa fa-times close-icon']
+
+
+	
 	/* This code validated the headers of the labels in DOTSlip home page */
 	
 	public boolean Validateheaders() {
@@ -228,7 +265,34 @@ public class DOTSlipHomePage extends PageObject {
 			return false;
 		}	
 	
-	/* This code validates the display of delivered and Reject buttons in the invite page of ticketing dotslip */
+	/* This code validates the ability to enter the invite details of the Dotslip feed */
+	
+	public boolean enterdetailsclickbutton() {
+		try {
+			    
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),Dontinvitefirstname).sendKeys("vignesh");
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),Dontinvitelasttname).sendKeys("nehru");
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),Dontinviteemailid).sendKeys("vignesh@haulhub.com");
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),Dontinviteemployphone).sendKeys("8572688987");
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(), Dontinviteebtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(), phonevalidationmessage).isDisplayed();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}	
+	
+/* This code validates the display of delivered and Reject buttons in the invite page of ticketing dotslip  and download report */
 	
 	public boolean clickandviewbuttons(String ticketnumber) {
 		try {
@@ -242,6 +306,21 @@ public class DOTSlipHomePage extends PageObject {
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),Deliveredbtn).isDisplayed();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),closemodalcsv).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),selectinputboxreport).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),downloadselectedbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),exportaspdfbtn).isDisplayed();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),exportascsv).isDisplayed();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),exportaspdfbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),downloadselectedbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),exportascsv).click();
 			    return true;
 			} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -250,6 +329,7 @@ public class DOTSlipHomePage extends PageObject {
 			}
 			return false;
 		}	
+	
 }
 	
 	

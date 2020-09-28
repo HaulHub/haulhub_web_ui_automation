@@ -54,6 +54,12 @@ public class SerenityDOTSlipHomeSteps extends ScenarioSteps {
    	public boolean  viewinvitebutton(String contractorname) throws Exception {
    		return dotsliphomedpage.clickandviewinvitebuttons(contractorname);
    	 }
+    
+    @Step
+   	public boolean enterdetailsclickbutton() throws Exception {
+   		return dotsliphomedpage.enterdetailsclickbutton();
+   	 }
+ 
  
     
  
