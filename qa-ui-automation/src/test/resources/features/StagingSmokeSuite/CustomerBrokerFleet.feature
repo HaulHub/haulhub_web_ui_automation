@@ -1,7 +1,7 @@
 @tag
 Feature: CustomerBrokerFleet.feature
 
-   @BROKERWORKFLOW1
+  @BROKERWORKFLOW1
       Scenario Outline: Validate as a customer ability to assign 6 different fleets with 5  assigned to first Broker and one more assigned to general pool
        Given Login to the application with valid <userName> and <password>
        And I click the OrderDashboard link in FOB home page 

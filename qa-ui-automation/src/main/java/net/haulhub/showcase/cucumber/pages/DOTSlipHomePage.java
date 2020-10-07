@@ -195,6 +195,8 @@ public class DOTSlipHomePage extends PageObject {
 	
 	public boolean Searchwithticketnumber(String ticketnumber) {
 		try {
+		        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		        elementUtils.fluentWaitForElement(getDriver(),DotslipFeedlbl).click();
 			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),Feedticketnumbertxt).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -203,6 +205,7 @@ public class DOTSlipHomePage extends PageObject {
 			    elementUtils.fluentWaitForElement(getDriver(),UpdateResultsbtn).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    WebElement searchticketnumber = getDriver().findElement(By.xpath("//td[.='"+ ticketnumber.trim() +"']"));
+			    getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),searchticketnumber).isDisplayed();
 			    return true;
 			} catch (NoSuchElementException e) {
@@ -213,7 +216,7 @@ public class DOTSlipHomePage extends PageObject {
 			return false;
 		}	
 	
-	/* This code validates the display of filered results after search by contrator name */
+	/* This code validates the display of filtered results after search by contractor name */
 	
 	public boolean selectbycontractname_filterresults(String contractname) {
 		try {
@@ -265,7 +268,7 @@ public class DOTSlipHomePage extends PageObject {
 			return false;
 		}	
 	
-	/* This code validates the ability to enter the invite details of the Dotslip feed */
+	/* This code validates the ability to enter the invite details of the DOTSlip feed */
 	
 	public boolean enterdetailsclickbutton() {
 		try {
@@ -280,8 +283,6 @@ public class DOTSlipHomePage extends PageObject {
 			    elementUtils.fluentWaitForElement(getDriver(),Dontinviteemployphone).sendKeys("8572688987");
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(), Dontinviteebtn).click();
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(), phonevalidationmessage).isDisplayed();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    return true;
 			} catch (NoSuchElementException e) {

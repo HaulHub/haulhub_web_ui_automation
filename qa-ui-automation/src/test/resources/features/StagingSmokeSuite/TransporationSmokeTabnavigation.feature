@@ -91,14 +91,7 @@ Feature: TransporationSmokeTabnavigation.feature
        | userName    | password     | customername   |startlocation | destination  | contactnumber | address                             |   Tonnage | ProductionRate |                                                                               
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70  |
        
-       @TRANSPORTSMOKETABNAVIGATIONS
-       Scenario Outline: Validate on clicking Fleet Manager link and see the Fleet Manager  page loaded correctly
-       And I click FleetManagerlink and see the FleetManager page loaded correctly
-   
-       Examples:
-       | userName    | password     | customername   |startlocation | destination  | contactnumber | address                             |   Tonnage | ProductionRate |                                                                               
-       | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70  |
-       
+      
        @TRANSPORTSMOKETABNAVIGATIONS
        Scenario Outline: Validate on clicking Fleet Manager link and see the Fleet Manager  page loaded correctly
        And I click FleetManagerlink and see the FleetManager page loaded correctly
