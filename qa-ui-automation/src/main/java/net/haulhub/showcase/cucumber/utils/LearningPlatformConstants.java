@@ -22,5 +22,6 @@ public class LearningPlatformConstants {
     public static ThreadLocal<String> jobsitename = new ThreadLocal<String>();
     public static ThreadLocal<String> brokercustomername = new ThreadLocal<String>();
     public static ThreadLocal<String> brokerjobsitename = new ThreadLocal<String>();
+    public static ThreadLocal<String> brokermaterialname = new ThreadLocal<String>();
          
  }

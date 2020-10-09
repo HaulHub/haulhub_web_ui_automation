@@ -26,6 +26,16 @@ public class BrokerCustomerSteps {
     assertTrue(serenitybrokercustomerSteps.create_Jobsite());
 	}
     
-   
+    @Given("I click the Material link and create a new Material")
+    public void create_Material() throws Exception {
+    assertTrue(serenitybrokercustomerSteps.create_Material());
+	}
+    
+    @Given("I click the Job link within customer view and see the appearence of Book new jobs button and it is clickable")
+    public void booknewjob_view() throws Exception {
+    assertTrue(serenitybrokercustomerSteps.joblinkbooknewjob());
+	}
 
+
+    
 }   

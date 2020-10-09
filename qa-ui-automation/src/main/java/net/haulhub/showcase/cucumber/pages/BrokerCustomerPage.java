@@ -99,8 +99,35 @@ public class BrokerCustomerPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Save Changes')]")
 	public WebElementFacade jobsitesavechangesbtn;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'New Material')]")
+	public WebElementFacade brokercustomersnewmaterialbtn;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='material_name']")
+	public WebElementFacade brokercustomersmaterialinput;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Save Changes')]")
+	public WebElementFacade brokercustomersmaterialsavechangesbtn;
 
+	@FindBy(how = How.XPATH, using = "//a[.='Materials']")
+	public WebElementFacade brokercustomersmaterialnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Jobs']")
+	public WebElementFacade brokercustomersjobslnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Book New Job')]")
+	public WebElementFacade Jobsbooknewbtn;
+	
+	@FindBy(how = How.XPATH, using = "//h4[.='Booking Preview']")
+	public WebElementFacade Jobsbookpreviewlbl;
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='limit']")
+	public WebElementFacade Materialpagination;
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='limit']//option[.='100']")
+	public WebElementFacade Materialpaginationchange;
 
+	
 	/**
      * This method is used to create a customer via the Broker Customer creation Work flows
      */
@@ -140,12 +167,18 @@ public class BrokerCustomerPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerinput).sendKeys("40");
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerAddCustomer).click();
-		    WebElement brokercustomernameupdated = getDriver().findElement(By.xpath("//td[.='" + brokercustomername + "']"));
-		    if (LearningPlatformConstants.brokercustomername.get().toString().equalsIgnoreCase(brokercustomernameupdated.getText().toString()))
-		    	System.out.println("the updated brokercustomer name appeared correctly as" + brokercustomernameupdated);
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		    elementUtils.safeJavaScriptClick(brokercustomernameupdated);
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    List<WebElement> listofItems= getDriver().findElements(By.xpath("//tr[@class='clickable-link customer-link']"));
+			  for (int i=0; i<1; i++)
+			  {
+				  Actions action = new Actions(getDriver());
+				  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                  action.moveToElement(listofItems.get(i)).click().build().perform();
+                  Thread.sleep(500);
+                  System.out.println("the item number is" + listofItems.get(i)); 
+                  break;
+              }
+		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
@@ -170,7 +203,7 @@ public class BrokerCustomerPage extends PageObject {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),NewJobJobsitenametxt).waitUntilClickable();
 		    elementUtils.fluentWaitForElement(getDriver(),NewJobJobsitenametxt).click();
-		    String brokerjobsitename = "brokerjobsitename" + ProjectUtils.getRandomNumber();
+		    String brokerjobsitename = "Brokerjobsitename" + ProjectUtils.getRandomNumber();
 			LearningPlatformConstants.brokerjobsitename.set(brokerjobsitename);
 		    elementUtils.fluentWaitForElement(getDriver(), NewJobJobsitenametxt).sendKeys(brokerjobsitename);
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -197,7 +230,10 @@ public class BrokerCustomerPage extends PageObject {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),jobsitesavechangesbtn).waitUntilClickable();
 		    elementUtils.safeJavaScriptClick(jobsitesavechangesbtn);
-			return true;
+		    WebElement brokerjobsitenameupdated = getDriver().findElement(By.xpath("//td[.='" + brokerjobsitename + "']"));
+		    if (LearningPlatformConstants.brokerjobsitename.get().toString().equalsIgnoreCase(brokerjobsitenameupdated.getText().toString()))
+		    	System.out.println("the updated brokercustomer name appeared correctly as" + brokerjobsitenameupdated);
+		        return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
@@ -205,6 +241,61 @@ public class BrokerCustomerPage extends PageObject {
 		}
 		return false;
 	}
+	
+		/**
+	     * This method is used to create a new Material within the brokercustomer view 
+	     */
+		public boolean create_Material() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),brokercustomersmaterialnk).waitUntilClickable();
+		        elementUtils.fluentWaitForElement(getDriver(),brokercustomersmaterialnk).click();
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),brokercustomersnewmaterialbtn).waitUntilClickable();
+			    elementUtils.fluentWaitForElement(getDriver(),brokercustomersnewmaterialbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    String brokermaterialname = "Brokermaterialname" + ProjectUtils.getRandomNumber();
+				LearningPlatformConstants.brokermaterialname.set(brokermaterialname);
+			    elementUtils.fluentWaitForElement(getDriver(),brokercustomersmaterialinput).waitUntilClickable();
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),brokercustomersmaterialinput).sendKeys(brokermaterialname);
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),brokercustomersmaterialsavechangesbtn).waitUntilClickable();
+			    elementUtils.safeJavaScriptClick(brokercustomersmaterialsavechangesbtn);
+			    WebElement brokermaterialnameupdated = getDriver().findElement(By.xpath("//td[.='" + brokermaterialname + "']"));
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    if (LearningPlatformConstants.brokermaterialname.get().toString().equalsIgnoreCase(brokermaterialnameupdated.getText().toString()))
+			    	System.out.println("the updated brokercustomer name appeared correctly as" + brokermaterialnameupdated);
+			        return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+		
+
+		/**
+	     * This method is used to check the Book new job appearence within the Job link
+	     */
+		public boolean joblinkbooknewjob() {
+		try {
+			    elementUtils.fluentWaitForElement(getDriver(),brokercustomersjobslnk).waitUntilClickable();
+	            elementUtils.fluentWaitForElement(getDriver(),brokercustomersjobslnk).click();
+		        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),Jobsbooknewbtn).waitUntilClickable();
+			    elementUtils.fluentWaitForElement(getDriver(),Jobsbooknewbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),Jobsbookpreviewlbl).isDisplayed();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+		
 	
 	
  

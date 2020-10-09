@@ -1,5 +1,7 @@
 package net.haulhub.showcase.cucumber.pages;
 
+import java.util.concurrent.TimeUnit;
+
 //import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.By;
@@ -403,12 +405,12 @@ public class HomeDashboardPage extends PageObject {
 		}
 
    
-   
    /**
     * This method is used to click Gotoday link
     */
    public boolean gotodaylink() {
-		try {
+		try {  
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(), gotodaybtnlnk).waitUntilClickable();
 				elementUtils.safeJavaScriptClick(gotodaybtnlnk);
 				return true;
@@ -426,6 +428,7 @@ public class HomeDashboardPage extends PageObject {
     */
    public boolean  clickCancelOrderbtn() {
 		try {
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(), cancelorderbtn).waitUntilClickable();
 				elementUtils.safeJavaScriptClick(cancelorderbtn);
 				return true;
@@ -478,7 +481,8 @@ public class HomeDashboardPage extends PageObject {
     */
    public boolean viewCreatedOrderDetails() {
 		try {
-			    elementUtils.fluentWaitForElement(getDriver(), AcceptedOrdertxt).waitUntilClickable();
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(), AcceptedOrdertxt).waitUntilPresent();
 				elementUtils.safeJavaScriptClick(AcceptedOrdertxt);
 				return true;
 			} catch (NoSuchElementException e) {

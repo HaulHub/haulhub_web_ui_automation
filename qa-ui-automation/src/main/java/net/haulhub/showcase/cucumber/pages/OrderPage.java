@@ -190,7 +190,9 @@ public class OrderPage extends PageObject {
 	       */
 		   public boolean graborderid() {
 		    try {
+		    	getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			    WebElement AcceptedOrderidtxt = getDriver().findElement(By.xpath("//div[text()='Accepted']//parent::div//following::div[13]"));
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			    String Ordernumber  = AcceptedOrderidtxt.getText();
 			    String updatedOrderNumber = "#" + Ordernumber;
 			    LearningPlatformConstants.ordernumber.set(updatedOrderNumber);

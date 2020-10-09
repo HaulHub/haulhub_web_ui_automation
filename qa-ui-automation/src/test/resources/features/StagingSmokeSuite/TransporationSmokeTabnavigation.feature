@@ -42,13 +42,6 @@ Feature: TransporationSmokeTabnavigation.feature
        | userName    | password     | customername   |startlocation | destination  | contactnumber | address                             |   Tonnage | ProductionRate |                                                                               
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70  |
        
-      @TRANSPORTSMOKETABNAVIGATIONS
-      Scenario Outline: Validate on clicking tickets link and see the tickets label page loaded correctly
-       And I click Tickets link and see the Tickets lable page loaded correctly
-       
-       Examples:
-       | userName    | password     | customername   |startlocation | destination  | contactnumber | address                             |   Tonnage | ProductionRate |                                                                               
-       | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70        |
             
       @TRANSPORTSMOKETABNAVIGATIONS
       Scenario Outline: Validate on clicking plants link and see the plants label page loaded correctly
