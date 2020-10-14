@@ -16,14 +16,24 @@ public class BrokerCustomerSteps {
 	@Steps
 	SerenityBrokerCustomerSteps serenitybrokercustomerSteps;
 	
-    @Given("I enter customer details and create a customer and click to view the newly created customer profile")
+    @Given("I enter customer details and create a customer and click and check ability to click and view the profile")
     public void enter_brokercustomerdetails() throws Exception {
     assertTrue(serenitybrokercustomerSteps.enter_brokercustomerdetails());
+	}
+    
+    @Given("I update the newly entered customer profile")
+    public void update_brokercustomerdetails() throws Exception {
+    assertTrue(serenitybrokercustomerSteps.update_brokercustomerdetails());
 	}
     
     @Given("I click the Jobsite link and create a new Jobsite")
     public void create_Jobsite() throws Exception {
     assertTrue(serenitybrokercustomerSteps.create_Jobsite());
+	}
+
+    @Given("I click the Edit jobsite link and view the Edit jobsite modal window opens")
+    public void edit_Jobsite() throws Exception {
+    assertTrue(serenitybrokercustomerSteps.edit_Jobsite());
 	}
     
     @Given("I click the Material link and create a new Material")

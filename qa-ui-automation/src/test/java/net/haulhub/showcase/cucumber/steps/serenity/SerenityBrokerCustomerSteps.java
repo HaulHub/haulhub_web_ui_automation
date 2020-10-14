@@ -21,10 +21,20 @@ public class SerenityBrokerCustomerSteps extends ScenarioSteps {
 	 }
     
     @Step
+   	public boolean update_brokercustomerdetails() throws Exception {
+   		return brokercustomerpage.update_brokercustomerdetails();
+   	 }
+    
+    @Step
    	public boolean create_Jobsite() throws Exception {
    		return brokercustomerpage.create_Jobsite();
    	 }
     
+    @Step
+   	public boolean edit_Jobsite() throws Exception {
+   		return brokercustomerpage.edit_Jobsite();
+   	 }
+
     @Step
    	public boolean create_Material() throws Exception {
    		return brokercustomerpage.create_Material();

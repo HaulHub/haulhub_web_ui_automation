@@ -64,6 +64,9 @@ public class BrokerCustomerPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//form[@id='customer-form']//div[2]//button[contains(text(),'Next Step')]")
 	public WebElementFacade brokercustomerprimarycontactnextstep;
 	
+	@FindBy(how = How.XPATH, using = "//form[@id='customer-form']//button[@data-action='customer-form#validatePrimaryContactAndGoToNextTab']")
+	public WebElementFacade brokercustomerprimaryeditnextstep;
+	
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Select Truck Types')]")
 	public WebElementFacade brokercustomertrucktype;
 	
@@ -100,6 +103,12 @@ public class BrokerCustomerPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Save Changes')]")
 	public WebElementFacade jobsitesavechangesbtn;
 	
+	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-pencil']")
+	public WebElementFacade Jobsiteeditlnk;
+	
+	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-secondary']")
+	public WebElementFacade Jobsitecancelbtn;
+	
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'New Material')]")
 	public WebElementFacade brokercustomersnewmaterialbtn;
 	
@@ -126,10 +135,19 @@ public class BrokerCustomerPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//select[@name='limit']//option[.='100']")
 	public WebElementFacade Materialpaginationchange;
-
 	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Edit Profile')]")
+	public WebElementFacade BrokerEditProfilebtn;
+	
+	@FindBy(how = How.XPATH, using = "//h5[contains(text(),'Add Managed Customer')]")
+	public WebElementFacade BrokerEditProfileheaderlbl;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Save Changes')]")
+	public WebElementFacade brokercustomerSavechanges;
+
+
 	/**
-     * This method is used to create a customer via the Broker Customer creation Work flows
+     * This method is used to create a customer via the Broker Customer creation Work flows and check the ability to view the created profile
      */
 	public boolean enter_brokercustomerdetails() {
 	try {
@@ -145,14 +163,13 @@ public class BrokerCustomerPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomertxt).sendKeys(brokercustomername);
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomeraddresstxt).sendKeys("12 Andover Road, Billerica, MA, USA");
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		    Thread.sleep(500);
+		    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomernextstepbtn).click();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomercontactnametxt).sendKeys("kristen");
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomercontactphonenumbertxt).sendKeys("6172457654");
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    Thread.sleep(500);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerprimarycontactnextstep).click();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomertrucktype).click();
@@ -167,19 +184,18 @@ public class BrokerCustomerPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerinput).sendKeys("40");
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerAddCustomer).click();
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		    List<WebElement> listofItems= getDriver().findElements(By.xpath("//tr[@class='clickable-link customer-link']"));
-			  for (int i=0; i<1; i++)
+			 for (int i=1; i<2; i++)
 			  {
 				  Actions action = new Actions(getDriver());
-				  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
                   action.moveToElement(listofItems.get(i)).click().build().perform();
                   Thread.sleep(500);
                   System.out.println("the item number is" + listofItems.get(i)); 
                   break;
               }
-		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			return true;
+		   return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
@@ -188,6 +204,23 @@ public class BrokerCustomerPage extends PageObject {
 		return false;
 	}
 	
+	/**
+     * This method is used to validate the brokeredit profile is editable
+     */
+	public boolean  update_brokercustomerdetails() {
+	try {
+		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		   elementUtils.fluentWaitForElement(getDriver(), BrokerEditProfilebtn).isDisplayed();
+		   elementUtils.fluentWaitForElement(getDriver(), BrokerEditProfilebtn).waitUntilClickable();
+		   return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	
 	/**
      * This method is used to create a new Jobsite
@@ -242,6 +275,23 @@ public class BrokerCustomerPage extends PageObject {
 		return false;
 	}
 	
+	/**
+     * This method is used to view the edit jobsite view modal
+     */
+	public boolean edit_Jobsite() {
+	try {
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(),Jobsiteeditlnk).waitUntilClickable();
+		    elementUtils.fluentWaitForElement(getDriver(),Jobsiteeditlnk).isDisplayed();
+		    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 		/**
 	     * This method is used to create a new Material within the brokercustomer view 
 	     */
