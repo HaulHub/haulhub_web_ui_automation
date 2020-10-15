@@ -278,10 +278,8 @@ public class TruckScedulePage extends PageObject {
 				return false;
 	   }
 		
-		
-
 		/*
-		  * This method is to select a receipient if the receipient already exists else create a new receipeint email id and sends a report
+		  * This method is to select a recipient if the recipient already exists else create a new recipient email id and sends a report
 	   */
 		public boolean sendtruckreport() {
 			try {
@@ -312,7 +310,6 @@ public class TruckScedulePage extends PageObject {
 		    	}
 				return false;
 	   }
-		
 		
 		/*
 		  * This method is to reset the truck report to its original status
