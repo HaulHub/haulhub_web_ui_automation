@@ -4,18 +4,11 @@
 
 ## Getting Started
 
-
 ### Mac:
-1. Install java: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-2. Install maven: https://maven.apache.org/install.html
-3. Install Git for Mac https://git-scm.com/download/mac 
-4. Homebrew installation for Mac via terminal https://brew.sh/
-
-```
-#!/bin/sh
-VERSION=3.5.0
-curl -O http://mirrors.koehn.com/apache/maven/maven-3/$VERSION/binaries/apache-maven-$VERSION-bin.zip
-```
+1. Install Java: https://www.oracle.com/java/technologies/javase-downloads.html
+2. Install Homebrew: https://brew.sh/
+3. Install Git: `brew install git`
+4. Install Maven: `brew install maven`
 
 ## Running the tests
 
@@ -34,41 +27,40 @@ serenity-configs/
 ```
 When adding a new environment, simply add the URL to the list in environment_urls.
 
-
 general_settings will be applied to **all** config files. Add common serenity parameters in here.
 
 When you want to test the serenity.properties that Jenkins will use:
 
-
 ### Maven command line to run the tests
-Wether you are in your laptop or a container, run the tests like this if you want to run all the scripts:
-To run all the testcases run like following.
-`mvn clean verify serenity:aggregate`
+Whether you are in your laptop or a container, to run all the testcases run the following command:
+
+```
+mvn clean verify serenity:aggregate
+```
+
 The reports will be generated in `target/site/serenity`
 
 Run the tests like this for running the smoke test suite only 
 
-clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE”
-
+```
+mvn clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE"
+```
 
 ### Run tests manually (or using Eclipse) with browser launced
 
 The code is run using:
 Go to Pom.xml right click and select Maven build and type the following
-`clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE”
+
+```
+mvn clean verify -Dcucumber.options="--tags @FOBSMOKETESTSUITE"
+```
 
 ### Run tests manually (or using Eclipse) with headless chrome browser
 webdriver.driver = chrome
-webdriver.chrome.driver = //Users//vignesh//PmkrHaulHubDemo///qa-ui-automation//drivers//chromedriver
-
-#tests to run against headless chrome (added by vignesh nehru)
+webdriver.chrome.driver = ./drivers/chromedriver
 chrome.switches=--window-size=1920,1080;--headless;
 
-
-
 Ask vignesh nehru(nvignesh1234 - git member) if you have questions regarding how to set this setup in Eclipse.
-
-
 
 ## Contributing
 
@@ -93,7 +85,7 @@ ToDo
 5.`--tags @TRANSPORTTRIPCOSTCOMPLIANCE'`
 
 Note:
-If on Jenkins FOBSMOKETESTSUITE and BROKERWORKFLOW1 should not be executed at same time as both of them use set of values realted to 'VigneshCompany'.
+If on Jenkins FOBSMOKETESTSUITE and BROKERWORKFLOW1 should not be executed at same time as both of them use set of values related to 'VigneshCompany'. 
 They can be executed one after another 
 
 Daily 
@@ -107,5 +99,3 @@ Cick [here](qa-ui-automation/src/test/resources/features/StagingSmokeSuite/singl
 
 **@FOBSMOKETESTSUITE**
 Cick [here](qa-ui-automation/src/test/resources/features/StagingSmokeSuite/FOBOrderDashBoard.feature) to see the code
-
-
