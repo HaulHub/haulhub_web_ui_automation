@@ -108,9 +108,9 @@ public class DOTSlipHomePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times close-icon']")
 	public WebElementFacade closemodalcsv;
 	
-	//i[@class='fa fa-times close-icon']
-
-
+	@FindBy(how = How.XPATH, using = "//select[@id='by_dot_status']//option[contains(text(),'Pending')]")
+	public WebElementFacade statusdropdown;
+	
 	
 	/* This code validated the headers of the labels in DOTSlip home page */
 	
@@ -192,21 +192,49 @@ public class DOTSlipHomePage extends PageObject {
 			}
 			return false;
 		}
-	
+	/*
 	public boolean Searchwithticketnumber(String ticketnumber) {
 		try {
 		        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		        elementUtils.fluentWaitForElement(getDriver(),DotslipFeedlbl).click();
 			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),Feedticketnumbertxt).click();
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),Feedticketnumbertxt).sendKeys(ticketnumber.trim());
+			 //   elementUtils.fluentWaitForElement(getDriver(),Feedticketnumbertxt).click();
+			  //  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			  //select[@id='by_dot_status']//option[contains(text(),'Pending')]
+			   // elementUtils.fluentWaitForElement(getDriver(),Feedticketnumbertxt).sendKeys(ticketnumber.trim());
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),UpdateResultsbtn).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    WebElement searchticketnumber = getDriver().findElement(By.xpath("//td[.='"+ ticketnumber.trim() +"']"));
 			    getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),searchticketnumber).isDisplayed();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}	*/
+	
+	
+	public boolean Searchwithticketnumber(String ticketnumber) {
+		try {
+		        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		        elementUtils.fluentWaitForElement(getDriver(),DotslipFeedlbl).click();
+		        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		        elementUtils.fluentWaitForElement(getDriver(),statusdropdown).click();
+		        getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),UpdateResultsbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    List<WebElement> listofItems = getDriver().findElements(By.xpath("//tr[@class='slip']//td[@class='number']"));
+			    for (int i=1; i<=1; i++)
+				  {
+					  Actions action = new Actions(getDriver());
+					  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			          action.moveToElement(listofItems.get(i)).click().build().perform();
+			          break;
+				  } 
 			    return true;
 			} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -294,7 +322,7 @@ public class DOTSlipHomePage extends PageObject {
 		}	
 	
 /* This code validates the display of delivered and Reject buttons in the invite page of ticketing dotslip  and download report */
-	
+/*	
 	public boolean clickandviewbuttons(String ticketnumber) {
 		try {
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -302,6 +330,41 @@ public class DOTSlipHomePage extends PageObject {
 			    elementUtils.fluentWaitForElement(getDriver(),searchticketnumber).isDisplayed();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),searchticketnumber).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),Rejectbtn).isDisplayed();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),Deliveredbtn).isDisplayed();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),closemodalcsv).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),selectinputboxreport).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),downloadselectedbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),exportaspdfbtn).isDisplayed();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),exportascsv).isDisplayed();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),exportaspdfbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),downloadselectedbtn).click();
+			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    elementUtils.fluentWaitForElement(getDriver(),exportascsv).click();
+			    return true;
+			} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}	
+	*/
+	
+	
+/* This code validates the display of delivered and Reject buttons in the invite page of ticketing dotslip  and download report */
+	
+	public boolean clickandviewbuttons(String ticketnumber) {
+		try {
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),Rejectbtn).isDisplayed();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
