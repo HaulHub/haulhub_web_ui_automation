@@ -83,8 +83,6 @@ public class BrokerDashboardPage extends PageObject {
 	public WebElementFacade secondbrokeracceptlaterbtn;
 	
 
-	
-	
 
 	/**
      * This method is used to click firstBroker dashboard link
@@ -134,6 +132,7 @@ public class BrokerDashboardPage extends PageObject {
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokercustomerrateview).isDisplayed();
 		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		  Thread.sleep(600);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokerselectallshiftschkbox).click();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokeracceptassignbtn).click();	

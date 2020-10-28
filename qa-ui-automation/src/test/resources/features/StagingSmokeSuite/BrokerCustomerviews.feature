@@ -44,9 +44,7 @@ Feature: BrokerCustomerviews.feature
     Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
-
-  
-  
+ 
     @BROKERCUSTOMERVIEWS
     Scenario Outline: Validate ability launch Book job view via Broker customer Jobs view
        And I click the Job link within customer view and see the appearence of Book new jobs button and it is clickable

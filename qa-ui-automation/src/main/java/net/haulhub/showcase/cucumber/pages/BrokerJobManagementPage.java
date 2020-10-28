@@ -230,7 +230,6 @@ public class BrokerJobManagementPage extends PageObject {
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       String bookjobcontractorname =  LearningPlatformConstants.bookjobcontractorname.get().toString();
 	       WebElement bookjobcontractordrpvalue= getDriver().findElement(By.xpath("//select[@id='customer']//option[.='" + bookjobcontractorname + "']"));
-         //  WebElement bookjobcontractordrpvalue= getDriver().findElement(By.xpath("//select[@id='customer']//option[.='bookjobcontractorname54116']"));
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       bookjobcontractordrpvalue.click();
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

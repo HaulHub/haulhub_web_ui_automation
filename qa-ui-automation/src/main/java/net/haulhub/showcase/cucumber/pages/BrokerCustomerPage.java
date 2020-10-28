@@ -75,8 +75,8 @@ public class BrokerCustomerPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//div[@class='action-button']//button[.='Add Customer']")
 	public WebElementFacade brokercustomerAddCustomer;
-	
-	@FindBy(how = How.XPATH, using = "//input[@id='placeholder_customer_customer_truck_types_attributes_77_price_per_hour']")
+
+	@FindBy(how = How.XPATH, using = "//input[@class='form-control price-per-hour-field validate-numeric-field']")
 	public WebElementFacade brokercustomerinput;
 	
 	@FindBy(how = How.XPATH, using = "//h5[.='Add Managed Customer']")
@@ -181,6 +181,7 @@ public class BrokerCustomerPage extends PageObject {
             getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerinput).click();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    Thread.sleep(500);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerinput).sendKeys("40");
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerAddCustomer).click();
