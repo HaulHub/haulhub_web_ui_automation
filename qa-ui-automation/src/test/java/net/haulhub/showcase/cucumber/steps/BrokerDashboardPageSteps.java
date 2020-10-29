@@ -33,8 +33,6 @@ public class BrokerDashboardPageSteps {
     assertTrue(serenitybrokerDashboardSteps.clickbrokerDashboardlink());
 	}
 
-
-    
     @Given("as first broker I click the assigned shifts view customer truck rate and  select all the 5 shifts and Accept to assign drivers")
     public void selectallshifts_assigndrivers() throws Exception {
     assertTrue(serenitybrokerDashboardSteps.selectallshifts_assigndrivers());
@@ -45,12 +43,10 @@ public class BrokerDashboardPageSteps {
     assertTrue(serenitybrokerDashboardSteps.selectallshifts_assigndriverssecondbroker());
 	}
     
-    
     @Given("as second broker I click Accept later button under Customer jobs Section")
     public void clickacceptlaterbutton_CustomerJobs() throws Exception {
     assertTrue(serenitybrokerDashboardSteps.clickacceptlaterbutton());
 	}
-
     
     @Given("as first broker I assign 1 shift to Internal truck and 3 shifts to secondbroker and then declines the last shift")
     public void firstbroker_assignstodifferent_entities() throws Exception {

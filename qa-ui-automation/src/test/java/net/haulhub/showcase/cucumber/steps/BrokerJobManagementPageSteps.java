@@ -28,6 +28,11 @@ public class BrokerJobManagementPageSteps {
     public void click_jobmanagment_booknewjob() throws Exception {
     assertTrue(serenitybrokerjobmanagementSteps.click_jobmanagment_booknewjob());
 	}
+    
+    @Given("as first broker i click the truck report within sceduler")
+    public void firstbroker_clicktruckreport() throws Exception {
+    assertTrue(serenitybrokerjobmanagementSteps.firstbroker_clicktruckreport());
+	}
 
    
 

@@ -46,6 +46,12 @@ public class BrokerJobManagementPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Scheduler')]")
 	public WebElementFacade brokerScedulerlnk;
 	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Truck Report')]")
+	public WebElementFacade brokerTruckreportlnk;
+	
+	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-link ml-1']")
+	public WebElementFacade brokerAddReceipientlnk;
+	
 	@FindBy(how = How.XPATH, using = "//tr[3]//td[6]//button[contains(text(),'Decline')]")
 	public WebElementFacade secondbrokerdeclinetruck;
 	
@@ -123,8 +129,24 @@ public class BrokerJobManagementPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//td[contains(text(),'Draft')]")
 	public WebElementFacade draftstatuslnk;
-
-
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='recipients[]']")
+	public WebElementFacade recepientemailidtxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@value='Save']")
+	public WebElementFacade trucksavebtn;
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='recipient_emails_[0]']")
+	public WebElementFacade truckreceipientemailchxbox;
+	
+	@FindBy(how = How.XPATH, using = "//button[.='Send']")
+	public WebElementFacade truckreportsendbtn;
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Truck report sent successfully.')]")
+	public WebElementFacade reportsendconfirmmsg;
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='recipients[]']//following::i[@class='fa fa-times mt-3'][1]")
+	public WebElementFacade recepientemailclosebtn;
 
 	/**
      * This method is used to create a new Job via the Job management link and create a job as draft
@@ -217,7 +239,6 @@ public class BrokerJobManagementPage extends PageObject {
 		return false;
 	}
 	
-	
 	/**
      * This method is used to create a job that was initially created as a draft
      */
@@ -247,12 +268,53 @@ public class BrokerJobManagementPage extends PageObject {
 		}
 		return false;
 	}
-
-
 	
-	
-	
-	
- 
+	/**
+     * This method is used to click truck report as logged in firstbroker
+     */
+	public boolean firstbroker_clicktruckreport() {
+	try {
+	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(),brokerJobmanagementlnk).click();
+	      elementUtils.fluentWaitForElement(getDriver(),brokerScedulerlnk).waitUntilClickable();
+	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(),brokerScedulerlnk).click();	
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(),brokerTruckreportlnk).waitUntilClickable();
+	      elementUtils.fluentWaitForElement(getDriver(),brokerTruckreportlnk).click();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), brokerAddReceipientlnk).waitUntilClickable();
+	      elementUtils.fluentWaitForElement(getDriver(), brokerAddReceipientlnk).click();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), recepientemailidtxt).isDisplayed();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), recepientemailidtxt).sendKeys("vignesh@haulhub.com");
+	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), trucksavebtn).waitUntilClickable();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), trucksavebtn).click();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(),truckreceipientemailchxbox).click();
+	     elementUtils.fluentWaitForElement(getDriver(), truckreportsendbtn).waitUntilClickable();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), truckreportsendbtn).click();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), reportsendconfirmmsg).isDisplayed();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), recepientemailclosebtn).isDisplayed();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), recepientemailclosebtn).click();
+	      elementUtils.fluentWaitForElement(getDriver(), trucksavebtn).waitUntilClickable();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), trucksavebtn).click();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
 }
 

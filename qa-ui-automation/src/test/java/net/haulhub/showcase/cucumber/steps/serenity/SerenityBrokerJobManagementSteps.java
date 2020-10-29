@@ -24,6 +24,12 @@ public class SerenityBrokerJobManagementSteps extends ScenarioSteps {
    	public boolean click_jobmanagment_booknewjob() throws Exception {
    		return brokerjobmanagementscedulepage.click_jobmanagment_booknewjob();
    	} 
+    
+    @Step
+   	public boolean  firstbroker_clicktruckreport() throws Exception {
+   		return brokerjobmanagementscedulepage. firstbroker_clicktruckreport();
+   	} 
+
    
 }
     

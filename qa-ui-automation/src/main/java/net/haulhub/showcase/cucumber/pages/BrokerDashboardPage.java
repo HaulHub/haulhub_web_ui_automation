@@ -190,7 +190,7 @@ public class BrokerDashboardPage extends PageObject {
 	
 
 	/**
-     * This method is used to assign shifts to different entities like internal truck, second broker and declines one shift as firstbroker
+     * This method is used to assign shifts to different entities like internal truck, second broker and declines one shift as Firstbroker
      */
 	public boolean firstbroker_assignstodifferent_entities() {
 	try {
