@@ -33,6 +33,12 @@ public class BrokerJobManagementPageSteps {
     public void firstbroker_clicktruckreport() throws Exception {
     assertTrue(serenitybrokerjobmanagementSteps.firstbroker_clicktruckreport());
 	}
+    
+    @Given("as broker I click Audit logs and check the log details")
+    public void check_auditlogs() throws Exception {
+    assertTrue(serenitybrokerjobmanagementSteps.check_auditlogs());
+	}
+ 
 
    
 

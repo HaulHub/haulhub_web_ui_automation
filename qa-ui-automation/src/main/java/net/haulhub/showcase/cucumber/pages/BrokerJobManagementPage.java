@@ -46,6 +46,9 @@ public class BrokerJobManagementPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Scheduler')]")
 	public WebElementFacade brokerScedulerlnk;
 	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Audit Log')]")
+	public WebElementFacade check_auditlog;
+	
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Truck Report')]")
 	public WebElementFacade brokerTruckreportlnk;
 	
@@ -147,6 +150,15 @@ public class BrokerJobManagementPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//input[@name='recipients[]']//following::i[@class='fa fa-times mt-3'][1]")
 	public WebElementFacade recepientemailclosebtn;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Cancel')]")
+	public WebElementFacade truckcancelbtn;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Audit Log')]")
+	public WebElementFacade check_auditlogbtn;
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Sent Invites at ')]")
+	public WebElementFacade check_auditlogbtndetails;
 
 	/**
      * This method is used to create a new Job via the Job management link and create a job as draft
@@ -308,6 +320,10 @@ public class BrokerJobManagementPage extends PageObject {
 	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(), trucksavebtn).click();
 	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(), truckcancelbtn).waitUntilPresent();
+	      elementUtils.fluentWaitForElement(getDriver(), truckcancelbtn).click();
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	      
 	      return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
@@ -316,5 +332,25 @@ public class BrokerJobManagementPage extends PageObject {
 		}
 		return false;
 	} 
+	
+	/**
+     * This method is used to check audit logs
+     */
+	public boolean check_auditlogs() {
+	try {
+	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(),check_auditlogbtn).waitUntilClickable();
+	      elementUtils.fluentWaitForElement(getDriver(),check_auditlogbtn).click();
+	      getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+	      elementUtils.fluentWaitForElement(getDriver(),check_auditlogbtndetails).isDisplayed();
+	     return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	} 
+	
 }
 

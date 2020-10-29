@@ -48,8 +48,17 @@ Feature: CustomerBrokerFleet.feature
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
      
      @BROKERWORKFLOW1
-    Scenario Outline: First Broker I am able to send a truck report 
+    Scenario Outline: As Broker I am able to send a truck report 
        And as first broker i click the truck report within sceduler
+       
+    Examples: 
+      | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
+      | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
+     
+     
+       @BROKERWORKFLOW1
+    Scenario Outline: As Broker I am able to click Audit Logs and check the log details
+       And as broker I click Audit logs and check the log details
        
     Examples: 
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
