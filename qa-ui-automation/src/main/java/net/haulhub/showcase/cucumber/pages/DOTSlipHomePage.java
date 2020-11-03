@@ -192,30 +192,7 @@ public class DOTSlipHomePage extends PageObject {
 			}
 			return false;
 		}
-	/*
-	public boolean Searchwithticketnumber(String ticketnumber) {
-		try {
-		        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		        elementUtils.fluentWaitForElement(getDriver(),DotslipFeedlbl).click();
-			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 //   elementUtils.fluentWaitForElement(getDriver(),Feedticketnumbertxt).click();
-			  //  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			  //select[@id='by_dot_status']//option[contains(text(),'Pending')]
-			   // elementUtils.fluentWaitForElement(getDriver(),Feedticketnumbertxt).sendKeys(ticketnumber.trim());
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),UpdateResultsbtn).click();
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    WebElement searchticketnumber = getDriver().findElement(By.xpath("//td[.='"+ ticketnumber.trim() +"']"));
-			    getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),searchticketnumber).isDisplayed();
-			    return true;
-			} catch (NoSuchElementException e) {
-			e.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return false;
-		}	*/
+	
 	
 	
 	public boolean Searchwithticketnumber(String ticketnumber) {
