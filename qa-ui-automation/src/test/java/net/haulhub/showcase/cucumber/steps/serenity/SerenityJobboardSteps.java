@@ -16,8 +16,8 @@ public class SerenityJobboardSteps extends ScenarioSteps {
 	 public JobboardPage jobboardpage;
   
     @Step
-	public boolean clicktripcostmodal(String Jobid) throws Exception {
-		return jobboardpage.ClickTripcostmodalvalidate(Jobid);
+	public boolean clicktripcostmodal() throws Exception {
+		return jobboardpage.ClickTripcostmodalvalidate();
 	 }
     
    

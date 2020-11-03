@@ -53,12 +53,20 @@ public class FleetJobOffersPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//input[@id='assign-drivers-submit-btn']")
 	public WebElementFacade fleetbookjobsbtn;
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Welcome back')]")
+	public WebElementFacade fleetcustomerwelcomebacklbl;
+
 
 	/**
      * This method is used to click fleet shift and assign drivers and fleet views the second broker truck rates
      */
 	public boolean fleet_assigndrivers() {
 	try {
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), fleetcustomerwelcomebacklbl).waitUntilClickable();
+		    elementUtils.fluentWaitForElement(getDriver(), fleetcustomerwelcomebacklbl).isDisplayed();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), fleetcustomernamelbl).waitUntilClickable();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.safeJavaScriptClick(fleetcustomernamelbl);

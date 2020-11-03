@@ -1,5 +1,7 @@
 package net.haulhub.showcase.cucumber.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -35,10 +37,10 @@ public class JobboardPage extends PageObject {
 	public PaginationUtils paginationUtils = new PaginationUtils(getDriver());
 	public ProjectUtils projectUtils = new ProjectUtils();
 
-	@FindBy(how = How.XPATH, using = "//span[.='Order Dashboard']")
-	public WebElementFacade orderLnk;
+	@FindBy(how = How.XPATH, using = "//h1[contains(text(),'Asphalt Trip Cost: Per Ton')]")
+	public WebElementFacade tripcostmodallbl;
 	
-	@FindBy(how = How.XPATH, using = "//a[.='Per Ton Trip Cost']")
+	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-dollar fa-stack-1x fa-inverse']")
 	public WebElementFacade TripCostModal;
 	
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times-circle']")
@@ -47,20 +49,15 @@ public class JobboardPage extends PageObject {
 	/**
      * This method is used to click Tripcost modal link and validate it opens correctly
      */
-	public boolean ClickTripcostmodalvalidate(String Jobid) {
+	public boolean ClickTripcostmodalvalidate() {
 	try {
-
-		       Thread.sleep(1000);
-			   WebElement tripcosticon = getDriver().findElement(By.xpath("//a[.='" + Jobid.trim() +"']//following::span//i[@class='fa fa-dollar fa-stack-1x fa-inverse']"));
-			   elementUtils.fluentWaitForElement(getDriver(), tripcosticon).isDisplayed();
-			   Thread.sleep(500);
-			   elementUtils.fluentWaitForElement(getDriver(), tripcosticon).click();
-			   Thread.sleep(500);
-			   elementUtils.fluentWaitForElement(getDriver(), TripCostModal).isDisplayed();
-			   Thread.sleep(500);
-			   elementUtils.fluentWaitForElement(getDriver(), CloseTripCostModal).isDisplayed();
-			   Thread.sleep(500);	   
-			return true;
+               getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+               elementUtils.fluentWaitForElement(getDriver(),  TripCostModal).isDisplayed();
+			   elementUtils.fluentWaitForElement(getDriver(),  TripCostModal).click();
+			   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+               elementUtils.fluentWaitForElement(getDriver(),  tripcostmodallbl).isDisplayed();
+			   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  
+			 return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
