@@ -15,12 +15,49 @@ import net.thucydides.core.steps.ScenarioSteps;
 @SuppressWarnings("serial")
 public class SerenityCustomerFleetManagerSteps extends ScenarioSteps {
 
-	 public CustomerFleetManagerPage customerfleetmanagerpage;
+	public CustomerFleetManagerPage customerfleetmanagerpage;
   
     @Step
 	public boolean Validate_complianceFleetdetails(String customername) throws Exception {
 		return customerfleetmanagerpage.Validate_complianceFleetdetails(customername);
 	 }
+    
+    @Step
+	public boolean  add_insurance_displayfields()throws Exception {
+		return customerfleetmanagerpage.add_insurance_displayfields();
+	 }
+
+    @Step
+   	public boolean  insurance_agent_button()throws Exception {
+   		return customerfleetmanagerpage.add_insurance_agentbtn();
+   	 }
+    
+    @Step
+   	public boolean add_contract_btn()throws Exception {
+   		return customerfleetmanagerpage.add_contract_btn();
+   	 }
+    
+    @Step
+   	public boolean monitoringheader_newmonitorwindow()throws Exception {
+   		return customerfleetmanagerpage.monitoringheader_newmonitorwindow();
+   	 }
+    
+    @Step
+   	public boolean documentheader()throws Exception {
+   		return customerfleetmanagerpage.documentheader();
+   	 }
+    
+    @Step
+   	public boolean driverheaderlableload()throws Exception {
+   		return customerfleetmanagerpage.driverheaderlableload();
+   	 }
+    
+    @Step
+   	public boolean  Trucksheaderlableload()throws Exception {
+   		return customerfleetmanagerpage.Trucksheaderlableload();
+   	 }
+    
+
     
 }
     

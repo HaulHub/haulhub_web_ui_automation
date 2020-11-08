@@ -151,7 +151,7 @@ public class BrokerJobManagementPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@name='recipients[]']//following::i[@class='fa fa-times mt-3'][1]")
 	public WebElementFacade recepientemailclosebtn;
 	
-	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Cancel')]")
+	@FindBy(how = How.XPATH, using = "//span[.=' ×']")
 	public WebElementFacade truckcancelbtn;
 	
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Audit Log')]")
@@ -307,7 +307,7 @@ public class BrokerJobManagementPage extends PageObject {
 	      elementUtils.fluentWaitForElement(getDriver(), trucksavebtn).click();
 	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(),truckreceipientemailchxbox).click();
-	     elementUtils.fluentWaitForElement(getDriver(), truckreportsendbtn).waitUntilClickable();
+	      elementUtils.fluentWaitForElement(getDriver(), truckreportsendbtn).waitUntilClickable();
 	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(), truckreportsendbtn).click();
 	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
