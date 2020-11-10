@@ -33,8 +33,8 @@ Feature: FOBSMOKETESTSUITE.feature
        And I Reject the Order and check the Total Tons set to Zero
        
        Examples:
-       | userName    | password     |customername|startlocation| destination  | contactnumber       | address                              |   Tonnage | ProductionRate |                                                                               
-       | 8572688987  | haul-Quality!0501  |vigeshcompany|VigneshPlant| VigneshPlant | 8572688987     | 12 Andover Road, Billerica, MA, USA  |   1       |      1         |
+       | userName    | password           |customername |startlocation| destination  | contactnumber       | address                              |   Tonnage | ProductionRate |                                                                               
+       | 8572688987  | haul-Quality!0501  |vigeshcompany|VigneshPlant | VigneshPlant | 8572688987     | 12 Andover Road, Billerica, MA, USA  |   1       |      1         |
    
    @FOBSMOKETESTSUITE
     Scenario Outline: Validate ability to Create Materials+Trucks only Order and Scedule the order via  truck Scedule page
@@ -52,7 +52,6 @@ Feature: FOBSMOKETESTSUITE.feature
        Examples:
        | userName    | password     | customername   |startlocation       | destination  | contactnumber  | address                               |   Tonnage | ProductionRate | WorkType     | trucktypes | truckrequired  | truckbillingperson |  fleetpriority |                                                                      
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987     | 12 Andover Road, Billerica, MA, USA   |   1       |      1         | Construction | Paver    | 10             | vigneshcompany     |  Ami Trucking  |
-   
    
    @FOBSMOKETESTSUITE
     Scenario Outline: Validate ability to Create Material order and Add trucks,fleets and be able to validate sent SMS messages to Truck drivers after 

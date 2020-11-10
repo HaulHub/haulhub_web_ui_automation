@@ -21,6 +21,24 @@ public class SerenityFleetJobOffersSteps extends ScenarioSteps {
 		return fleetjobofferspage.fleet_assigndrivers();
 	 }
     
+    @Step
+	public boolean certified_payrolldocument() throws Exception {
+		return fleetjobofferspage.certified_payrolldocument();
+	 }
+    
+    @Step
+   	public boolean Trucks_Drivers() throws Exception {
+   		return fleetjobofferspage.Trucks_Drivers();
+   	 }
+    
+    @Step
+   	public boolean  Addinsurnace_agentdetails() throws Exception {
+   		return fleetjobofferspage.Addinsurnace_agentdetails();
+   	 }
+   
+
+ 
+    
 }
     
     

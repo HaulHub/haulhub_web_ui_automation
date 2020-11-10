@@ -56,7 +56,36 @@ public class FleetJobOffersPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Welcome back')]")
 	public WebElementFacade fleetcustomerwelcomebacklbl;
-
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Documents')]")
+	public WebElementFacade fleetdocumentlnk;
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Certified Payroll Documents')]")
+	public WebElementFacade fleetcertifiedpayrolldocumentlnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Drivers')]")
+	public WebElementFacade fleetdriverlnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Trucks')]")
+	public WebElementFacade fleettrucklnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Contracts')]")
+	public WebElementFacade Contractlnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Add Agent')]")
+	public WebElementFacade Addagentbtn;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='insurance_agent_name']")
+	public WebElementFacade Insuranceagencytxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='insurance_agent_contact_name']")
+	public WebElementFacade Insuranceagencycontactnametxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='insurance_agent_email']")
+	public WebElementFacade Insuranceagencyemailtxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@value='Save']")
+	public WebElementFacade InsuranceSavebtn;
 
 	/**
      * This method is used to click fleet shift and assign drivers and fleet views the second broker truck rates
@@ -94,8 +123,7 @@ public class FleetJobOffersPage extends PageObject {
    		    elementUtils.fluentWaitForElement(getDriver(), fleetbookjobsbtn).waitUntilClickable();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.safeJavaScriptClick(fleetbookjobsbtn);
-   		    
-			return true;
+   		     return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
@@ -104,6 +132,72 @@ public class FleetJobOffersPage extends PageObject {
 		return false;
 	}
 	
+	/**
+     * This method is used to click and view the ceritired payroll documents
+     */
+	public boolean certified_payrolldocument() {
+	try {
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), fleetdocumentlnk).waitUntilClickable();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), fleetdocumentlnk).click();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), fleetcertifiedpayrolldocumentlnk).isDisplayed();
+		   return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	/**
+     * This method is used to click and view the truck drivers details
+     */
+	public boolean Trucks_Drivers() {
+	try {
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), fleetdriverlnk).waitUntilPresent();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), fleettrucklnk).waitUntilPresent();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	/**
+     * This method is used to add new insurance agent Contract
+     */
+	public boolean Addinsurnace_agentdetails() {
+	try {
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Contractlnk).click();
+		    elementUtils.fluentWaitForElement(getDriver(), Addagentbtn).waitUntilPresent();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Addagentbtn).click();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Insuranceagencytxt).sendKeys("test");
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Insuranceagencycontactnametxt).sendKeys("test");
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Insuranceagencyemailtxt).sendKeys("test@gmail.com");
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), InsuranceSavebtn).click();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	
 

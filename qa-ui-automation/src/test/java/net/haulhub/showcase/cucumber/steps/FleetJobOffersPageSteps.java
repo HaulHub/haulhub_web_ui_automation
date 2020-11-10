@@ -22,5 +22,21 @@ public class FleetJobOffersPageSteps {
     assertTrue(serenityfleetjoboffersSteps.fleet_assigndrivers());
 	}
 
+    @Given("I am able to see the Certified Payroll documents button")
+    public void certified_payrolldocuments() throws Exception {
+    assertTrue(serenityfleetjoboffersSteps.certified_payrolldocument());
+	}
+    
+    @Given("I am able to see the Trucks and Drivers details")
+    public void Trucks_Drivers() throws Exception {
+    assertTrue(serenityfleetjoboffersSteps.Trucks_Drivers());
+	}
+    
+    @Given("I am able to add and see Insurance Agent details")
+    public void add_insurance_agentdetails() throws Exception {
+    assertTrue(serenityfleetjoboffersSteps.Addinsurnace_agentdetails());
+	}
+
+ 
 
 }   
