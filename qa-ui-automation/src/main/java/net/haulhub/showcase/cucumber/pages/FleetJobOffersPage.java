@@ -86,6 +86,10 @@ public class FleetJobOffersPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//input[@value='Save']")
 	public WebElementFacade InsuranceSavebtn;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Fleet')]")
+	public WebElementFacade fleetheaderlnk;
+
 
 	/**
      * This method is used to click fleet shift and assign drivers and fleet views the second broker truck rates
@@ -138,11 +142,12 @@ public class FleetJobOffersPage extends PageObject {
 	public boolean certified_payrolldocument() {
 	try {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		    elementUtils.fluentWaitForElement(getDriver(), fleetdocumentlnk).waitUntilClickable();
+		    elementUtils.fluentWaitForElement(getDriver(), fleetdocumentlnk).isDisplayed();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), fleetdocumentlnk).click();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), fleetcertifiedpayrolldocumentlnk).isDisplayed();
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		   return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
@@ -156,7 +161,9 @@ public class FleetJobOffersPage extends PageObject {
      * This method is used to click and view the truck drivers details
      */
 	public boolean Trucks_Drivers() {
-	try {
+		try {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), fleetheaderlnk).click();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), fleetdriverlnk).waitUntilPresent();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
