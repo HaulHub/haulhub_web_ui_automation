@@ -56,14 +56,14 @@ public class HomeAdminDashboardPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Associates')]")
 	public WebElementFacade associatedlnk;
-	
-	@FindBy(how = How.XPATH, using = "//td[.='Alisa Deychman']")
+
+	@FindBy(how = How.XPATH, using = "//td[.='Vignesh Nehru']")
 	public WebElementFacade associatename;
 	
 	@FindBy(how = How.XPATH, using = "//td[.='Vignesh Nehru']")
 	public WebElementFacade fleetnamenametxt;
-	
-	@FindBy(how = How.XPATH, using = "//a[.='xrSiyqkp8VVAy7xesEXMGQL1']")
+
+	@FindBy(how = How.XPATH, using = "//a[contains(@href, '/customer/login/token')]")
 	public WebElementFacade associatetokenlnk;
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Brokers')]")
