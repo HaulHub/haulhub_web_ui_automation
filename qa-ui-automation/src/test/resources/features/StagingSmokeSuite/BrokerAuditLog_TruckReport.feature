@@ -1,7 +1,7 @@
 @tag
-Feature: CustomerBrokerFleet.feature
+Feature: BrokerAuditLog_TruckReport.feature
 
-  @BROKERWORKFLOW1
+  @BROKERAUDITLOGTRUCKREPORT
       Scenario Outline: Validate as a customer ability to assign 6 different fleets with 5  assigned to first Broker and one more assigned to general pool
        Given Login to the application with valid <userName> and <password>
        And I click the OrderDashboard link in FOB home page 
@@ -21,7 +21,7 @@ Feature: CustomerBrokerFleet.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet      |firstBroker|
       | 8572688987 | haul-Quality!0501 | vigneshcompany | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              6 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
 
-   @BROKERWORKFLOW1
+   @BROKERAUDITLOGTRUCKREPORT
     Scenario Outline: Validate ability to login as First Broker and see the assigned shifts under needs review section under Customer Jobs section
        Given admin Login to the application with valid <userName> and <password>
        And I search for firstbroker <firstBroker> and login to the firstbroker portal
@@ -31,7 +31,7 @@ Feature: CustomerBrokerFleet.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
 
-     @BROKERWORKFLOW1
+    @BROKERAUDITLOGTRUCKREPORT
     Scenario Outline: Validate First Broker can view customer truck rate select all 5 shifts within the Review Job modal Accept and Assign Drivers
        And as first broker I click the assigned shifts view customer truck rate and  select all the 5 shifts and Accept to assign drivers
        
@@ -39,7 +39,7 @@ Feature: CustomerBrokerFleet.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
    
-     @BROKERWORKFLOW1
+   @BROKERAUDITLOGTRUCKREPORT
     Scenario Outline: First Broker assigns 1 shift to Internal truck and 3 shifts to secondbroker and then declines the last shift
        And as first broker I assign 1 shift to Internal truck and 3 shifts to secondbroker and then declines the last shift
       
@@ -47,7 +47,7 @@ Feature: CustomerBrokerFleet.feature
       | userName   | password    | customername   | startlocation | destination  | contactnumber | address                         | Tonnage | ProductionRate       | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet |firstBroker|
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
      
-     @BROKERWORKFLOW1
+   @BROKERAUDITLOGTRUCKREPORT
     Scenario Outline: As Broker I am able to send a truck report 
        And as first broker i click the truck report within sceduler
        
@@ -56,7 +56,7 @@ Feature: CustomerBrokerFleet.feature
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
      
      
-       @BROKERWORKFLOW1
+   @BROKERAUDITLOGTRUCKREPORT
     Scenario Outline: As Broker I am able to click Audit Logs and check the log details
        And as broker I click Audit logs and check the log details
        
@@ -65,7 +65,7 @@ Feature: CustomerBrokerFleet.feature
       | vignesh | haul-Quality!0501 | alisa  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver            |              1 | vigneshcompany | VigneshCompany | VigneshCompany |Vigneshbroker1|
      
  
-   @FOBSMOKETESTSUITE
+  @BROKERAUDITLOGTRUCKREPORT
     Scenario Outline: Login as Customer and Cancel the original order created 
        Given Login to the application with valid <userName> and <password>
        And I click the OrderDashboard link in FOB home page 

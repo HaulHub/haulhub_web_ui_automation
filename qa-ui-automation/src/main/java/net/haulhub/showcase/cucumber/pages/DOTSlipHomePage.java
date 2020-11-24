@@ -205,7 +205,7 @@ public class DOTSlipHomePage extends PageObject {
 			    elementUtils.fluentWaitForElement(getDriver(),UpdateResultsbtn).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    List<WebElement> listofItems = getDriver().findElements(By.xpath("//tr[@class='slip']//td[@class='number']"));
-			    for (int i=1; i<=1; i++)
+			    for (int i=0; i<1; i++)
 				  {
 					  Actions action = new Actions(getDriver());
 					  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

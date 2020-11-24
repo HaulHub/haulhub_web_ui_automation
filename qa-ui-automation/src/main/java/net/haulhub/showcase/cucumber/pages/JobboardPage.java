@@ -40,14 +40,17 @@ public class JobboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//h1[contains(text(),'Asphalt Trip Cost: Per Ton')]")
 	public WebElementFacade tripcostmodallbl;
 	
-	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-dollar fa-stack-1x fa-inverse']")
+	/*@FindBy(how = How.XPATH, using = "//i[@class='fa fa-dollar fa-stack-1x fa-inverse']")
+	public WebElementFacade TripCostModal;*/
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'10 Wheel')]//following::span[1]")
 	public WebElementFacade TripCostModal;
 	
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times-circle']")
 	public WebElementFacade CloseTripCostModal;
 	
 	/**
-     * This method is used to click Tripcost modal link and validate it opens correctly
+     * This method is used to click Trip cost modal link and validate it opens correctly
      */
 	public boolean ClickTripcostmodalvalidate() {
 	try {
