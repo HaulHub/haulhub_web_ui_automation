@@ -92,8 +92,10 @@ public class HomeAdminDashboardPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'All Fleets')]")
 	public WebElementFacade fleetssublink;
-
 	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Sign in as')]")
+	public WebElementFacade DOTSigninnamelnk;
+
 	/**
      * This method is used to search for firstcustomername
      */
@@ -180,8 +182,8 @@ public class HomeAdminDashboardPage extends PageObject {
 			Actions actionbtn = new Actions(getDriver());
 			actionbtn .moveToElement(DOTEmployeename).click().build().perform();
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(), DOTlogintokenlnk).waitUntilVisible();
-			elementUtils.fluentWaitForElement(getDriver(), DOTlogintokenlnk).click();
+			elementUtils.fluentWaitForElement(getDriver(), DOTSigninnamelnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), DOTSigninnamelnk).click();
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		    Thread.sleep(500);
 		    return true;
