@@ -101,6 +101,10 @@ public class HomeAdminDashboardPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'All Fleets')]")
 	public WebElementFacade fleetssublink;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Sign in as')]")
+	public WebElementFacade loginpersonalizationlnk;
+
 
 	
 	/**
@@ -125,8 +129,8 @@ public class HomeAdminDashboardPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(), associatename).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), associatename).click();
 			Thread.sleep(500);
-			elementUtils.fluentWaitForElement(getDriver(), associatetokenlnk).waitUntilVisible();
-			elementUtils.fluentWaitForElement(getDriver(), associatetokenlnk).click();
+			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).click();
 			Thread.sleep(500);
 		    return true;
 		} catch (NoSuchElementException e) {
@@ -211,6 +215,8 @@ public class HomeAdminDashboardPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(), DOTlnk).waitUntilClickable();
 			elementUtils.safeJavaScriptClick(DOTlnk);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(DOTEmployee.trim());
 			elementUtils.fluentWaitForElement(getDriver(), departmentname).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), departmentname).click();
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
@@ -221,8 +227,8 @@ public class HomeAdminDashboardPage extends PageObject {
 			Actions actionbtn = new Actions(getDriver());
 			actionbtn .moveToElement(DOTEmployeename).click().build().perform();
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(), DOTlogintokenlnk).waitUntilVisible();
-			elementUtils.fluentWaitForElement(getDriver(), DOTlogintokenlnk).click();
+			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).click();
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		    Thread.sleep(500);
 		    return true;
@@ -242,10 +248,10 @@ public class HomeAdminDashboardPage extends PageObject {
 	try {
 		    elementUtils.fluentWaitForElement(getDriver(), fleetslnk).waitUntilClickable();
 			elementUtils.safeJavaScriptClick(fleetslnk);
-			Thread.sleep(800);
+			Thread.sleep(1000);
 			elementUtils.fluentWaitForElement(getDriver(), fleetssublink).waitUntilClickable();
 			elementUtils.safeJavaScriptClick(fleetssublink);
-			Thread.sleep(500);
+			Thread.sleep(800);
             elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(fleetname.trim());
 			Thread.sleep(500);

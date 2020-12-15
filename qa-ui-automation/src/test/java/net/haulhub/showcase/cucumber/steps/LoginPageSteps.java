@@ -22,7 +22,7 @@ public class LoginPageSteps {
 
 	@Given("Login to the application with valid (.*) and (.*)")
 	public void Login_to_the_application(String userName, String password) throws Exception {
-		serenityLoginSteps.Userlogin(userName, password);
+	serenityLoginSteps.Userlogin(userName, password);
 	}
 	
 	@Given("admin Login to the application with valid (.*) and (.*)")

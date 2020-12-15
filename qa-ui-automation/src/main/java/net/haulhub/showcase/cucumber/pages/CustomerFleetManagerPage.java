@@ -119,9 +119,9 @@ public class CustomerFleetManagerPage extends PageObject {
 	
 
 
-	/**
+/*	*//**
      * This method is used to validate complianceFleetdetails
-     */
+     *//*
 	public boolean Validate_complianceFleetdetails(String customername) {
 	try {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -144,6 +144,25 @@ public class CustomerFleetManagerPage extends PageObject {
 			    flag = 0;
 		    if  (flag == 0)
 		      return true ; 
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}*/
+	
+	/**
+     * This method is used to validate complianceFleetdetails
+     */
+	public boolean Validate_complianceFleetdetails(String customername) {
+	try {
+		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    WebElement Fleetmanagerlnk =  getDriver().findElement(By.xpath("//div[contains(text(),'" + customername + "')]"));
+		    getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(),Fleetmanagerlnk).click();
+		    getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		    return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
@@ -197,13 +216,8 @@ public class CustomerFleetManagerPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(),insuranceemailtxt).sendKeys("vignesh@haulhub.com");
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), insuranceaddagenttxt).click();
-		    /*getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		    WebElement Fleetmanagerlnk =  getDriver().findElement(By.xpath("//div[contains(text(),'Vigneshbroker1')]"));
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		    elementUtils.fluentWaitForElement(getDriver(),Fleetmanagerlnk).isDisplayed();
-		    getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
-		    elementUtils.fluentWaitForElement(getDriver(),Fleetmanagerlnk).click();*/
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    Thread.sleep(1000);
 		    return true ; 
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
