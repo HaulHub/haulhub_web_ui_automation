@@ -209,6 +209,7 @@ public class DOTSlipHomePage extends PageObject {
 				  {
 					  Actions action = new Actions(getDriver());
 					  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+					  Thread.sleep(1000);
 			          action.moveToElement(listofItems.get(i)).click().build().perform();
 			          break;
 				  } 

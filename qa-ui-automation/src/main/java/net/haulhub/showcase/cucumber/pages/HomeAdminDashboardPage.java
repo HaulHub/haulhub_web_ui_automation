@@ -215,8 +215,9 @@ public class HomeAdminDashboardPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(), DOTlnk).waitUntilClickable();
 			elementUtils.safeJavaScriptClick(DOTlnk);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
 		    elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(DOTEmployee.trim());
+		    Thread.sleep(1000);
 			elementUtils.fluentWaitForElement(getDriver(), departmentname).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), departmentname).click();
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
