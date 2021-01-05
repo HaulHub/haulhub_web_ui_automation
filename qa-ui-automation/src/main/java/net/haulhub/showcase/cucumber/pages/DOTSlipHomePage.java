@@ -161,7 +161,7 @@ public class DOTSlipHomePage extends PageObject {
 		try {
 			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),DotslipFeedlbl).click();
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    Thread.sleep(500);
 			    if (getDriver().getCurrentUrl().contains("dot_slips") && elementUtils.fluentWaitForElement(getDriver(), Jobsitelbl).isDisplayed())
 			      return true;
 			    else
