@@ -174,7 +174,7 @@ public class BrokerDashboardPage extends PageObject {
      */
 	public boolean clickacceptlaterbutton() {
 	try {
-		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  Thread.sleep(500);
 		  elementUtils.fluentWaitForElement(getDriver(), secondbrokeracceptlaterbtn).isDisplayed();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.safeJavaScriptClick(secondbrokeracceptlaterbtn);

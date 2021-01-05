@@ -96,7 +96,7 @@ public class BrokerScedulerPage extends PageObject {
 	         elementUtils.fluentWaitForElement(getDriver(),secondbrokerdriverselectiondropdown).typeAndEnter("brokerdriver2 brokerdriver2");
 	         elementUtils.fluentWaitForElement(getDriver(),secondbrokerdeclinetruck).waitUntilClickable();
 	         getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-             elementUtils.fluentWaitForElement(getDriver(), secondbrokerSendinvitebtn).click();
+             elementUtils.safeJavaScriptClick(secondbrokerSendinvitebtn);
              Thread.sleep(1000);
              elementUtils.fluentWaitForElement(getDriver(),brokerScedulerlnk).waitUntilClickable();
  		     getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
