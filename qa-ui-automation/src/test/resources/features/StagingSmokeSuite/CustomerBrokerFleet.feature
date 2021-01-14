@@ -29,7 +29,7 @@ Feature: CustomerBrokerFleet.feature
 
     Examples: 
       | userName | password          | customername | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
-      | vignesh  | haul-Quality!0501 | alisa        | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | alisa        | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
 
   @CUSTOMERBROKERFLEET
   Scenario Outline: Validate First Broker can view customer truck rate select all 5 shifts within the Review Job modal Accept and Assign Drivers
@@ -74,7 +74,7 @@ Feature: CustomerBrokerFleet.feature
 
     Examples: 
       | userName | password          | customername | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | SecondBroker   |
-      | vignesh  | haul-Quality!0501 | alisa        | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker2 |
+      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf| alisa        | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker2 |
 
   @CUSTOMERBROKERFLEET
   Scenario Outline: Validate Second Broker can view first broker rate and select all his assigned 3 shifts within the Review Job modal and Accepts
@@ -108,7 +108,7 @@ Feature: CustomerBrokerFleet.feature
 
     Examples: 
       | userName | password          | firstBroker    |
-      | vignesh  | haul-Quality!0501 | Vigneshbroker1 |
+      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | Vigneshbroker1 |
 
   @CUSTOMERBROKERFLEET
   Scenario Outline: Validate as fleet i am able to see the shifts assigned by second broker to fleet and also view the rates assigned by Second broker
@@ -118,7 +118,7 @@ Feature: CustomerBrokerFleet.feature
 
     Examples: 
       | userName | password          | fleetname      |
-      | vignesh  | haul-Quality!0501 | Vigneshcompany |
+      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | Vigneshcompany |
 
   @CUSTOMERBROKERFLEET
   Scenario Outline: Validate as Second Broker I am able to see the driver name against the shift assigned to Fleet company with in Sceduler page
@@ -128,7 +128,7 @@ Feature: CustomerBrokerFleet.feature
 
     Examples: 
       | userName | password          | customername | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | SecondBroker   | drivername    |
-      | vignesh  | haul-Quality!0501 | alisa        | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker2 | Vignesh Nehru |
+      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | alisa        | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker2 | Vignesh Nehru |
 
   @CUSTOMERBROKERFLEET
   Scenario Outline: Login as Customer and Cancel the original order created

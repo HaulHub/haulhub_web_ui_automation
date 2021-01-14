@@ -66,10 +66,10 @@ public class DOTSlipHomePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@value='Update Results']")
 	public WebElementFacade UpdateResultsbtn;
 	
-	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Delivered')]")
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Mark as Delivered')]")
 	public WebElementFacade Deliveredbtn;	
 	
-	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Reject')]")
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Reject')]")
 	public WebElementFacade Rejectbtn;
 	
 	@FindBy(how = How.XPATH, using = "//div[@class='dropdown bootstrap-select contractor-select form-control']")
@@ -108,7 +108,7 @@ public class DOTSlipHomePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times close-icon']")
 	public WebElementFacade closemodalcsv;
 	
-	@FindBy(how = How.XPATH, using = "//select[@id='by_dot_status']//option[contains(text(),'Pending')]")
+	@FindBy(how = How.XPATH, using = "//select[@id='by_dot_status']//option[contains(text(),'Delivered')]")
 	public WebElementFacade statusdropdown;
 	
 	
@@ -210,7 +210,7 @@ public class DOTSlipHomePage extends PageObject {
 					  Actions action = new Actions(getDriver());
 					  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 					  Thread.sleep(1000);
-			          action.moveToElement(listofItems.get(i)).click().build().perform();
+			        //  action.moveToElement(listofItems.get(i)).click().build().perform();
 			          break;
 				  } 
 			    return true;
@@ -258,11 +258,13 @@ public class DOTSlipHomePage extends PageObject {
 			    for (int i=0; i<=0; i++)
 				  {
 					  Actions action = new Actions(getDriver());
-					  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+					  getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+					  Thread.sleep(1000);
 			          action.moveToElement(listofItems.get(i)).click().build().perform();
 			          getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 					  List<WebElement> listofItems1 = getDriver().findElements(By.xpath("//div[.='Invite']"));
 					  listofItems1.get(i).click();
+					  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 					  break;
 				  } 
 			    return true;
@@ -343,13 +345,12 @@ public class DOTSlipHomePage extends PageObject {
 	
 	public boolean clickandviewbuttons(String ticketnumber) {
 		try {
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    /*getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),Rejectbtn).isDisplayed();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),Deliveredbtn).isDisplayed();
+			    elementUtils.fluentWaitForElement(getDriver(),Deliveredbtn).isDisplayed();*/
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),closemodalcsv).click();
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			    //elementUtils.fluentWaitForElement(getDriver(),closemodalcsv).click();
 			    elementUtils.fluentWaitForElement(getDriver(),selectinputboxreport).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),downloadselectedbtn).click();

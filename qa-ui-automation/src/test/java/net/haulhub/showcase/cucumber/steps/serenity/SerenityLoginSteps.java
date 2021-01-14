@@ -64,7 +64,7 @@ public LoginadminPage loginadminpage;
 		    loginadminpage.open();
 		    String envURL = getDriver().getCurrentUrl();
 		    System.out.println("The  get driver url is " + envURL);
-		    String newurl =envURL.concat("admin/login");
+		    String newurl =envURL.concat("hh-console/hunter2/login");
 		    try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {

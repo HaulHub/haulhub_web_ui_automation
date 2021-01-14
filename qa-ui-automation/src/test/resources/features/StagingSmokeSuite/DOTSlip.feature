@@ -9,7 +9,7 @@ Feature: DOTSlip.feature
 
     Examples: 
       | userName | password          | dotslipemployee | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
-      | vignesh  | haul-Quality!0501 | Vignesh       | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | Vignesh       | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
 
   @DOTSLIP
   Scenario Outline: Validate on clicking TODAY link loads the the associate Url page related to TODAY within DOTSlip
@@ -63,7 +63,7 @@ Feature: DOTSlip.feature
    
    
     @DOTSLIP
-  Scenario Outline: Validate appearence of reject button and delivered button associated to Feed Ticketnumber and ability to download selected report
+  Scenario Outline: Validate appearence of reject button and Mark delivered button associated to Feed Ticketnumber and ability to download selected report
     And I clicking the ticketnumber <ticketnumber> could view the reject delivered button associated to Feed Ticketnumber and downloadreport
    
     Examples: 
