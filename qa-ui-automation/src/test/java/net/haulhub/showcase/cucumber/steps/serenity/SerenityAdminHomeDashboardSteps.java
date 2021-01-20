@@ -40,7 +40,13 @@ public class SerenityAdminHomeDashboardSteps extends ScenarioSteps {
    	public boolean searchsecondbroker(String secondbrokername) throws Exception {
    		return homeadmindashboardpage.searchsecondbrokername(secondbrokername);
    	 }
-    
 
-      
+	@Step
+	public boolean searchReadOnlycustomer(String ROcustomername) throws Exception {
+		return homeadmindashboardpage.searchReadOnlycustomer(ROcustomername);
+	}
+
+
+
+
 } 

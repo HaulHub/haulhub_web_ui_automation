@@ -109,6 +109,12 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Sign in as')]")
 	public WebElementFacade loginpersonalizationlnk;
 
+	@FindBy(how = How.XPATH, using = "//td[.='Vignesh RO']")
+	public WebElementFacade associatenameROUser;
+
+	@FindBy(how = How.XPATH, using = "//a[.='Sign in as Vignesh RO']")
+	public WebElementFacade impersanationROUser;
+
 
 	
 	/**
@@ -139,6 +145,40 @@ public class HomeAdminDashboardPage extends PageObject {
 		    return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	/**
+	 * This method is used to search for firstcustomername
+	 */
+	public boolean searchReadOnlycustomer(String firstcustomername) {
+		try {
+			elementUtils.fluentWaitForElement(getDriver(), customerlnk).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(customerlnk);
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstcustomername);
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), activestatus).waitUntilVisible();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), activestatus).click();
+			Thread.sleep(1000);
+			elementUtils.fluentWaitForElement(getDriver(), associatedlnk).waitUntilVisible();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), associatedlnk).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), associatenameROUser).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), associatenameROUser).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), impersanationROUser).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), impersanationROUser).click();
+			Thread.sleep(500);
+			return true;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

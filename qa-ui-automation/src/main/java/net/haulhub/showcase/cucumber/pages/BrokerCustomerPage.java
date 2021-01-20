@@ -146,8 +146,6 @@ public class BrokerCustomerPage extends PageObject {
 	public WebElementFacade brokercustomerSavechanges;
 
 
-
-
 	/**
      * This method is used to create a customer via the Broker Customer creation Work flows and check the ability to view the created profile
      */

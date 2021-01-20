@@ -43,8 +43,11 @@ public class HomeAdminDashboardPageSteps {
     public void search_secondbroker(String secondbrokername) throws Exception {
     assertTrue(serenityadminHomeDashboardSteps.searchsecondbroker(secondbrokername));
     }
-    
-    
+
+    @Given("I search for ReadOnlycustomer(.*) and login to the customers portal")
+    public void search_ReadOnlycustomer(String ROcustomername) throws Exception {
+        assertTrue(serenityadminHomeDashboardSteps.searchReadOnlycustomer(ROcustomername));
+    }
 
 
 
