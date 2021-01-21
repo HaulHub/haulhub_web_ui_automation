@@ -152,7 +152,7 @@ public class HomeAdminDashboardPage extends PageObject {
 	}
 
 	/**
-	 * This method is used to search for firstcustomername
+	 * This method is used to login as read only user
 	 */
 	public boolean searchReadOnlycustomer(String firstcustomername) {
 		try {

@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,87 +15,90 @@ import net.serenitybdd.core.pages.WebElementFacade;
 public class JobBoardPage_ROUser extends PageObject {
 
 
-    WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+	WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 
-    public JobBoardPage_ROUser(WebDriver driver) {
-        super(driver);
-    }
+	public JobBoardPage_ROUser(WebDriver driver) {
+		super(driver);
+	}
 
-    public ElementUtils elementUtils = new ElementUtils(getDriver());
+	public ElementUtils elementUtils = new ElementUtils(getDriver());
 
-    @FindBy(how = How.XPATH, using = "//*[@class='page-header__content']//*[contains(text(),'Job Board')]")
-    public WebElementFacade lblJobBoard;
-
-
-    @FindBy(how = How.XPATH, using = "//*[@class='nav-sidebar']//*[contains(text(),'Job Management')]")
-    public WebElementFacade lnkJobManagement;
+	@FindBy(how = How.XPATH, using = "//*[@class='page-header__content']//*[contains(text(),'Job Board')]")
+	public WebElementFacade lblJobBoard;
 
 
-    @FindBy(how = How.XPATH, using = "//*[@class='nav-sidebar']//*[contains(text(),'Daily Lineup')]")
-    public WebElementFacade lnkDailyLineUp;
+	@FindBy(how = How.XPATH, using = "//*[@class='nav-sidebar']//*[contains(text(),'Job Management')]")
+	public WebElementFacade lnkJobManagement;
 
 
-    @FindBy(how = How.XPATH, using = "//*[@class='nav-sidebar']//*[contains(text(),'Job Board')]")
-    public WebElementFacade lnkJobBoard;
+	@FindBy(how = How.XPATH, using = "//*[@class='nav-sidebar']//*[contains(text(),'Daily Lineup')]")
+	public WebElementFacade lnkDailyLineUp;
 
 
-    @FindBy(how = How.XPATH, using = "//*[@class='nav-sidebar']//*[contains(text(),'Tickets')]")
-    public WebElementFacade lnkTickets;
+	@FindBy(how = How.XPATH, using = "//*[@class='nav-sidebar']//*[contains(text(),'Job Board')]")
+	public WebElementFacade lnkJobBoard;
 
 
-    @FindBy(how = How.XPATH, using = "//span[text()='Order Dashboard']")
-    public WebElementFacade lnkOrderDashBoard;
-
-    @FindBy(how = How.XPATH, using = "//*[@id='react-select-2--value']")
-    public WebElementFacade selStatus;
-
-    @FindBy(how = How.XPATH, using = "//*[@class='sub-nav__item']//*[contains(@href,'customer/jobs/')]")
-    public WebElementFacade lnkJobnumber;
-
-    @FindBy(how = How.XPATH, using = "//*[@id='react-select-2--value']")
-    public WebElementFacade lnkUpcoming;
+	@FindBy(how = How.XPATH, using = "//*[@class='nav-sidebar']//*[contains(text(),'Tickets')]") 
+	public WebElementFacade lnkTickets;
 
 
-
-    public boolean CheckNavigationToJobBoardPage(){
-
-        try {
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            elementUtils.fluentWaitForElement(getDriver(),lblJobBoard).isDisplayed();
-
-            return true;
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+	@FindBy(how = How.XPATH, using = "//span[text()='Order Dashboard']") 
+	public WebElementFacade lnkOrderDashBoard;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='react-select-2--value']")
+	public WebElementFacade selStatus;
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='sub-nav__item']//*[contains(@href,'customer/jobs/')]")
+	public WebElementFacade lnkJobnumber;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='react-select-2--value']")
+	public WebElementFacade lnkUpcoming;
 
 
-    public boolean checkAccessAvailability() {
 
-        try {
+	public boolean CheckNavigationToJobBoardPage(){
 
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            elementUtils.fluentWaitForElement(getDriver(),lnkJobManagement).isEnabled();
+		try {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lblJobBoard).isDisplayed();
 
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            elementUtils.fluentWaitForElement(getDriver(),lnkDailyLineUp).isEnabled();
+			return true;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
 
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            elementUtils.fluentWaitForElement(getDriver(),lnkJobBoard).isEnabled();
 
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            elementUtils.fluentWaitForElement(getDriver(),lnkTickets).isEnabled();
+	public boolean checkAccessAvailability() {
 
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            elementUtils.fluentWaitForElement(getDriver(),lnkOrderDashBoard).isEnabled();
+		try {
 
-            return true;
-        }catch (NoSuchElementException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lnkJobManagement).isEnabled();
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lnkDailyLineUp).isEnabled();
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lnkJobBoard).isEnabled();
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lnkTickets).isEnabled();
+
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lnkOrderDashBoard).isEnabled();
+			
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lnkDailyLineUp).click();
+
+			return true;
+		}catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
 
 
 }

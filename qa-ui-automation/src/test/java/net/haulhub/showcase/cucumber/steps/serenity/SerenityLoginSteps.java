@@ -98,7 +98,15 @@ public LoginadminPage loginadminpage;
 				
 			} 
 		  
-		 
+		  @Step("Login to the Read Only user via adminlogin Application")
+	       public HomeAdminDashboardPage readOnlyUserlogin(String userName, String password) {
+	            WebDriver driver = loginadminpage.getDriver();
+	            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	            getDriver().navigate().to("https://testing.haulhub.com/hh-console/hunter2/login");
+	            String envURL = getDriver().getCurrentUrl();
+	        	LearningPlatformConstants.environmentURL.set(envURL);
+	        	return loginadminpage.adminLogin(userName, password);
+	    }
 		  
 		  
 		 /* @Step("Login to the adminlogin Application")

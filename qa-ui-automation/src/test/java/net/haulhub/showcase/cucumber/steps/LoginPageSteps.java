@@ -29,4 +29,9 @@ public class LoginPageSteps {
 	public void admin_login(String userName, String password) throws Exception {
 		serenityLoginSteps.adminlogin(userName, password);
 	}
+	
+	@Given("readOnlyUser Login to the application with valid (.*) and (.*)")
+	public void readOnlyUserloginin_login(String userName, String password) throws Exception {
+		serenityLoginSteps.readOnlyUserlogin(userName, password);
+}
 }
