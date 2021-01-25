@@ -52,11 +52,14 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//td[contains(text(),'vigneshDOT')]")
 	public WebElementFacade departmentname;
 	
-	@FindBy(how = How.XPATH, using = "//a[contains(text(),'DOT Employees')]")
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'DOT Employees')]") 
 	public WebElementFacade DOTEmployeelnk;
 	
 	@FindBy(how = How.XPATH, using = "//td[.='Active']")
 	public WebElementFacade activestatus;
+	
+	@FindBy(how = How.XPATH, using = "//td[.='Material Supplier/Wholesaler']")
+	public WebElementFacade type;
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Associates')]")
 	public WebElementFacade associatedlnk;
@@ -162,9 +165,9 @@ public class HomeAdminDashboardPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstcustomername);
 			Thread.sleep(500);
-			elementUtils.fluentWaitForElement(getDriver(), activestatus).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), type).waitUntilVisible(); 
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(), activestatus).click();
+			elementUtils.fluentWaitForElement(getDriver(), type).click();
 			Thread.sleep(1000);
 			elementUtils.fluentWaitForElement(getDriver(), associatedlnk).waitUntilVisible();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

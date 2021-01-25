@@ -31,9 +31,9 @@ public class DailyLiniupPage_ROUser extends PageObject {
 	public WebElementFacade lblJobBoard;
 	
 	
+	/*Check disability of file export button*/
 	public boolean CheckDisabilityOfFileExportButton(){
-
-		 
+	 
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			if (elementUtils.fluentWaitForElement(getDriver(),btnFileExport).getAttribute("disabled") != null) {
 			
@@ -43,10 +43,10 @@ public class DailyLiniupPage_ROUser extends PageObject {
 		}
 	}
 	
+	/*Navigate to Jobboard page*/
 	public boolean navigateToJobboardPage(){
 
 		try {
-			
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),lblJobBoard).click();
 

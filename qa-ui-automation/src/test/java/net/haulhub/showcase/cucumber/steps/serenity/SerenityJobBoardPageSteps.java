@@ -18,7 +18,6 @@ public class SerenityJobBoardPageSteps extends ScenarioSteps  {
    		return jobboardpage.CheckNavigationToJobBoardPage();
    	 }
 	
-	
 	@Step
    	public boolean checkAccessAvailability() throws Exception {
    		return jobboardpage.checkAccessAvailability();
@@ -30,7 +29,7 @@ public class SerenityJobBoardPageSteps extends ScenarioSteps  {
    	 }
 	
 	@Step
-   	public boolean navigateToJobboard() throws Exception {
+   	public boolean navigateToJobboard() throws Exception {   
    		return dailyLineuppage.navigateToJobboardPage();
    	 }
 	
@@ -39,16 +38,28 @@ public class SerenityJobBoardPageSteps extends ScenarioSteps  {
    		return orderdashboardpage.CheckAccessibilityOfMainLink();   	
    	}
 	
+	@Step
+   	public boolean check_visibility_of_Notify_Reserved_button() throws Exception { 
+   		return jobboardpage.checkVisibilityOfNotifyReservedbutton();   	
+   	}
 	
+	@Step
+   	public boolean filterd_by_Upcoming_status() throws Exception {
+   		return jobboardpage.filterByUpcomingStatus();   	
+   	}
 	
+	@Step
+   	public boolean clickOnJobNumber() throws Exception {
+   		return jobboardpage.clickOnJobNumber();   	
+   	}
+	
+	//Currently working on this - Kaveendra
 //	@Step
-//	public boolean select_status(String status) throws Exception {
-//		return jobboardpage.selectStatus(status);
-//	}
+//   	public boolean check_vsibility_of_buttons() throws Exception {
+//   		return jobboardpage.checkAccessibilityOfButtons();   	
+//   	}
 	
 	
-//	@Step
-//	public boolean clickARecord() throws Exception {
-//		
-//	}
+	
+
 }

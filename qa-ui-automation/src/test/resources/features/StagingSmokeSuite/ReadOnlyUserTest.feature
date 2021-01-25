@@ -1,5 +1,5 @@
 @tag
-Feature: Read-Only User Test 
+Feature: Read-Only User Test new
 
   @Read-Only
   Scenario Outline: Check accessibility in main navigation for the Read-only user
@@ -10,6 +10,10 @@ Feature: Read-Only User Test
     Then I check accessibility of file export function
     Then I navigate back to Jobboard page
     Then I check accessibility of Main link
+    Then I check visibility of Notify Reserved button in Jobboard page
+    When I filterd by Upcoming status
+    And I click on a job number
+#    Then I check vsibility of Cancel Rebook EditShiftSchedule EditShift AddShift CancelShift buttons
 
     Examples:
       | userName | password                 | ROcustomername |
