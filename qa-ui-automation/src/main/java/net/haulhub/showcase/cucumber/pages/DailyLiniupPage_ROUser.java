@@ -1,13 +1,11 @@
 package net.haulhub.showcase.cucumber.pages;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import net.haulhub.showcase.cucumber.utils.ElementUtils;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -22,8 +20,6 @@ public class DailyLiniupPage_ROUser extends PageObject {
 
 	public ElementUtils elementUtils = new ElementUtils(getDriver());
 	
-	
-
 	@FindBy(how = How.XPATH, using = "//*[.='File Export']")
 	public WebElementFacade btnFileExport;
 	
@@ -33,10 +29,8 @@ public class DailyLiniupPage_ROUser extends PageObject {
 	
 	/*Check disability of file export button*/
 	public boolean CheckDisabilityOfFileExportButton(){
-	 
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	                getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			if (elementUtils.fluentWaitForElement(getDriver(),btnFileExport).getAttribute("disabled") != null) {
-			
 			return true;
 		} else
 		{ return false;
@@ -45,12 +39,10 @@ public class DailyLiniupPage_ROUser extends PageObject {
 	
 	/*Navigate to Jobboard page*/
 	public boolean navigateToJobboardPage(){
-
-		try {
+               try {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),lblJobBoard).click();
-
-			return true;
+		        return true;
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
