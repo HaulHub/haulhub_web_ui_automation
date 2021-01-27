@@ -108,7 +108,7 @@ public class DOTSlipHomePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times close-icon']")
 	public WebElementFacade closemodalcsv;
 	
-	@FindBy(how = How.XPATH, using = "//select[@id='by_dot_status']//option[contains(text(),'Delivered')]")
+	@FindBy(how = How.XPATH, using = "//select[@id='by_dot_status']//option[contains(text(),'Pending')]")
 	public WebElementFacade statusdropdown;
 	
 	
@@ -361,9 +361,9 @@ public class DOTSlipHomePage extends PageObject {
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),exportaspdfbtn).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),downloadselectedbtn).click();
+			   /* elementUtils.fluentWaitForElement(getDriver(),downloadselectedbtn).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),exportascsv).click();
+			    elementUtils.fluentWaitForElement(getDriver(),exportascsv).click();*/
 			    return true;
 			} catch (NoSuchElementException e) {
 			e.printStackTrace();
