@@ -98,7 +98,8 @@ public LoginadminPage loginadminpage;
 				
 			} 
 		  
-		  @Step("Login to the Read Only user via adminlogin Application")
+		//we dont need this as general admin login function already exists
+		/*  @Step("Login to the Read Only user via adminlogin Application")
 	       public HomeAdminDashboardPage readOnlyUserlogin(String userName, String password) {
 	            WebDriver driver = loginadminpage.getDriver();
 	            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -106,7 +107,7 @@ public LoginadminPage loginadminpage;
 	            String envURL = getDriver().getCurrentUrl();
 	        	LearningPlatformConstants.environmentURL.set(envURL);
 	        	return loginadminpage.adminLogin(userName, password);
-	    }
+	    }*/
 		  
 		  
 		 /* @Step("Login to the adminlogin Application")

@@ -21,6 +21,11 @@ public CustomersPage customerpage;
 	 }
     
     @Step
+   	public boolean  ETicket_manage_customers() throws Exception  {
+   		return customerpage.ETicket_manage_customers();
+   	 }
+    
+    @Step
    	public boolean  validate_newcustomerprofile() throws Exception  {
    		return customerpage.validate_newcustomerprofile();
    	 }
@@ -34,6 +39,12 @@ public CustomersPage customerpage;
    	public boolean  delete_customernamereflected() throws Exception  {
    		return customerpage.delete_customernamereflected();
    	 }
+    
+    @Step
+   	public boolean ETicket_typing_new_Haulhubcustomername() throws Exception  {
+   		return customerpage. ETicket_typing_new_Haulhubcustomername();
+   	 }
+
     
  }
 

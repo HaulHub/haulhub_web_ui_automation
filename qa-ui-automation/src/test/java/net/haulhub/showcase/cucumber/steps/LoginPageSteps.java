@@ -30,8 +30,9 @@ public class LoginPageSteps {
 		serenityLoginSteps.adminlogin(userName, password);
 	}
 	
-	@Given("readOnlyUser Login to the application with valid (.*) and (.*)")
+	//we dont need this as the 
+	/*@Given("readOnlyUser Login to the application with valid (.*) and (.*)")
 	public void readOnlyUserloginin_login(String userName, String password) throws Exception {
-		serenityLoginSteps.readOnlyUserlogin(userName, password);
-}
+		serenityLoginSteps.readOnlyUserlogin(userName, password);*/
+
 }

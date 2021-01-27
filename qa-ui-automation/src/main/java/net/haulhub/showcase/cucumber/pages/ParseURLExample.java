@@ -3,34 +3,18 @@ package net.haulhub.showcase.cucumber.pages;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Random;
  
 public class ParseURLExample {
      
-    public static void main(String[] args) {
-         
-        // Create a URL
-        try {
-        	String envurl = " http://www.javacodegeeks.com:80/category/jvm-languages";
-             
-            URL url = new URL(envurl);
-             
-            String protocol = url.getProtocol();
-            String host = url.getHost();
-            int port = url.getPort();
-            String portstring = Integer.toString(port);
-            String path = url.getPath();
-             
-            System.out.println("URL created: " + url);
-            System.out.println("protocol: " + protocol);
-            System.out.println("host: " + host);
-            System.out.println("port: " + portstring);
-            System.out.println("path: " + path);
-             
-        }
-        catch (MalformedURLException e) {
-            System.out.println("Malformed URL: " + e.getMessage());
-        }
-         
+    
+	public static void main(String[] args)
+	{
+    	    Random r = new Random(System.currentTimeMillis());
+    	    int number1 = 100000000 + r.nextInt(2000000000);
+    	   
+    	    System.out.println("the number is" + number1);
+   
+    	
+	}
     }
- 
-}
