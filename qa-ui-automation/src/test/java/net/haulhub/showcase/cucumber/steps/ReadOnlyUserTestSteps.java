@@ -46,23 +46,29 @@ public class ReadOnlyUserTestSteps {
 		assertTrue(serenityjobboardpagesteps.filterd_by_Upcoming_status() );
 	}
 	
-	@Then("I click on a job number")
-	public void I_click_on_a_job_number() throws Throwable {
-		assertTrue(serenityjobboardpagesteps.clickOnJobNumber() );
+	@Then("I check visibility of Cancel EditShiftSchedule EditShift AddShift CancelShift buttons")
+	public void I_check_vsibility_of_buttons() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons() );
 	}
 	
-	//Currently working on this - Kaveendra
-//	@Then("I check vsibility of Cancel Rebook EditShiftSchedule EditShift AddShift CancelShift buttons")
-//	public void I_check_vsibility_of_buttons() throws Throwable {
-//		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons() );
-//	}
+	@Then("I click on a job number")
+	public void I_click_on_a_job_number() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.clickOnJobNumber() );  
+	}
 	
+	@Then("I check visibility of Cancel Finish Update Save buttons")
+	public void I_check_vsibility_of_buttons_In_Shifts() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons_In_Shifts() ); 
+	}
 	
+	@Then("I filterd by Draft status")
+	public void I_filterd_by_Draft_status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.filterd_by_Draft_status() );
+	}
 	
+	@Then("I check visibility of Cancel Rebook EditShiftSchedule EditShift AddShift CancelShift buttons")
+	public void I_check_vsibility_of_buttons_In_Draft_Page() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons_in_Draft_page() );
+	}
 	
-	
-	
-	
-
-
 }

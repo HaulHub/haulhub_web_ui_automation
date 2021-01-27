@@ -49,17 +49,31 @@ public class SerenityJobBoardPageSteps extends ScenarioSteps  {
    	}
 	
 	@Step
-   	public boolean clickOnJobNumber() throws Exception {
-   		return jobboardpage.clickOnJobNumber();   	
+   	public boolean check_vsibility_of_buttons() throws Exception {
+   		return jobboardpage.checkAccessibilityOfButtonsInUpcoming();   	
    	}
 	
-	//Currently working on this - Kaveendra
-//	@Step
-//   	public boolean check_vsibility_of_buttons() throws Exception {
-//   		return jobboardpage.checkAccessibilityOfButtons();   	
-//   	}
+	@Step
+   	public boolean clickOnJobNumber() throws Exception { 
+   		return jobboardpage.clickOnShiftID();   	
+   	}
 	
+	@Step
+   	public boolean check_vsibility_of_buttons_In_Shifts() throws Exception {
+   		return jobboardpage.checkAccessibilityOfButtonsInShifts();   	
+   	}
 	
+	@Step
+   	public boolean filterd_by_Draft_status() throws Exception {
+   		return jobboardpage.filterByDraftStatus();   	
+   	}
+	
+	@Step
+   	public boolean check_vsibility_of_buttons_in_Draft_page() throws Exception {
+   		return jobboardpage.checkAccessibilityOfButtonsInDraft();   	
+   	}
 	
 
+	
+	
 }

@@ -12,9 +12,15 @@ Feature: Read-Only User Test new
     Then I check accessibility of Main link
     Then I check visibility of Notify Reserved button in Jobboard page
     When I filterd by Upcoming status
+    Then I check visibility of Cancel EditShiftSchedule EditShift AddShift CancelShift buttons
     And I click on a job number
-#    Then I check vsibility of Cancel Rebook EditShiftSchedule EditShift AddShift CancelShift buttons
-
+    Then I check visibility of Cancel Finish Update Save buttons
+    Then I navigate back to Jobboard page
+    When I filterd by Draft status
+    Then I check visibility of Cancel Rebook EditShiftSchedule EditShift AddShift CancelShift buttons
+    And I click on a job number
+    Then I check visibility of Cancel Finish Update Save buttons
+	Then I navigate back to Jobboard page
     Examples:
       | userName | password                 | ROcustomername |
       | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | vigneshcompany |

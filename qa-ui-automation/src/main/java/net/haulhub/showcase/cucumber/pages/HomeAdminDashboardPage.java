@@ -58,8 +58,8 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//td[.='Active']")
 	public WebElementFacade activestatus;
 	
-	@FindBy(how = How.XPATH, using = "//td[.='Material Supplier/Wholesaler']")
-	public WebElementFacade type;
+	@FindBy(how = How.XPATH, using = "//td[contains(text(),'vigneshcompany')]")
+	public WebElementFacade name;
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Associates')]")
 	public WebElementFacade associatedlnk;
@@ -165,9 +165,9 @@ public class HomeAdminDashboardPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstcustomername);
 			Thread.sleep(500);
-			elementUtils.fluentWaitForElement(getDriver(), type).waitUntilVisible(); 
+			elementUtils.fluentWaitForElement(getDriver(), name).waitUntilVisible(); 
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(), type).click();
+			elementUtils.fluentWaitForElement(getDriver(), name).click();
 			Thread.sleep(1000);
 			elementUtils.fluentWaitForElement(getDriver(), associatedlnk).waitUntilVisible();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
