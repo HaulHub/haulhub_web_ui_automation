@@ -45,35 +45,51 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@name='filter']")
 	public WebElementFacade cutomersearchtxt;
 	
-	@FindBy(how = How.XPATH, using = "//td[contains(text(),'Georgia Department Of Transportation')]")
+	//Old method
+	/*@FindBy(how = How.XPATH, using = "//td[contains(text(),'Georgia Department Of Transportation')]")
+	public WebElementFacade departmentname;*/
+	
+	@FindBy(how = How.XPATH, using = "//td[contains(text(),'vigneshDOT')]")
 	public WebElementFacade departmentname;
 	
-	@FindBy(how = How.XPATH, using = "//a[contains(text(),'DOT Employees')]")
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'DOT Employees')]") 
 	public WebElementFacade DOTEmployeelnk;
 	
 	@FindBy(how = How.XPATH, using = "//td[.='Active']")
 	public WebElementFacade activestatus;
 	
+	@FindBy(how = How.XPATH, using = "//td[contains(text(),'vigneshcompany')]")
+	public WebElementFacade name;
+	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Associates')]")
 	public WebElementFacade associatedlnk;
-	
-	@FindBy(how = How.XPATH, using = "//td[.='Alisa Deychman']")
+
+	@FindBy(how = How.XPATH, using = "//td[.='Vignesh Nehru']")
 	public WebElementFacade associatename;
 	
 	@FindBy(how = How.XPATH, using = "//td[.='Vignesh Nehru']")
 	public WebElementFacade fleetnamenametxt;
-	
-	@FindBy(how = How.XPATH, using = "//a[.='xrSiyqkp8VVAy7xesEXMGQL1']")
+
+	@FindBy(how = How.XPATH, using = "//a[contains(@href, '/customer/login/token')]")
 	public WebElementFacade associatetokenlnk;
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Brokers')]")
 	public WebElementFacade brokerlnk;
 	
+///	@FindBy(how = How.XPATH, using = "//a[@href='/hh-console/hunter2/brokers']")
+//	public WebElementFacade brokerlnk;
+	
+	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'DOT')]")
 	public WebElementFacade DOTlnk;
 	
-	@FindBy(how = How.XPATH, using = "//a[contains(text(),'fG7oVfXrUFhjtoAroMHj2htD')]")
+	//Old path
+	//@FindBy(how = How.XPATH, using = "//a[contains(text(),'fG7oVfXrUFhjtoAroMHj2htD')]")
+	//public WebElementFacade DOTlogintokenlnk;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(@href, '/dot_slips/login/token?')]")
 	public WebElementFacade DOTlogintokenlnk;
+
 	
 	@FindBy(how = How.XPATH, using = "//ul[@class='nav nav-pills nav-stacked']//a[contains(text(),'Drivers')]")
 	public WebElementFacade driverslnk;
@@ -92,6 +108,16 @@ public class HomeAdminDashboardPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'All Fleets')]")
 	public WebElementFacade fleetssublink;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Sign in as')]")
+	public WebElementFacade loginpersonalizationlnk;
+
+	@FindBy(how = How.XPATH, using = "//td[.='Vignesh RO']")
+	public WebElementFacade associatenameROUser;
+
+	@FindBy(how = How.XPATH, using = "//a[.='Sign in as Vignesh RO']")
+	public WebElementFacade impersanationROUser;
+
 	
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Sign in as')]")
 	public WebElementFacade DOTSigninnamelnk;
@@ -118,12 +144,46 @@ public class HomeAdminDashboardPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(), associatename).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), associatename).click();
 			Thread.sleep(500);
-			elementUtils.fluentWaitForElement(getDriver(), associatetokenlnk).waitUntilVisible();
-			elementUtils.fluentWaitForElement(getDriver(), associatetokenlnk).click();
+			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).click();
 			Thread.sleep(500);
 		    return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	/**
+	 * This method is used to login as read only user
+	 */
+	public boolean searchReadOnlycustomer(String firstcustomername) {
+		try {
+			elementUtils.fluentWaitForElement(getDriver(), customerlnk).waitUntilClickable();
+			elementUtils.safeJavaScriptClick(customerlnk);
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstcustomername);
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), name).waitUntilVisible(); 
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), name).click();
+			Thread.sleep(1000);
+			elementUtils.fluentWaitForElement(getDriver(), associatedlnk).waitUntilVisible();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), associatedlnk).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), associatenameROUser).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), associatenameROUser).click();
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(), impersanationROUser).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), impersanationROUser).click();
+			Thread.sleep(500);
+			return true;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -135,8 +195,12 @@ public class HomeAdminDashboardPage extends PageObject {
      */
 	public boolean searchfirstbrokername(String firstbrokername) {
 	try {
-		    elementUtils.fluentWaitForElement(getDriver(), brokerlnk).waitUntilClickable();
-			elementUtils.safeJavaScriptClick(brokerlnk);
+		   Thread.sleep(1000);
+		    //elementUtils.fluentWaitForElement(getDriver(), brokerlnk).waitUntilClickable();
+			//elementUtils.safeJavaScriptClick(brokerlnk);
+			elementUtils.fluentWaitForElement(getDriver(), brokerlnk).waitUntilVisible();
+	    	Actions action1 = new Actions(getDriver());
+	    	action1.moveToElement(this.brokerlnk).click().build().perform();
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstbrokername.trim());
@@ -164,14 +228,18 @@ public class HomeAdminDashboardPage extends PageObject {
 		return false;
 	}
 	
+	
 	/**
-     * This method is used to search for search dotemployeename
+     * This method is used to search for search dotemployeename (New method params)
      */
 	public boolean searchdotemployeename(String DOTEmployee) {
 	try {
 		    elementUtils.fluentWaitForElement(getDriver(), DOTlnk).waitUntilClickable();
 			elementUtils.safeJavaScriptClick(DOTlnk);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
+		    elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(DOTEmployee.trim());
+		    Thread.sleep(1000);
 			elementUtils.fluentWaitForElement(getDriver(), departmentname).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), departmentname).click();
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
@@ -182,8 +250,9 @@ public class HomeAdminDashboardPage extends PageObject {
 			Actions actionbtn = new Actions(getDriver());
 			actionbtn .moveToElement(DOTEmployeename).click().build().perform();
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(), DOTSigninnamelnk).waitUntilVisible();
-			elementUtils.fluentWaitForElement(getDriver(), DOTSigninnamelnk).click();
+			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).waitUntilVisible();
+			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).click();
+
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		    Thread.sleep(500);
 		    return true;
@@ -201,12 +270,13 @@ public class HomeAdminDashboardPage extends PageObject {
      */
 	public boolean searchfleetname(String fleetname) {
 	try {
+		    Thread.sleep(1000);
 		    elementUtils.fluentWaitForElement(getDriver(), fleetslnk).waitUntilClickable();
 			elementUtils.safeJavaScriptClick(fleetslnk);
-			Thread.sleep(800);
+			Thread.sleep(1000);
 			elementUtils.fluentWaitForElement(getDriver(), fleetssublink).waitUntilClickable();
 			elementUtils.safeJavaScriptClick(fleetssublink);
-			Thread.sleep(500);
+			Thread.sleep(800);
             elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(fleetname.trim());
 			Thread.sleep(500);
@@ -231,13 +301,19 @@ public class HomeAdminDashboardPage extends PageObject {
 		return false;
 	}
 	
+	
 	/**
      * This method is used to search for secondrokername
      */
 	public boolean searchsecondbrokername(String secondbrokername) {
 	try {
-		    elementUtils.fluentWaitForElement(getDriver(), brokerlnk).waitUntilClickable();
-			elementUtils.safeJavaScriptClick(brokerlnk);
+		    Thread.sleep(1000);
+		    /*elementUtils.fluentWaitForElement(getDriver(), brokerlnk).waitUntilVisible();
+		    getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), brokerlnk).click();*/
+			elementUtils.fluentWaitForElement(getDriver(), brokerlnk).waitUntilVisible();
+	    	Actions action1 = new Actions(getDriver());
+	    	action1.moveToElement(this.brokerlnk).click().build().perform();
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(secondbrokername.trim());

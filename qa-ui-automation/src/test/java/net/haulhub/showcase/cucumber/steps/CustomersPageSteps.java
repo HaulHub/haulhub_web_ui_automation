@@ -25,7 +25,6 @@ public class CustomersPageSteps {
 		assertTrue(serenitycustomerSteps.gotomanagecustomerpage());
 	}
 	
-
 	@Given("I Add a new customer and validate the customer was added successfully")
 	public void validate_newcustomerprofile() throws Exception {
 		assertTrue(serenitycustomerSteps.validate_newcustomerprofile());
@@ -40,5 +39,18 @@ public class CustomersPageSteps {
 	public void delete_customernamereflected() throws Exception {
 		assertTrue(serenitycustomerSteps.delete_customernamereflected());
 	}
+	
+	@Given("I go to ETicket manage customers page")
+	public void ETicket_manage_customers() throws Exception {
+		assertTrue(serenitycustomerSteps.ETicket_manage_customers());
+	}
+	
+	@Given("I invite a new ETicket customer by Typing in a new HaulHub Customer name")
+	public void ETicket_typing_new_Haulhubcustomername() throws Exception {
+		assertTrue(serenitycustomerSteps.ETicket_typing_new_Haulhubcustomername());
+	}
+
+	
+	
 	
 }

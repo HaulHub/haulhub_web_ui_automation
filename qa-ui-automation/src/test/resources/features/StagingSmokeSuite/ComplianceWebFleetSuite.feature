@@ -9,7 +9,7 @@ Feature: ComplianceWebFleetSuite.feature
     
     Examples: 
       | userName   | password          |fleetname        | 
-      | vignesh    | haul-Quality!0501 | Vigneshcompany  |
+      | vignesh    | 0$B4h1rn3XG_gZS+mF-PitDf | Vigneshcompany  |
       
       @COMPLLIANCEWEBFLEET
     Scenario Outline: Validate as fleet I am able to see Trucks and Drivers details
@@ -17,7 +17,7 @@ Feature: ComplianceWebFleetSuite.feature
         
      Examples: 
       | userName   | password          |fleetname        | 
-      | vignesh    | haul-Quality!0501 | Vigneshcompany  |
+      | vignesh    | 0$B4h1rn3XG_gZS+mF-PitDf | Vigneshcompany  |
         
         
       @COMPLLIANCEWEBFLEET
@@ -26,4 +26,4 @@ Feature: ComplianceWebFleetSuite.feature
       
       Examples: 
       | userName   | password          |fleetname        | 
-      | vignesh    | haul-Quality!0501 | Vigneshcompany  |
+      | vignesh    | 0$B4h1rn3XG_gZS+mF-PitDf | Vigneshcompany  |

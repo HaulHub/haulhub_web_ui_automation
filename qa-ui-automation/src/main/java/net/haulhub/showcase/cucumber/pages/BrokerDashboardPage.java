@@ -159,13 +159,13 @@ public class BrokerDashboardPage extends PageObject {
      */
 	public boolean selectallshifts_assigndriverssecondbroker() {
 	try {
-		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), secondbrokerintialview).click();
-		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), secondbrokerfirstbrokerrateview).isDisplayed();
 		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokerselectallshiftschkbox).click();
-		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		  elementUtils.fluentWaitForElement(getDriver(), firstbrokeracceptassignbtn).click();	
 		  return true;
 		} catch (NoSuchElementException e) {
@@ -182,7 +182,7 @@ public class BrokerDashboardPage extends PageObject {
      */
 	public boolean clickacceptlaterbutton() {
 	try {
-		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  Thread.sleep(500);
 		  elementUtils.fluentWaitForElement(getDriver(), secondbrokeracceptlaterbtn).isDisplayed();
 		  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  elementUtils.safeJavaScriptClick(secondbrokeracceptlaterbtn);

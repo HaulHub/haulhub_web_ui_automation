@@ -124,6 +124,9 @@ public class BrokerJobManagementPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Save Draft')]")
 	public WebElementFacade bookjobdraft;
 	
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Accept')]")
+	public WebElementFacade draftjobaccept;
+		
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Job Board')]")
 	public WebElementFacade JobBoardlnk;
 	
@@ -239,10 +242,14 @@ public class BrokerJobManagementPage extends PageObject {
 		   elementUtils.fluentWaitForElement(getDriver(), bookjobdraft).waitUntilEnabled();
 		   Thread.sleep(500);
 		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		   Actions action4 = new Actions(getDriver());
-	       action4.moveToElement(this.bookjobdraft).click().build().perform();
+		      Actions action4 = new Actions(getDriver());
+	          action4.moveToElement(this.bookjobdraft).click().build().perform();
 	       Thread.sleep(500);
-		   return true;
+	          getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		      Actions action5 = new Actions(getDriver());
+	          action5.moveToElement(this.draftjobaccept).click().build().perform();
+	       Thread.sleep(500);
+	       return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
@@ -286,10 +293,10 @@ public class BrokerJobManagementPage extends PageObject {
      */
 	public boolean firstbroker_clicktruckreport() {
 	try {
-	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(),brokerJobmanagementlnk).click();
 	      elementUtils.fluentWaitForElement(getDriver(),brokerScedulerlnk).waitUntilClickable();
-	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(),brokerScedulerlnk).click();	
 	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(),brokerTruckreportlnk).waitUntilClickable();
@@ -301,7 +308,7 @@ public class BrokerJobManagementPage extends PageObject {
 	      elementUtils.fluentWaitForElement(getDriver(), recepientemailidtxt).isDisplayed();
 	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(), recepientemailidtxt).sendKeys("vignesh@haulhub.com");
-	      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(), trucksavebtn).waitUntilClickable();
 	      getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	      elementUtils.fluentWaitForElement(getDriver(), trucksavebtn).click();

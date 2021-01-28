@@ -245,9 +245,9 @@ public class OrderPage extends PageObject {
 	      */
 		public boolean selectworktype(String worktype) {
 				    try {
-				          Thread.sleep(700);
+				          Thread.sleep(1500);
 		                  Actions action1 = new Actions(getDriver());
-					      action1.moveToElement(this.WorktypeDropinput).click().build().perform();
+					      action1.moveToElement(WorktypeDropinput).click().build().perform();
 					      Thread.sleep(1000);
 					      elementUtils.fluentWaitForElement(getDriver(),WorktypeDropinput).typeAndEnter(worktype);
 						return true;
@@ -286,7 +286,7 @@ public class OrderPage extends PageObject {
 		    */
 			public boolean validateBookNewMaterialOrder() {
 			 try {
-				 Thread.sleep(2000);
+				 Thread.sleep(1500);
 				 elementUtils.fluentWaitForElement(getDriver(), BookNewMaterialOrderLbl).isDisplayed();
 				 
 			       return true;
@@ -640,6 +640,7 @@ public class OrderPage extends PageObject {
 		public boolean FillMaterialtagfieldDetails(String Tonnage,String ProductionRate) {
 			try {
 				
+				  Thread.sleep(1500);
 			      elementUtils.fluentWaitForElement(getDriver(), MaterialTypeDropdwn).waitUntilClickable();
 	              elementUtils.fluentWaitForElement(getDriver(), MaterialTypeDropdwn).click(); 
 	              Thread.sleep(1500);
@@ -647,10 +648,10 @@ public class OrderPage extends PageObject {
 	              elementUtils.fluentWaitForElement(getDriver(), MaterialNameInput).waitUntilVisible();
 	              Actions action1 = new Actions(getDriver());
 				  action1.moveToElement(this.MaterialNameInput).click().build().perform();
-				  Thread.sleep(1000);
+				  Thread.sleep(1500);
 				  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			      elementUtils.fluentWaitForElement(getDriver(),MaterialNameInput).typeAndEnter("VignesMaterial");
-				  Thread.sleep(1000);
+				  Thread.sleep(1500);
 				  
 				  elementUtils.fluentWaitForElement(getDriver(),Tonnagetxt).waitUntilVisible();
 		          Actions action = new Actions(getDriver());

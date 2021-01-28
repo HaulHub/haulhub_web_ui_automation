@@ -28,6 +28,24 @@ public class CustomersPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//a[.='Customers']")
 	public WebElementFacade customerslnk;
 	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'E-Ticket Customers')]")
+	public WebElementFacade Eticketcustomerslnk;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Invite E-Ticket Customer')]")
+	public WebElementFacade inviteticketcustomerbtn;
+	
+	@FindBy(how = How.XPATH, using = "//input[@placeholder='HaulHub Customer']")
+	public WebElementFacade haulhubcustomernametxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='ein']")
+	public WebElementFacade EINnumbertxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='mui-14134']")
+	public WebElementFacade firstnametxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='last_name']")
+	public WebElementFacade lastnametxt;
+	
 	@FindBy(how = How.XPATH, using = "//a[.='Profiles']")
 	public WebElementFacade profileslnk;
 	
@@ -42,6 +60,13 @@ public class CustomersPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Remove')]")
 	public WebElementFacade removequipmentbtn;
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='phone']")
+	public WebElementFacade Phonenumbertxt;
+	
+	@FindBy(how = How.XPATH, using = "//button[.='Invite']")
+	public WebElementFacade Invitebtn;
+	
 
 	/***
 	 * This method is used to click on the equipments list under the Settings parent header
@@ -65,6 +90,72 @@ public class CustomersPage extends PageObject {
 		}
 		return false;
 	 }
+	   
+	   /***
+		 * This method is used to click manage customer e-tickets customers
+		
+		 */
+		   public boolean ETicket_manage_customers() {
+		    try {
+		    	Thread.sleep(500);
+		    	elementUtils.fluentWaitForElement(getDriver(), customerslnk).waitUntilVisible();
+		    	Actions action1 = new Actions(getDriver());
+		    	action1.moveToElement(customerslnk).click().build().perform();
+		    	Thread.sleep(500);
+		    	Actions action = new Actions(getDriver());
+			    elementUtils.fluentWaitForElement(getDriver(), Eticketcustomerslnk).waitUntilVisible();
+			    action.moveToElement(this.Eticketcustomerslnk).click().build().perform();
+				return true;
+			 } catch (NoSuchElementException e) {
+			   e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		 }
+
+		   /***
+			 * This method is used to invite ETicketcustomer with new Haulhub Customername
+			
+			 */
+			   public boolean ETicket_typing_new_Haulhubcustomername() {
+			    try {
+			    	Thread.sleep(500);
+			    	elementUtils.fluentWaitForElement(getDriver(), inviteticketcustomerbtn).waitUntilVisible();
+			    	Actions action1 = new Actions(getDriver());
+			    	action1.moveToElement(inviteticketcustomerbtn).click().build().perform();
+			    	Thread.sleep(500);
+			    	elementUtils.fluentWaitForElement(getDriver(), haulhubcustomernametxt).waitUntilVisible();
+					String customername = "Automation" + ProjectUtils.getRandomNumber();
+					LearningPlatformConstants.haulhubcustomername.set(customername);
+				    elementUtils.fluentWaitForElement(getDriver(),haulhubcustomernametxt).sendKeys(customername);
+				    Thread.sleep(500);
+				    elementUtils.fluentWaitForElement(getDriver(), EINnumbertxt).waitUntilVisible();
+					String EINnumber =  ProjectUtils.getRandomNumberwith9digits();
+				    elementUtils.fluentWaitForElement(getDriver(),EINnumbertxt).sendKeys(EINnumber);
+				    Thread.sleep(500);
+				    elementUtils.fluentWaitForElement(getDriver(), firstnametxt).waitUntilVisible();
+					String firstname =  ProjectUtils.getRandomNumberwith9digits();
+				    elementUtils.fluentWaitForElement(getDriver(),firstnametxt).sendKeys("testfirst");
+				    Thread.sleep(500);
+				    elementUtils.fluentWaitForElement(getDriver(), lastnametxt).waitUntilVisible();
+				    elementUtils.fluentWaitForElement(getDriver(),lastnametxt).sendKeys("testlast");
+				    Thread.sleep(500);
+				    elementUtils.fluentWaitForElement(getDriver(), Phonenumbertxt).waitUntilVisible();
+					String Phonenumber =  ProjectUtils.getRandomNumberwith10digits();
+				    elementUtils.fluentWaitForElement(getDriver(),Phonenumbertxt).sendKeys(Phonenumber);
+				    Thread.sleep(500);
+				    elementUtils.fluentWaitForElement(getDriver(), Invitebtn).waitUntilVisible();
+				    elementUtils.fluentWaitForElement(getDriver(),Invitebtn).click();
+				    return true;
+				 } catch (NoSuchElementException e) {
+				   e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				return false;
+			 }
+
 	   
 	   /***
 		 * This method is used to add a customer profile and check the customer profile added successfully

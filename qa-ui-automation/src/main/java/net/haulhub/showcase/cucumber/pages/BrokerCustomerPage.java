@@ -237,10 +237,11 @@ public class BrokerCustomerPage extends PageObject {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),NewJobJobsitenametxt).waitUntilClickable();
 		    elementUtils.fluentWaitForElement(getDriver(),NewJobJobsitenametxt).click();
+		    Thread.sleep(1000);
 		    String brokerjobsitename = "Brokerjobsitename" + ProjectUtils.getRandomNumber();
 			LearningPlatformConstants.brokerjobsitename.set(brokerjobsitename);
 		    elementUtils.fluentWaitForElement(getDriver(), NewJobJobsitenametxt).sendKeys(brokerjobsitename);
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomersaddresstxt).waitUntilClickable();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    Actions action3 = new Actions(getDriver());
