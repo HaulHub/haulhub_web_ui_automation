@@ -39,7 +39,13 @@ public class CustomersPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//input[@id='ein']")
 	public WebElementFacade EINnumbertxt;
-
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='mui-14134']")
+	public WebElementFacade firstnametxt;
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='last_name']")
+	public WebElementFacade lastnametxt;
+	
 	@FindBy(how = How.XPATH, using = "//a[.='Profiles']")
 	public WebElementFacade profileslnk;
 	
@@ -54,6 +60,13 @@ public class CustomersPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Remove')]")
 	public WebElementFacade removequipmentbtn;
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='phone']")
+	public WebElementFacade Phonenumbertxt;
+	
+	@FindBy(how = How.XPATH, using = "//button[.='Invite']")
+	public WebElementFacade Invitebtn;
+	
 
 	/***
 	 * This method is used to click on the equipments list under the Settings parent header
@@ -121,7 +134,20 @@ public class CustomersPage extends PageObject {
 					String EINnumber =  ProjectUtils.getRandomNumberwith9digits();
 				    elementUtils.fluentWaitForElement(getDriver(),EINnumbertxt).sendKeys(EINnumber);
 				    Thread.sleep(500);
-					return true;
+				    elementUtils.fluentWaitForElement(getDriver(), firstnametxt).waitUntilVisible();
+					String firstname =  ProjectUtils.getRandomNumberwith9digits();
+				    elementUtils.fluentWaitForElement(getDriver(),firstnametxt).sendKeys("testfirst");
+				    Thread.sleep(500);
+				    elementUtils.fluentWaitForElement(getDriver(), lastnametxt).waitUntilVisible();
+				    elementUtils.fluentWaitForElement(getDriver(),lastnametxt).sendKeys("testlast");
+				    Thread.sleep(500);
+				    elementUtils.fluentWaitForElement(getDriver(), Phonenumbertxt).waitUntilVisible();
+					String Phonenumber =  ProjectUtils.getRandomNumberwith10digits();
+				    elementUtils.fluentWaitForElement(getDriver(),Phonenumbertxt).sendKeys(Phonenumber);
+				    Thread.sleep(500);
+				    elementUtils.fluentWaitForElement(getDriver(), Invitebtn).waitUntilVisible();
+				    elementUtils.fluentWaitForElement(getDriver(),Invitebtn).click();
+				    return true;
 				 } catch (NoSuchElementException e) {
 				   e.printStackTrace();
 				} catch (Exception e) {

@@ -22,16 +22,30 @@ public class ProjectUtils {
 	
 	
 	/**
-	 * This method generates a Random String value
+	 * This method generates a Random String value with 9 digits
 	 * @return
 	 */
 	public static String getRandomNumberwith9digits(){
+		 Random r = new Random(System.currentTimeMillis());
+ 	     int randomInt9digitnumber = 100000000 + r.nextInt(2000000000);
+ 	     return Integer.toString(randomInt9digitnumber);
+	}
+	
+	
+	/**
+	 * This method generates a Random String value with 10  digits
+	 * @return
+	 */
+	public static String getRandomNumberwith10digits(){
 		
 		 Random r = new Random(System.currentTimeMillis());
- 	    int randomInt9digitnumber = 100000000 + r.nextInt(2000000000);
- 	   return Integer.toString(randomInt9digitnumber);
- 	   
+ 	    int randomInt10digitnumber = 1000000000 + r.nextInt(2000000000);
+ 	   return Integer.toString(randomInt10digitnumber);
 	}
+
+	
+	
+ 	
 	
 	/***
 	 * This method will upload file for the POI list feature
