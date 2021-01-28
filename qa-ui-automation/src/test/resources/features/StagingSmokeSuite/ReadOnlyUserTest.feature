@@ -21,6 +21,12 @@ Feature: Read-Only User Test new
     And I click on a job number
     Then I check visibility of Cancel Finish Update Save buttons
 	Then I navigate back to Jobboard page
+	When I filterd by Started status
+    Then I check visibility of Cancel EditJob Rebook EditShiftSchedule EditShift AddShift CancelShift buttons
+    And I click on a job number
+    Then I check accessibility of Cancel Finish Update Save buttons and Plant Job links
+	Then I navigate back to Jobboard page
+	
     Examples:
       | userName | password                 | ROcustomername |
       | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | vigneshcompany |

@@ -71,4 +71,19 @@ public class ReadOnlyUserTestSteps {
 		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons_in_Draft_page() );
 	}
 	
+	@Then("I filterd by Started status")
+	public void I_filterd_by_Started_status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.filterd_by_Started_status() );
+	}
+	
+	@Then("I check visibility of Cancel EditJob Rebook EditShiftSchedule EditShift AddShift CancelShift buttons")
+	public void I_check_vsibility_of_buttons_In_Started_Page() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons_in_Started_page() );
+	}
+	
+	@Then("I check accessibility of Cancel Finish Update Save buttons and Plant Job links")
+	public void I_checkVsibility_of_buttons_In_Shifts_Of_Started() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons_In_Shifts_In_Started() ); 
+	}
+	
 }
