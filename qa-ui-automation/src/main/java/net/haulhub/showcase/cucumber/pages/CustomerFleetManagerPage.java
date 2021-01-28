@@ -132,12 +132,12 @@ public class CustomerFleetManagerPage extends PageObject {
 		 /*   getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		    int flag;
 		    Thread.sleep(500);
-			if(elementUtils.fluentWaitForElement(getDriver(),fleetcustomerphonenumbertxt).isDisplayed() 
-					&& elementUtils.fluentWaitForElement(getDriver(),fleetcustomercontactnametxt).isDisplayed() 
+			if(elementUtils.fluentWaitForElement(getDriver(),fleetcustomerphonenumbertxt).isDisplayed()
+					&& elementUtils.fluentWaitForElement(getDriver(),fleetcustomercontactnametxt).isDisplayed()
 					   && elementUtils.fluentWaitForElement(getDriver(),fleetcustomerUSDOTtxt).isDisplayed())
-		      return true ; 
-		    else 
-		    	return false;*/
+		      return true ;
+		    else
+		    	return false;
 		    return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
