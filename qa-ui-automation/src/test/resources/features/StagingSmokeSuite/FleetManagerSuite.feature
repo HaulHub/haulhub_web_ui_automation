@@ -10,6 +10,7 @@ Feature: FleetManagerSuite.feature
        Examples:
        | userName    | password     | customername   |startlocation | destination  | contactnumber | address                             |   Tonnage | ProductionRate |                                                                               
        | 8572688987  | haul-Quality!0501  | vigneshcompany | VigneshPlant | VigneshPlant | 8572688987    | 12 Andover Road, Billerica, MA, USA |   100     |      70  |
+     
                   
       @FLEETMANAGERSUITE
       Scenario Outline: Validate fleetdetails tab displays correct p.no, address ,contact number,USDOT Compliance Details

@@ -82,7 +82,15 @@ public class BrokerDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[.=' Accept Later']")
 	public WebElementFacade secondbrokeracceptlaterbtn;
 	
-
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Accounting')]")
+	public WebElementFacade Accountinglnk;
+	
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Payments')]")
+	public WebElementFacade Paymentslnk;
+	
+	@FindBy(how = How.XPATH, using = "//td[contains(text(),'VigneshTripCostPlant')]")
+	public WebElementFacade Paymentsinformationlnk;
+	
 
 	/**
      * This method is used to click firstBroker dashboard link
@@ -262,6 +270,32 @@ public class BrokerDashboardPage extends PageObject {
 		}
 		return false;
 	}
+	
+
+	/**
+     * This method is used to click firstBroker -->payments and open the payment data 
+     */
+	public boolean paymentinformatioappearence() {
+	try {
+	    	getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Accountinglnk).isDisplayed();
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Accountinglnk).click();
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Paymentslnk).isDisplayed();
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Paymentslnk).click();
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		    elementUtils.fluentWaitForElement(getDriver(), Paymentsinformationlnk).isDisplayed();
+			return true;
+		} catch (NoSuchElementException e) {
+		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 
  
 }

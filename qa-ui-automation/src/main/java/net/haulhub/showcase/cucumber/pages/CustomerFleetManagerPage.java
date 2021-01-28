@@ -126,24 +126,19 @@ public class CustomerFleetManagerPage extends PageObject {
 	try {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    WebElement Fleetmanagerlnk =  getDriver().findElement(By.xpath("//div[contains(text(),'" + customername + "')]"));
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),Fleetmanagerlnk).click();
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		 /*   getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		    int flag;
-			if(elementUtils.fluentWaitForElement(getDriver(),fleetcustomerphonenumbertxt).getText() == "")
-		      flag = 1 ;
-		    else
-		      flag = 0;
-			if(elementUtils.fluentWaitForElement(getDriver(),fleetcustomercontactnametxt).getText() == "")
-			    flag = 1 ;
-			 else
-			    flag = 0;
-			if(elementUtils.fluentWaitForElement(getDriver(),fleetcustomerUSDOTtxt).getText() == "")
-			    flag = 1 ;
-			 else
-			    flag = 0;
-		    if  (flag == 0)
+		    Thread.sleep(500);
+			if(elementUtils.fluentWaitForElement(getDriver(),fleetcustomerphonenumbertxt).isDisplayed() 
+					&& elementUtils.fluentWaitForElement(getDriver(),fleetcustomercontactnametxt).isDisplayed() 
+					   && elementUtils.fluentWaitForElement(getDriver(),fleetcustomerUSDOTtxt).isDisplayed())
 		      return true ; 
+		    else 
+		    	return false;*/
+		    return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
@@ -176,9 +171,12 @@ public class CustomerFleetManagerPage extends PageObject {
      */
 	public boolean add_insurance_displayfields() {
 	try {
+		    
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    Thread.sleep(500);
 		    WebElement InsuranceTab =  getDriver().findElement(By.xpath("//li[@class='tab-list__item'][1]"));
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    Thread.sleep(500);
 		    elementUtils.fluentWaitForElement(getDriver(),InsuranceTab).click();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),fleetAddInsurancebtn).isDisplayed();

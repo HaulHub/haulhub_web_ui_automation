@@ -118,8 +118,10 @@ public class HomeAdminDashboardPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//a[.='Sign in as Vignesh RO']")
 	public WebElementFacade impersanationROUser;
 
-
 	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Sign in as')]")
+	public WebElementFacade DOTSigninnamelnk;
+
 	/**
      * This method is used to search for firstcustomername
      */
@@ -250,6 +252,7 @@ public class HomeAdminDashboardPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), loginpersonalizationlnk).click();
+
 			getDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		    Thread.sleep(500);
 		    return true;

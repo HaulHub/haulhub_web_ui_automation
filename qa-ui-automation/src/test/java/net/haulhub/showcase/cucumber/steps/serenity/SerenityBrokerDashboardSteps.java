@@ -51,6 +51,13 @@ public class SerenityBrokerDashboardSteps extends ScenarioSteps {
    	public boolean declinedshift_appearing_undermarketplace() throws Exception {
    		return brokerdashboardpage.declinedshift_appearing_undermarketplace();
    	 }
+    
+    @Step
+   	public boolean paymentinformatioappearence() throws Exception {
+   		return brokerdashboardpage.paymentinformatioappearence();
+   	 }
+    
+    
 }
     
     

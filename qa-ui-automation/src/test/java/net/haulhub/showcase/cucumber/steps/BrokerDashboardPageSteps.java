@@ -57,5 +57,13 @@ public class BrokerDashboardPageSteps {
     public void declinedshift_appearing_undermarketplace() throws Exception {
     assertTrue(serenitybrokerDashboardSteps.declinedshift_appearing_undermarketplace());
 	}
+    
+    @Given("I click Payments link and  Validate the Payments information details appears correctly")
+    public boolean clickPaymentslink_ValidatePaymentsinformation() throws Exception {
+    assertTrue(serenitybrokerDashboardSteps.paymentinformatioappearence());
+    return false;
+	}
+ 
+    
 
 }   
