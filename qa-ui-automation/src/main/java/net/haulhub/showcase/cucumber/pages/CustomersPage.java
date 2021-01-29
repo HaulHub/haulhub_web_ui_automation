@@ -39,11 +39,11 @@ public class CustomersPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//input[@id='ein']")
 	public WebElementFacade EINnumbertxt;
-	
-	@FindBy(how = How.XPATH, using = "//input[@id='mui-14134']")
+
+	@FindBy(how = How.XPATH, using = "//input[@id='contact_name']")
 	public WebElementFacade firstnametxt;
-	
-	@FindBy(how = How.XPATH, using = "//input[@name='last_name']")
+
+	@FindBy(how = How.XPATH, using = "//input[@id='last_name']")
 	public WebElementFacade lastnametxt;
 	
 	@FindBy(how = How.XPATH, using = "//a[.='Profiles']")
