@@ -2,6 +2,7 @@ package net.haulhub.showcase.cucumber.pages;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -98,14 +99,35 @@ public class JobBoardPage_ROUser extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[.='Save']")
 	public WebElementFacade btnSave;
 	
+	@FindBy(how = How.XPATH, using = "//*[@class='row item-row'][2]//*[@class='item-value']")
+	public WebElementFacade lnkStartinglocation;
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='row item-row'][3]//*[@class='item-value']")
+	public WebElementFacade btnDestination;
+	
 
-	/*Verify visibility of an element in the page*/
+	/*Verify navigation to Jobboard page*/
 	
 	public boolean CheckNavigationToJobBoardPage(){
 
 		try {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),lblJobBoard).isDisplayed();
+
+			return true;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Verify navigation to Tickets page*/
+	
+	public boolean NavigateToTicketsPage(){
+
+		try {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lnkTickets).click();
 
 			return true;
 		} catch (NoSuchElementException e) {
@@ -177,14 +199,11 @@ public class JobBoardPage_ROUser extends PageObject {
 	public boolean filterByDraftStatus(){
 		try {
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-		elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys("71344");
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(500);
+		elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
+		Actions action = new Actions(getDriver());
+		action.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();
 		elementUtils.fluentWaitForElement(getDriver(),lnkJobNumber).click();
-//		elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
-//		Actions action1 = new Actions(getDriver());
-//		action1.moveToElement(lnkDraft).click().build().perform();
-		}catch (NoSuchElementException | InterruptedException e) {
+		}catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
 	return true;
@@ -194,15 +213,12 @@ public class JobBoardPage_ROUser extends PageObject {
 	
 	public boolean filterByStartedStatus(){
 		try {
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-		elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys("71369");
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(500);
-		elementUtils.fluentWaitForElement(getDriver(),lnkJobNumber).click();
-//		elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
-//		Actions action1 = new Actions(getDriver());
-//		action1.moveToElement(lnkDraft).click().build().perform();
-		}catch (NoSuchElementException | InterruptedException e) {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
+			Actions action = new Actions(getDriver());
+			action.sendKeys(Keys.chord(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.ENTER)).perform();
+			elementUtils.fluentWaitForElement(getDriver(),lnkJobNumber).click();
+		}catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
 	return true;
@@ -295,7 +311,9 @@ public class JobBoardPage_ROUser extends PageObject {
 		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancelShift).getAttribute("disabled") != null) && 
 		    (elementUtils.fluentWaitForElement(getDriver(),btnFinish).hasClass("disabled")) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnUpdate).getAttribute("disabled") != null) &&
-		    (elementUtils.fluentWaitForElement(getDriver(),btnSave).getAttribute("disabled") != null)){
+		    (elementUtils.fluentWaitForElement(getDriver(),btnSave).getAttribute("disabled") != null) &&
+			(elementUtils.fluentWaitForElement(getDriver(),lnkStartinglocation).isEnabled()) &&
+			(elementUtils.fluentWaitForElement(getDriver(),btnDestination).isEnabled())) {
 		
 		return true;
 		} else

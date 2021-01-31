@@ -3,6 +3,7 @@ package net.haulhub.showcase.cucumber.steps.serenity;
 import net.haulhub.showcase.cucumber.pages.DailyLiniupPage_ROUser;
 import net.haulhub.showcase.cucumber.pages.JobBoardPage_ROUser;
 import net.haulhub.showcase.cucumber.pages.OrderDashboardPage_ROUser;
+import net.haulhub.showcase.cucumber.pages.TicketsPage_ROUser;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -12,6 +13,7 @@ public class SerenityJobBoardPageSteps extends ScenarioSteps  {
 	JobBoardPage_ROUser jobboardpage;
 	DailyLiniupPage_ROUser dailyLineuppage;
 	OrderDashboardPage_ROUser orderdashboardpage;
+	TicketsPage_ROUser ticketspage;
 	
 	@Step
    	public boolean checkNavigationToJobBoardPage() throws Exception {
@@ -84,11 +86,38 @@ public class SerenityJobBoardPageSteps extends ScenarioSteps  {
    	}
 	
 	@Step
-   	public boolean check_vsibility_of_buttons_in_Started_page() throws Exception {
+   	public boolean check_vsibility_of_buttons_in_Started_page() throws Exception {   
    		return jobboardpage.checkAccessibilityOfButtonsInStarted();   	
    	}
 	
-
+	@Step
+   	public boolean navigateToTicketsPage() throws Exception {
+   		return jobboardpage.NavigateToTicketsPage();   	
+   	}
 	
+	@Step
+   	public boolean checkExportTicketButton() throws Exception {
+   		return ticketspage.checkAccessibilityOfButtonsInTickets();   	
+   	}
+	
+	@Step
+   	public boolean navigateToDashboardPage() throws Exception {
+   		return ticketspage.NavigateToOrderDashboard();   	
+   	}
+	
+	@Step
+   	public boolean setDateInOrderDashboardPage(String OrderDate) throws Exception {  
+   		return orderdashboardpage.setDate(OrderDate);   	
+   	}
+	
+	@Step
+   	public boolean checkAccessibilityOfNewOrderAndToggle() throws Exception {
+   		return orderdashboardpage.checkAccessibilityOfButtonsOrderdashboard();   	
+   	}
+	
+	@Step
+   	public boolean openNewOrder() throws Exception {
+   		return orderdashboardpage.openNewOrder();   	
+   	}
 	
 }
