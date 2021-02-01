@@ -52,11 +52,16 @@ public class SerenityJobBoardPageSteps extends ScenarioSteps  {
 	
 	@Step
    	public boolean check_vsibility_of_buttons() throws Exception {
-   		return jobboardpage.checkAccessibilityOfButtonsInUpcoming();   	
+   		return jobboardpage.checkAccessibilityOfButtonsInUpcoming();   	 
    	}
 	
 	@Step
    	public boolean clickOnJobNumber() throws Exception { 
+   		return jobboardpage.clickOnJobNumber();   	
+   	}
+	
+	@Step
+   	public boolean clickOnShiftID() throws Exception { 
    		return jobboardpage.clickOnShiftID();   	
    	}
 	
@@ -118,6 +123,21 @@ public class SerenityJobBoardPageSteps extends ScenarioSteps  {
 	@Step
    	public boolean openNewOrder() throws Exception {
    		return orderdashboardpage.openNewOrder();   	
+   	}
+	
+	@Step
+   	public boolean openCanceledOrder() throws Exception {
+   		return orderdashboardpage.openCanceledOrder();   	
+   	}
+	
+	@Step
+   	public boolean openAcceptedOrder() throws Exception {
+   		return orderdashboardpage.openAcceptedOrder();   	
+   	}
+	
+	@Step
+   	public boolean openAcceptedWchangesOrder() throws Exception {
+   		return orderdashboardpage.openAcceptedWchangesOrder();   	
    	}
 	
 }

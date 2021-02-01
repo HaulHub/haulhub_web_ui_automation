@@ -51,8 +51,13 @@ public class ReadOnlyUserTestSteps {
 		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons() );
 	}
 	
+	@Then("I click on a shiftID")
+	public void I_click_on_a_shiftID() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.clickOnShiftID() );  
+	}
+	
 	@Then("I click on a job number")
-	public void I_click_on_a_job_number() throws Throwable {
+	public void I_click_on_a_JobNumber() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.clickOnJobNumber() );  
 	}
 	
@@ -106,7 +111,7 @@ public class ReadOnlyUserTestSteps {
 		assertTrue(serenityjobboardpagesteps.setDateInOrderDashboardPage(OrderDate));
 	}
 	
-	@Then("I check accessibility of New order and Will call toggle")
+	@Then("I check accessibility of New order and Will call toggle") 
 	public void I_check_accessibility_of_New_order_and_Will_call_toggle() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.checkAccessibilityOfNewOrderAndToggle());
 	}
@@ -114,6 +119,21 @@ public class ReadOnlyUserTestSteps {
 	@Then("I open a order in New Status and check accessibility of Save and SMS buttons")
 	public void I_open_a_order_in_New_Status() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.openNewOrder());
+	}
+	
+	@Then("I open a order in Cancelled Status and check accessibility of Rebook and SMS buttons")
+	public void I_open_a_order_in_Canceled_Status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.openCanceledOrder());
+	}
+	
+	@Then("I open a order in Accepted Status and check accessibility of Save Request changes Cancel and SMS buttons")
+	public void I_open_a_order_in_Accepted_Status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.openAcceptedOrder());
+	}
+	
+	@Then("I open a order in Accepted w/changes Status and check accessibility of Save Request changes Cancel and SMS buttons")
+	public void I_open_a_order_in_AcceptedWchanges_Status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.openAcceptedWchangesOrder());
 	}
 	
 }

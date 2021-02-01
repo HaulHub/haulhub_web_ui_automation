@@ -1,7 +1,6 @@
 package net.haulhub.showcase.cucumber.pages;
 
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +22,6 @@ public class JobBoardPage_ROUser extends PageObject {
 
 	public ElementUtils elementUtils = new ElementUtils(getDriver());
 	
-
 	@FindBy(how = How.XPATH, using = "//*[@class='page-header__content']//*[contains(text(),'Job Board')]")
 	public WebElementFacade lblJobBoard;
 
@@ -78,11 +76,17 @@ public class JobBoardPage_ROUser extends PageObject {
 	@FindBy(how = How.XPATH, using = "//*[.='Edit Shift Schedule']")   
 	public WebElementFacade btnEditShiftSchedule;
 	
-	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][2]//*[@role='gridcell'][1]/a") 
+	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][1]//*[@role='gridcell'][1]/a") 
 	public WebElementFacade lnkShiftID;
 	
-	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][2]//*[@role='gridcell']//*[contains(text(),'Cancel')]")
+	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][2]//*[@role='gridcell'][1]/a") 
+	public WebElementFacade lnkJobNo;
+	
+	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][1]//*[@role='gridcell']//*[contains(text(),'Cancel')]")
 	public WebElementFacade btnCancel;
+	
+	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][2]//*[@role='gridcell']//*[contains(text(),'Cancel')]")
+	public WebElementFacade btnCancelDraft;
 	
 	@FindBy(how = How.XPATH, using = "//span[@class='button-wrapper']//*[.='Cancel Job']")
 	public WebElementFacade btnCancelJob;
@@ -104,7 +108,6 @@ public class JobBoardPage_ROUser extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//*[@class='row item-row'][3]//*[@class='item-value']")
 	public WebElementFacade btnDestination;
-	
 
 	/*Verify navigation to Jobboard page*/
 	
@@ -244,7 +247,7 @@ public class JobBoardPage_ROUser extends PageObject {
 	public boolean checkAccessibilityOfButtonsInDraft(){
 		
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancel).getAttribute("disabled") != null) && 
+		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancelDraft).getAttribute("disabled") != null) && 
 		    (elementUtils.fluentWaitForElement(getDriver(),btnEditJob).getAttribute("disabled") != null) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnCancelJob).getAttribute("disabled") != null) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnEditShiftSchedule).getAttribute("disabled") != null) &&
@@ -261,7 +264,7 @@ public class JobBoardPage_ROUser extends PageObject {
 	public boolean checkAccessibilityOfButtonsInStarted(){
 		
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancel).getAttribute("disabled") != null) && 
+		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancelDraft).getAttribute("disabled") != null) && 
 		    (elementUtils.fluentWaitForElement(getDriver(),btnEditJob).getAttribute("disabled") != null) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnEditShift).getAttribute("disabled") != null) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnAddShift).getAttribute("disabled") != null) &&
@@ -275,6 +278,18 @@ public class JobBoardPage_ROUser extends PageObject {
 	}
 	}
 		
+	/*Click on a job number*/
+	
+	public boolean clickOnJobNumber(){
+		try {
+		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+		elementUtils.fluentWaitForElement(getDriver(),lnkJobNo).click();
+		}catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+	return true;
+	}
+	
 	/*Click on a job number*/
 	
 	public boolean clickOnShiftID(){
@@ -321,5 +336,4 @@ public class JobBoardPage_ROUser extends PageObject {
 	}
 	}	
 		 	 
-
 }

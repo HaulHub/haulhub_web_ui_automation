@@ -34,7 +34,7 @@ Feature: Read-Only User Test Plan
     Then I check visibility of Notify Reserved button in Jobboard page
     When I filterd by Upcoming status
     Then I check visibility of Cancel EditShiftSchedule EditShift AddShift CancelShift buttons
-    And I click on a job number
+    And I click on a shiftID
     Then I check visibility of Cancel Finish Update Save buttons
     Then I navigate back to Jobboard page
     
@@ -73,7 +73,10 @@ Feature: Read-Only User Test Plan
 	Then I set the date<OrderDate> in OrderDashboard page
 	Then I check accessibility of New order and Will call toggle
 	When I open a order in New Status and check accessibility of Save and SMS buttons
+	Then I open a order in Cancelled Status and check accessibility of Rebook and SMS buttons
+	Then I open a order in Accepted Status and check accessibility of Save Request changes Cancel and SMS buttons
+	Then I open a order in Accepted w/changes Status and check accessibility of Save Request changes Cancel and SMS buttons
 	
 	Examples:
       | userName | password                 | ROcustomername | OrderDate |
-      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | vigneshcompany | 2021-01-26 |
+      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | vigneshcompany | 2021-01-31 |

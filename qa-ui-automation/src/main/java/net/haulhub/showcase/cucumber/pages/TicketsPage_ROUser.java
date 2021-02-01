@@ -21,7 +21,6 @@ public class TicketsPage_ROUser extends PageObject {
 
 	public ElementUtils elementUtils = new ElementUtils(getDriver());   
 	
-
 	@FindBy(how = How.XPATH, using = "//button[text()='Export Tickets']")
 	public WebElementFacade btnExportTickets;
 	
@@ -33,8 +32,7 @@ public class TicketsPage_ROUser extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//span[text()='Order Dashboard']") 
 	public WebElementFacade lnkOrderDashBoard;
-	
-	
+		
 	
 	/*Check accessibility of buttons in Tickets page*/
 	
@@ -68,5 +66,4 @@ public class TicketsPage_ROUser extends PageObject {
 		return false;
 	}
 		
-
 }
