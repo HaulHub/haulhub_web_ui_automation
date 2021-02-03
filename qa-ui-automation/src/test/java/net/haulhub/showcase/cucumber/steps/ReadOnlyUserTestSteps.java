@@ -21,7 +21,7 @@ public class ReadOnlyUserTestSteps {
 		assertTrue(serenityjobboardpagesteps.checkAccessAvailability());
 	}
 	
-	@Then("I check accessibility of file export function")
+	@When("I check accessibility of file export function")
 	public void I_check_accessibility_of_file_export_function() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.CheckDisability_of_FileExportButton()); 
 	}
@@ -51,8 +51,13 @@ public class ReadOnlyUserTestSteps {
 		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons() );
 	}
 	
+	@Then("I click on a shiftID")
+	public void I_click_on_a_shiftID() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.clickOnShiftID() );  
+	}
+	
 	@Then("I click on a job number")
-	public void I_click_on_a_job_number() throws Throwable {
+	public void I_click_on_a_JobNumber() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.clickOnJobNumber() );  
 	}
 	
@@ -84,6 +89,51 @@ public class ReadOnlyUserTestSteps {
 	@Then("I check accessibility of Cancel Finish Update Save buttons and Plant Job links")
 	public void I_checkVsibility_of_buttons_In_Shifts_Of_Started() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.check_vsibility_of_buttons_In_Shifts_In_Started() ); 
+	}
+	
+	@Then("I navigate to Tickets page")
+	public void I_navigate_to_tickets_page() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.navigateToTicketsPage());
+	}
+	
+	@Then("I check Export ticket and ticket matching buttons")
+	public void I_check_Export_ticket_and_ticket_matching_buttons() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.checkExportTicketButton());
+	}
+	
+	@Then("I navigate to OrderDashboard page")
+	public void I_navigate_to_OrderDashboard_page() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.navigateToDashboardPage());
+	}
+	
+	@Then("I set the date(.*) in OrderDashboard page")
+	public void I_set_the_date_in_OrderDashboard_page(String OrderDate) throws Throwable { 
+		assertTrue(serenityjobboardpagesteps.setDateInOrderDashboardPage(OrderDate));
+	}
+	
+	@Then("I check accessibility of New order and Will call toggle") 
+	public void I_check_accessibility_of_New_order_and_Will_call_toggle() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.checkAccessibilityOfNewOrderAndToggle());
+	}
+	
+	@Then("I open a order in New Status and check accessibility of Save and SMS buttons")
+	public void I_open_a_order_in_New_Status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.openNewOrder());
+	}
+	
+	@Then("I open a order in Cancelled Status and check accessibility of Rebook and SMS buttons")
+	public void I_open_a_order_in_Canceled_Status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.openCanceledOrder());
+	}
+	
+	@Then("I open a order in Accepted Status and check accessibility of Save Request changes Cancel and SMS buttons")
+	public void I_open_a_order_in_Accepted_Status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.openAcceptedOrder());
+	}
+	
+	@Then("I open a order in Accepted w/changes Status and check accessibility of Save Request changes Cancel and SMS buttons")
+	public void I_open_a_order_in_AcceptedWchanges_Status() throws Throwable {
+		assertTrue(serenityjobboardpagesteps.openAcceptedWchangesOrder());
 	}
 	
 }

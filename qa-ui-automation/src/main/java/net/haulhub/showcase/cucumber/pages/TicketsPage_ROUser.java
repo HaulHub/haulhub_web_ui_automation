@@ -21,17 +21,18 @@ public class TicketsPage_ROUser extends PageObject {
 
 	public ElementUtils elementUtils = new ElementUtils(getDriver());   
 	
-
 	@FindBy(how = How.XPATH, using = "//button[text()='Export Tickets']")
 	public WebElementFacade btnExportTickets;
 	
-	@FindBy(how = How.XPATH, using = "//button[@class='MuiButtonBase-root MuiIconButton-root icon-link MuiIconButton-sizeSmall']")
+	@FindBy(how = How.XPATH, using = "//button[@class='MuiButtonBase-root MuiIconButton-root icon-link Mui-disabled MuiIconButton-sizeSmall Mui-disabled']")
 	public WebElementFacade btnTicketMatch;
 	
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-bars']")
 	public WebElementFacade btnMenu;
 	
-	
+	@FindBy(how = How.XPATH, using = "//span[text()='Order Dashboard']") 
+	public WebElementFacade lnkOrderDashBoard;
+		
 	
 	/*Check accessibility of buttons in Tickets page*/
 	
@@ -48,6 +49,21 @@ public class TicketsPage_ROUser extends PageObject {
 			e.printStackTrace();
 		}  return false;
 	}
-		
+	
+	/*Verify navigation to OrderDashboard page*/
+	
+	public boolean NavigateToOrderDashboard(){
 
+		try {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnMenu).click();
+			elementUtils.fluentWaitForElement(getDriver(),lnkOrderDashBoard).click();
+
+			return true;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+		
 }

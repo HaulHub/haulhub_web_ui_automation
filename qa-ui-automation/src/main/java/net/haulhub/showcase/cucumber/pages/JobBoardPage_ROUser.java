@@ -1,7 +1,7 @@
 package net.haulhub.showcase.cucumber.pages;
 
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -22,7 +22,6 @@ public class JobBoardPage_ROUser extends PageObject {
 
 	public ElementUtils elementUtils = new ElementUtils(getDriver());
 	
-
 	@FindBy(how = How.XPATH, using = "//*[@class='page-header__content']//*[contains(text(),'Job Board')]")
 	public WebElementFacade lblJobBoard;
 
@@ -77,11 +76,17 @@ public class JobBoardPage_ROUser extends PageObject {
 	@FindBy(how = How.XPATH, using = "//*[.='Edit Shift Schedule']")   
 	public WebElementFacade btnEditShiftSchedule;
 	
-	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][2]//*[@role='gridcell'][1]/a") 
+	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][1]//*[@role='gridcell'][1]/a") 
 	public WebElementFacade lnkShiftID;
 	
-	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][2]//*[@role='gridcell']//*[contains(text(),'Cancel')]")
+	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][2]//*[@role='gridcell'][1]/a") 
+	public WebElementFacade lnkJobNo;
+	
+	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][1]//*[@role='gridcell']//*[contains(text(),'Cancel')]")
 	public WebElementFacade btnCancel;
+	
+	@FindBy(how = How.XPATH, using = "//*[@role='rowgroup'][2]//*[@role='gridcell']//*[contains(text(),'Cancel')]")
+	public WebElementFacade btnCancelDraft;
 	
 	@FindBy(how = How.XPATH, using = "//span[@class='button-wrapper']//*[.='Cancel Job']")
 	public WebElementFacade btnCancelJob;
@@ -98,14 +103,34 @@ public class JobBoardPage_ROUser extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[.='Save']")
 	public WebElementFacade btnSave;
 	
+	@FindBy(how = How.XPATH, using = "//*[@class='row item-row'][2]//*[@class='item-value']")
+	public WebElementFacade lnkStartinglocation;
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='row item-row'][3]//*[@class='item-value']")
+	public WebElementFacade btnDestination;
 
-	/*Verify visibility of an element in the page*/
+	/*Verify navigation to Jobboard page*/
 	
 	public boolean CheckNavigationToJobBoardPage(){
 
 		try {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),lblJobBoard).isDisplayed();
+
+			return true;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Verify navigation to Tickets page*/
+	
+	public boolean NavigateToTicketsPage(){
+
+		try {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),lnkTickets).click();
 
 			return true;
 		} catch (NoSuchElementException e) {
@@ -177,14 +202,11 @@ public class JobBoardPage_ROUser extends PageObject {
 	public boolean filterByDraftStatus(){
 		try {
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-		elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys("71344");
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(500);
+		elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
+		Actions action = new Actions(getDriver());
+		action.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();
 		elementUtils.fluentWaitForElement(getDriver(),lnkJobNumber).click();
-//		elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
-//		Actions action1 = new Actions(getDriver());
-//		action1.moveToElement(lnkDraft).click().build().perform();
-		}catch (NoSuchElementException | InterruptedException e) {
+		}catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
 	return true;
@@ -194,15 +216,12 @@ public class JobBoardPage_ROUser extends PageObject {
 	
 	public boolean filterByStartedStatus(){
 		try {
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-		elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys("71369");
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(500);
-		elementUtils.fluentWaitForElement(getDriver(),lnkJobNumber).click();
-//		elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
-//		Actions action1 = new Actions(getDriver());
-//		action1.moveToElement(lnkDraft).click().build().perform();
-		}catch (NoSuchElementException | InterruptedException e) {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
+			Actions action = new Actions(getDriver());
+			action.sendKeys(Keys.chord(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.ENTER)).perform();
+			elementUtils.fluentWaitForElement(getDriver(),lnkJobNumber).click();
+		}catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
 	return true;
@@ -228,7 +247,7 @@ public class JobBoardPage_ROUser extends PageObject {
 	public boolean checkAccessibilityOfButtonsInDraft(){
 		
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancel).getAttribute("disabled") != null) && 
+		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancelDraft).getAttribute("disabled") != null) && 
 		    (elementUtils.fluentWaitForElement(getDriver(),btnEditJob).getAttribute("disabled") != null) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnCancelJob).getAttribute("disabled") != null) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnEditShiftSchedule).getAttribute("disabled") != null) &&
@@ -245,7 +264,7 @@ public class JobBoardPage_ROUser extends PageObject {
 	public boolean checkAccessibilityOfButtonsInStarted(){
 		
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancel).getAttribute("disabled") != null) && 
+		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancelDraft).getAttribute("disabled") != null) && 
 		    (elementUtils.fluentWaitForElement(getDriver(),btnEditJob).getAttribute("disabled") != null) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnEditShift).getAttribute("disabled") != null) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnAddShift).getAttribute("disabled") != null) &&
@@ -259,6 +278,18 @@ public class JobBoardPage_ROUser extends PageObject {
 	}
 	}
 		
+	/*Click on a job number*/
+	
+	public boolean clickOnJobNumber(){
+		try {
+		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+		elementUtils.fluentWaitForElement(getDriver(),lnkJobNo).click();
+		}catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+	return true;
+	}
+	
 	/*Click on a job number*/
 	
 	public boolean clickOnShiftID(){
@@ -295,7 +326,9 @@ public class JobBoardPage_ROUser extends PageObject {
 		if ((elementUtils.fluentWaitForElement(getDriver(),btnCancelShift).getAttribute("disabled") != null) && 
 		    (elementUtils.fluentWaitForElement(getDriver(),btnFinish).hasClass("disabled")) &&
 		    (elementUtils.fluentWaitForElement(getDriver(),btnUpdate).getAttribute("disabled") != null) &&
-		    (elementUtils.fluentWaitForElement(getDriver(),btnSave).getAttribute("disabled") != null)){
+		    (elementUtils.fluentWaitForElement(getDriver(),btnSave).getAttribute("disabled") != null) &&
+			(elementUtils.fluentWaitForElement(getDriver(),lnkStartinglocation).isEnabled()) &&
+			(elementUtils.fluentWaitForElement(getDriver(),btnDestination).isEnabled())) {
 		
 		return true;
 		} else
@@ -303,5 +336,4 @@ public class JobBoardPage_ROUser extends PageObject {
 	}
 	}	
 		 	 
-
 }
