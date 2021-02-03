@@ -108,7 +108,7 @@ public class DOTSlipHomePage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times close-icon']")
 	public WebElementFacade closemodalcsv;
 	
-	@FindBy(how = How.XPATH, using = "//select[@id='by_dot_status']//option[contains(text(),'Pending')]")
+	@FindBy(how = How.XPATH, using = "//select[@id='by_dot_status']//option[contains(text(),'Delivered')]")
 	public WebElementFacade statusdropdown;
 	
 	
