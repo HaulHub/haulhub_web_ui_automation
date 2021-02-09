@@ -30,5 +30,9 @@ public class LoginPageSteps {
 		serenityLoginSteps.adminlogin(userName, password);
 	}
 	
-
+	@Given("JobSlip user Login to the application with valid (.*) and (.*)")
+	public void jobSlip_user_login(String userName, String password) throws Exception {
+		serenityLoginSteps.JobSlipUserlogin(userName, password);
+	}
+	
 }

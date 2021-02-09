@@ -166,7 +166,7 @@ public class HomeAdminDashboardPage extends PageObject {
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), cutomersearchtxt).typeAndEnter(firstcustomername);
-			Thread.sleep(500);
+			Thread.sleep(2000);
 			elementUtils.fluentWaitForElement(getDriver(), name).waitUntilVisible(); 
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(), name).click();

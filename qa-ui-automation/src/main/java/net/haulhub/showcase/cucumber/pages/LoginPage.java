@@ -28,8 +28,17 @@ public class LoginPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@id='associate_password']")
 	public WebElementFacade passWordEditBox;
 	
-   @FindBy(how = How.XPATH, using = "//button[.='Log In']")
+    @FindBy(how = How.XPATH, using = "//button[.='Log In']")
 	public WebElementFacade loginButton;
+   
+    @FindBy(how = How.XPATH, using = "//input[@type='text']")
+	public WebElementFacade txtUsername;
+	
+	@FindBy(how = How.XPATH, using = "//input[@type='password']")
+	public WebElementFacade txtPassword;
+	
+	@FindBy(how = How.XPATH, using = "//button[@type='submit']")
+	public WebElementFacade btnSubmit;
 
 
 	/***
@@ -60,6 +69,7 @@ public class LoginPage extends PageObject {
 		}
 		return null  ;
 	}
+	
 	
   }
 	
