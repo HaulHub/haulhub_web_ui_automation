@@ -42,7 +42,12 @@ public CustomersPage customerpage;
     
     @Step
    	public boolean ETicket_typing_new_Haulhubcustomername() throws Exception  {
-   		return customerpage. ETicket_typing_new_Haulhubcustomername();
+   		return customerpage.ETicket_typing_new_Haulhubcustomername();
+   	 }
+    
+    @Step
+   	public boolean edit_Eticket_customer() throws Exception  {
+   		return customerpage.edit_Eticket_customer();
    	 }
 
     

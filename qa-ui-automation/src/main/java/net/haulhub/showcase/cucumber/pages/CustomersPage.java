@@ -6,9 +6,12 @@ import net.haulhub.showcase.cucumber.utils.ProjectUtils;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +19,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 public class CustomersPage extends PageObject {
 
@@ -40,10 +44,10 @@ public class CustomersPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@id='ein']")
 	public WebElementFacade EINnumbertxt;
 	
-	@FindBy(how = How.XPATH, using = "//input[@id='mui-14134']")
+	@FindBy(how = How.XPATH, using = "//input[@id='mui-45577']")
 	public WebElementFacade firstnametxt;
 	
-	@FindBy(how = How.XPATH, using = "//input[@name='last_name']")
+	@FindBy(how = How.XPATH, using = "//input[@placeholder='Last Name']")
 	public WebElementFacade lastnametxt;
 	
 	@FindBy(how = How.XPATH, using = "//a[.='Profiles']")
@@ -61,11 +65,15 @@ public class CustomersPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Remove')]")
 	public WebElementFacade removequipmentbtn;
 	
-	@FindBy(how = How.XPATH, using = "//input[@name='phone']")
+	@FindBy(how = How.XPATH, using = "//input[@placeholder='Phone']")
 	public WebElementFacade Phonenumbertxt;
 	
 	@FindBy(how = How.XPATH, using = "//button[.='Invite']")
 	public WebElementFacade Invitebtn;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Save')]")
+	public WebElementFacade eticketcustomersavebtn;
+
 	
 
 	/***
@@ -134,10 +142,22 @@ public class CustomersPage extends PageObject {
 					String EINnumber =  ProjectUtils.getRandomNumberwith9digits();
 				    elementUtils.fluentWaitForElement(getDriver(),EINnumbertxt).sendKeys(EINnumber);
 				    Thread.sleep(500);
-				    elementUtils.fluentWaitForElement(getDriver(), firstnametxt).waitUntilVisible();
 					String firstname =  ProjectUtils.getRandomNumberwith9digits();
-				    elementUtils.fluentWaitForElement(getDriver(),firstnametxt).sendKeys("testfirst");
-				    Thread.sleep(500);
+					getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+					List<WebElement> listofItems= getDriver().findElements(By.xpath("//input[@class='MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense']"));
+					   System.out.println("the list size is" + listofItems.size()); 	
+					   for (int i=1; i<=listofItems.size()-1; i++)
+					    {
+						  Actions action = new Actions(getDriver());
+						  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			              action.moveToElement(listofItems.get(2)).click().build().perform();
+			              Thread.sleep(500);
+			              elementUtils.fluentWaitForElement(getDriver(),listofItems.get(2)).sendKeys(customername);
+			              Thread.sleep(500);
+	                      elementUtils.fluentWaitForElement(getDriver(),listofItems.get(2)).sendKeys(Keys.ENTER);
+	                      getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	                      break ;
+					    }  
 				    elementUtils.fluentWaitForElement(getDriver(), lastnametxt).waitUntilVisible();
 				    elementUtils.fluentWaitForElement(getDriver(),lastnametxt).sendKeys("testlast");
 				    Thread.sleep(500);
@@ -155,6 +175,36 @@ public class CustomersPage extends PageObject {
 				}
 				return false;
 			 }
+	
+			   
+			   /***
+				 * This method is used to Edit the eticketing customer newly invited and created by manager access level customer
+				
+				 */
+				   public boolean edit_Eticket_customer() {
+				    try {
+				    	Thread.sleep(500);
+				    	elementUtils.fluentWaitForElement(getDriver(), inviteticketcustomerbtn).waitUntilVisible();
+				    	String newcustomername = LearningPlatformConstants.haulhubcustomername.get().toString();
+				    	getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				    	WebElement customernamedisplayed = getDriver().findElement(By.xpath("//div[contains(text(),'" + newcustomername + "')]//following::i[@class='fa fa-pencil']"));
+				    	  if (customernamedisplayed.isDisplayed()) {
+				    		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+				    		  customernamedisplayed.click();
+				    		  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+				    		  eticketcustomersavebtn.click();
+				    	       return true;
+				    	  }
+					 } catch (NoSuchElementException e) {
+					   e.printStackTrace();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					return false;
+				 }
+			   
+			   
+			  
 
 	   
 	   /***

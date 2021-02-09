@@ -49,8 +49,11 @@ public class CustomersPageSteps {
 	public void ETicket_typing_new_Haulhubcustomername() throws Exception {
 		assertTrue(serenitycustomerSteps.ETicket_typing_new_Haulhubcustomername());
 	}
-
 	
+	@Given("I edit the newly created E-Ticketing Consumer")
+	public void edit_Eticket() throws Exception {
+		assertTrue(serenitycustomerSteps.edit_Eticket_customer());
+	}
 	
 	
 }

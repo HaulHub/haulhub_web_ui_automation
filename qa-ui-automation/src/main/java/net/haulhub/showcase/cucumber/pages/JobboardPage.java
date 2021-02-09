@@ -64,8 +64,10 @@ public class JobboardPage extends PageObject {
 	           getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	           elementUtils.fluentWaitForElement(getDriver(),Searchinputtxt).typeAndEnter("VigneshTripCostPlant");
 	           getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	           Thread.sleep(1000);
                elementUtils.fluentWaitForElement(getDriver(),  TripCostModal).isDisplayed();
 			   elementUtils.fluentWaitForElement(getDriver(),  TripCostModal).click();
+			   Thread.sleep(1000);
 			   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                elementUtils.fluentWaitForElement(getDriver(),  tripcostmodallbl).isDisplayed();
 			   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  
