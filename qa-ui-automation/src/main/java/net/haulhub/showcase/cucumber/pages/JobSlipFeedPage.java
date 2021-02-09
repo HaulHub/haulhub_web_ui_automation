@@ -76,15 +76,14 @@ public class JobSlipFeedPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//option[text()='Equal']//following::input[1]")
 	public WebElementFacade txtFilter;
 	
-	
-	
+		
 	/*Navigate to My Projects page*/
 	
 	public boolean navigateToMyProjects() throws InterruptedException{
                try {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),lnkMyProjects).click();
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		        return true;
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -92,12 +91,4 @@ public class JobSlipFeedPage extends PageObject {
 		return false;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-
 }

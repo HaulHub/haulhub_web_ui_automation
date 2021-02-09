@@ -1,7 +1,6 @@
 package net.haulhub.showcase.cucumber.pages;
 
 import java.util.concurrent.TimeUnit;
-
 import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Trim;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,11 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import net.haulhub.showcase.cucumber.utils.ElementUtils;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-
 public class JobSlipMyProjectPage extends PageObject {
 
 	WebDriverWait wait = new WebDriverWait(getDriver(), 10);
@@ -121,7 +118,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trprojectName);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pName = elementUtils.fluentWaitForElement(getDriver(),lblGetProjectName).getText();
 			elementUtils.fluentWaitForElement(getDriver(),btnProjectNameFilter).click();
@@ -135,7 +132,7 @@ public class JobSlipMyProjectPage extends PageObject {
 		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		} 
-		return true;
+		return false;
 	}
 	
 	/*Search by project Number in 'My Projects'*/ 
@@ -149,7 +146,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trprojectNumber);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pNum = elementUtils.fluentWaitForElement(getDriver(),lblGetProjectNumber).getText();
 			elementUtils.fluentWaitForElement(getDriver(),btnProjectNumberFilter).click();
@@ -163,7 +160,7 @@ public class JobSlipMyProjectPage extends PageObject {
 		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		} 
-		return true;
+		return false;
 	}
 	
 	/*Search by project Material in 'My Projects'*/ 
@@ -177,7 +174,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trprojectMaterial);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pMaterial = elementUtils.fluentWaitForElement(getDriver(),lblGetProjectMaterial).getText();
 			elementUtils.fluentWaitForElement(getDriver(),btnMaterialFilter).click();
@@ -191,7 +188,7 @@ public class JobSlipMyProjectPage extends PageObject {
 		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		} 
-		return true;
+		return false;
 	}	
 	
 	/*Search by supplier in 'My Projects'*/ 
@@ -205,7 +202,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trproducer);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pProducer = elementUtils.fluentWaitForElement(getDriver(),lblGetProducer).getText();
 			elementUtils.fluentWaitForElement(getDriver(),btnProducerFilter).click();

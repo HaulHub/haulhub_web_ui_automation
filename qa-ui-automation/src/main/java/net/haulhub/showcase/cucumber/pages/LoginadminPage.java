@@ -28,7 +28,7 @@ public class LoginadminPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@name='session[password]']")
 	public WebElementFacade adminpassWordEditBox;
 	
-   @FindBy(how = How.XPATH, using = "//input[@name='commit']")
+    @FindBy(how = How.XPATH, using = "//input[@name='commit']")
 	public WebElementFacade adminloginButton;
 
 
