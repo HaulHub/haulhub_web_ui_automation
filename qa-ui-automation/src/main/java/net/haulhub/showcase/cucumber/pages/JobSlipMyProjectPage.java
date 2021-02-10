@@ -60,6 +60,12 @@ public class JobSlipMyProjectPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@placeholder='Search']") 
 	public WebElementFacade txtSearch;
 	
+	@FindBy(how = How.XPATH, using = "//span[text()='SELECT DATE RANGE']//following::button[3]")
+	public WebElementFacade btnCalEdit;
+	
+	@FindBy(how = How.XPATH, using = "//span[text()='SELECT DATE RANGE']//following::input[1]")
+	public WebElementFacade btnCalStartDate;
+		
 	@FindBy(how = How.XPATH, using = "//*[@class='MuiCardContent-root']//span[text()='Project Number']//preceding::strong")
 	public WebElementFacade lblGetProjectName;
 	
@@ -71,6 +77,9 @@ public class JobSlipMyProjectPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//span[text()='Supplier']//following::strong[1]") 
 	public WebElementFacade lblGetProducer;
+	
+	@FindBy(how = How.XPATH, using = "//span[text()='Project Start Date']//following::strong[1]") 
+	public WebElementFacade lblGetStratDate;
 	
 	@FindBy(how = How.XPATH, using = "//span[text()='View Project']")
 	public WebElementFacade btnViewProject;
@@ -215,9 +224,67 @@ public class JobSlipMyProjectPage extends PageObject {
 		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		} 
-		return true;
+		return false;
+	}	
+	
+	/*Search by start date in 'My Projects'*/ 
+	
+	public boolean searchByProjectStartDate(String startDate){
+		try {
+			String trstartDate = startDate.trim();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnDateTimeFilter).click();
+			Thread.sleep(1000);
+			elementUtils.fluentWaitForElement(getDriver(),btnCalEdit).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnCalStartDate).sendKeys(trstartDate);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String pstartDate = elementUtils.fluentWaitForElement(getDriver(),lblGetStratDate).getText();
+			elementUtils.fluentWaitForElement(getDriver(),btnDateTimeFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnCalEdit).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (pstartDate.equals(trstartDate)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
 	}			
 	
+	
+	/*Search by Truck number in 'My Projects'*/ 
+	
+	public boolean searchTruck(String truckNo){
+		try {
+			String trtruckNo = truckNo.trim();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnTruckFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),txtSearch).clear();
+			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trtruckNo);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
+			Thread.sleep(2000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String ptrtruckNo = elementUtils.fluentWaitForElement(getDriver(),lblGetStratDate).getText();
+			elementUtils.fluentWaitForElement(getDriver(),btnTruckFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (ptrtruckNo.equals(ptrtruckNo)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}			
 	
 	
 	

@@ -34,4 +34,14 @@ public class SerenityJobSlipMyProjectSteps {
    		return jobslipmyprojectpage.searchByProducer(producer);
 	}
 	
+	@Step
+   	public boolean searchByProjectStartDate(String startDate) throws Exception {
+   		return jobslipmyprojectpage.searchByProjectStartDate(startDate);
+	}
+	
+	@Step
+   	public boolean searchTruck(String truckNo) throws Exception {
+   		return jobslipmyprojectpage.searchTruck(truckNo);
+	}
+	
 }
