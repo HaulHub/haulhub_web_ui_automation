@@ -9,7 +9,9 @@ Feature: JobSlip Smoke Test Suite
   	Then I search by project number <projectNumber>
   	Then I search by project material <projectMaterial>
   	Then I search by producer <producer>
+  	Then I search by start date <startDate>
+  	Then I search by truck number <truckNo>
   
    	Examples:
-     | userName | password    |  projectName               |projectNumber|   projectMaterial|producer       |
-     |2025550181|QualityHH!21 |AA 4446&9717514 I-16 ANSHU  |54321        |12.5 MM SP W/LIME |anshumancompany|
+     | userName | password    |  projectName               |projectNumber|   projectMaterial|producer       | startDate |truckNo|
+     |2025550181|QualityHH!21 |AA 4446&9717514 I-16 ANSHU  |54321        |12.5 MM SP W/LIME |anshumancompany|1/1/2021   |ANSH   |
