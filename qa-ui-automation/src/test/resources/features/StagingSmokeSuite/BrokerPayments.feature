@@ -10,5 +10,5 @@ Feature: BrokerPayments.feature
        
        
     Examples: 
-      | userName   | password       |   firstBroker|
-      | vignesh | haul-Quality!0501 |  Vigneshbroker1|   
+      | userName   | password                |   firstBroker|
+      | vignesh    | 0$B4h1rn3XG_gZS+mF-PitDf|  Vigneshbroker1|   

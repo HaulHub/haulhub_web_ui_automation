@@ -1,7 +1,6 @@
 package net.haulhub.showcase.cucumber.pages;
 
 import java.util.concurrent.TimeUnit;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Trim;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
