@@ -38,4 +38,14 @@ public class JobSlipMyProjectSteps {
 		serenitymyprojects.searchByProducer(producer);
 	}
 	
+	@Then("I search by start date(.*)")
+	public void searchByProjectStartDate(String startDate) throws Exception {
+		serenitymyprojects.searchByProjectStartDate(startDate);
+	}
+	
+	@Then("I search by truck number(.*)")
+	public void searchTruck(String truckNo) throws Exception {
+		serenitymyprojects.searchTruck(truckNo);
+	}
+	
 }

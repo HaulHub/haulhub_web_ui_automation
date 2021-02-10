@@ -85,17 +85,12 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	public boolean CheckAccessibilityOfMainLink(){
 
 		try {
-			
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(),lnkOrderDashBoard).click();
-			
+			elementUtils.fluentWaitForElement(getDriver(),lnkOrderDashBoard).click();			
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(),lnkMain).isEnabled();
-			
+			elementUtils.fluentWaitForElement(getDriver(),lnkMain).isEnabled();			
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),lnkMain).click();
-			
-
 			return true;
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -131,23 +126,24 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	public boolean openNewOrder(){
 		try {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
-	        Actions action = new Actions(getDriver());
-            action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
-            Thread.sleep(500);
-            elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
-     		    (elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null)){		
-            	  	getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-            	  	elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
-            	  	elementUtils.fluentWaitForElement(getDriver(),btnClearFilters).click();
-     		    } else { 
-     		       return false;     		      
-     		    }          
+			Actions action = new Actions(getDriver());
+			action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
+				(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null)){		
+				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+				elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
+				elementUtils.fluentWaitForElement(getDriver(),btnClearFilters).click();
+				return true;
+			} else { 
+				return false;     		      
+			}          
 		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		}		
-		return true;		
+		return false;		
 	}
 	
 	/*Filter by status 'Canceled'*/
@@ -155,24 +151,25 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	public boolean openCanceledOrder(){
 		try {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
-	        Actions action = new Actions(getDriver());
-            action.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();	
-            Thread.sleep(500);
-            elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            if ((elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) && 
-     		    (elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
-     		    (elementUtils.fluentWaitForElement(getDriver(),btnRejectOrder).getAttribute("disabled") != null)){		
-            		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-            		elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
-            		elementUtils.fluentWaitForElement(getDriver(),btnClearFilters).click();
-     		    } else { 
-     		       return false;     		      
-     		    }
+			Actions action = new Actions(getDriver());
+			action.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();	
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			if ((elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) && 
+				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
+				(elementUtils.fluentWaitForElement(getDriver(),btnRejectOrder).getAttribute("disabled") != null)){		
+				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+				elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
+				elementUtils.fluentWaitForElement(getDriver(),btnClearFilters).click();
+				return true;
+			} else { 
+				return false;     		      
+			}
 		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		}
-		return true;		
+		return false;		
 	}
 	
 	/*Filter by status 'Accepted'*/
@@ -180,53 +177,55 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	public boolean openAcceptedOrder(){
 		try {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
-	        Actions action = new Actions(getDriver());
-            action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
-            Thread.sleep(500);
-            elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
-     		    (elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) &&
-            	(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
-     		    (elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null) &&
-     		    (elementUtils.fluentWaitForElement(getDriver(),btnAccept).getAttribute("disabled") != null)){
-            		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-            		elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
-            		elementUtils.fluentWaitForElement(getDriver(),btnClearFilters).click();
-     		    } else { 
-     		       return false;     		      
-     		    }
+			Actions action = new Actions(getDriver());
+			action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
+				(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) &&
+				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
+				(elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null) &&
+				(elementUtils.fluentWaitForElement(getDriver(),btnAccept).getAttribute("disabled") != null)){
+				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+				elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
+				elementUtils.fluentWaitForElement(getDriver(),btnClearFilters).click();
+				return true;
+			} else { 
+				return false;     		      
+			}
 		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		}
-		return true;		
+		return false;		
 	}
-	
+
 	/*Filter by status 'Accepted w'*/
 	
 	public boolean openAcceptedWchangesOrder(){
 		try {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
-	        Actions action = new Actions(getDriver());
-            action.sendKeys(Keys.chord(Keys.ENTER)).perform();	
-            Thread.sleep(500);
-            elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
-            getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
-            		(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) &&
-                	(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
-         		    (elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null) &&
-         		    (elementUtils.fluentWaitForElement(getDriver(),btnAccept).getAttribute("disabled") != null)){	
-            	getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-            	elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
-            	elementUtils.fluentWaitForElement(getDriver(),btnClearFilters).click();
-     		    } else { 
-     		       return false;     		      
-     		    }
+			Actions action = new Actions(getDriver());
+			action.sendKeys(Keys.chord(Keys.ENTER)).perform();	
+			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
+				(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) &&
+				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
+				(elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null) &&
+				(elementUtils.fluentWaitForElement(getDriver(),btnAccept).getAttribute("disabled") != null)){	
+				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+				elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
+				elementUtils.fluentWaitForElement(getDriver(),btnClearFilters).click();
+				return true;
+			} else { 
+				return false;     		      
+			}
 		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		}
-		return true;		
+		return false;		
 	}
 
 }
