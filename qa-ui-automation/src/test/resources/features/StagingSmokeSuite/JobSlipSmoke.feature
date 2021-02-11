@@ -15,3 +15,14 @@ Feature: JobSlip Smoke Test Suite
    	Examples:
      | userName | password    |  projectName               |projectNumber|   projectMaterial|producer       | startDate |truckNo|
      |2025550181|QualityHH!21 |AA 4446&9717514 I-16 ANSHU  |54321        |12.5 MM SP W/LIME |anshumancompany|1/1/2021   |ANSH   |
+          
+     @JOBSLIPSMOKETESTSUITE
+  Scenario Outline: View project search in My Project
+  	Given I navigate to view projects in My projects
+  	Then I search in view project by project name <projectName> 
+  	Then I search in view project by producer <producer>
+  	Then I search in view project by startDate <startDate>
+  
+   	Examples:
+     | userName | password    |  projectName               |projectNumber|   projectMaterial|producer       | startDate |truckNo|
+     |2025550181|QualityHH!21 |AA 4446&9717514 I-16 ANSHU  |54321        |12.5 MM SP W/LIME |anshumancompany|1/1/2021   |ANSH   |
