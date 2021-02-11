@@ -48,4 +48,24 @@ public class JobSlipMyProjectSteps {
 		serenitymyprojects.searchTruck(truckNo);
 	}
 	
+	@Given("I navigate to view projects in My projects")
+	public void navigateToViewProjects() throws Exception {
+		serenitymyprojects.navigateToViewProjects();
+	}
+	
+	@Then("I search in view project by project name(.*)")
+	public void viewSearchByProjectName(String projectName) throws Exception {
+		serenitymyprojects.viewSearchByProjectName(projectName);
+	}
+	
+	@Then("I search in view project by producer(.*)")
+	public void ViewProjectSearchByProducer(String producer) throws Exception {
+		serenitymyprojects.ViewProjectSearchByProducer(producer);
+	}
+	
+	@Then("I search in view project by startDate(.*)")
+	public void viewProjectSearchByProjectStartDate(String startDate) throws Exception {
+		serenitymyprojects.viewProjectSearchByProjectStartDate(startDate);
+	}
+	
 }

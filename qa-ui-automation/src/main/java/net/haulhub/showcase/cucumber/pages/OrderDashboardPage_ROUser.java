@@ -127,7 +127,7 @@ public class OrderDashboardPage_ROUser extends PageObject {
 		try {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
-			action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
+			action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -152,7 +152,7 @@ public class OrderDashboardPage_ROUser extends PageObject {
 		try {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
-			action.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();	
+			action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -178,7 +178,7 @@ public class OrderDashboardPage_ROUser extends PageObject {
 		try {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
-			action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
+			action.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();	
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
