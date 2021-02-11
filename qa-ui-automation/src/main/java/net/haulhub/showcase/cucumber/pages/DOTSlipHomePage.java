@@ -237,7 +237,8 @@ public class DOTSlipHomePage extends PageObject {
 			    elementUtils.fluentWaitForElement(getDriver(),UpdateResultsbtn).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    List<WebElement> listofItems = getDriver().findElements(By.xpath("//td[.='" + contractname.trim() + "']"));
-				if (listofItems.size() > 0)
+			    Thread.sleep(1000);
+			    if (listofItems.size() > 0)
 					  return true;
 				else 
 					 return false;

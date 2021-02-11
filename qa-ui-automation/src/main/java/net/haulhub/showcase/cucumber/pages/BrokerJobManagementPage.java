@@ -270,6 +270,7 @@ public class BrokerJobManagementPage extends PageObject {
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       String bookjobcontractorname =  LearningPlatformConstants.bookjobcontractorname.get().toString();
 	       WebElement bookjobcontractordrpvalue= getDriver().findElement(By.xpath("//select[@id='customer']//option[.='" + bookjobcontractorname + "']"));
+	       Thread.sleep(1000);
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       bookjobcontractordrpvalue.click();
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -277,8 +278,8 @@ public class BrokerJobManagementPage extends PageObject {
 	       elementUtils.fluentWaitForElement(getDriver(),draftstatuslnk).click();
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       elementUtils.fluentWaitForElement(getDriver(), bookjobsbtn).waitUntilEnabled();
+	       Thread.sleep(1000);
 		   elementUtils.safeJavaScriptClick(bookjobsbtn);
-		   Thread.sleep(1000);
 		   return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
