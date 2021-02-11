@@ -42,8 +42,8 @@ public class JobboardPage extends PageObject {
 	
 	/*@FindBy(how = How.XPATH, using = "//i[@class='fa fa-dollar fa-stack-1x fa-inverse']")
 	public WebElementFacade TripCostModal;*/
-	
-	@FindBy(how = How.XPATH, using = "//div[contains(text(),'10 Wheel')]//following::span[1]")
+
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Triaxle')]//following::span[1]")
 	public WebElementFacade TripCostModal;
 	
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-times-circle']")
