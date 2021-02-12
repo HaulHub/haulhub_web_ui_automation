@@ -107,8 +107,9 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	
 	/*Check accessibility of buttons in Orderdashboard page*/
 	
-	public boolean checkAccessibilityOfButtonsOrderdashboard(){
+	public boolean checkAccessibilityOfButtonsOrderdashboard() throws Exception{
 		try {
+			Thread.sleep(3000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			if ((elementUtils.fluentWaitForElement(getDriver(),btnNeworder).getAttribute("disabled") != null) && 
 		       (elementUtils.fluentWaitForElement(getDriver(),btnWillCallToggle).getAttribute("disabled") != null)){		
@@ -128,8 +129,9 @@ public class OrderDashboardPage_ROUser extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
 			action.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();	
-			Thread.sleep(500);
+			Thread.sleep(1500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
+			Thread.sleep(1500);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
 				(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null)){		
@@ -178,7 +180,7 @@ public class OrderDashboardPage_ROUser extends PageObject {
 		try {
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
-			action.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();	
+			action.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();	
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
