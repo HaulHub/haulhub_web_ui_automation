@@ -204,7 +204,7 @@ public class JobBoardPage_ROUser extends PageObject {
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 		elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
 		Actions action = new Actions(getDriver());
-		action.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();
+		action.sendKeys("Draft", Keys.chord(Keys.ENTER)).perform();
 		elementUtils.fluentWaitForElement(getDriver(),lnkJobNumber).click();
 		}catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -219,7 +219,7 @@ public class JobBoardPage_ROUser extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),selStatus).click();
 			Actions action = new Actions(getDriver());
-			action.sendKeys(Keys.chord(Keys.DOWN,Keys.DOWN,Keys.DOWN,Keys.ENTER)).perform();
+			action.sendKeys("Started", Keys.chord(Keys.ENTER)).perform();
 			elementUtils.fluentWaitForElement(getDriver(),lnkJobNumber).click();
 		}catch (NoSuchElementException e) {
 			e.printStackTrace();
