@@ -187,16 +187,17 @@ public class BrokerCustomerPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerAddCustomer).click();
 		    getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		    List<WebElement> listofItems= getDriver().findElements(By.xpath("//tr[@class='clickable-link customer-link']"));
-			 for (int i=1; i<2; i++)
+			 for (int i=1; i<listofItems.size()-1; i++)
 			  {
 				  Actions action = new Actions(getDriver());
 				  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
                   action.moveToElement(listofItems.get(i)).click().build().perform();
                   Thread.sleep(500);
-                  System.out.println("the item number is" + listofItems.get(i)); 
+                  System.out.println("the size of the list is" + listofItems.size());
+                  System.out.println("the item number is" + listofItems.get(i).toString()); 
                   break;
               }
-		   return true;
+		     return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
@@ -231,10 +232,10 @@ public class BrokerCustomerPage extends PageObject {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomersJobsitelnk).waitUntilClickable();
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomersJobsitelnk).click();
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),NewJobJobsitebtn).waitUntilClickable();
 		    elementUtils.fluentWaitForElement(getDriver(),NewJobJobsitebtn).click();
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),NewJobJobsitenametxt).waitUntilClickable();
 		    elementUtils.fluentWaitForElement(getDriver(),NewJobJobsitenametxt).click();
 		    Thread.sleep(1000);
@@ -243,14 +244,14 @@ public class BrokerCustomerPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(), NewJobJobsitenametxt).sendKeys(brokerjobsitename);
 		    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomersaddresstxt).waitUntilClickable();
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		    Actions action3 = new Actions(getDriver());
 	    	action3.moveToElement(this.brokercustomersaddresstxt).click().build().perform();
-			Thread.sleep(1000);
+			Thread.sleep(800);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomersaddresstxt).type("12 Andover Road, Billerica, MA, USA");
-		    Thread.sleep(500);
+		    Thread.sleep(800);
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomersaddresstxt).sendKeys(Keys.COMMAND.DOWN.ENTER);
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomersaddresstxt).sendKeys(Keys.DOWN);
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomersaddresstxt).sendKeys(Keys.ENTER);
@@ -258,13 +259,14 @@ public class BrokerCustomerPage extends PageObject {
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomeronsitecontacttxt).waitUntilClickable();
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),brokercustomeronsitecontacttxt).sendKeys("Kristen");
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),jobsitecontactnumbertxt).waitUntilClickable();
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),jobsitecontactnumbertxt).sendKeys("8562344561");
-		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(),jobsitesavechangesbtn).waitUntilClickable();
 		    elementUtils.safeJavaScriptClick(jobsitesavechangesbtn);
+		    getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 		    WebElement brokerjobsitenameupdated = getDriver().findElement(By.xpath("//td[.='" + brokerjobsitename + "']"));
 		    if (LearningPlatformConstants.brokerjobsitename.get().toString().equalsIgnoreCase(brokerjobsitenameupdated.getText().toString()))
 		    	System.out.println("the updated brokercustomer name appeared correctly as" + brokerjobsitenameupdated);

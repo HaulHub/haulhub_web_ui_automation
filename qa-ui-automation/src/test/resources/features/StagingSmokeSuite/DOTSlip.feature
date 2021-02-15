@@ -53,13 +53,13 @@ Feature: DOTSlip.feature
       | vignesh  | haul-Quality!0501 | vigneshcompany  | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
    
    
-  @DOTSLIP
-  Scenario Outline: Validate ability to filter by ticket number within FEED and filtered results display correctly without returning empty table
-    And I search with ticketnumber <ticketnumber> click update results button and validate the results are filtered correctly
+  #@DOTSLIP
+  #Scenario Outline: Validate ability to filter by ticket number within FEED and filtered results display correctly without returning empty table
+   # And I search with ticketnumber <ticketnumber> click update results button and validate the results are filtered correctly
    
-    Examples: 
-      | userName | password          | ticketnumber | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
-      | vignesh  | haul-Quality!0501 | 22084026     | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
+   # Examples: 
+    #  | userName | password          | ticketnumber | startlocation | destination  | contactnumber | address                             | Tonnage | ProductionRate | WorkType     | Acceptabletrucktypes | Trucksrequired | Truckbilling   | fleetpriority  | Fleet          | firstBroker    |
+     # | vignesh  | haul-Quality!0501 | 22084026     | VigneshPlant  | VigneshPlant |    8572688987 | 12 Andover Road, Billerica, MA, USA |       1 |              1 | Construction | Paver                |              1 | vigneshcompany | VigneshCompany | VigneshCompany | Vigneshbroker1 |
    
    
     @DOTSLIP

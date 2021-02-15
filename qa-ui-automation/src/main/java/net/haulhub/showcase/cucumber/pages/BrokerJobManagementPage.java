@@ -186,6 +186,7 @@ public class BrokerJobManagementPage extends PageObject {
 		   elementUtils.fluentWaitForElement(getDriver(), brokerBookDestinationlocationtxt).waitUntilClickable();
 		   elementUtils.fluentWaitForElement(getDriver(), brokerBookDestinationlocationtxt).sendKeys("Aggregate Chelmsford");
 		   elementUtils.fluentWaitForElement(getDriver(), brokerbillingsitetxt).isDisplayed();
+		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		   elementUtils.fluentWaitForElement(getDriver(), brokerbillingsitetxt).typeAndEnter("Aggregate Ashland");
 		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		   elementUtils.fluentWaitForElement(getDriver(), brokercontactnametxt).waitUntilClickable();
@@ -197,7 +198,7 @@ public class BrokerJobManagementPage extends PageObject {
 		   elementUtils.fluentWaitForElement(getDriver(), brokertrucksrequiredtxt).waitUntilPresent();
 		   elementUtils.fluentWaitForElement(getDriver(), brokertrucksrequiredtxt).clear();
 		   elementUtils.fluentWaitForElement(getDriver(), brokertrucksrequiredtxt).sendKeys("1");
-		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		   getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		   elementUtils.fluentWaitForElement(getDriver(), LoaddateDrdtx).waitUntilVisible();
 	       elementUtils.safeJavaScriptClick(LoaddateDrdtx);
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -241,13 +242,14 @@ public class BrokerJobManagementPage extends PageObject {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		   elementUtils.fluentWaitForElement(getDriver(), bookjobdraft).waitUntilEnabled();
 		   Thread.sleep(500);
-		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		   getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		      Actions action4 = new Actions(getDriver());
 	          action4.moveToElement(this.bookjobdraft).click().build().perform();
 	       Thread.sleep(500);
 	          getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		      Actions action5 = new Actions(getDriver());
 	          action5.moveToElement(this.draftjobaccept).click().build().perform();
+	          getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 	       Thread.sleep(500);
 	       return true;
 		} catch (NoSuchElementException e) {
@@ -263,23 +265,24 @@ public class BrokerJobManagementPage extends PageObject {
      */
 	public boolean click_jobmanagment_booknewjob() {
 	try {
-		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		   getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	       elementUtils.fluentWaitForElement(getDriver(),brokerJobmanagementlnk).click();
-	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	       getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	       elementUtils.fluentWaitForElement(getDriver(),JobBoardlnk).click();
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       String bookjobcontractorname =  LearningPlatformConstants.bookjobcontractorname.get().toString();
 	       WebElement bookjobcontractordrpvalue= getDriver().findElement(By.xpath("//select[@id='customer']//option[.='" + bookjobcontractorname + "']"));
 	       Thread.sleep(1000);
-	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	       getDriver().manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 	       bookjobcontractordrpvalue.click();
-	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	       getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	       elementUtils.fluentWaitForElement(getDriver(),draftstatuslnk).waitUntilPresent();
 	       elementUtils.fluentWaitForElement(getDriver(),draftstatuslnk).click();
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       elementUtils.fluentWaitForElement(getDriver(), bookjobsbtn).waitUntilEnabled();
-	       Thread.sleep(1000);
+	       Thread.sleep(700);
 		   elementUtils.safeJavaScriptClick(bookjobsbtn);
+		   getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 		   return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();

@@ -350,7 +350,9 @@ public class DOTSlipHomePage extends PageObject {
 			    elementUtils.fluentWaitForElement(getDriver(),Rejectbtn).isDisplayed();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),Deliveredbtn).isDisplayed();*/
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			  getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	            elementUtils.fluentWaitForElement(getDriver(),DotslipFeedlbl).click();
+			    getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 			    //elementUtils.fluentWaitForElement(getDriver(),closemodalcsv).click();
 			    elementUtils.fluentWaitForElement(getDriver(),selectinputboxreport).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
