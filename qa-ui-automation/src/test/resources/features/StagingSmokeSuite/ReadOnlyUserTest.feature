@@ -48,8 +48,8 @@ Feature: Read-Only User Test Plan
     Then I check visibility of Cancel Rebook EditShiftSchedule EditShift AddShift CancelShift buttons
     And I click on a job number
     Then I check visibility of Cancel Finish Update Save buttons
-	 Then I navigate back to Jobboard page
-	 When I filterd by Started status
+	Then I navigate back to Jobboard page
+	When I filterd by Started status
     Then I check visibility of Cancel EditJob Rebook EditShiftSchedule EditShift AddShift CancelShift buttons
     And I click on a job number
     Then I check accessibility of Cancel Finish Update Save buttons and Plant Job links
