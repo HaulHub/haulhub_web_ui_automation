@@ -40,7 +40,7 @@ Feature: Read-Only User Test Plan
     
     Examples:
       | userName | password                 | ROcustomername | OrderDate |
-      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | vigneshcompany | 2021-01-01 |
+      | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | vigneshcompany | 2021-01-01|
     
   @Read-Only-User
   Scenario Outline: Job Management - Job Board (Search by Draft and Started statuses)   
