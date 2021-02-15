@@ -152,11 +152,12 @@ public class JobSlipMyProjectPage extends PageObject {
 
 	/*Navigate to view Projects*/
 
-	public boolean navigateToViewProjects() throws InterruptedException{
+	public boolean navigateToViewProjects() throws InterruptedException{ 
 		try {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnViewProject).click();
 			Thread.sleep(500);
+			elementUtils.fluentWaitForElement(getDriver(),btnBackProject).isVisible();			
 			return true;
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -178,6 +179,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			Thread.sleep(1000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pName = elementUtils.fluentWaitForElement(getDriver(),lblGetProject).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnProjectFilter).click();
 			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
 			if (pName.equals(trprojectName)){
@@ -374,12 +376,12 @@ public class JobSlipMyProjectPage extends PageObject {
 			String trstartDate = startDate.trim();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
 			elementUtils.fluentWaitForElement(getDriver(),btnDateTimeFilter).click();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),btnCalEdit).click();
 			elementUtils.fluentWaitForElement(getDriver(),btnCalStartDate).sendKeys(trstartDate);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pstartDate = elementUtils.fluentWaitForElement(getDriver(),lblGetStratDate).getText();
 			elementUtils.fluentWaitForElement(getDriver(),btnDateTimeFilter).click();
