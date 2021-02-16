@@ -68,4 +68,9 @@ public class JobSlipMyProjectSteps {
 		serenitymyprojects.viewProjectSearchByProjectStartDate(startDate);
 	}
 	
+	@Then("I search in view project by truck(.*)")
+	public void viewProjectSearchByTruck(String truck) throws Exception {
+		serenitymyprojects.viewProjectSearchByTruck(truck);
+	}
+	
 }
