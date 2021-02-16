@@ -229,20 +229,21 @@ public class DOTSlipHomePage extends PageObject {
 			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),DotslipMyProjectslbl).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			    elementUtils.fluentWaitForElement(getDriver(),Contractordropdownbtn).click();
-			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			  //  elementUtils.fluentWaitForElement(getDriver(),Contractordropdownbtn).click();
+			   // getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    WebElement contractorname =  getDriver().findElement(By.xpath("//select[@name='by_contractor']//option[contains(text(),'" + contractname.trim() +"')]"));
 			    elementUtils.fluentWaitForElement(getDriver(),contractorname).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    elementUtils.fluentWaitForElement(getDriver(),UpdateResultsbtn).click();
 			    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			    List<WebElement> listofItems = getDriver().findElements(By.xpath("//td[.='" + contractname.trim() + "']"));
-			    Thread.sleep(1000);
-			    if (listofItems.size() > 0)
+			    getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+			     if (listofItems.size() > 0)
 					  return true;
 				else 
 					 return false;
-		      	} catch (NoSuchElementException e) {
+		      	} 
+		      catch (NoSuchElementException e) {
 			e.printStackTrace();
 			} catch (Exception e) {
 				e.printStackTrace();

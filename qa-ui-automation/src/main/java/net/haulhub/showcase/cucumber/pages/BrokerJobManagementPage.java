@@ -279,8 +279,8 @@ public class BrokerJobManagementPage extends PageObject {
 	       elementUtils.fluentWaitForElement(getDriver(),draftstatuslnk).waitUntilPresent();
 	       elementUtils.fluentWaitForElement(getDriver(),draftstatuslnk).click();
 	       getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	       elementUtils.fluentWaitForElement(getDriver(), bookjobsbtn).waitUntilEnabled();
-	       Thread.sleep(700);
+	       elementUtils.fluentWaitForElement(getDriver(), bookjobsbtn).waitUntilPresent();
+	       Thread.sleep(1000);
 		   elementUtils.safeJavaScriptClick(bookjobsbtn);
 		   getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 		   return true;

@@ -186,18 +186,20 @@ public class BrokerCustomerPage extends PageObject {
 		    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    elementUtils.fluentWaitForElement(getDriver(), brokercustomerAddCustomer).click();
 		    getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-		    List<WebElement> listofItems= getDriver().findElements(By.xpath("//tr[@class='clickable-link customer-link']"));
-			 for (int i=1; i<listofItems.size()-1; i++)
+		    /*List<WebElement> listofItems= getDriver().findElements(By.xpath("//tr[@class='clickable-link customer-link']"));
+			for (int i=0; i<listofItems.size()-1; i++)
 			  {
 				  Actions action = new Actions(getDriver());
-				  getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+				  getDriver().manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+				  System.out.println("the first items in list is" + listofItems.get(i).getText().toString());
                   action.moveToElement(listofItems.get(i)).click().build().perform();
-                  Thread.sleep(500);
-                  System.out.println("the size of the list is" + listofItems.size());
-                  System.out.println("the item number is" + listofItems.get(i).toString()); 
                   break;
-              }
-		     return true;
+              }*/
+		    WebElement customerclick = getDriver().findElement(By.xpath("//th[.='CUSTOMER NAME']//parent::tr//following::td[1]"));
+		    getDriver().manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    customerclick.click();
+		    getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		    return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
 		} catch (Exception e) {
@@ -213,7 +215,7 @@ public class BrokerCustomerPage extends PageObject {
 	try {
 		   getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		   elementUtils.fluentWaitForElement(getDriver(), BrokerEditProfilebtn).isDisplayed();
-		   elementUtils.fluentWaitForElement(getDriver(), BrokerEditProfilebtn).waitUntilClickable();
+		   elementUtils.fluentWaitForElement(getDriver(), BrokerEditProfilebtn).waitUntilPresent();
 		   return true;
 		} catch (NoSuchElementException e) {
 		e.printStackTrace();
