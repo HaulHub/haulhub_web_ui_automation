@@ -165,6 +165,34 @@ public class JobSlipMyProjectPage extends PageObject {
 		return false;
 	}
 	
+	/*Search by Truck in 'View Projects'*/ 
+
+	public boolean viewProjectSearchByTruck(String truck){
+		try {
+			String trtruck = truck.trim();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnTruckFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),txtSearch).click();
+			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trtruck, Keys.ENTER);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String ptruck = elementUtils.fluentWaitForElement(getDriver(),lblGetTruckView).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnProjectFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (ptruck.equals(trtruck)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
 	/*Search by project Name in 'View Projects'*/ 
 
 	public boolean viewProjectSearchByProjectName(String projectName){
@@ -204,7 +232,6 @@ public class JobSlipMyProjectPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtSelectSup).clear();
 			elementUtils.fluentWaitForElement(getDriver(),txtSelectSup).sendKeys(trproducer, Keys.ENTER);
 			Thread.sleep(1000);
-			//elementUtils.fluentWaitForElement(getDriver(),txtSelectSup).sendKeys(Keys.ENTER);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
 			Thread.sleep(1000);
@@ -253,9 +280,6 @@ public class JobSlipMyProjectPage extends PageObject {
 		} 
 		return false;
 	}			
-
-
-
 
 	/*Search by project Name in 'My Projects'*/ 
 
@@ -377,15 +401,20 @@ public class JobSlipMyProjectPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
 			elementUtils.fluentWaitForElement(getDriver(),btnDateTimeFilter).click();
 			Thread.sleep(500);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnCalEdit).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnCalStartDate).sendKeys(trstartDate);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
 			Thread.sleep(500);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pstartDate = elementUtils.fluentWaitForElement(getDriver(),lblGetStratDate).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnDateTimeFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnCalEdit).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
 			if (pstartDate.equals(trstartDate)){
 				return true;

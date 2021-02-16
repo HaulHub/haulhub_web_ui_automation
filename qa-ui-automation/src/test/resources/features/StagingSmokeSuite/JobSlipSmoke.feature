@@ -22,6 +22,7 @@ Feature: JobSlip Smoke Test Suite
   	Then I search in view project by project name <projectName> 
   	Then I search in view project by producer <producer>
   	Then I search in view project by startDate <startDate>
+  	Then I search in view project by truck <truckNo>
   
    	Examples:
      | userName | password    |  projectName               |projectNumber|   projectMaterial|producer       | startDate |truckNo|
