@@ -74,6 +74,12 @@ public class JobSlipFeedPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//option[text()='Equal']//following::input[1]")
 	public WebElementFacade txtFilter;
 	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Filter')]")
+	public WebElementFacade btnFilter;
+	
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Clear')]")
+	public WebElementFacade btnClear;
+	
 		
 	/*Navigate to My Projects page*/
 	
@@ -88,5 +94,34 @@ public class JobSlipFeedPage extends PageObject {
 		} 
 		return false;
 	}
+	
+	/*Search by date in 'Feed page'*/ 
+
+	public boolean searchDate(String sDate, String eDate){
+		try {
+			String trticketNo = sDate.trim();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),lnkDateFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),txtFromDateFilter).clear();
+			elementUtils.fluentWaitForElement(getDriver(),txtFromDateFilter).sendKeys(sDate);
+			elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).clear();
+			elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).sendKeys(eDate);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			String pticketNo = elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).getText();
+			elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (pticketNo.equals(trticketNo)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}	
 	
 }
