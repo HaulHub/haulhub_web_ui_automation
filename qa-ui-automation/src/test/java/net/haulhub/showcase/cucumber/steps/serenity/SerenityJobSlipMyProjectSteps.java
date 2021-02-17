@@ -65,4 +65,14 @@ public class SerenityJobSlipMyProjectSteps {
    		return jobslipmyprojectpage.viewProjectSearchByTruck(truck);
 	}
 	
+	@Step
+   	public boolean searchByTicketNo(String ticketNo) throws Exception {
+   		return jobslipmyprojectpage.searchByTicketNo(ticketNo);
+	}
+	
+	@Step
+   	public boolean viewProjectSearchByProduct(String product) throws Exception {
+   		return jobslipmyprojectpage.viewProjectSearchByProduct(product);
+	}
+	
 }

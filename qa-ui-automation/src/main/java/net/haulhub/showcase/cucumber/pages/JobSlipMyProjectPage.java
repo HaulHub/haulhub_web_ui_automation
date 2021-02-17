@@ -77,7 +77,7 @@ public class JobSlipMyProjectPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//*[text()='Select Suppliers...']//following::input") 
 	public WebElementFacade txtSelectSup;
 
-	@FindBy(how = How.XPATH, using = "//*[text()='Select Trucks...']") 
+	@FindBy(how = How.XPATH, using = "//*[text()='Select Trucks...']//following::input") 
 	public WebElementFacade txtSelectTruck;
 
 	@FindBy(how = How.XPATH, using = "//span[text()='SELECT DATE RANGE']//following::button[3]")
@@ -107,7 +107,7 @@ public class JobSlipMyProjectPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//span[text()='Supplier']//following::tbody//tr[2]/td[@class='MuiTableCell-root MuiTableCell-body'][3]") 
 	public WebElementFacade lblGetSuplier;
 	
-	@FindBy(how = How.XPATH, using = "//span[text()='Supplier']//following::tbody//tr[2]/td[@class='MuiTableCell-root MuiTableCell-body'][5]") 
+	@FindBy(how = How.XPATH, using = "//span[text()='Project']//following::div[@data-texty='false'][1]//following::td[1]") 
 	public WebElementFacade lblGetTruckView;
 	
 	@FindBy(how = How.XPATH, using = "//span[text()='Supplier']//following::tbody//tr[2]/td[@class='MuiTableCell-root MuiTableCell-body'][6]") 
@@ -165,6 +165,64 @@ public class JobSlipMyProjectPage extends PageObject {
 		return false;
 	}
 	
+	/*Search by product in 'View Projects'*/ 
+
+	public boolean viewProjectSearchByProduct(String product){
+		try {
+			String trproduct = product.trim();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnProductFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),txtSelectProd).clear();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),txtSelectProd).sendKeys(trproduct, Keys.ENTER);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String pproduct = elementUtils.fluentWaitForElement(getDriver(),lblGetProduct).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnProductFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (pproduct.equals(trproduct)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Search by Ticket number in 'View Projects'*/ 
+
+	public boolean searchByTicketNo(String ticketNo){
+		try {
+			String trticketNo = ticketNo.trim();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnTicketNoFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),txtSearch).clear();
+			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trticketNo);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			String pticketNo = elementUtils.fluentWaitForElement(getDriver(),lblGetTicketNo).getText();
+			elementUtils.fluentWaitForElement(getDriver(),btnTicketNoFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (pticketNo.equals(trticketNo)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}	
+	
 	/*Search by Truck in 'View Projects'*/ 
 
 	public boolean viewProjectSearchByTruck(String truck){
@@ -172,14 +230,17 @@ public class JobSlipMyProjectPage extends PageObject {
 			String trtruck = truck.trim();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnTruckFilter).click();
-			elementUtils.fluentWaitForElement(getDriver(),txtSearch).click();
-			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trtruck, Keys.ENTER);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),txtSelectTruck).clear();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),txtSelectTruck).sendKeys(trtruck, Keys.ENTER);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 			String ptruck = elementUtils.fluentWaitForElement(getDriver(),lblGetTruckView).getText();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(),btnProjectFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnTruckFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
 			if (ptruck.equals(trtruck)){
 				return true;
@@ -204,7 +265,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trprojectName);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pName = elementUtils.fluentWaitForElement(getDriver(),lblGetProject).getText();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -234,7 +295,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			Thread.sleep(1000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pProducer = elementUtils.fluentWaitForElement(getDriver(),lblGetProducer).getText();
 			elementUtils.fluentWaitForElement(getDriver(),btnSuplierFilter).click();
@@ -263,7 +324,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),btnCalStartDate).sendKeys(trstartDate);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String pstartDate = elementUtils.fluentWaitForElement(getDriver(),lblGetStratDate).getText();
 			elementUtils.fluentWaitForElement(getDriver(),btnDateTimeFilter).click();
@@ -407,15 +468,9 @@ public class JobSlipMyProjectPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),btnCalStartDate).sendKeys(trstartDate);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
-			Thread.sleep(500);
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(2000);
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 			String pstartDate = elementUtils.fluentWaitForElement(getDriver(),lblGetStratDate).getText();
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(),btnDateTimeFilter).click();
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(),btnCalEdit).click();
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
 			if (pstartDate.equals(trstartDate)){
 				return true;
 			}
