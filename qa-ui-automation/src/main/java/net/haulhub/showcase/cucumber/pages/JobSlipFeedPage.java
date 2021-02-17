@@ -80,7 +80,16 @@ public class JobSlipFeedPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Clear')]")
 	public WebElementFacade btnClear;
 	
-		
+	@FindBy(how = How.XPATH, using = "//*[text()='Date']/div")
+	public WebElementFacade txtDate;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Project']/div")
+	public WebElementFacade txtProject;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='1/5/2021, 4:15 PM']")
+	public WebElementFacade lblGetDate;
+	
+	
 	/*Navigate to My Projects page*/
 	
 	public boolean navigateToMyProjects() throws InterruptedException{
@@ -108,11 +117,13 @@ public class JobSlipFeedPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).sendKeys(eDate);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
-			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
-			String pticketNo = elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).getText();
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);		
+			elementUtils.fluentWaitForElement(getDriver(),txtProject).click();
+			elementUtils.fluentWaitForElement(getDriver(),txtDate).click();
+			String date = elementUtils.fluentWaitForElement(getDriver(),lblGetDate).getText();
 			elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).click();
 			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
-			if (pticketNo.equals(trticketNo)){
+			if (date.equals(trticketNo)){
 				return true;
 			}
 			else {

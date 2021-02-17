@@ -23,8 +23,8 @@ Feature: JobSlip Smoke Test Suite
   	Then I search in view project by producer <producer>
   	Then I search in view project by startDate <startDate>
   	Then I search in view project by truck <truckNo>
-#  	Then I search in view project by ticket number <ticketNo> ---Need to confirm test data seed or not---
-#  	Then I search in view project by product <product> 
+#  	Then I search in view project by ticket number <ticketNo>
+#  	Then I search in view project by product <product>  ---Need to confirm test data seed or not---
   
    	Examples:
      | userName | password    |  projectName               |projectNumber|   projectMaterial|producer       | startDate |truckNo|ticketNo|product|
