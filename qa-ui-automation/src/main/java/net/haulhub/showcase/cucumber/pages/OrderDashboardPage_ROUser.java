@@ -40,6 +40,9 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	@FindBy(how = How.XPATH, using = "//button[text()='Save Changes']") 
 	public WebElementFacade btnSaveChanges;
 	
+	@FindBy(how = How.XPATH, using = "//button[text()='Request Changes']") 
+	public WebElementFacade btnRequestChanges;
+	
 	@FindBy(how = How.XPATH, using = "//button[text()='Send SMS']") 
 	public WebElementFacade btnSendSMS;
 	
@@ -125,6 +128,7 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	
 	public boolean openNewOrder(){
 		try {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
 			action.sendKeys("New", Keys.chord(Keys.ENTER)).perform();	
@@ -151,6 +155,8 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	
 	public boolean openCanceledOrder(){
 		try {
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
 			action.sendKeys("Canceled", Keys.chord(Keys.ENTER)).perform();	
@@ -158,8 +164,7 @@ public class OrderDashboardPage_ROUser extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			if ((elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) && 
-				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
-				(elementUtils.fluentWaitForElement(getDriver(),btnRejectOrder).getAttribute("disabled") != null)){		
+				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null)){				
 				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 				elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
 				Thread.sleep(500);
@@ -178,17 +183,18 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	
 	public boolean openAcceptedOrder(){
 		try {
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
 			action.sendKeys("Accepted", Keys.chord(Keys.ENTER)).perform();	
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
+			if ((elementUtils.fluentWaitForElement(getDriver(),btnRequestChanges).getAttribute("disabled") != null) && 
 				(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) &&
 				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
-				(elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null) &&
-				(elementUtils.fluentWaitForElement(getDriver(),btnAccept).getAttribute("disabled") != null)){
+				(elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null)){
 				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 				elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
 				Thread.sleep(500);
@@ -207,17 +213,18 @@ public class OrderDashboardPage_ROUser extends PageObject {
 	
 	public boolean openAcceptedWchangesOrder(){
 		try {
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),txtstatus).click();
 			Actions action = new Actions(getDriver());
 			action.sendKeys("Accepted W/ Changes", Keys.chord(Keys.ENTER)).perform();	
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			if ((elementUtils.fluentWaitForElement(getDriver(),btnSaveChanges).getAttribute("disabled") != null) && 
+			if ((elementUtils.fluentWaitForElement(getDriver(),btnRequestChanges).getAttribute("disabled") != null) && 
 				(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) &&
 				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
-				(elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null) &&
-				(elementUtils.fluentWaitForElement(getDriver(),btnAccept).getAttribute("disabled") != null)){	
+				(elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null)){	
 				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 				elementUtils.fluentWaitForElement(getDriver(),btnClose).click();
 				Thread.sleep(500);
