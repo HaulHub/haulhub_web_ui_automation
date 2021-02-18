@@ -126,7 +126,7 @@ public class ReadOnlyUserTestSteps {
 		assertTrue(serenityjobboardpagesteps.openCanceledOrder());
 	}
 	
-	@Then("I open a order in Accepted Status and check accessibility of Save Request changes Cancel and SMS buttons")
+	@Then("I open a order in Accepted Status and check accessibility of Save Accept Cancel and SMS buttons")
 	public void I_open_a_order_in_Accepted_Status() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.openAcceptedOrder());
 	}

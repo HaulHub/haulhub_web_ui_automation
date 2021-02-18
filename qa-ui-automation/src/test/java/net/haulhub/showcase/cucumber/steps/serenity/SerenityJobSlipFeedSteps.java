@@ -15,5 +15,9 @@ public class SerenityJobSlipFeedSteps extends ScenarioSteps  {
    		return jobslipfeedpage.navigateToMyProjects();
 	}
 	
-
+	@Step
+   	public boolean searchDate(String sDate, String eDate) throws Exception {
+   		return jobslipfeedpage.searchDate(sDate, eDate);
+	}
+	
 }
