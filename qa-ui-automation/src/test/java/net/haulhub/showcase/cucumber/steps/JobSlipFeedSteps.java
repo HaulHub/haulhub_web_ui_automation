@@ -22,5 +22,10 @@ public class JobSlipFeedSteps {
 	public void navigateToMyProjects() throws Exception {
 		serenityfeed.navigateToMyProjects();
 	}
+	
+	@Then("I search by Start date(.*) and End date(.*) in Feed page")
+	public void searchDate(String sDate, String eDate) throws Exception {
+		serenityfeed.searchDate(sDate, eDate);
+	}
 
 }

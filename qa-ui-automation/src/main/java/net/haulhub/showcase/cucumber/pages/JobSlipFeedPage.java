@@ -1,8 +1,11 @@
 package net.haulhub.showcase.cucumber.pages;
 
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -32,7 +35,7 @@ public class JobSlipFeedPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//span[text()='Download']")
 	public WebElementFacade btnDownloads; 
 	
-	@FindBy(how = How.XPATH, using = "//*[@class='sc-fznOgF glfmCu']//following::div[text()='Date']")
+	@FindBy(how = How.XPATH, using = "//span[text()='Edit Columns']//following::div[text()='Date'][2]")
 	public WebElementFacade lnkDateFilter; 
 	
 	@FindBy(how = How.XPATH, using = "//*[@class='sc-fznOgF glfmCu']//following::div[text()='Date']//following::div[text()='Project']")
@@ -108,22 +111,21 @@ public class JobSlipFeedPage extends PageObject {
 
 	public boolean searchDate(String sDate, String eDate){
 		try {
-			String trticketNo = sDate.trim();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
 			elementUtils.fluentWaitForElement(getDriver(),lnkDateFilter).click();
-			elementUtils.fluentWaitForElement(getDriver(),txtFromDateFilter).clear();
-			elementUtils.fluentWaitForElement(getDriver(),txtFromDateFilter).sendKeys(sDate);
-			elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).clear();
-			elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).sendKeys(eDate);
+			Actions action = new Actions(getDriver());
+			action.moveToElement(txtFromDateFilter).sendKeys(sDate);
+			action.moveToElement(txtToDateFilter).sendKeys(eDate);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
 			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);		
 			elementUtils.fluentWaitForElement(getDriver(),txtProject).click();
 			elementUtils.fluentWaitForElement(getDriver(),txtDate).click();
 			String date = elementUtils.fluentWaitForElement(getDriver(),lblGetDate).getText();
-			elementUtils.fluentWaitForElement(getDriver(),txtToDateFilter).click();
+			String[] separated = date.split(",");
+			elementUtils.fluentWaitForElement(getDriver(),lnkDateFilter).click();
 			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
-			if (date.equals(trticketNo)){
+			if (separated[0].equals(sDate)){
 				return true;
 			}
 			else {

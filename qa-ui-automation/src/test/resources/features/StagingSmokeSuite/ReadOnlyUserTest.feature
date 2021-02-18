@@ -74,7 +74,7 @@ Feature: Read-Only User Test Plan
 	Then I check accessibility of New order and Will call toggle
 	When I open a order in New Status and check accessibility of Save and SMS buttons
 	Then I open a order in Cancelled Status and check accessibility of Rebook and SMS buttons
-	Then I open a order in Accepted Status and check accessibility of Save Request changes Cancel and SMS buttons
+	Then I open a order in Accepted Status and check accessibility of Save Accept Cancel and SMS buttons
 	Then I open a order in Accepted w/changes Status and check accessibility of Save Request changes Cancel and SMS buttons
 	
 	Examples:
