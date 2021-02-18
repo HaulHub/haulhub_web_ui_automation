@@ -191,7 +191,7 @@ public class OrderDashboardPage_ROUser extends PageObject {
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			if ((elementUtils.fluentWaitForElement(getDriver(),btnRequestChanges).getAttribute("disabled") != null) && 
+			if ((elementUtils.fluentWaitForElement(getDriver(),btnAccept).getAttribute("disabled") != null) && 
 				(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) &&
 				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
 				(elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null)){
@@ -221,7 +221,7 @@ public class OrderDashboardPage_ROUser extends PageObject {
 			Thread.sleep(500);
 			elementUtils.fluentWaitForElement(getDriver(),lnkNewOrder).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			if ((elementUtils.fluentWaitForElement(getDriver(),btnRequestChanges).getAttribute("disabled") != null) && 
+			if ((elementUtils.fluentWaitForElement(getDriver(),btnAccept).getAttribute("disabled") != null) && 
 				(elementUtils.fluentWaitForElement(getDriver(),btnSendSMS).getAttribute("disabled") != null) &&
 				(elementUtils.fluentWaitForElement(getDriver(),btnReBook).getAttribute("disabled") != null) &&
 				(elementUtils.fluentWaitForElement(getDriver(),btnCancelOrder).getAttribute("disabled") != null)){	
