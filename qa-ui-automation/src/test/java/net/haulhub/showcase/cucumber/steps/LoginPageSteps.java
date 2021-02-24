@@ -35,4 +35,19 @@ public class LoginPageSteps {
 		serenityLoginSteps.JobSlipUserlogin(userName, password);
 	}
 	
+	@Given("Administrator Login to the application with valid (.*) and (.*)")
+	public void deldot_administrator_login(String userName, String password) throws Exception {
+		serenityLoginSteps.deldot_administrator_login(userName, password);
+	}
+	
+	@Given("Inspector Login to the application with valid (.*) and (.*)")
+	public void deldot_inspector_login(String userName, String password) throws Exception {
+		serenityLoginSteps.deldot_administrator_login(userName, password);
+	}
+	
+	@Given("Area Manager Login to the application with valid (.*) and (.*)")
+	public void deldot_area_Manager_login(String userName, String password) throws Exception {
+		serenityLoginSteps.deldot_administrator_login(userName, password);
+	}
+	
 }
