@@ -83,4 +83,9 @@ public class JobSlipMyProjectSteps {
 		serenitymyprojects.viewProjectSearchByProduct(product);
 	}
 	
+	@Then("I search by plant (.*)and verify with(.*)")
+	public void searchByPlant(String plant, String projNum) throws Exception {
+		serenitymyprojects.searchByPlant(plant, projNum);
+	}
+	
 }
