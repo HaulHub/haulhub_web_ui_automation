@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -86,19 +87,19 @@ public class JobSlipMyProjectPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//span[text()='SELECT DATE RANGE']//following::input[1]")
 	public WebElementFacade btnCalStartDate;
 
-	@FindBy(how = How.XPATH, using = "//*[@class='MuiCardContent-root']//span[text()='Project Number']//preceding::strong")
+	@FindBy(how = How.XPATH, using = "//*[@class='MuiCardContent-root']//span[text()='Project Name']//following::span[1]/div")
 	public WebElementFacade lblGetProjectName;
 
 	@FindBy(how = How.XPATH, using = "//span[text()='Quantity by Material Type']//following::div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3']") 
 	public WebElementFacade lblGetProjectMaterial;
 
-	@FindBy(how = How.XPATH, using = "//*[@class='MuiCardContent-root']//span[text()='Project Number']//following::strong[1]") 
+	@FindBy(how = How.XPATH, using = "//*[@class='MuiCardContent-root']//span[text()='Project Number']//following::span[1]/div") 
 	public WebElementFacade lblGetProjectNumber;
 
-	@FindBy(how = How.XPATH, using = "//span[text()='Supplier']//following::strong[1]") 
+	@FindBy(how = How.XPATH, using = "//span[text()='Supplier']//following::span[1]/div") 
 	public WebElementFacade lblGetProducer;
 
-	@FindBy(how = How.XPATH, using = "//span[text()='Project Start Date']//following::strong[1]") 
+	@FindBy(how = How.XPATH, using = "//span[text()='Project Start Date']//following::span[1]/div") 
 	public WebElementFacade lblGetStratDate;
 	
 	@FindBy(how = How.XPATH, using = "//span[text()='Project']//following::div[@data-texty='false'][1]") 
@@ -173,9 +174,9 @@ public class JobSlipMyProjectPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnProductFilter).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-			elementUtils.fluentWaitForElement(getDriver(),txtSelectProd).clear();
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
-			elementUtils.fluentWaitForElement(getDriver(),txtSelectProd).sendKeys(trproduct, Keys.ENTER);
+			Actions action = new Actions(getDriver());
+			action.moveToElement(txtSelectProd).sendKeys(trproduct);
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -397,6 +398,35 @@ public class JobSlipMyProjectPage extends PageObject {
 		} 
 		return false;
 	}
+	
+	/*Search by plant in 'My Projects'*/ 
+
+	public boolean searchByPlant(String plant, String projNum){
+		try {
+			String trplant = plant.trim();
+			String trprojNum = projNum.trim();			
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnPlantFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),txtSearch).clear();
+			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trplant);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
+			Thread.sleep(2000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String pjNum = elementUtils.fluentWaitForElement(getDriver(),lblGetProjectNumber).getText();
+			elementUtils.fluentWaitForElement(getDriver(),btnPlantFilter).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (trprojNum.equals(pjNum)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
 
 	/*Search by project Material in 'My Projects'*/ 
 
@@ -511,8 +541,5 @@ public class JobSlipMyProjectPage extends PageObject {
 		} 
 		return false;
 	}			
-
-
-
 
 }

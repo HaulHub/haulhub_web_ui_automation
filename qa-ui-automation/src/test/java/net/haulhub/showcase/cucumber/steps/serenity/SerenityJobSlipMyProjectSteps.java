@@ -75,4 +75,9 @@ public class SerenityJobSlipMyProjectSteps {
    		return jobslipmyprojectpage.viewProjectSearchByProduct(product);
 	}
 	
+	@Step
+   	public boolean searchByPlant(String plant, String projNum) throws Exception {
+   		return jobslipmyprojectpage.searchByPlant(plant, projNum);
+	}
+	
 }
