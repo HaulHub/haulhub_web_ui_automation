@@ -4,13 +4,11 @@ Feature: JobSlip Smoke Test Suite
   @JOBSLIPSMOKETESTSUITE
   Scenario Outline: Feed page Search
   	Given JobSlip user Login to the application with valid <userName> and <password>
-#  	Then I search by truck in Feed page <truckNo>
   	Then I search by plant in Feed page <plant>
   	Then I search by Start date <sDate> and End date <eDate> in Feed page 
   	Then I search by supplier in Feed page <supplier>
   	Then I search by project in Feed page <projectName>
 	Then I search by product in Feed page <product>
-#	Then I search by quantity in Feed page <quantity> -------Quantity Filter is not implemented completely.
 	Then I search by ticket no in Feed page <ticketNo>
 	Then I search by ticket status in Feed page <ticketStatus>
 	Then I search by UOM in Feed page <uom>
