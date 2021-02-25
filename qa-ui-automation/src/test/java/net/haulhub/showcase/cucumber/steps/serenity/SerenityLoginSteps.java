@@ -13,6 +13,8 @@ import jnr.netdb.Protocol;
 import net.haulhub.showcase.cucumber.pages.HomeDashboardPage;
 import net.haulhub.showcase.cucumber.pages.JobSlipFeedPage;
 import net.haulhub.showcase.cucumber.pages.JobSlipLoginPage;
+import net.haulhub.showcase.cucumber.pages.DelDotDashboardPage;
+import net.haulhub.showcase.cucumber.pages.DelDotLoginPage;
 import net.haulhub.showcase.cucumber.pages.HomeAdminDashboardPage;
 import net.haulhub.showcase.cucumber.pages.LoginPage;
 import net.haulhub.showcase.cucumber.pages.LoginadminPage;
@@ -26,6 +28,7 @@ public class SerenityLoginSteps extends ScenarioSteps {
 public LoginPage loginpage;
 public LoginadminPage loginadminpage;
 public JobSlipLoginPage jobsliploginpage;  
+public DelDotLoginPage deldotloginpage;  
 /*
 	   @Step("Login to the customerLogin Application")
 		public HomeDashboardPage Userlogin(String userName, String password) {
@@ -121,7 +124,29 @@ public JobSlipLoginPage jobsliploginpage;
 				return jobsliploginpage.JobSlipUserlogin(userName, password);
 				
 			} 
-		 
+		  
+		  /*This method is use to log in DelDot Administrator*/
+		  @Step("Login to the DelDOT Application")
+			public DelDotDashboardPage deldot_administrator_login(String userName, String password) {
+			    WebDriver driver =  deldotloginpage.getDriver();
+			    getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			    jobsliploginpage.open();
+			    String envURL = getDriver().getCurrentUrl();
+			    System.out.println("The  get driver url is " + envURL);
+			    String newurl =envURL.concat("");
+			    try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			      getDriver().navigate().to(newurl);
+			      System.out.println("The new url of the envURL" + newurl);
+				LearningPlatformConstants.environmentURL.set(envURL);
+				return deldotloginpage.deldot_administrator_login(userName, password);
+				
+			} 
+		  		 
 		  
 		 /* @Step("Login to the adminlogin Application")
 			public HomeAdminDashboardPage adminlogin(String userName, String password) {
