@@ -14,5 +14,10 @@ public class SerenityDelDotProjectsSteps extends ScenarioSteps {
    	public boolean validateAssignProjects(String projName) throws Exception {
    		return deldotprojectssteps.validateAssignProjects(projName);
 	}
+	
+	@Step
+   	public boolean validateArchiveProjects(String projectName) throws Exception {
+   		return deldotprojectssteps.validateArchiveProjects(projectName);
+	}
 
 }

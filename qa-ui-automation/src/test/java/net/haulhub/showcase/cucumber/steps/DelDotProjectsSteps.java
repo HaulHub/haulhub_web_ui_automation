@@ -23,5 +23,10 @@ public class DelDotProjectsSteps {
 	public void validateAssignProjects(String projName) throws Exception {
 		serenitydeldotprojectssteps.validateAssignProjects(projName);
 	}
+	
+	@Given("I validate archive project is displayed in archived projects(.*)")
+	public void validateArchiveProjects(String projectName) throws Exception {
+		serenitydeldotprojectssteps.validateArchiveProjects(projectName);
+	}
 
 }
