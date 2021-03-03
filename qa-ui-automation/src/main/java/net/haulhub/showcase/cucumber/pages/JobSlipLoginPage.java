@@ -1,5 +1,7 @@
 package net.haulhub.showcase.cucumber.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import net.haulhub.showcase.cucumber.utils.ElementUtils;
 import net.haulhub.showcase.cucumber.utils.LearningPlatformConstants;
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
@@ -45,7 +48,7 @@ public class JobSlipLoginPage extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//a[text()='Redeem an invitation code']")
 	public WebElementFacade lnkRedeemInvitationCode;
-	
+		
 	
 	/***
 	 * This method is used to login into JobSlip applications as customer
@@ -57,6 +60,7 @@ public class JobSlipLoginPage extends PageObject {
 	 */
 	public JobSlipFeedPage JobSlipUserlogin(String userName, String passWord) {
 		try {
+			getDriver().manage().window().maximize();
 			elementUtils.fluentWaitForElement(getDriver(), txtUsername).waitUntilVisible();
 			elementUtils.fluentWaitForElement(getDriver(), txtUsername).sendKeys(userName);
 			elementUtils.fluentWaitForElement(getDriver(), txtPassword).waitUntilVisible();

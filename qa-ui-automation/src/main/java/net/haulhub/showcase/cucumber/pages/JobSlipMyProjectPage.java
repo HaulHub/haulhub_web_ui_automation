@@ -149,6 +149,9 @@ public class JobSlipMyProjectPage extends PageObject {
 
 	@FindBy(how = How.XPATH, using = "//span[text()='Mark as Delivered']")
 	public WebElementFacade btnMarkDelivered;
+	
+	@FindBy(how = How.XPATH, using = "//button[@data-test-id='initial-message-close-button']")
+	public WebElementFacade btnCloseChatbox;
 
 
 	/*Navigate to view Projects*/
@@ -158,7 +161,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnViewProject).click();
 			Thread.sleep(500);
-			elementUtils.fluentWaitForElement(getDriver(),btnBackProject).isVisible();			
+			elementUtils.fluentWaitForElement(getDriver(),btnBackProject).isVisible();
 			return true;
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -176,7 +179,6 @@ public class JobSlipMyProjectPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			Actions action = new Actions(getDriver());
 			action.moveToElement(txtSelectProd).sendKeys(trproduct);
-			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -204,7 +206,9 @@ public class JobSlipMyProjectPage extends PageObject {
 			String trticketNo = ticketNo.trim();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
 			elementUtils.fluentWaitForElement(getDriver(),btnTicketNoFilter).click();
-			elementUtils.fluentWaitForElement(getDriver(),txtSearch).clear();
+//			Actions action = new Actions(getDriver());
+//			action.moveToElement(txtSearch).sendKeys(trticketNo);
+			Thread.sleep(2000);
 			elementUtils.fluentWaitForElement(getDriver(),txtSearch).sendKeys(trticketNo);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnApply).click();
@@ -218,7 +222,7 @@ public class JobSlipMyProjectPage extends PageObject {
 			else {
 				return false;
 			}
-		}catch (NoSuchElementException e) {
+		}catch (NoSuchElementException | InterruptedException e) {
 			e.printStackTrace();
 		} 
 		return false;
@@ -288,6 +292,11 @@ public class JobSlipMyProjectPage extends PageObject {
 
 	public boolean ViewProjectSearchByProducer(String producer){
 		try {
+			getDriver().manage().timeouts().implicitlyWait(130, TimeUnit.SECONDS);
+			getDriver().switchTo().frame(1); // Handling chat box window
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(), btnCloseChatbox).click();
+			getDriver().switchTo().defaultContent();
 			String trproducer = producer.trim();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
 			elementUtils.fluentWaitForElement(getDriver(),btnSuplierFilter).click();

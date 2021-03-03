@@ -135,6 +135,11 @@ public class JobSlipFeedPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//span[contains(text(),'VV 4446&9717514 I-16 VIGN')]")
 	public WebElementFacade lnkPName;
 	
+	@FindBy(how = How.XPATH, using = "//button[@data-test-id='initial-message-close-button']")
+	public WebElementFacade btnCloseChatbox;
+	
+	
+	
 	/*Navigate to My Projects page*/
 	
 	public boolean navigateToMyProjects() throws InterruptedException{
