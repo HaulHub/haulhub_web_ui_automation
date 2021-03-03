@@ -24,9 +24,29 @@ public class DelDotProjectsSteps {
 		serenitydeldotprojectssteps.validateAssignProjects(projName);
 	}
 	
-	@Given("I validate archive project is displayed in archived projects(.*)")
+	@Given("I validate archived project is displayed in archived projects(.*)")
 	public void validateArchiveProjects(String projectName) throws Exception {
 		serenitydeldotprojectssteps.validateArchiveProjects(projectName);
+	}
+	
+	@Given("I search by (.*) and validate staff (.*) and (.*) in projects")
+	public void validateStaffSearch(String staffName, String staffRole, String staffPhone) throws Exception {
+		serenitydeldotprojectssteps.validateStaffSearchF(staffName, staffRole, staffPhone);
+	}
+	
+	@Given("I validate completed project functionality in projects(.*)")
+	public void validateCompletedProjects(String projectName) throws Exception {
+		serenitydeldotprojectssteps.validateCompletedProjects(projectName);
+	}
+	
+	@Given("I validate displayed data in slip card")
+	public void validateDataInSlipCard() throws Exception {
+		serenitydeldotprojectssteps.validateDataInSlipCard();
+	}
+	
+	@Given("I filter by ticket number in slip card(.*)")
+	public void filterByTicketNo(String ticketNo) throws Exception {
+		serenitydeldotprojectssteps.filterByTicketNo(ticketNo);
 	}
 
 }

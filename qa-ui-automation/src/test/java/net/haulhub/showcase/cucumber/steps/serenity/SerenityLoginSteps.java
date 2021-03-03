@@ -111,7 +111,7 @@ public DelDotLoginPage deldotloginpage;
 			    jobsliploginpage.open();
 			    String envURL = getDriver().getCurrentUrl();
 			    System.out.println("The  get driver url is " + envURL);
-			    String newurl =envURL.concat("auth/login");
+			    String newurl =envURL.concat("");
 			    try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {

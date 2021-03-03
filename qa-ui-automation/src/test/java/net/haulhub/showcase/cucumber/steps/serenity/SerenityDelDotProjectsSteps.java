@@ -19,5 +19,25 @@ public class SerenityDelDotProjectsSteps extends ScenarioSteps {
    	public boolean validateArchiveProjects(String projectName) throws Exception {
    		return deldotprojectssteps.validateArchiveProjects(projectName);
 	}
+	
+	@Step
+   	public boolean validateStaffSearchF(String staffName, String staffRole, String staffPhone) throws Exception {
+   		return deldotprojectssteps.validateStaffSearch(staffName, staffRole, staffPhone);
+	}
+	
+	@Step
+   	public boolean validateCompletedProjects(String projectName) throws Exception {
+   		return deldotprojectssteps.validateCompletedProjects(projectName);
+	}
+	
+	@Step
+   	public boolean validateDataInSlipCard() throws Exception {
+   		return deldotprojectssteps.validateDataInSlipCard();
+	}
+	
+	@Step
+   	public boolean filterByTicketNo(String ticketNo) throws Exception {
+   		return deldotprojectssteps.filterByTicketNo(ticketNo);
+	}
 
 }
