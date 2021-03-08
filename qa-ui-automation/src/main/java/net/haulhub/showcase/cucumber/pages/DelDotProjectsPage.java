@@ -52,10 +52,10 @@ public class DelDotProjectsPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//span[text()='Save']")
 	public WebElementFacade btnSaveProj; 
 
-	@FindBy(how = How.XPATH, using = "//h3[text()='DelDOT TESTING PROJECT 01']")
+	@FindBy(how = How.XPATH, using = "//h3[text()='DelDOT TESTING PROJECT LIVE TICKETS']")
 	public WebElementFacade txtProjHeading; 
 
-	@FindBy(how = How.XPATH, using = "//*[contains(text(),'DelDOT TESTING PROJECT 01')]//preceding::input[@type='checkbox'][1]//parent::span")
+	@FindBy(how = How.XPATH, using = "//span[text()='Save']//preceding::input[@type='checkbox'][1]//parent::span")
 	public WebElementFacade chkAssignedProj; 
 
 	@FindBy(how = How.XPATH, using = "//span[text()='Show Archived']")
@@ -136,17 +136,50 @@ public class DelDotProjectsPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//*[text()='Status']")
 	public WebElementFacade btnStatus;
 	
+	@FindBy(how = How.XPATH, using = "//*[text()='Show rows where:']//following::*[@type='checkbox'][1]//parent::span")
+	public WebElementFacade chkSearchFilter;	
+	
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Filter')]")
 	public WebElementFacade btnFilter;
 	
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Clear')]")
 	public WebElementFacade btnClear;
 	
-	@FindBy(how = How.XPATH, using = "//option[text()='Equal']//following::input[1]")
+	@FindBy(how = How.XPATH, using = "//*[text()='Show rows where:']//following::input[1]")
 	public WebElementFacade txtFilter;
 	
 	@FindBy(how = How.XPATH, using = "//*[text()='260426']")
 	public WebElementFacade lblTicket;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Contractor']//following::*[text()='Granite Construction Company - Pacific Northwest'][1]")
+	public WebElementFacade lblContractor;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Supplier']//following::*[text()='Granite Construction'][1]")
+	public WebElementFacade lblSupplier;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Material']//following::*[text()='Granite Construction'][1]")
+	public WebElementFacade lblMaterial;
+	
+	@FindBy(how = How.XPATH, using = "//a[@href='/logout']")
+	public WebElementFacade btnLogout;
+	
+	@FindBy(how = How.XPATH, using = "//h1[text()='Login']")
+	public WebElementFacade txtlogin;
+	
+	/*Logout*/
+
+	public boolean validateLogoutFunctionality() throws InterruptedException{ 
+		try {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnLogout).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),txtlogin).isDisplayed();
+				return true;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
 	
 	
 	/*Validate assigned Projects*/
@@ -160,12 +193,12 @@ public class DelDotProjectsPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(projtName);
 			Thread.sleep(500);
-			Actions action = new Actions(getDriver());
-			action.sendKeys(chkAssignedProj).perform();
-			//			elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click();
+//			Actions action = new Actions(getDriver());
+//			action.moveToElement(chkAssignedProj).click();
+			elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click();
 			elementUtils.fluentWaitForElement(getDriver(),btnSaveProj).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			if (getDriver().findElements(By.xpath("//h3[contains(text(),'DelDOT TESTING PROJECT 01')]")).size() > 0){
+			if (getDriver().findElements(By.xpath("//h3[contains(text(),'DelDOT TESTING PROJECT LIVE TICKETS')]")).size() > 0){
 				return true;
 			}
 			else {
@@ -175,10 +208,10 @@ public class DelDotProjectsPage extends PageObject {
 				elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(projtName);
 				Thread.sleep(500);
 				Actions action1 = new Actions(getDriver());
-				action1.sendKeys(chkAssignedProj).perform();
-				//				elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click();
+				action1.moveToElement(chkAssignedProj).click();
+//				elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click();
 				elementUtils.fluentWaitForElement(getDriver(),btnSaveProj).click();
-				if (getDriver().findElements(By.xpath("//h3[contains(text(),'DelDOT TESTING PROJECT 01')]")).size() > 0){
+				if (getDriver().findElements(By.xpath("//h3[contains(text(),'DelDOT TESTING PROJECT LIVE TICKETS')]")).size() > 0){
 					return true;
 				}
 				return false;
@@ -319,13 +352,14 @@ public class DelDotProjectsPage extends PageObject {
 		return false;
 	}
 	
-	/*Validate data in slip card*/
+	/*Filter by ticket number in slip card*/
 
 	public boolean filterByTicketNo(String ticketNo) throws InterruptedException{ 
 		try {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnViewProject).click();
 			String trticketNo = ticketNo.trim();
+			Thread.sleep(3000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
 			elementUtils.fluentWaitForElement(getDriver(),btnTicket).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -333,13 +367,112 @@ public class DelDotProjectsPage extends PageObject {
 			Thread.sleep(1000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
-			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			String ticket = elementUtils.fluentWaitForElement(getDriver(),lblTicket).getText();
-			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnTicket).click();
-			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
 			if (ticket.equals(trticketNo)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Filter by contractor in slip card*/
+
+	public boolean filterByContractor(String contractor) throws InterruptedException{ 
+		try {
+			String trcontractor = contractor.trim(); 
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnContractor).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),txtFilter).sendKeys(trcontractor);
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),chkSearchFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String cont = elementUtils.fluentWaitForElement(getDriver(),lblContractor).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnContractor).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (cont.equals(trcontractor)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Filter by supplier in slip card*/
+
+	public boolean filterBySupplier(String supplier) throws InterruptedException{ 
+		try {
+			String trsupplier = supplier.trim(); 
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnSupplier).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),txtFilter).sendKeys(trsupplier);
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),chkSearchFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String supp = elementUtils.fluentWaitForElement(getDriver(),lblSupplier).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnSupplier).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (supp.equals(trsupplier)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Filter by material in slip card*/
+
+	public boolean filterByMateial(String material) throws InterruptedException{ 
+		try {
+			String trmaterial = material.trim(); 
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnMaterial).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),txtFilter).sendKeys(trmaterial);
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),chkSearchFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String mat = elementUtils.fluentWaitForElement(getDriver(),lblMaterial).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnMaterial).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (mat.equals(trmaterial)){
 				return true;
 			}
 			else {
