@@ -23,10 +23,7 @@ public class TicketsPage_ROUser extends PageObject {
 	
 	@FindBy(how = How.XPATH, using = "//button[text()='Export Tickets']")
 	public WebElementFacade btnExportTickets;
-	
-	@FindBy(how = How.XPATH, using = "//button[@class='MuiButtonBase-root MuiIconButton-root icon-link Mui-disabled MuiIconButton-sizeSmall Mui-disabled']")
-	public WebElementFacade btnTicketMatch;
-	
+
 	@FindBy(how = How.XPATH, using = "//i[@class='fa fa-bars']")
 	public WebElementFacade btnMenu;
 	
@@ -39,8 +36,7 @@ public class TicketsPage_ROUser extends PageObject {
 	public boolean checkAccessibilityOfButtonsInTickets(){
 		try {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			if ((elementUtils.fluentWaitForElement(getDriver(),btnExportTickets).getAttribute("disabled") != null) && 
-		       (elementUtils.fluentWaitForElement(getDriver(),btnTicketMatch).getAttribute("disabled") != null)){		
+			if (elementUtils.fluentWaitForElement(getDriver(),btnExportTickets).getAttribute("disabled") != null){
 			   return true;
 		    } else { 
 		      

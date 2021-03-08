@@ -95,9 +95,9 @@ public class ReadOnlyUserTestSteps {
 	public void I_navigate_to_tickets_page() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.navigateToTicketsPage());
 	}
-	
-	@Then("I check Export ticket and ticket matching buttons")
-	public void I_check_Export_ticket_and_ticket_matching_buttons() throws Throwable {
+
+	@Then("I check Export ticket buttons")
+	public void I_check_Export_ticket_buttons() throws Throwable {
 		assertTrue(serenityjobboardpagesteps.checkExportTicketButton());
 	}
 	

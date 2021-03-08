@@ -53,20 +53,20 @@ Feature: Read-Only User Test Plan
     Then I check visibility of Cancel EditJob Rebook EditShiftSchedule EditShift AddShift CancelShift buttons
     And I click on a job number
     Then I check accessibility of Cancel Finish Update Save buttons and Plant Job links
-    
+
     Examples:
       | userName | password                 | ROcustomername | OrderDate |
       | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | vigneshcompany | 2021-01-01 |
-      
+
   @Read-Only-User
-  Scenario Outline: Job Management - Tickets    
+  Scenario Outline: Job Management - Tickets
 	When I navigate to Tickets page
-	Then I check Export ticket and ticket matching buttons
-	
+	Then I check Export ticket buttons
+
 	 Examples:
       | userName | password                 | ROcustomername | OrderDate |
       | vignesh  | 0$B4h1rn3XG_gZS+mF-PitDf | vigneshcompany | 2021-01-01 |
-	
+
   @Read-Only-User
   Scenario Outline: Order Dashboard
 	Then I navigate to OrderDashboard page
