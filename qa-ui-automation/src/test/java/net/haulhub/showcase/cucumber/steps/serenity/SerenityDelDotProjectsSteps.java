@@ -60,4 +60,5 @@ public class SerenityDelDotProjectsSteps extends ScenarioSteps {
    		return deldotprojectssteps.validateLogoutFunctionality();
 	}
 
+	
 }
