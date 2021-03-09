@@ -39,5 +39,26 @@ public class SerenityDelDotProjectsSteps extends ScenarioSteps {
    	public boolean filterByTicketNo(String ticketNo) throws Exception {
    		return deldotprojectssteps.filterByTicketNo(ticketNo);
 	}
+	
+	@Step
+   	public boolean filterByContractor(String contracter) throws Exception {
+   		return deldotprojectssteps.filterByContractor(contracter);
+	}
+	
+	@Step
+   	public boolean filterBySupplier(String supplier) throws Exception {
+   		return deldotprojectssteps.filterBySupplier(supplier);
+	}
+	
+	@Step
+   	public boolean filterByMateial(String material) throws Exception {
+   		return deldotprojectssteps.filterByMateial(material);
+	}
+	
+	@Step
+   	public boolean validateLogoutFunctionality() throws Exception {
+   		return deldotprojectssteps.validateLogoutFunctionality();
+	}
 
+	
 }
