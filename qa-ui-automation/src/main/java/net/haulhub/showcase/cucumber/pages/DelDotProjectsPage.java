@@ -1,6 +1,8 @@
 package net.haulhub.showcase.cucumber.pages;
 
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -34,19 +36,19 @@ public class DelDotProjectsPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//input[@type='text']//following::input[@type='checkbox']//parent::span")
 	public WebElementFacade chkAssignProj; 
 
-	@FindBy(how = How.XPATH, using = "//input[@type='text']//following::*[text()='TestAreaManager DOTTesting']")
+	@FindBy(how = How.XPATH, using = "//input[@type='text']//following::*[text()='Chris Woodside']")
 	public WebElementFacade txtStaffName; 
 
-	@FindBy(how = How.XPATH, using = "///input[@type='text']//following::*[text()='Area Manager']")
+	@FindBy(how = How.XPATH, using = "//input[@type='text']//following::*[text()='Area Manager']")
 	public WebElementFacade txtStaffRole; 
 
-	@FindBy(how = How.XPATH, using = "//input[@type='text']//following::*[text()='+13125552222']")
+	@FindBy(how = How.XPATH, using = "//input[@type='text']//following::*[text()='+12318388573']")
 	public WebElementFacade txtStaffPhone; 
 
 	@FindBy(how = How.XPATH, using = "//button[@aria-label='close']")
 	public WebElementFacade btnStaffClose; 
 
-	@FindBy(how = How.XPATH, using = "//input[@type='checkbox']//following::span[6]")
+	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[4]")
 	public WebElementFacade btnStaff;
 
 	@FindBy(how = How.XPATH, using = "//span[text()='Save']")
@@ -58,19 +60,19 @@ public class DelDotProjectsPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//span[text()='Save']//preceding::input[@type='checkbox'][1]//parent::span")
 	public WebElementFacade chkAssignedProj; 
 
-	@FindBy(how = How.XPATH, using = "//span[text()='Show Archived']")
+	@FindBy(how = How.XPATH, using = "//span[text()='Show Inactive']")
 	public WebElementFacade chkShowArchived; 
 
 	@FindBy(how = How.XPATH, using = "//input[@type='checkbox']//following::span[text()='Under Construction']")
 	public WebElementFacade btnUnderConstruction; 
 
-	@FindBy(how = How.XPATH, using = "//li[text()='Archived']")
+	@FindBy(how = How.XPATH, using = "//li/div/div/span[text()='Inactive']")
 	public WebElementFacade optArchived;
 	
-	@FindBy(how = How.XPATH, using = "//li[text()='Completed']")
+	@FindBy(how = How.XPATH, using = "//li/div/div/span[text()='Completed']")
 	public WebElementFacade optCompleted;
 
-	@FindBy(how = How.XPATH, using = "//li[text()='Under Construction']")
+	@FindBy(how = How.XPATH, using = "//li/div/div/span[text()='Under Construction']")
 	public WebElementFacade optUnderConstruction;
 
 	@FindBy(how = How.XPATH, using = "//*[text()='Update']")
@@ -79,37 +81,40 @@ public class DelDotProjectsPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//*[@id='selectStatus']")
 	public WebElementFacade txtselectStatus;
 
-	@FindBy(how = How.XPATH, using = "//input[@type='checkbox']//following::span[4]")
+	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[text()='Under Construction']")
 	public WebElementFacade btnArchived;
 	
-	@FindBy(how = How.XPATH, using = "//input[@type='checkbox']//following::span[text()='Completed']")
+	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[text()='Completed']")
 	public WebElementFacade btnCompleted;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='WS210204'][1]")
+	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[contains(text(),'Inactive')]")
+	public WebElementFacade btnInactive;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='51735597'][1]")
 	public WebElementFacade txtContractID;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='WS210204'][2]")
+	@FindBy(how = How.XPATH, using = "//*[text()='51735597'][2]")
 	public WebElementFacade txtProjectID;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='10/6/2020']")
+	@FindBy(how = How.XPATH, using = "//*[text()='3/8/2021']")
 	public WebElementFacade txtProjectStarts;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='Project ID']//following::*[text()='Granite Construction Company - Pacific Northwest'][1]")
+	@FindBy(how = How.XPATH, using = "//*[text()='Project ID']//following::*[text()='HaulHub DOTslip'][1]")
 	public WebElementFacade txtVendor;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='4']")
+	@FindBy(how = How.XPATH, using = "//*[text()='2032']")
 	public WebElementFacade txtTotalTickets;
 	
 	@FindBy(how = How.XPATH, using = "//*[text()='Total Tickets']//following::*[text()='0.00 Tons'][1]")
 	public WebElementFacade txtPentxtDelivered;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='Total Tickets']//following::*[text()='52.88 Tons'][1]")
+	@FindBy(how = How.XPATH, using = "//*[text()='Total Tickets']//following::*[text()='47,057.96 Tons'][1]")
 	public WebElementFacade txtPending;
 	
 	@FindBy(how = How.XPATH, using = "//*[text()='Total Tickets']//following::*[text()='0.00 Tons'][2]")
 	public WebElementFacade txtRejected;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT 01']//following::span[text()='View Project'][1]")
+	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[text()='View Project'][1]")
 	public WebElementFacade btnViewProject;
 	
 	@FindBy(how = How.XPATH, using = "//*[text()='Back']")
@@ -148,16 +153,16 @@ public class DelDotProjectsPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//*[text()='Show rows where:']//following::input[1]")
 	public WebElementFacade txtFilter;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='260426']")
+	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[32]")
 	public WebElementFacade lblTicket;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='Contractor']//following::*[text()='Granite Construction Company - Pacific Northwest'][1]")
+	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[36]")
 	public WebElementFacade lblContractor;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='Supplier']//following::*[text()='Granite Construction'][1]")
+	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[38]")
 	public WebElementFacade lblSupplier;
 	
-	@FindBy(how = How.XPATH, using = "//*[text()='Material']//following::*[text()='Granite Construction'][1]")
+	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[40]")
 	public WebElementFacade lblMaterial;
 	
 	@FindBy(how = How.XPATH, using = "//a[@href='/logout']")
@@ -187,30 +192,30 @@ public class DelDotProjectsPage extends PageObject {
 	public boolean validateAssignProjects(String projectName) throws InterruptedException{ 
 		try {
 			String projtName = projectName.trim();
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);			
 			elementUtils.fluentWaitForElement(getDriver(),btnAssignProj).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(7000);
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
-			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(projtName);
+			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(projtName, Keys.ENTER);
 			Thread.sleep(500);
-//			Actions action = new Actions(getDriver()); Need to fix an error
-//			action.moveToElement(chkAssignedProj).click(); Need to fix an error
 			elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click();
 			elementUtils.fluentWaitForElement(getDriver(),btnSaveProj).click();
+			Thread.sleep(4000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			if (getDriver().findElements(By.xpath("//h3[contains(text(),'DelDOT TESTING PROJECT LIVE TICKETS')]")).size() > 0){
 				return true;
 			}
 			else {
 				elementUtils.fluentWaitForElement(getDriver(),btnAssignProj).click();
+				Thread.sleep(8000);
 				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
-				elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(projtName);
+				elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(projtName, Keys.ENTER);
 				Thread.sleep(500);
-				Actions action1 = new Actions(getDriver());
-				action1.moveToElement(chkAssignedProj).click();
-//				elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click(); Need to fix an error
+				elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click(); 
 				elementUtils.fluentWaitForElement(getDriver(),btnSaveProj).click();
+				Thread.sleep(4000);
 				if (getDriver().findElements(By.xpath("//h3[contains(text(),'DelDOT TESTING PROJECT LIVE TICKETS')]")).size() > 0){
 					return true;
 				}
@@ -224,9 +229,9 @@ public class DelDotProjectsPage extends PageObject {
 
 	/*Archive Projects*/
 
-	public boolean validateArchiveProjects(String projectName) throws InterruptedException{ 
+	public boolean validateArchiveProjects() throws InterruptedException{ 
 		try {
-			String projtName = projectName.trim();
+			Thread.sleep(10000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnArchived).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -238,23 +243,23 @@ public class DelDotProjectsPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			Thread.sleep(2500);
 			elementUtils.fluentWaitForElement(getDriver(),chkShowArchived).click();
+			elementUtils.fluentWaitForElement(getDriver(),txtProjHeading).isDisplayed();
+			Thread.sleep(8000);
+			elementUtils.fluentWaitForElement(getDriver(),btnInactive).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			if (elementUtils.fluentWaitForElement(getDriver(),txtProjHeading).getText() == projtName){
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),btnArchived).click();
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),optUnderConstruction).click();
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),btnpdate).click();
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),chkShowArchived).click();	
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),txtProjHeading).isDisplayed();	
-				return true;
-			}
-			else {
-				return false;		 
-			}
+			elementUtils.fluentWaitForElement(getDriver(),txtselectStatus).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),optUnderConstruction).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnpdate).click();
+			Thread.sleep(2500);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),chkShowArchived).click();
+			Thread.sleep(8000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),txtProjHeading).isDisplayed();	
+			return true;
+		
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
@@ -266,11 +271,13 @@ public class DelDotProjectsPage extends PageObject {
 	public boolean validateStaffSearch(String staffName, String staffRole, String staffPhone) throws InterruptedException{ 
 		try {
 			String stafName = staffName.trim();
+			Thread.sleep(10000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnStaff).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(stafName);
+			Thread.sleep(2500);
 			if ((elementUtils.fluentWaitForElement(getDriver(),txtStaffName).getText() == stafName) &&
 				(elementUtils.fluentWaitForElement(getDriver(),txtStaffRole).getText() == staffRole) &&
 				(elementUtils.fluentWaitForElement(getDriver(),txtStaffPhone).getText() == staffPhone)) {
@@ -290,7 +297,7 @@ public class DelDotProjectsPage extends PageObject {
 
 	public boolean validateCompletedProjects(String projectName) throws InterruptedException{ 
 		try {
-			String projtName = projectName.trim();
+			Thread.sleep(10000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnArchived).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -299,28 +306,17 @@ public class DelDotProjectsPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),optCompleted).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnpdate).click();
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			Thread.sleep(2500);
-			if ((elementUtils.fluentWaitForElement(getDriver(),txtProjHeading).getText() == projtName) &&
-			    (elementUtils.fluentWaitForElement(getDriver(),btnCompleted).isVisible())) {			
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),btnArchived).click();
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),txtselectStatus).click();
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),optUnderConstruction).click();
-				getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				elementUtils.fluentWaitForElement(getDriver(),btnpdate).click();	
-				Thread.sleep(2500);
-				if ((elementUtils.fluentWaitForElement(getDriver(),txtProjHeading).getText() == projtName) &&
-				    (elementUtils.fluentWaitForElement(getDriver(),btnUnderConstruction).isVisible())) {
-					return true;
-				}
-				return false;
-			}
-			else {
-				return false;		 
-			}
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnCompleted).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),txtselectStatus).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),optUnderConstruction).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnpdate).click();	
+			Thread.sleep(2500);
+			elementUtils.fluentWaitForElement(getDriver(),btnUnderConstruction).isVisible();
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
@@ -333,15 +329,16 @@ public class DelDotProjectsPage extends PageObject {
 		try {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnViewProject).click();
+			Thread.sleep(5000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),txtContractID).isVisible();
 			elementUtils.fluentWaitForElement(getDriver(),txtProjectID).isVisible();
 			elementUtils.fluentWaitForElement(getDriver(),txtProjectStarts).isVisible();
 			elementUtils.fluentWaitForElement(getDriver(),txtVendor).isVisible();
-			elementUtils.fluentWaitForElement(getDriver(),txtTotalTickets).isVisible();
-			elementUtils.fluentWaitForElement(getDriver(),txtPentxtDelivered).isVisible();
-			elementUtils.fluentWaitForElement(getDriver(),txtPending).isVisible();
-			elementUtils.fluentWaitForElement(getDriver(),txtRejected).isVisible();
+//			elementUtils.fluentWaitForElement(getDriver(),txtTotalTickets).isVisible();
+//			elementUtils.fluentWaitForElement(getDriver(),txtPentxtDelivered).isVisible();
+//			elementUtils.fluentWaitForElement(getDriver(),txtPending).isVisible();
+//			elementUtils.fluentWaitForElement(getDriver(),txtRejected).isVisible();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnBack).click();
 			return true;		 
@@ -367,7 +364,8 @@ public class DelDotProjectsPage extends PageObject {
 			Thread.sleep(1000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+			Thread.sleep(1000);
 			String ticket = elementUtils.fluentWaitForElement(getDriver(),lblTicket).getText();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnTicket).click();
@@ -401,6 +399,7 @@ public class DelDotProjectsPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(1000);
 			String cont = elementUtils.fluentWaitForElement(getDriver(),lblContractor).getText();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnContractor).click();
@@ -434,6 +433,7 @@ public class DelDotProjectsPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(1000);
 			String supp = elementUtils.fluentWaitForElement(getDriver(),lblSupplier).getText();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnSupplier).click();
@@ -467,6 +467,7 @@ public class DelDotProjectsPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(1000);
 			String mat = elementUtils.fluentWaitForElement(getDriver(),lblMaterial).getText();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnMaterial).click();

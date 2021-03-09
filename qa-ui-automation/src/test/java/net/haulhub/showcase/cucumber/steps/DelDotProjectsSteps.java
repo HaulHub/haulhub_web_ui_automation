@@ -24,9 +24,9 @@ public class DelDotProjectsSteps {
 		serenitydeldotprojectssteps.validateAssignProjects(projName);
 	}
 	
-	@Then("I validate archived project is displayed in archived projects(.*)")
-	public void validateArchiveProjects(String projectName) throws Exception {
-		serenitydeldotprojectssteps.validateArchiveProjects(projectName);
+	@Then("I validate inactive project is displayed in archived projects")
+	public void validateArchiveProjects() throws Exception {
+		serenitydeldotprojectssteps.validateArchiveProjects();
 	}
 	
 	@Then("I search by (.*) and validate staff (.*) and (.*) in projects")
