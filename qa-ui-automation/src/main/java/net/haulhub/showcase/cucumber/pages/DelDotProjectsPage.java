@@ -193,8 +193,8 @@ public class DelDotProjectsPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(projtName);
 			Thread.sleep(500);
-//			Actions action = new Actions(getDriver());
-//			action.moveToElement(chkAssignedProj).click();
+//			Actions action = new Actions(getDriver()); Need to fix an error
+//			action.moveToElement(chkAssignedProj).click(); Need to fix an error
 			elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click();
 			elementUtils.fluentWaitForElement(getDriver(),btnSaveProj).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -209,7 +209,7 @@ public class DelDotProjectsPage extends PageObject {
 				Thread.sleep(500);
 				Actions action1 = new Actions(getDriver());
 				action1.moveToElement(chkAssignedProj).click();
-//				elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click();
+//				elementUtils.fluentWaitForElement(getDriver(),chkAssignedProj).click(); Need to fix an error
 				elementUtils.fluentWaitForElement(getDriver(),btnSaveProj).click();
 				if (getDriver().findElements(By.xpath("//h3[contains(text(),'DelDOT TESTING PROJECT LIVE TICKETS')]")).size() > 0){
 					return true;
