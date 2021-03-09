@@ -4,9 +4,6 @@ Feature: DelDOT Inspector Test Suite
   @DELDOTINSPECTORTESTSUITE
   Scenario Outline: Feed page Search
   	Given Inspector Login to the application with valid <userName> and <password>
-  	Then I validate assigned project is displayed in projects page <projName>
-  	Then I validate archived project is displayed in archived projects <projName>
-	Then I validate completed project functionality in projects <projName>		
   	Then I search by <staffName> and validate staff <staffRole> and <staffPhone> in projects 
   	Then I validate displayed data in slip card
   	 		
