@@ -38,7 +38,11 @@ public class OrderPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//h3[.='New Material Order']")
 	public WebElementFacade BookNewMaterialOrderLbl;
 	
-	@FindBy(how = How.XPATH, using ="//div[@class='Select-input']//input[@id='customer_id']")
+	//@FindBy(how = How.XPATH, using ="//div[@class='Select-input']//input[@id='customer_id']")
+	//public WebElementFacade Customerid;
+	//input[@placeholder='Select or Create...']
+	
+	@FindBy(how = How.XPATH, using ="//input[@placeholder='Select or Create...']")
 	public WebElementFacade Customerid;
 	
 	@FindBy(how = How.XPATH, using = "//div[@class='Select-input']//input[@id='from_job_site_id']")
@@ -356,7 +360,7 @@ public class OrderPage extends PageObject {
 		           Actions action = new Actions(getDriver());
 		           action.moveToElement(this.Customerid).click().build().perform();
 		           Thread.sleep(1000);
-		           elementUtils.fluentWaitForElement(getDriver(),Customerid).typeAndEnter(Customername);
+		           elementUtils.fluentWaitForElement(getDriver(),Customerid).typeAndEnter(Customername.trim());
 		           Thread.sleep(1000);
 		           elementUtils.fluentWaitForElement(getDriver(), StartingLocationid).waitUntilVisible();
 		           Actions action1 = new Actions(getDriver());
