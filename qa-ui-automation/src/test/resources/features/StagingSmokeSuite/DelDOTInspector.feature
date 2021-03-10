@@ -3,7 +3,7 @@ Feature: DelDOT Inspector Test Suite
 
   @DELDOTINSPECTORTESTSUITE
   Scenario Outline: Feed page Search
-  	Given Area Manager Login to the application with valid <userName> and <password>		
+  	Given Inspector Login to the application with valid <userName> and <password>		
   	Then I validate displayed data in slip card
   	Then I logout from DelDOT
   	 		
@@ -13,7 +13,7 @@ Feature: DelDOT Inspector Test Suite
      
   @DELDOTINSPECTORTESTSUITE
   Scenario Outline: Slip card filtering
-  	Given Area Manager Login to the application with valid <userName> and <password>
+  	Given Inspector Login to the application with valid <userName> and <password>
   	Then I filter by ticket number in slip card <ticketNo>
   	Then I filter by contractor in slip card <contractor>
 #  	Then I filter by supplier in slip card <supplier>

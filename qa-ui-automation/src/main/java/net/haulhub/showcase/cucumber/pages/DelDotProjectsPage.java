@@ -175,6 +175,7 @@ public class DelDotProjectsPage extends PageObject {
 
 	public boolean validateLogoutFunctionality() throws InterruptedException{ 
 		try {
+			Thread.sleep(8000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnLogout).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -327,6 +328,7 @@ public class DelDotProjectsPage extends PageObject {
 
 	public boolean validateDataInSlipCard() throws InterruptedException{ 
 		try {
+			Thread.sleep(8000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnViewProject).click();
 			Thread.sleep(5000);
@@ -365,7 +367,7 @@ public class DelDotProjectsPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
 			getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			String ticket = elementUtils.fluentWaitForElement(getDriver(),lblTicket).getText();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnTicket).click();
