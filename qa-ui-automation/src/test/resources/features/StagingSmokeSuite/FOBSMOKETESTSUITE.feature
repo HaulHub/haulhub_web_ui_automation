@@ -28,7 +28,7 @@ Feature: FOBSMOKETESTSUITE.feature
        And I fill Material tag field Tonnage <Tonnage> and ProductionRate <ProductionRate> and details and Place order
        And I click GotoToday Link View the OrderDetails and Click Rebook Orderbutton
        Then I should see Book new Material Order form
-       #And I should see presaved customername <customername> and startinglocation <startlocation> loaded during rebooking
+       And I should see presaved customername <customername> and startinglocation <startlocation> loaded during rebooking
        And I click Cancel button in Book new Material Order form
        And I Reject the Order and check the Total Tons set to Zero
        
