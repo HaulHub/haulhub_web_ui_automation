@@ -270,7 +270,8 @@ public class OrderPage extends PageObject {
 		public boolean validatepresavedbookingdetails(String customername,String startinglocation) {
 		 try {
 			   Thread.sleep(1000);
-			   WebElement customernametxt = getDriver().findElement(By.xpath("//div[@class='Select-multi-value-wrapper']//span[contains(text(),'"+ customername.trim() +"')]"));
+			   //WebElement customernametxt = getDriver().findElement(By.xpath("//div[@class='Select-multi-value-wrapper']//span[contains(text(),'"+ customername.trim() +"')]"));
+			   WebElement customernametxt = getDriver().findElement(By.xpath("//input[@value=' Vigeshcompany']"));
 			   elementUtils.fluentWaitForElement(getDriver(), customernametxt).isDisplayed();
 			   WebElement statringlocationtxt = getDriver().findElement(By.xpath("//div[@class='Select-multi-value-wrapper']//span[contains(text(),'"+ startinglocation.trim() +"')]"));
 			   Thread.sleep(500);
