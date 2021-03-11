@@ -171,6 +171,30 @@ public class DelDotProjectsPage extends PageObject {
 	@FindBy(how = How.XPATH, using = "//h1[text()='Login']")
 	public WebElementFacade txtlogin;
 	
+	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[42]")
+	public WebElementFacade txtQunOne;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[58]")
+	public WebElementFacade txtQunTwo;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Show rows where:']//following::input[@type='checkbox' ][2]//parent::span[1]")
+	public WebElementFacade chkPending;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()=' Sort ascending (A-Z)']")
+	public WebElementFacade btnSortAsc;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()=' Sort descending (Z-A)']")
+	public WebElementFacade btnSortDes;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Rejected']")
+	public WebElementFacade lblRejected;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[44]")
+	public WebElementFacade txtStatus;
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Save']")
+	public WebElementFacade btnSave;
+		
 	/*Logout*/
 
 	public boolean validateLogoutFunctionality() throws InterruptedException{ 
@@ -278,6 +302,35 @@ public class DelDotProjectsPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(stafName);
+			Thread.sleep(2500);
+			if ((elementUtils.fluentWaitForElement(getDriver(),txtStaffName).getText() == stafName) &&
+				(elementUtils.fluentWaitForElement(getDriver(),txtStaffRole).getText() == staffRole) &&
+				(elementUtils.fluentWaitForElement(getDriver(),txtStaffPhone).getText() == staffPhone)) {
+				elementUtils.fluentWaitForElement(getDriver(),btnStaffClose).click();
+				return true;					
+			}
+			else {
+				return false;		 
+			}
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Add and remove staff functionality*/
+
+	public boolean validateAddRemoveStaff(String staffName, String staffRole, String staffPhone) throws InterruptedException{ 
+		try {
+			String stafName = staffName.trim();
+			Thread.sleep(10000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnStaff).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
+			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(stafName);
+			elementUtils.fluentWaitForElement(getDriver(),chkAssignProj).click();
+			elementUtils.fluentWaitForElement(getDriver(),btnSave).click();
 			Thread.sleep(2500);
 			if ((elementUtils.fluentWaitForElement(getDriver(),txtStaffName).getText() == stafName) &&
 				(elementUtils.fluentWaitForElement(getDriver(),txtStaffRole).getText() == staffRole) &&
@@ -476,6 +529,104 @@ public class DelDotProjectsPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
 			if (mat.equals(trmaterial)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Filter by status in slip card*/
+
+	public boolean filterByStatus(String status) throws InterruptedException{ 
+		try {
+			String trstatus = status.trim(); 
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnStatus).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),chkPending).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			elementUtils.fluentWaitForElement(getDriver(),btnFilter).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(1000);
+			String stas = elementUtils.fluentWaitForElement(getDriver(),txtStatus).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnStatus).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnClear).click();
+			if (stas.equals(trstatus)){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Sort ascending in slip card*/
+
+	public boolean sortAscendingQuentityInSlipCard() throws InterruptedException{ 
+		try {
+			Thread.sleep(10000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnViewProject).click();
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnQuantity).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnSortAsc).click();
+			elementUtils.fluentWaitForElement(getDriver(),lblRejected).click();
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			String fval = elementUtils.fluentWaitForElement(getDriver(),txtQunOne).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			String sval = elementUtils.fluentWaitForElement(getDriver(),txtQunTwo).getText();
+			String[] sepFValve = fval.split(""); 
+			String fv = sepFValve [0];
+			int fvalue = Integer.parseInt(fv); 
+			String[] sepSValve = sval.split(""); 
+			String sv = sepSValve [0];
+			int svalue = Integer.parseInt(sv); 
+			if (fvalue < svalue){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch (NoSuchElementException | InterruptedException e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	/*Sort descending in slip card*/
+
+	public boolean sortDescendingQuentityInSlipCard() throws InterruptedException{ 
+		try {
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
+			elementUtils.fluentWaitForElement(getDriver(),btnQuantity).click();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			elementUtils.fluentWaitForElement(getDriver(),btnSortDes).click();
+			elementUtils.fluentWaitForElement(getDriver(),lblRejected).click();
+			Thread.sleep(1000);
+			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+			String fval = elementUtils.fluentWaitForElement(getDriver(),txtQunOne).getText();
+			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+			String sval = elementUtils.fluentWaitForElement(getDriver(),txtQunTwo).getText();
+			String[] sepFValve = fval.split(""); 
+			String fv = sepFValve [0];
+			int fvalue = Integer.parseInt(fv); 
+			String[] sepSValve = sval.split(""); 
+			String sv = sepSValve [0];
+			int svalue = Integer.parseInt(sv); 
+			if (fvalue > svalue){
 				return true;
 			}
 			else {

@@ -59,6 +59,21 @@ public class SerenityDelDotProjectsSteps extends ScenarioSteps {
    	public boolean validateLogoutFunctionality() throws Exception {
    		return deldotprojectssteps.validateLogoutFunctionality();
 	}
+	
+	@Step
+   	public boolean sortAscendingQuentityInSlipCard() throws Exception {
+   		return deldotprojectssteps.sortAscendingQuentityInSlipCard();
+	}
+	
+	@Step
+   	public boolean sortDescendingQuentityInSlipCard() throws Exception {
+   		return deldotprojectssteps.sortDescendingQuentityInSlipCard();
+	}
+	
+	@Step
+   	public boolean filterByStatus(String status) throws Exception {
+   		return deldotprojectssteps.filterByStatus(status);
+	}
 
 	
 }

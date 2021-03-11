@@ -15,7 +15,7 @@ import org.openqa.selenium.WebDriver;
 @SuppressWarnings("unused")
 
 public class DelDotProjectsSteps {
-	
+
 	@Steps
 	SerenityDelDotProjectsSteps serenitydeldotprojectssteps;
 
@@ -23,50 +23,64 @@ public class DelDotProjectsSteps {
 	public void validateAssignProjects(String projName) throws Exception {
 		serenitydeldotprojectssteps.validateAssignProjects(projName);
 	}
-	
+
 	@Then("I validate inactive project is displayed in archived projects")
 	public void validateArchiveProjects() throws Exception {
 		serenitydeldotprojectssteps.validateArchiveProjects();
 	}
-	
+
 	@Then("I search by (.*) and validate staff (.*) and (.*) in projects")
 	public void validateStaffSearch(String staffName, String staffRole, String staffPhone) throws Exception {
 		serenitydeldotprojectssteps.validateStaffSearchF(staffName, staffRole, staffPhone);
 	}
-	
+
 	@Then("I validate completed project functionality in projects(.*)")
 	public void validateCompletedProjects(String projectName) throws Exception {
 		serenitydeldotprojectssteps.validateCompletedProjects(projectName);
 	}
-	
+
 	@Then("I validate displayed data in slip card")
 	public void validateDataInSlipCard() throws Exception {
 		serenitydeldotprojectssteps.validateDataInSlipCard();
 	}
-	
+
 	@Then("I filter by ticket number in slip card(.*)")
 	public void filterByTicketNo(String ticketNo) throws Exception {
 		serenitydeldotprojectssteps.filterByTicketNo(ticketNo);
 	}
-	
+
 	@Then("I filter by contractor in slip card(.*)")
 	public void filterByContractor(String contracter) throws Exception {
 		serenitydeldotprojectssteps.filterByContractor(contracter);
 	}
-	
+
 	@Then("I filter by supplier in slip card(.*)")
 	public void filterBySupplier(String supplier) throws Exception {
 		serenitydeldotprojectssteps.filterBySupplier(supplier);
 	}
-	
+
 	@Then("I filter by material in slip card(.*)")
 	public void filterByMateial(String material) throws Exception {
 		serenitydeldotprojectssteps.filterByMateial(material);
 	}
-	
+
 	@Then("I logout from DelDOT")
 	public void validateLogoutFunctionality() throws Exception {
 		serenitydeldotprojectssteps.validateLogoutFunctionality();
 	}
+
+	@Then("I sort quantity field by ascending order")
+	public void sortAscendingQuentityInSlipCard() throws Exception {
+		serenitydeldotprojectssteps.sortAscendingQuentityInSlipCard();
+	}
 	
+	@Then("I sort quantity field by descending order")
+	public void sortDescendingQuentityInSlipCard() throws Exception {
+		serenitydeldotprojectssteps.sortDescendingQuentityInSlipCard();
+	}
+	
+	@Then("I filter by status in slip card(.*)")
+	public void filterByStatus(String status) throws Exception {
+		serenitydeldotprojectssteps.filterByStatus(status);
+	}
 }

@@ -21,8 +21,11 @@ Feature: DelDOT Area Manager Test Suite
   	Then I filter by contractor in slip card <contractor>
 #  	Then I filter by supplier in slip card <supplier>
   	Then I filter by material in slip card <material>
+	Then I filter by status in slip card <status>
+  	Then I sort quantity field by ascending order
+  	Then I sort quantity field by descending order
   	Then I logout from DelDOT
   	
   	Examples: 
-     |userName   |password     |ticketNo|contractor     |supplier|material|
-     |3125552222 | !Password21 |2147    |HaulHub DOTslip|		 |3 75-V  |
+     |userName   |password     |ticketNo|contractor     |supplier|material|status   |
+     |3125552222 | !Password21 |2147    |HaulHub DOTslip|		 |3 75-V  |Delivered|
