@@ -74,6 +74,11 @@ public class SerenityDelDotProjectsSteps extends ScenarioSteps {
    	public boolean filterByStatus(String status) throws Exception {
    		return deldotprojectssteps.filterByStatus(status);
 	}
+	
+	@Step
+   	public boolean validateAddRemoveStaff(String staffName) throws Exception {
+   		return deldotprojectssteps.validateAddRemoveStaff(staffName);
+	}
 
 	
 }

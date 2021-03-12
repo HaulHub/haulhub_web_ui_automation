@@ -83,4 +83,9 @@ public class DelDotProjectsSteps {
 	public void filterByStatus(String status) throws Exception {
 		serenitydeldotprojectssteps.filterByStatus(status);
 	}
+	
+	@Then("I validate adding and removing staff to project(.*)")
+	public void validateAddRemoveStaff(String staffName) throws Exception {
+		serenitydeldotprojectssteps.validateAddRemoveStaff(staffName);
+	}
 }

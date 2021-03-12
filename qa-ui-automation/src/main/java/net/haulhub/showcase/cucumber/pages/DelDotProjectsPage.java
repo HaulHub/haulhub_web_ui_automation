@@ -68,7 +68,7 @@ public class DelDotProjectsPage extends PageObject {
 
 	@FindBy(how = How.XPATH, using = "//li/div/div/span[text()='Inactive']")
 	public WebElementFacade optArchived;
-	
+
 	@FindBy(how = How.XPATH, using = "//li/div/div/span[text()='Completed']")
 	public WebElementFacade optCompleted;
 
@@ -83,118 +83,118 @@ public class DelDotProjectsPage extends PageObject {
 
 	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[text()='Under Construction']")
 	public WebElementFacade btnArchived;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[text()='Completed']")
 	public WebElementFacade btnCompleted;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[contains(text(),'Inactive')]")
 	public WebElementFacade btnInactive;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='51735597'][1]")
 	public WebElementFacade txtContractID;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='51735597'][2]")
 	public WebElementFacade txtProjectID;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='3/8/2021']")
 	public WebElementFacade txtProjectStarts;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Project ID']//following::*[text()='HaulHub DOTslip'][1]")
 	public WebElementFacade txtVendor;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='2032']")
 	public WebElementFacade txtTotalTickets;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Total Tickets']//following::*[text()='0.00 Tons'][1]")
 	public WebElementFacade txtPentxtDelivered;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Total Tickets']//following::*[text()='47,057.96 Tons'][1]")
 	public WebElementFacade txtPending;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Total Tickets']//following::*[text()='0.00 Tons'][2]")
 	public WebElementFacade txtRejected;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='DelDOT TESTING PROJECT LIVE TICKETS']//following::span[text()='View Project'][1]")
 	public WebElementFacade btnViewProject;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Back']")
 	public WebElementFacade btnBack;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']")
 	public WebElementFacade btnTicket;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Date']")
 	public WebElementFacade btnDate;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Contractor']")
 	public WebElementFacade btnContractor;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Supplier']")
 	public WebElementFacade btnSupplier;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Material']")
 	public WebElementFacade btnMaterial;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Quantity']")
 	public WebElementFacade btnQuantity;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Status']")
 	public WebElementFacade btnStatus;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Show rows where:']//following::*[@type='checkbox'][1]//parent::span")
 	public WebElementFacade chkSearchFilter;	
-	
+
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Filter')]")
 	public WebElementFacade btnFilter;
-	
+
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Clear')]")
 	public WebElementFacade btnClear;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Show rows where:']//following::input[1]")
 	public WebElementFacade txtFilter;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[32]")
 	public WebElementFacade lblTicket;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[36]")
 	public WebElementFacade lblContractor;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[38]")
 	public WebElementFacade lblSupplier;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[40]")
 	public WebElementFacade lblMaterial;
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@href='/logout']")
 	public WebElementFacade btnLogout;
-	
+
 	@FindBy(how = How.XPATH, using = "//h1[text()='Login']")
 	public WebElementFacade txtlogin;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[42]")
 	public WebElementFacade txtQunOne;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[58]")
 	public WebElementFacade txtQunTwo;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Show rows where:']//following::input[@type='checkbox' ][2]//parent::span[1]")
 	public WebElementFacade chkPending;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()=' Sort ascending (A-Z)']")
 	public WebElementFacade btnSortAsc;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()=' Sort descending (Z-A)']")
 	public WebElementFacade btnSortDes;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Rejected']")
 	public WebElementFacade lblRejected;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Ticket']/following::div[44]")
 	public WebElementFacade txtStatus;
-	
+
 	@FindBy(how = How.XPATH, using = "//*[text()='Save']")
 	public WebElementFacade btnSave;
-		
+
 	/*Logout*/
 
 	public boolean validateLogoutFunctionality() throws InterruptedException{ 
@@ -204,14 +204,14 @@ public class DelDotProjectsPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),btnLogout).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),txtlogin).isDisplayed();
-				return true;
+			return true;
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
 		return false;
 	}
-	
-	
+
+
 	/*Validate assigned Projects*/
 
 	public boolean validateAssignProjects(String projectName) throws InterruptedException{ 
@@ -284,7 +284,7 @@ public class DelDotProjectsPage extends PageObject {
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),txtProjHeading).isDisplayed();	
 			return true;
-		
+
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
@@ -304,8 +304,8 @@ public class DelDotProjectsPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(stafName);
 			Thread.sleep(2500);
 			if ((elementUtils.fluentWaitForElement(getDriver(),txtStaffName).getText() == stafName) &&
-				(elementUtils.fluentWaitForElement(getDriver(),txtStaffRole).getText() == staffRole) &&
-				(elementUtils.fluentWaitForElement(getDriver(),txtStaffPhone).getText() == staffPhone)) {
+					(elementUtils.fluentWaitForElement(getDriver(),txtStaffRole).getText() == staffRole) &&
+					(elementUtils.fluentWaitForElement(getDriver(),txtStaffPhone).getText() == staffPhone)) {
 				elementUtils.fluentWaitForElement(getDriver(),btnStaffClose).click();
 				return true;					
 			}
@@ -317,36 +317,78 @@ public class DelDotProjectsPage extends PageObject {
 		} 
 		return false;
 	}
-	
+
 	/*Add and remove staff functionality*/
 
-	public boolean validateAddRemoveStaff(String staffName, String staffRole, String staffPhone) throws InterruptedException{ 
+	public boolean validateAddRemoveStaff(String staffName) throws InterruptedException{ 
 		try {
-			String stafName = staffName.trim();
 			Thread.sleep(10000);
+			String stafName = staffName.trim();
+			String staffCountBefore = elementUtils.fluentWaitForElement(getDriver(),btnStaff).getTextValue();
+			int countBefore = Integer.parseInt(staffCountBefore);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnStaff).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
 			elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(stafName);
-			elementUtils.fluentWaitForElement(getDriver(),chkAssignProj).click();
-			elementUtils.fluentWaitForElement(getDriver(),btnSave).click();
-			Thread.sleep(2500);
-			if ((elementUtils.fluentWaitForElement(getDriver(),txtStaffName).getText() == stafName) &&
-				(elementUtils.fluentWaitForElement(getDriver(),txtStaffRole).getText() == staffRole) &&
-				(elementUtils.fluentWaitForElement(getDriver(),txtStaffPhone).getText() == staffPhone)) {
-				elementUtils.fluentWaitForElement(getDriver(),btnStaffClose).click();
-				return true;					
+			if ((elementUtils.fluentWaitForElement(getDriver(),chkAssignProj).getAttribute("checked")!= null)) {
+				elementUtils.fluentWaitForElement(getDriver(),chkAssignProj).click();
+				elementUtils.fluentWaitForElement(getDriver(),btnSave).click();	
+				String staffCountAfter = elementUtils.fluentWaitForElement(getDriver(),btnStaff).getTextValue();
+				int countAfter = Integer.parseInt(staffCountAfter);
+				if (countBefore - 1 == countAfter) {
+					getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+					elementUtils.fluentWaitForElement(getDriver(),btnStaff).click();
+					getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+					elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear();
+					elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(stafName);
+					elementUtils.fluentWaitForElement(getDriver(),chkAssignProj).click();
+					elementUtils.fluentWaitForElement(getDriver(),btnSave).click();
+					String staffCountAfter2 = elementUtils.fluentWaitForElement(getDriver(),btnStaff).getTextValue();
+					int countAfter2 = Integer.parseInt(staffCountAfter2);
+					if (countAfter + 1 == countAfter2) {
+						return true;
+					}
+					else {
+						return false;		 
+					}
+				}
+				else {
+					return false;		 
+				}
 			}
 			else {
-				return false;		 
+				elementUtils.fluentWaitForElement(getDriver(),chkAssignProj).click();
+				elementUtils.fluentWaitForElement(getDriver(),btnSave).click();	
+				String staffCountAfter = elementUtils.fluentWaitForElement(getDriver(),btnStaff).getTextValue();
+				int countAfter = Integer.parseInt(staffCountAfter);
+				if (countBefore + 1 == countAfter) {
+					getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+					elementUtils.fluentWaitForElement(getDriver(),btnStaff).click();
+					getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+					elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).clear(); 
+					elementUtils.fluentWaitForElement(getDriver(),inpAssignProjSearch).sendKeys(stafName);
+					elementUtils.fluentWaitForElement(getDriver(),chkAssignProj).click();
+					elementUtils.fluentWaitForElement(getDriver(),btnSave).click();
+					String staffCountAfter2 = elementUtils.fluentWaitForElement(getDriver(),btnStaff).getTextValue();
+					int countAfter2 = Integer.parseInt(staffCountAfter2);
+					if (countAfter - 1 == countAfter2) {
+						return true;
+					}
+					else {
+						return false;		 
+					}
+				}
+				else {
+					return false;		 
+				} 
 			}
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
 		return false;
 	}
-	
+
 	/*Completed Projects*/
 
 	public boolean validateCompletedProjects(String projectName) throws InterruptedException{ 
@@ -376,7 +418,7 @@ public class DelDotProjectsPage extends PageObject {
 		} 
 		return false;
 	}
-	
+
 	/*Validate data in slip card*/
 
 	public boolean validateDataInSlipCard() throws InterruptedException{ 
@@ -390,20 +432,20 @@ public class DelDotProjectsPage extends PageObject {
 			elementUtils.fluentWaitForElement(getDriver(),txtProjectID).isVisible();
 			elementUtils.fluentWaitForElement(getDriver(),txtProjectStarts).isVisible();
 			elementUtils.fluentWaitForElement(getDriver(),txtVendor).isVisible();
-//			elementUtils.fluentWaitForElement(getDriver(),txtTotalTickets).isVisible();
-//			elementUtils.fluentWaitForElement(getDriver(),txtPentxtDelivered).isVisible();
-//			elementUtils.fluentWaitForElement(getDriver(),txtPending).isVisible();
-//			elementUtils.fluentWaitForElement(getDriver(),txtRejected).isVisible();
+			//			elementUtils.fluentWaitForElement(getDriver(),txtTotalTickets).isVisible();
+			//			elementUtils.fluentWaitForElement(getDriver(),txtPentxtDelivered).isVisible();
+			//			elementUtils.fluentWaitForElement(getDriver(),txtPending).isVisible();
+			//			elementUtils.fluentWaitForElement(getDriver(),txtRejected).isVisible();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			elementUtils.fluentWaitForElement(getDriver(),btnBack).click();
 			return true;		 
-		
+
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} 
 		return false;
 	}
-	
+
 	/*Filter by ticket number in slip card*/
 
 	public boolean filterByTicketNo(String ticketNo) throws InterruptedException{ 
@@ -437,7 +479,7 @@ public class DelDotProjectsPage extends PageObject {
 		} 
 		return false;
 	}
-	
+
 	/*Filter by contractor in slip card*/
 
 	public boolean filterByContractor(String contractor) throws InterruptedException{ 
@@ -471,7 +513,7 @@ public class DelDotProjectsPage extends PageObject {
 		} 
 		return false;
 	}
-	
+
 	/*Filter by supplier in slip card*/
 
 	public boolean filterBySupplier(String supplier) throws InterruptedException{ 
@@ -505,7 +547,7 @@ public class DelDotProjectsPage extends PageObject {
 		} 
 		return false;
 	}
-	
+
 	/*Filter by material in slip card*/
 
 	public boolean filterByMateial(String material) throws InterruptedException{ 
@@ -539,7 +581,7 @@ public class DelDotProjectsPage extends PageObject {
 		} 
 		return false;
 	}
-	
+
 	/*Filter by status in slip card*/
 
 	public boolean filterByStatus(String status) throws InterruptedException{ 
@@ -569,15 +611,15 @@ public class DelDotProjectsPage extends PageObject {
 		} 
 		return false;
 	}
-	
+
 	/*Sort ascending in slip card*/
 
 	public boolean sortAscendingQuentityInSlipCard() throws InterruptedException{ 
 		try {
 			Thread.sleep(10000);
-			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			elementUtils.fluentWaitForElement(getDriver(),btnViewProject).click();
-			Thread.sleep(1000);
+			//			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			//			elementUtils.fluentWaitForElement(getDriver(),btnViewProject).click();
+			//			Thread.sleep(1000);
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 		
 			elementUtils.fluentWaitForElement(getDriver(),btnQuantity).click();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -605,7 +647,7 @@ public class DelDotProjectsPage extends PageObject {
 		} 
 		return false;
 	}
-	
+
 	/*Sort descending in slip card*/
 
 	public boolean sortDescendingQuentityInSlipCard() throws InterruptedException{ 
@@ -638,6 +680,6 @@ public class DelDotProjectsPage extends PageObject {
 		return false;
 	}
 
-	
+
 }
 

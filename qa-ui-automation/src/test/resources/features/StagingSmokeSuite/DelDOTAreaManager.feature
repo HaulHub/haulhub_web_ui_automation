@@ -8,7 +8,8 @@ Feature: DelDOT Area Manager Test Suite
   	Then I validate inactive project is displayed in archived projects  
 	Then I validate completed project functionality in projects <projName>		
 	Then I validate displayed data in slip card		
-  	Then I search by <staffName> and validate staff <staffRole> and <staffPhone> in projects  	 	
+  	Then I search by <staffName> and validate staff <staffRole> and <staffPhone> in projects  	
+  	Then I validate adding and removing staff to project <staffName>	
   	 		
  	Examples: 
      |userName   |password     |projName                           |staffName     |staffRole   |staffPhone  |
